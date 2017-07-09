@@ -1,0 +1,99 @@
+Sven Schmidt
+06/24/2017
+
+
+https://dev.to/schwamster/docker-tutorial-with-for-aspnet-core
+
+
+
+
+- create a new ASP.NET Core WebAPI project
+
+dotnet new webapi
+
+
+- build and publish
+
+dotnet restore
+dotnet publish -o ./publish
+
+
+- create a dockerfile with this content
+
+FROM microsoft/aspnetcore
+WORKDIR /app
+COPY ./publish .
+ENTRYPOINT ["dotnet", "WebAPI.dll"]
+
+
+- build the docker image
+
+docker build -t docker-tutorial .
+
+
+- run it
+
+docker run -p 8181:80 docker-tutorial
+
+Go to http://localhost:8181/api/values
+
+
+
+It is recommended to compile your project within the docker image,
+since this will produce a more reliable build pipeline.
+To do so, we need the .NET Core SDK, while the above only contains
+the .NET Core runtime.
+
+- create a dockerfile called dockerfile.build
+
+FROM microsoft/aspnetcore-build
+WORKDIR /app
+
+COPY *.csproj .
+RUN dotnet restore
+
+COPY . .
+RUN dotnet publish --output /out/ --configuration Release
+
+where COPY copies files from the host into the docker image.
+
+
+- add file .dockerignore with content
+
+bin
+obj
+
+
+- build the image
+
+docker build -f Dockerfile.build -t docker-tutorial-build .
+
+
+- create the container, but don't run it
+
+docker create --name docker-tutorial-build-container docker-tutorial-build
+
+
+- delete the earlier created publish folder - we will now copy the containers
+  compiled result into that folder:
+
+docker cp docker-tutorial-build-container:/out ./publish
+
+
+- build the runtime image just like before
+
+docker build -t docker-tutorial .
+
+(This uses the previous dockerfile...)
+
+
+- run it
+
+docker run -p 8181:80 docker-tutorial
+
+
+
+- List docker images that are being run: docker ps
+
+- Stop and delete a container: docker rm $(docker stop ba51e5dc4036)
+

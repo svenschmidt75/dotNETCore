@@ -5,18 +5,6 @@ namespace SinglyLinkedList.Test
     public class UnitTest
     {
         [Fact]
-        public void Create()
-        {
-            // Arrange
-            
-            // Act
-            var list = new SinglyLinkedList<int>(1);
-            
-            // Assert
-            Assert.NotNull(list);
-        }
-
-        [Fact]
         public void Add()
         {
             // Arrange
@@ -28,6 +16,18 @@ namespace SinglyLinkedList.Test
             // Assert
             Assert.Null(list.Next);
             Assert.Same(newList.Next, list);
+        }
+
+        [Fact]
+        public void Create()
+        {
+            // Arrange
+
+            // Act
+            var list = new SinglyLinkedList<int>(1);
+
+            // Assert
+            Assert.NotNull(list);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace SinglyLinkedList.Test
             Assert.True(found);
             Assert.NotNull(item);
         }
-        
+
         [Fact]
         public void Find_NonExisting()
         {
@@ -56,34 +56,36 @@ namespace SinglyLinkedList.Test
             // Assert
             Assert.False(found);
         }
-        
+
         [Fact]
-        public void Remove_Existing_FromHead()
+        public void Length()
         {
             // Arrange
             var list = new SinglyLinkedList<int>(1).Cons(2);
 
             // Act
-            var item = list.Remove(2);
+            var length = list.Length;
 
             // Assert
-            Assert.True(item.Value == 1);
+            Assert.Equal(2, length);
         }
-        
-        [Fact]
-        public void Remove_Existing_FromTail()
+
+        [Theory]
+        [InlineData(2, 2)]
+        [InlineData(1, 2)]
+        [InlineData(7, 2)]
+        public void Length_After_Remove(int itemToRemove, int length)
         {
             // Arrange
-            var list = new SinglyLinkedList<int>(1).Cons(2);
+            var list = new SinglyLinkedList<int>(1).Cons(2).Cons(7);
 
             // Act
-            var item = list.Remove(1);
+            var item = list.Remove(itemToRemove);
 
             // Assert
-            Assert.True(item.Value == 2);
-            Assert.Same(list, item);
+            Assert.Equal(length, item.Length);
         }
-        
+
         [Fact]
         public void Remove_Existing()
         {
@@ -98,6 +100,32 @@ namespace SinglyLinkedList.Test
         }
 
         [Fact]
+        public void Remove_Existing_FromHead()
+        {
+            // Arrange
+            var list = new SinglyLinkedList<int>(1).Cons(2);
+
+            // Act
+            var item = list.Remove(2);
+
+            // Assert
+            Assert.True(item.Value == 1);
+        }
+
+        [Fact]
+        public void Remove_Existing_FromTail()
+        {
+            // Arrange
+            var list = new SinglyLinkedList<int>(1).Cons(2);
+
+            // Act
+            var item = list.Remove(1);
+
+            // Assert
+            Assert.True(item.Value == 2);
+        }
+
+        [Fact]
         public void Remove_NonExisting()
         {
             // Arrange
@@ -109,9 +137,5 @@ namespace SinglyLinkedList.Test
             // Assert
             Assert.True(item.Value == 2);
         }
-
-        // Length
-        
-        
     }
 }

@@ -7,7 +7,6 @@ namespace SinglyLinkedList
     ///     Singly linked list, immutable.
     ///     Modeled accoring to Haskell's list type.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class SinglyLinkedList<T> : IEnumerable<SinglyLinkedList<T>>
     {
         public SinglyLinkedList(T value)

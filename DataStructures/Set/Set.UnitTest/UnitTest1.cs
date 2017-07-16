@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Xunit;
 
 namespace Set.UnitTest
@@ -58,6 +60,26 @@ namespace Set.UnitTest
 
             // Assert
             Assert.Equal(0, set.Count);
+        }
+
+        [Theory]
+        [InlineData(new[] {1, 2, 3}, new[] {2}, new[] {1, 2, 3})]
+        [InlineData(new[] {1, 2, 3}, new[] {2, 6}, new[] {1, 2, 3, 6})]
+        [InlineData(new[] {1, 2, 3}, new int[0], new[] {1, 2, 3})]
+        public void Union(int[] setData1, int[] setData2, int[] unionData)
+        {
+            // Arrange
+            var set1 = new Set<int>();
+            setData1.ForEach(set1.Add);
+            var set2 = new Set<int>();
+            setData2.ForEach(set2.Add);
+
+            // Act
+            var union1 = set1.Union(set2);
+            var union2 = set2.Union(set1);
+
+            // Assert
+            Assert.All(unionData, i => Assert.True(union1.Contains(i)));
         }
     }
 }

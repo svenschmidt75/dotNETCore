@@ -4,8 +4,10 @@ namespace Set.UnitTest
 {
     public class UnitTest1
     {
-        [Fact]
-        public void Contains()
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(2, false)]
+        public void Remove(int item, bool expected)
         {
             // Arrange
             var set = new Set<int>();
@@ -14,7 +16,22 @@ namespace Set.UnitTest
             set.Add(1);
 
             // Assert
-            Assert.True(set.Contains(1));
+            Assert.Equal(expected, set.Remove(item));
+        }
+
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(2, false)]
+        public void Contains(int item, bool expected)
+        {
+            // Arrange
+            var set = new Set<int>();
+
+            // Act
+            set.Add(1);
+
+            // Assert
+            Assert.Equal(expected, set.Contains(item));
         }
 
         [Fact]

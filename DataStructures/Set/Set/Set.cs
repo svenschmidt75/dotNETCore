@@ -33,7 +33,7 @@ namespace Set
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            return Exists(item);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
@@ -43,7 +43,7 @@ namespace Set
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            return Exists(item) && _data.Remove(item);
         }
 
         public int Count => _data.Count;

@@ -80,6 +80,27 @@ namespace Set.UnitTest
 
             // Assert
             Assert.All(unionData, i => Assert.True(union1.Contains(i)));
+            Assert.All(unionData, i => Assert.True(union2.Contains(i)));
+        }
+
+        [Theory]
+        [InlineData(new[] {1, 2, 3}, new[] {2}, new[] {1, 3})]
+        [InlineData(new[] {1, 2, 3}, new[] {2, 6}, new[] {1, 3})]
+        [InlineData(new[] {1, 2, 3}, new int[0], new[] {1, 2, 3})]
+        [InlineData(new[] {1, 2, 3}, new[] {1, 2, 3}, new int[0])]
+        public void Difference(int[] setData1, int[] setData2, int[] diffData)
+        {
+            // Arrange
+            var set1 = new Set<int>();
+            setData1.ForEach(set1.Add);
+            var set2 = new Set<int>();
+            setData2.ForEach(set2.Add);
+
+            // Act
+            var diff = set1.Difference(set2);
+
+            // Assert
+            Assert.All(diffData, i => Assert.True(diff.Contains(i)));
         }
     }
 }

@@ -80,7 +80,9 @@ namespace Set.UnitTest
 
             // Assert
             Assert.All(unionData, i => Assert.True(union1.Contains(i)));
+            Assert.Equal(unionData.Length, union1.Count);
             Assert.All(unionData, i => Assert.True(union2.Contains(i)));
+            Assert.Equal(unionData.Length, union2.Count);
         }
 
         [Theory]
@@ -101,6 +103,31 @@ namespace Set.UnitTest
 
             // Assert
             Assert.All(diffData, i => Assert.True(diff.Contains(i)));
+            Assert.Equal(diff.Count, diff.Count);
+        }
+
+        [Theory]
+        [InlineData(new[] {1, 2, 3}, new[] {2}, new[] {2})]
+        [InlineData(new[] {1, 2, 3}, new[] {2, 6}, new[] {2})]
+        [InlineData(new[] {1, 2, 3}, new int[0], new int[0])]
+        [InlineData(new[] {1, 2, 3}, new[] {1, 2, 3}, new[] {1, 2, 3})]
+        public void Intersection(int[] setData1, int[] setData2, int[] intersectData)
+        {
+            // Arrange
+            var set1 = new Set<int>();
+            setData1.ForEach(set1.Add);
+            var set2 = new Set<int>();
+            setData2.ForEach(set2.Add);
+
+            // Act
+            var intersect1 = set1.Intersection(set2);
+            var intersect2 = set2.Intersection(set1);
+
+            // Assert
+            Assert.All(intersectData, i => Assert.True(intersect1.Contains(i)));
+            Assert.Equal(intersectData.Length, intersect1.Count);
+            Assert.All(intersectData, i => Assert.True(intersect2.Contains(i)));
+            Assert.Equal(intersectData.Length, intersect2.Count);
         }
     }
 }

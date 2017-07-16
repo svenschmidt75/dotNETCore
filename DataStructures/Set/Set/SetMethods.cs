@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 
 namespace Set
@@ -42,6 +43,12 @@ namespace Set
                 }
             });
             return newSet;
+        }
+
+        public static bool Subset<T>(this Set<T> a, Set<T> b)
+        {
+            // a subset b?
+            return a.All(b.Contains);
         }
 
     }

@@ -129,5 +129,46 @@ namespace Set.UnitTest
             Assert.All(intersectData, i => Assert.True(intersect2.Contains(i)));
             Assert.Equal(intersectData.Length, intersect2.Count);
         }
+
+        [Theory]
+        [InlineData(new[] {1, 2, 3}, new[] {2}, false)]
+        [InlineData(new[] {1, 2, 3}, new[] {1, 2, 3, 6}, true)]
+        [InlineData(new[] {1, 2, 3}, new int[0], false)]
+        [InlineData(new[] {2, 3}, new[] {1, 2, 3}, true)]
+        [InlineData(new[] {1, 2, 3}, new[] {1, 2, 3}, true)]
+        public void Subset(int[] setData1, int[] setData2, bool isSubsetExpected)
+        {
+            // Arrange
+            var set1 = new Set<int>();
+            setData1.ForEach(set1.Add);
+            var set2 = new Set<int>();
+            setData2.ForEach(set2.Add);
+
+            // Act
+            bool isSubset = set1.Subset(set2);
+
+            // Assert
+            Assert.Equal(isSubsetExpected, isSubset);
+        }
+
+        [Fact]
+        public void SubsetInvariants()
+        {
+            // Arrange
+            var set1 = new Set<int>{1, 2};
+            var set2 = new Set<int>{1, 2, 3, 4, 5};
+
+            // Act
+
+            // Assert
+            Assert.True(set1.Subset(set2));
+
+            // A \ B = {0}
+            Assert.True(!set1.Difference(set2).Any());
+
+            // A intersect B = {A}
+            Assert.All(set1.Intersect(set2), i => Assert.True(set1.Contains(i)));
+        }
+
     }
 }

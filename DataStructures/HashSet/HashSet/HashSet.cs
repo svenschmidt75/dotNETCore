@@ -2,19 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace HashSet
 {
     public class HashSet<T> : ICollection<T>
     {
-        public delegate int Hash(T value);
+        public delegate uint Hash(T value);
 
-        private const int Size = 1876;
-        private readonly Hash _hash;
+        private const uint Size = 1876;
         private readonly LinkedList<T>[] _data = new LinkedList<T>[Size];
+        private readonly Hash _hash;
 
-        public HashSet() : this(value => value.GetHashCode())
+        public HashSet() : this(value => (uint) value.GetHashCode())
         {
         }
 
@@ -33,16 +32,6 @@ namespace HashSet
             return GetEnumerator();
         }
 
-        private int GetHash(T item)
-        {
-            var index = _hash(item) % Size;
-            if (index < 0 || index >= Size)
-            {
-                throw new InvalidOperationException("Hash index too large");
-            }
-            return index;
-        }
-
         public void Add(T item)
         {
             var index = GetHash(item);
@@ -55,7 +44,8 @@ namespace HashSet
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            foreach (var bucket in _data)
+                bucket?.Clear();
         }
 
         public bool Contains(T item)
@@ -70,13 +60,25 @@ namespace HashSet
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            var index = GetHash(item);
+            if (Exists(item, index) == false)
+                return false;
+            var bucket = _data[index];
+            return bucket != null && bucket.Remove(item);
         }
 
         public int Count => _data.Where(x => x != null).SelectMany(bucket => bucket).Count();
         public bool IsReadOnly { get; }
 
-        private bool Exists(T item, int index)
+        private uint GetHash(T item)
+        {
+            var index = _hash(item) % Size;
+            if (index >= Size)
+                throw new InvalidOperationException("Hash index too large");
+            return index;
+        }
+
+        private bool Exists(T item, uint index)
         {
             var bucket = _data[index];
             return bucket != null && bucket.Any(x => x.Equals(item));

@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Dynamic;
 
 namespace Djikstra
 {
     public class Graph
     {
         private readonly Dictionary<Node, List<Edge>> _nodes = new Dictionary<Node, List<Edge>>();
+
+        public Graph(Node startNode, Node endNode)
+        {
+            Start = startNode;
+            End = endNode;
+        }
 
         public IDictionary<Node, List<Edge>> Nodes => _nodes;
 
@@ -18,5 +23,7 @@ namespace Djikstra
             _nodes[node] = new List<Edge>();
             return _nodes[node];
         }
+
+        public IReadOnlyList<Edge> this[Node node] => _nodes[node];
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
 
 namespace Djikstra
 {
@@ -24,27 +22,21 @@ namespace Djikstra
             var edges = graph[graph.Start];
             edges.ForEach(edge => parents[edge.Node] = graph.Start);
 
+            var startNode = graph.Start;
+
             // initialize nodes with weights from start node
             graph.Nodes.ForEach(node =>
             {
-                if (node.Key == graph.Start)
-                {
-                    return;
-                }
                 weights[node.Key] = int.MaxValue;
             });
-            var startNode = graph.Start;
-            edges = graph[startNode];
-            edges.ForEach(edge => weights[edge.Node] = edge.Weight);
+            weights[startNode] = 0;
 
-            var processed = new HashSet<Node>();
-            graph.Nodes.ForEach(gp => processed.Add(gp.Key));
-            processed.Remove(graph.End);
-
-            var currentNode = graph.Start;
-            while (processed.Count > 0)
+            var processed = new Queue<Node>();
+            processed.Enqueue(startNode);
+            while (processed.Any())
             {
-                Console.WriteLine($"Ar current node ({currentNode.Name}");
+                var currentNode = processed.Dequeue();
+                Console.WriteLine($"At current node {currentNode.Name}");
 
                 var toNodes = OrderNodesByWeight(graph, currentNode, weights);
                 toNodes.ForEach(currentNodeEdge =>
@@ -53,26 +45,15 @@ namespace Djikstra
                     var weight = currentNodeEdge.Weight;
                     Console.WriteLine($"Edge ({currentNode.Name}, {toNode.Name}) = {weight}");
 
-                    processed.Remove(toNode);
-
-                    // update weights from toNode
-
-                    // get all edges from toNode
-                    var es = graph[toNode];
-                    es.ForEach(edge =>
+                    processed.Enqueue(toNode);
+                    var newWeight = weights[currentNode] + weight;
+                    if (weights[toNode] > newWeight)
                     {
-                        Console.WriteLine($"Checking ({toNode.Name}, {edge.Node.Name})");
-                        var newWeight = weights[toNode] + edge.Weight;
-                        if (weights[edge.Node] > newWeight)
-                        {
-                            Console.
-                                WriteLine($"Edge ({currentNode.Name}, {toNode.Name}, {edge.Node.Name}) = {newWeight}");
-                            weights[edge.Node] = newWeight;
-                            parents[edge.Node] = toNode;
-                        }
-                    });
+                        Console.WriteLine($"Edge ({currentNode.Name}, {toNode.Name}) = {newWeight}");
+                        weights[toNode] = newWeight;
+                        parents[toNode] = currentNode;
+                    }
                 });
-                processed.Remove(currentNode);
             }
 
             var shortestPath = new List<Node>();

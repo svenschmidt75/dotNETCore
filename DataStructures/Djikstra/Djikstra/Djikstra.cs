@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace Djikstra
 {
@@ -9,9 +10,19 @@ namespace Djikstra
     {
         public static IEnumerable<Node> Run(Graph graph)
         {
+            /* For each node, the 'weights' hash map contains its cost
+            * from the start node. As we move through the graph, we
+            * update the cost if we find a cheaper path.
+            */
             var weights = new Dictionary<Node, int>();
+
+            /* Whereas the 'weights' hash map contains the cost, we also
+             * need to keep track of the cheapest path as we traverse
+             * the graph. This is done with the 'parent' has map.
+            */
             var parents = new Dictionary<Node, Node>();
-            var processed = new HashSet<Node>();
+            var edges = graph[graph.Start];
+            edges.ForEach(edge => parents[edge.Node] = graph.Start);
 
             // initialize nodes with weights from start node
             graph.Nodes.ForEach(node =>
@@ -23,44 +34,63 @@ namespace Djikstra
                 weights[node.Key] = int.MaxValue;
             });
             var startNode = graph.Start;
-            var edges = graph[startNode];
+            edges = graph[startNode];
             edges.ForEach(edge => weights[edge.Node] = edge.Weight);
 
-            graph.Nodes.ForEach(gp =>
+            var processed = new HashSet<Node>();
+            graph.Nodes.ForEach(gp => processed.Add(gp.Key));
+            processed.Remove(graph.End);
+
+            var currentNode = graph.Start;
+            while (processed.Count > 0)
             {
-                var currentNode = gp.Key;
-                // process all edges in ascending weights
-                var nodesCount = graph.Nodes.Count;
-//                while (processed.Count < nodesCount)
+                Console.WriteLine($"Ar current node ({currentNode.Name}");
+
+                var toNodes = OrderNodesByWeight(graph, currentNode, weights);
+                toNodes.ForEach(currentNodeEdge =>
                 {
-                    weights.ToList().OrderBy(pair => pair.Value).ForEach(pair =>
+                    var toNode = currentNodeEdge.Node;
+                    var weight = currentNodeEdge.Weight;
+                    Console.WriteLine($"Edge ({currentNode.Name}, {toNode.Name}) = {weight}");
+
+                    processed.Remove(toNode);
+
+                    // update weights from toNode
+
+                    // get all edges from toNode
+                    var es = graph[toNode];
+                    es.ForEach(edge =>
                     {
-                        var toNode = pair.Key;
-                        var weight = pair.Value;
-                        Console.WriteLine($"Edge ({currentNode.Name}, {toNode.Name}) = {weight}");
-
-                        // update weights from toNode
-
-                        // get all edges from toNode
-                        var es = graph[toNode];
-                        es.ForEach(edge =>
+                        Console.WriteLine($"Checking ({toNode.Name}, {edge.Node.Name})");
+                        var newWeight = weights[toNode] + edge.Weight;
+                        if (weights[edge.Node] > newWeight)
                         {
-                            var newWeight = weight + edge.Weight;
-                            if (weights[edge.Node] > newWeight)
-                            {
-                                Console.WriteLine($"Edge ({currentNode.Name}, {toNode.Name}, {edge.Node.Name}) = {newWeight}");
-                                weights[edge.Node] = newWeight;
-                                parents[edge.Node] = toNode;
-                            }
-                        });
+                            Console.
+                                WriteLine($"Edge ({currentNode.Name}, {toNode.Name}, {edge.Node.Name}) = {newWeight}");
+                            weights[edge.Node] = newWeight;
+                            parents[edge.Node] = toNode;
+                        }
                     });
+                });
+                processed.Remove(currentNode);
+            }
 
-                    // all weights are updated...
-                    processed.Add(currentNode);
-                }
-            });
+            var shortestPath = new List<Node>();
+            var n = graph.End;
+            while (n != graph.Start)
+            {
+                shortestPath.Add(n);
+                n = parents[n];
+            }
+            shortestPath.Add(graph.Start);
+            shortestPath.Reverse();
+            return shortestPath;
+        }
 
-            return Enumerable.Empty<Node>();
+        private static IEnumerable<Edge> OrderNodesByWeight(Graph graph, Node node, Dictionary<Node, int> weights)
+        {
+            var edges = graph.Nodes[node];
+            return edges.OrderBy(edge => edge.Weight);
         }
     }
 }

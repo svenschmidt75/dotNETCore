@@ -30,13 +30,14 @@ namespace Djikstra
             var startNode = graph.Start;
             weights[startNode] = 0;
 
-            var toProcess = new Queue<Node>();
-            toProcess.Enqueue(startNode);
+            var toProcess = new HashSet<Node>();
+            graph.Nodes.ForEach(edge => toProcess.Add(edge.Key));
             while (toProcess.Any())
             {
-                var currentNode = toProcess.Dequeue();
+                var currentNode = FindCheapestNode(toProcess, weights);
+                toProcess.Remove(currentNode);
                 Console.WriteLine($"At current node {currentNode.Name}");
-                var toNodes = OrderNodesByWeight(graph, currentNode, weights);
+                var toNodes = graph[currentNode];
                 toNodes.ForEach(currentNodeEdge =>
                 {
                     var n2 = currentNodeEdge.Node;
@@ -46,7 +47,6 @@ namespace Djikstra
                     if (weights[n2] > newWeight)
                     {
                         Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
-                        toProcess.Enqueue(n2);
                         weights[n2] = newWeight;
                         parents[n2] = currentNode;
                     }
@@ -54,6 +54,12 @@ namespace Djikstra
             }
             var shortestPath = GetShortestPath(graph, parents);
             return shortestPath;
+        }
+
+        private static Node FindCheapestNode(HashSet<Node> toProcess, Dictionary<Node, int> weights)
+        {
+            var orderedByWeight = weights.OrderBy(w => w.Value).Where(w2 => toProcess.Contains(w2.Key));
+            return orderedByWeight.First().Key;
         }
 
         private static IEnumerable<Node> GetShortestPath(Graph graph, IReadOnlyDictionary<Node, Node> parents)
@@ -68,12 +74,6 @@ namespace Djikstra
             shortestPath.Add(graph.Start);
             shortestPath.Reverse();
             return shortestPath;
-        }
-
-        private static IEnumerable<Edge> OrderNodesByWeight(Graph graph, Node node, Dictionary<Node, int> weights)
-        {
-            var edges = graph.Nodes[node];
-            return edges.OrderBy(edge => edge.Weight);
         }
     }
 }

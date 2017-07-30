@@ -60,7 +60,7 @@ namespace ColoringUSA.UnitTest
             var nColors = ColorCountry.Run(graph, aNode);
 
             // Assert
-            Assert.Equal(1, nColors);
+            Assert.Equal(3, nColors);
         }
     }
 }

@@ -42,11 +42,11 @@ namespace Djikstra
                     var n2 = currentNodeEdge.Node;
                     var weight = currentNodeEdge.Weight;
                     Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
-                    toProcess.Enqueue(n2);
                     var newWeight = weights[currentNode] + weight;
                     if (weights[n2] > newWeight)
                     {
                         Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
+                        toProcess.Enqueue(n2);
                         weights[n2] = newWeight;
                         parents[n2] = currentNode;
                     }

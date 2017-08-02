@@ -82,5 +82,18 @@ namespace QuickSort.UnitTest
             Assert.True(IsSorted(input));
         }
 
+        [Theory]
+        [InlineData(new[]{191, 191, 85, 6, 98, 534, 876, -19, 1, 7, 19})]
+        public void Test_WithTwoPivots(int[] input)
+        {
+            // Arrange
+
+            // Act
+            QuickSort.Sort(input);
+
+            // Assert
+            Assert.True(IsSorted(input));
+        }
+
     }
 }

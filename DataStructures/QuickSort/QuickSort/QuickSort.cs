@@ -1,86 +1,77 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace QuickSort
 {
     public static class QuickSort
     {
-        public static void Sort<T>(T[] input) where T: IComparable<T>
+        public static void Sort<T>(T[] input) where T : IComparable<T>
         {
             Sort(input, 0, input.Length - 1);
         }
 
-        private static void Sort<T>(T[] input, int startIndex, int endIndex) where T: IComparable<T>
+        private static void Sort<T>(T[] input, int startIndex, int endIndex) where T : IComparable<T>
         {
-            int length = endIndex - startIndex + 1;
+            var length = endIndex - startIndex + 1;
+
+            // base cases for recursive scheme
             if (length < 2)
-            {
                 return;
-            }
             if (length == 2)
             {
                 if (input[startIndex].CompareTo(input[endIndex]) == 1)
                 {
-                    T tmp = input[startIndex];
+                    var tmp = input[startIndex];
                     input[startIndex] = input[endIndex];
                     input[endIndex] = tmp;
                 }
                 return;
             }
 
-            // select a pivot element
-            T pivot = input[startIndex];
-
             // partition the array
+            (T[] partitioned, int lowerPivotIndex, int upperPivotIndex) = Partition(input, startIndex, endIndex);
+            if (lowerPivotIndex > startIndex)
+                Sort(partitioned, startIndex, lowerPivotIndex - 1);
+            if (upperPivotIndex + 1 < endIndex)
+                Sort(partitioned, upperPivotIndex + 1, endIndex);
+
+            for (var i = startIndex; i <= endIndex; i++)
+                input[i] = partitioned[i - startIndex];
+        }
+
+        private static (T[], int, int) Partition<T>(IReadOnlyList<T> input, int startIndex, int endIndex) where T : IComparable<T>
+        {
+            // select a pivot element
+            var pivot = input[startIndex];
             var partitioned = new T[endIndex - startIndex + 1];
 
-            int j = 0;
-            int lowerPivotIndex = 0;
-            int upperPivotIndex = 0;
-            for (int i = startIndex; i <= endIndex; i++)
+            var j = 0;
+            var lowerPivotIndex = 0;
+            var upperPivotIndex = 0;
+            for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
                 if (elem.CompareTo(pivot) == -1)
-                {
                     partitioned[j++] = elem;
-                }
             }
             lowerPivotIndex = j;
-            for (int i = startIndex; i <= endIndex; i++)
+            for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
                 if (elem.CompareTo(pivot) == 0)
-                {
                     partitioned[j++] = elem;
-                }
             }
             upperPivotIndex = j - 1;
 
             // TODO SS: do the ones larger and start from the end backwards...
-            for (int i = startIndex; i <= endIndex; i++)
+            for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
                 if (elem.CompareTo(pivot) == 1)
-                {
                     partitioned[j++] = elem;
-                }
-            }
-            // The pivot element is the last one in the 1st half,
-            // everything before it is smaller or equal.
-            if (lowerPivotIndex > 0)
-            {
-                Sort(partitioned, startIndex, lowerPivotIndex - 1);
-            }
-            if (upperPivotIndex + 1 < endIndex)
-            {
-                Sort(partitioned, upperPivotIndex + 1, endIndex);
             }
 
-            for (int i = startIndex; i <= endIndex; i++)
-            {
-                input[i] = partitioned[i - startIndex];
-            }
+            return (partitioned, lowerPivotIndex, upperPivotIndex);
         }
-
     }
 }

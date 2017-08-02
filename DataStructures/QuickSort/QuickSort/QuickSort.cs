@@ -41,6 +41,11 @@ namespace QuickSort
 
         private static (T[], int, int) Partition<T>(IReadOnlyList<T> input, int startIndex, int endIndex) where T : IComparable<T>
         {
+            // Currently, due to the nature of this partition scheme newing up
+            // a separate array, this qsort implementation is O (N ln N) in
+            // memory complexity.
+            // With an in-memory partition scheme, we'd have O (N) instead.
+
             // select a pivot element
             var pivot = input[startIndex];
             var partitioned = new T[endIndex - startIndex + 1];
@@ -48,6 +53,8 @@ namespace QuickSort
             var j = 0;
             var lowerPivotIndex = 0;
             var upperPivotIndex = 0;
+
+            // all elements smaller than the pivot
             for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
@@ -55,6 +62,8 @@ namespace QuickSort
                     partitioned[j++] = elem;
             }
             lowerPivotIndex = j;
+
+            // all elements equal to the pivot (can be more than one)
             for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
@@ -63,7 +72,7 @@ namespace QuickSort
             }
             upperPivotIndex = j - 1;
 
-            // TODO SS: do the ones larger and start from the end backwards...
+            // all elements bigger than the pivot
             for (var i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];

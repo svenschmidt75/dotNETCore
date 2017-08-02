@@ -51,5 +51,18 @@ namespace QuickSort.UnitTest
             Assert.True(IsSorted(a));
         }
 
+        [Fact]
+        public void Test_Three()
+        {
+            // Arrange
+            var a = new[] {19, 7, 1};
+
+            // Act
+            QuickSort.Sort(a);
+
+            // Assert
+            Assert.True(IsSorted(a));
+        }
+
     }
 }

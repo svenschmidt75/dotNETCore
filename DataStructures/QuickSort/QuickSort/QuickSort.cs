@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace QuickSort
 {
@@ -11,38 +12,50 @@ namespace QuickSort
 
         private static void Sort<T>(T[] input, int startIndex, int endIndex) where T: IComparable<T>
         {
-            if (input.Length < 2)
+            int length = endIndex - startIndex + 1;
+            if (length < 2)
             {
                 return;
             }
-            if (input.Length == 2)
+            if (length == 2)
             {
-                if (input[0].CompareTo(input[1]) == 1)
+                if (input[startIndex].CompareTo(input[endIndex]) == 1)
                 {
-                    T tmp = input[1];
-                    input[0] = input[1];
-                    input[1] = tmp;
+                    T tmp = input[startIndex];
+                    input[startIndex] = input[endIndex];
+                    input[endIndex] = tmp;
                     return;
                 }
             }
 
             // select a pivot element
-            T pivot = input[0];
+            T pivot = input[startIndex];
 
             // partition the array
             var partitioned = new T[endIndex - startIndex + 1];
 
             int j = 0;
-            int pivotIndex = 0;
+            int lowerPivotIndex = 0;
+            int upperPivotIndex = 0;
             for (int i = startIndex; i <= endIndex; i++)
             {
                 var elem = input[i];
-                if (elem.CompareTo(pivot) < 1)
+                if (elem.CompareTo(pivot) == -1)
                 {
                     partitioned[j++] = elem;
                 }
             }
-            pivotIndex = j - 1;
+            lowerPivotIndex = j;
+            for (int i = startIndex; i <= endIndex; i++)
+            {
+                var elem = input[i];
+                if (elem.CompareTo(pivot) == 0)
+                {
+                    partitioned[j++] = elem;
+                }
+            }
+            upperPivotIndex = j - 1;
+
             // TODO SS: do the ones larger and start from the end backwards...
             for (int i = startIndex; i <= endIndex; i++)
             {
@@ -52,8 +65,21 @@ namespace QuickSort
                     partitioned[j++] = elem;
                 }
             }
-            Sort(input, startIndex, pivotIndex);
-            Sort(input, pivotIndex + 1, endIndex);
+            // The pivot element is the last one in the 1st half,
+            // everything before it is smaller or equal.
+            if (lowerPivotIndex > 0)
+            {
+                Sort(partitioned, startIndex, lowerPivotIndex - 1);
+            }
+            if (upperPivotIndex + 1 < endIndex)
+            {
+                Sort(partitioned, upperPivotIndex + 1, endIndex);
+            }
+
+            for (int i = startIndex; i <= endIndex; i++)
+            {
+                input[i] = partitioned[i - startIndex];
+            }
         }
 
     }

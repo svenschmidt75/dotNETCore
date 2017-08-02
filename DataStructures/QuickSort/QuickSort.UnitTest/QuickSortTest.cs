@@ -51,17 +51,35 @@ namespace QuickSort.UnitTest
             Assert.True(IsSorted(a));
         }
 
-        [Fact]
-        public void Test_Three()
+        [Theory]
+        [InlineData(new[]{1, 7, 19})]
+        [InlineData(new[]{1, 19, 7})]
+        [InlineData(new[]{7, 1, 19})]
+        [InlineData(new[]{7, 19, 1})]
+        [InlineData(new[]{19, 7, 1})]
+        [InlineData(new[]{19, 1, 7})]
+        public void Test_Three(int[] input)
         {
             // Arrange
-            var a = new[] {19, 7, 1};
 
             // Act
-            QuickSort.Sort(a);
+            QuickSort.Sort(input);
 
             // Assert
-            Assert.True(IsSorted(a));
+            Assert.True(IsSorted(input));
+        }
+
+        [Theory]
+        [InlineData(new[]{191, 85, 6, 98, 534, 876, -19, 1, 7, 19})]
+        public void Test_Many(int[] input)
+        {
+            // Arrange
+
+            // Act
+            QuickSort.Sort(input);
+
+            // Assert
+            Assert.True(IsSorted(input));
         }
 
     }

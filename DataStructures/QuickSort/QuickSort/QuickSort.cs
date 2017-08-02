@@ -24,8 +24,8 @@ namespace QuickSort
                     T tmp = input[startIndex];
                     input[startIndex] = input[endIndex];
                     input[endIndex] = tmp;
-                    return;
                 }
+                return;
             }
 
             // select a pivot element

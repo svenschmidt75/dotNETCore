@@ -20,11 +20,7 @@ namespace QuickSort
             if (length == 2)
             {
                 if (input[startIndex].CompareTo(input[endIndex]) == 1)
-                {
-                    var tmp = input[startIndex];
-                    input[startIndex] = input[endIndex];
-                    input[endIndex] = tmp;
-                }
+                    Swap(input, startIndex, endIndex);
                 return;
             }
 
@@ -39,7 +35,15 @@ namespace QuickSort
                 input[i] = partitioned[i - startIndex];
         }
 
-        private static (T[], int, int) Partition<T>(IReadOnlyList<T> input, int startIndex, int endIndex) where T : IComparable<T>
+        private static void Swap<T>(IList<T> input, int startIndex, int endIndex) where T : IComparable<T>
+        {
+            var tmp = input[startIndex];
+            input[startIndex] = input[endIndex];
+            input[endIndex] = tmp;
+        }
+
+        private static (T[], int, int) Partition<T>(IReadOnlyList<T> input, int startIndex, int endIndex)
+            where T : IComparable<T>
         {
             // Currently, due to the nature of this partition scheme newing up
             // a separate array, this qsort implementation is O (N ln N) in

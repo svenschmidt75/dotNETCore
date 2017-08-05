@@ -233,5 +233,48 @@ namespace Djikstra.UnitTest
             // Assert
             Assert.Equal(new[] {startNode, bNode, hNode, gNode, endNode}, shortestPath);
         }
+
+        [Fact]
+        public void Computerphile_Djikstra_NotOptimal()
+        {
+            // Arrange
+            var startNode = new Node("Start");
+            var aNode = new Node("A");
+            var bNode = new Node("B");
+            var cNode = new Node("C");
+            var dNode = new Node("D");
+            var eNode = new Node("E");
+            var fNode = new Node("F");
+            var endNode = new Node("End");
+
+            var graph = new Graph(startNode, endNode);
+            var edges = graph.Add(startNode);
+            edges.Add(new Edge {Node = aNode, Weight = 1});
+            edges = graph.Add(aNode);
+            edges.Add(new Edge {Node = startNode, Weight = 1});
+            edges.Add(new Edge {Node = bNode, Weight = 1});
+            edges.Add(new Edge {Node = eNode, Weight = 2});
+            edges = graph.Add(bNode);
+            edges.Add(new Edge {Node = aNode, Weight = 1});
+            edges.Add(new Edge {Node = cNode, Weight = 1});
+            edges = graph.Add(cNode);
+            edges.Add(new Edge {Node = dNode, Weight = 1});
+            edges.Add(new Edge {Node = bNode, Weight = 1});
+            edges = graph.Add(dNode);
+            edges.Add(new Edge {Node = cNode, Weight = 1});
+            edges = graph.Add(eNode);
+            edges.Add(new Edge {Node = aNode, Weight = 2});
+            edges.Add(new Edge {Node = fNode, Weight = 2});
+            edges = graph.Add(fNode);
+            edges.Add(new Edge {Node = endNode, Weight = 2});
+            edges.Add(new Edge {Node = eNode, Weight = 2});
+            graph.Add(endNode);
+
+            // Act
+            var shortestPath = Djikstra.Run(graph);
+
+            // Assert
+            Assert.Equal(new[] {startNode, aNode, eNode, fNode, endNode}, shortestPath);
+        }
     }
 }

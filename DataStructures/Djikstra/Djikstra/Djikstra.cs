@@ -44,14 +44,15 @@ namespace Djikstra
                 toNodes.ForEach(currentNodeEdge =>
                 {
                     var n2 = currentNodeEdge.Node;
-                    if (toProcess.Contains(n2) == false)
-                    {
-                        // we have already processed n2
-                        return;
-                    }
                     var weight = currentNodeEdge.Weight;
                     Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
                     var newWeight = weights[currentNode] + weight;
+                    if (toProcess.Contains(n2) == false)
+                    {
+                        // we have already processed n2
+                        Console.WriteLine($"Skipping {n2.Name}...");
+                        return;
+                    }
                     if (weights[n2] > newWeight)
                     {
                         Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
@@ -66,6 +67,7 @@ namespace Djikstra
 
         private static Node FindCheapestNode(HashSet<Node> toProcess, Dictionary<Node, int> weights)
         {
+            // TODO SS: We should use a priority queue...
             var orderedByWeight = weights.OrderBy(w => w.Value).Where(w2 => toProcess.Contains(w2.Key));
             return orderedByWeight.First().Key;
         }

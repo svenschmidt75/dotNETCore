@@ -12,10 +12,9 @@ namespace RadioStationsSetCovering.UnitTest
         {
             // Arrange
             var set = new Dictionary<int, HashSet<int>>();
-            var universe = new HashSet<int> {1, 2, 3, 4, 5};
 
             // Act
-            var covering = SetCovering.Run(set, universe);
+            var covering = SetCovering.CreatePowerSet(set);
 
             // Assert
             Assert.Equal(covering, new List<HashSet<int>> {SetCovering.EmptySet});
@@ -29,10 +28,9 @@ namespace RadioStationsSetCovering.UnitTest
             {
                 {0, new HashSet<int> {1, 2, 3}},
             };
-            var universe = new HashSet<int> {1, 2, 3, 4, 5};
 
             // Act
-            var covering = SetCovering.Run(set, universe);
+            var covering = SetCovering.CreatePowerSet(set);
 
             // Assert
             Assert.Equal(covering, new List<HashSet<int>> {SetCovering.EmptySet, new HashSet<int> {0}});
@@ -47,10 +45,9 @@ namespace RadioStationsSetCovering.UnitTest
                 {0, new HashSet<int> {1, 2, 3}},
                 {3, new HashSet<int> {4, 5}},
             };
-            var universe = new HashSet<int> {1, 2, 3, 4, 5};
 
             // Act
-            var covering = SetCovering.Run(set, universe);
+            var covering = SetCovering.CreatePowerSet(set);
 
             // Assert
             Assert.Equal(covering,
@@ -73,10 +70,9 @@ namespace RadioStationsSetCovering.UnitTest
                 {1, new HashSet<int> {2, 4}},
                 {3, new HashSet<int> {4, 5}},
             };
-            var universe = new HashSet<int> {1, 2, 3, 4, 5};
 
             // Act
-            var covering = SetCovering.Run(set, universe);
+            var covering = SetCovering.CreatePowerSet(set);
 
             // Assert
             Assert.Equal(covering,
@@ -111,7 +107,7 @@ namespace RadioStationsSetCovering.UnitTest
             var covering = SetCovering.Run(set, universe);
 
             // Assert
-            Assert.Equal(covering, new[] {new HashSet<int> {1, 2, 3}, new HashSet<int> {4, 5}});
+            Assert.True(covering.SetEquals(new HashSet<int> {0, 3}));
         }
     }
 }

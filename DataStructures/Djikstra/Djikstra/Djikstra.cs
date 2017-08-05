@@ -44,6 +44,11 @@ namespace Djikstra
                 toNodes.ForEach(currentNodeEdge =>
                 {
                     var n2 = currentNodeEdge.Node;
+                    if (toProcess.Contains(n2) == false)
+                    {
+                        // we have already processed n2
+                        return;
+                    }
                     var weight = currentNodeEdge.Weight;
                     Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
                     var newWeight = weights[currentNode] + weight;

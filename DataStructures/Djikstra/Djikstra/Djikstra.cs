@@ -34,6 +34,9 @@ namespace Djikstra
             graph.Nodes.ForEach(edge => toProcess.Add(edge.Key));
             while (toProcess.Any())
             {
+
+                // TODO SS: here needs to be a check whether the node is the end node
+
                 var currentNode = FindCheapestNode(toProcess, weights);
                 toProcess.Remove(currentNode);
                 Console.WriteLine($"At current node {currentNode.Name}");

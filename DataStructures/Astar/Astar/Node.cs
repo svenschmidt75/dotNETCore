@@ -6,15 +6,12 @@ namespace Djikstra
     {
         public string Name { get; }
         public List<Node> Neighbors { get; } = new List<Node>();
+        public int DistanceToEnd { get; }
 
-        public Node(string name)
+        public Node(string name, int distanceToEnd)
         {
             Name = name;
-        }
-
-        public void Add(Node neighbor)
-        {
-            Neighbors.Add(neighbor);
+            DistanceToEnd = distanceToEnd;
         }
     }
 }

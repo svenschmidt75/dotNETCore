@@ -4,7 +4,7 @@ using Djikstra;
 
 namespace Astar
 {
-    public static class Atar
+    public static class Astar
     {
         /// <summary>
         /// A* is essentially Djikstra, but adds a heuristic for how far we have

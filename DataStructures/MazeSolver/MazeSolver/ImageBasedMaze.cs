@@ -20,9 +20,13 @@ namespace MazeSolver
             _image = image;
         }
 
-        bool IMaze.IsWall(int column, int row)
+        bool IMaze.IsWall(int x, int y)
         {
-            return _image[column, row].R == 0;
+            return _image[x, y].R == 0;
         }
+
+        int IMaze.Width => _image.Width;
+
+        int IMaze.Height => _image.Height;
     }
 }

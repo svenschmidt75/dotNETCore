@@ -2,6 +2,10 @@
 {
     public interface IMaze
     {
-        bool IsWall(int column, int row);
+        bool IsWall(int x, int y);
+
+        int Width { get; }
+
+        int Height { get; }
     }
 }

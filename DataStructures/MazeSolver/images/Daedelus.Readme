@@ -1,0 +1,7 @@
+Sven Schmidt
+08/06/2017
+
+- select maze size: Maze -> Maze size
+- create maze: say perfect
+- invert so borders are black: Bitmap -> All -> Invert all
+- export maze and convert to png using gimp

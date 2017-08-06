@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Xunit;
 
 namespace MazeSolver.UnitTest
@@ -8,6 +9,15 @@ namespace MazeSolver.UnitTest
         [Fact]
         public void Test1()
         {
+            // Act
+
+            Console.WriteLine($"{Directory.GetCurrentDirectory()}");
+
+            var builder = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
+
+            // Arrange
+
+            // Assert
         }
     }
 }

@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Djikstra;
 
-namespace Djikstra
+namespace Astar
 {
-    public static class Djikstra
+    public static class Astar
     {
         /// <summary>
-        /// For each node, Djikstra keeps track of the shortest distance to the start node.
-        /// At each step, it gets the node with the shortest distance and follows the edge
-        /// with the smallest weight.
-        ///
-        /// Note: One weakness of Djikstra is that is blindly follows the smallest edges,
-        /// no matter weather it actually moves closer to the end node. This is where A*
-        /// comes in...
+        ///     A* is essentially Djikstra, but adds a heuristic for how far we have
+        ///     to go. This addresses a weakness of Djikstra, which follows the
+        ///     shortest path irrespective of the direction it is going.
+        ///     Remember that for each node, Djikstra keeps track of the shortest
+        ///     distance to the start node. A* adds a heuristic to also keep track
+        ///     of how far each node is from the end node. This is obviously unknown,
+        ///     thus the heuristic approach.
         /// </summary>
         public static IEnumerable<Node> Run(Graph graph)
         {
             /* For each node, the 'weights' hash map contains the node's
-            * cost from the start node. As we move through the graph, we
-            * update the cost if we find a cheaper path.
-            */
-            var weights = new Dictionary<Node, int>();
+             * cost from the start node, as well as the combined heuristic.
+             * As we move through the graph, we update the cost if we find
+             * a cheaper path.
+             */
+            var weights = new Dictionary<Node, Item>();
 
             /* Whereas the 'weights' hash map contains the cost, we also
              * need to keep track of the cheapest path as we traverse
@@ -35,14 +37,26 @@ namespace Djikstra
             edges.ForEach(edge => parents[edge.Node] = graph.Start);
 
             // initialize node weights
-            graph.Nodes.ForEach(node => { weights[node.Key] = int.MaxValue; });
+            graph.Nodes.ForEach(node =>
+            {
+                weights[node.Key] = new Item
+                {
+                    DistanceFromStart = int.MaxValue,
+                    CombinedHeuristic = int.MaxValue
+                };
+            });
             var startNode = graph.Start;
-            weights[startNode] = 0;
+            weights[startNode] = new Item {DistanceFromStart = 0, CombinedHeuristic = startNode.DistanceToEnd};
 
             var toProcess = new HashSet<Node>();
             graph.Nodes.ForEach(edge => toProcess.Add(edge.Key));
             while (toProcess.Any())
             {
+                // This is where Djikstra and A* differ: While Djikstra simply walks along
+                // the shortests weights, A* prioritizes nodes that have a shorter distance
+                // to the end node (the heuristic).
+                // Note that we only track the weights for the actual path length, so this
+                // is the same as Djikstra.
                 var currentNode = FindCheapestNode(toProcess, weights);
                 if (currentNode == graph.End)
                 {
@@ -57,17 +71,21 @@ namespace Djikstra
                     var n2 = currentNodeEdge.Node;
                     var weight = currentNodeEdge.Weight;
                     Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
-                    var newWeight = weights[currentNode] + weight;
                     if (toProcess.Contains(n2) == false)
                     {
                         // we have already processed n2
                         Console.WriteLine($"Skipping {n2.Name}...");
                         return;
                     }
-                    if (weights[n2] > newWeight)
+                    var newWeight = weights[currentNode].DistanceFromStart + weight;
+                    if (weights[n2].DistanceFromStart > newWeight)
                     {
                         Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
-                        weights[n2] = newWeight;
+                        weights[n2] = new Item
+                        {
+                            DistanceFromStart = newWeight,
+                            CombinedHeuristic = newWeight + n2.DistanceToEnd
+                        };
                         parents[n2] = currentNode;
                     }
                 });
@@ -76,10 +94,14 @@ namespace Djikstra
             return shortestPath;
         }
 
-        private static Node FindCheapestNode(HashSet<Node> toProcess, Dictionary<Node, int> weights)
+        private static Node FindCheapestNode(HashSet<Node> toProcess, Dictionary<Node, Item> weights)
         {
             // TODO SS: We should use a priority queue...
-            var orderedByWeight = weights.OrderBy(w => w.Value).Where(w2 => toProcess.Contains(w2.Key));
+
+            // A*: order by combined heuristic, i.e. distance from start node + distance to end
+            // Djikstra: order only by distance from start node
+            var orderedByWeight =
+                weights.OrderBy(w => w.Value.CombinedHeuristic).Where(w2 => toProcess.Contains(w2.Key));
             return orderedByWeight.First().Key;
         }
 
@@ -95,6 +117,12 @@ namespace Djikstra
             shortestPath.Add(graph.Start);
             shortestPath.Reverse();
             return shortestPath;
+        }
+
+        public struct Item
+        {
+            public int DistanceFromStart { get; set; }
+            public int CombinedHeuristic { get; set; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace MazeSolver
@@ -20,46 +21,48 @@ namespace MazeSolver
         }
 
         /// <summary>
-        /// This is a simple solver. It checks all 4 cardianal directions
-        /// and moves along those, that it has not yet seen.
+        ///     This is a simple solver. It checks all 4 cardianal directions
+        ///     and moves along those, that it has not yet seen.
         /// </summary>
-        public static bool SimpleSolver(IMaze maze, Point start, HashSet<Point> visited, List<Point> path)
+        public static bool SimpleSolver(IMaze maze, HashSet<Point> visited, List<Point> path)
         {
             // TODO SS: Print elapsed time
-
-
-            if (visited.Contains(start))
+            var start = Entrance(maze);
+            using (ElapsedTime())
             {
-                return false;
+                return SimpleSolver_internal(maze, start, visited, path);
             }
+        }
+
+        private static IDisposable ElapsedTime()
+        {
+            var stopWatch = new Stopwatch();
+            return new DisposableHelper(() =>
+            {
+                var elapsedTime = stopWatch.ElapsedMilliseconds / 1000.0f;
+                Console.WriteLine($"Elapsed time: {elapsedTime}");
+            });
+        }
+
+        private static bool SimpleSolver_internal(IMaze maze, Point start, HashSet<Point> visited, List<Point> path)
+        {
+            if (visited.Contains(start))
+                return false;
             visited.Add(start);
             path.Add(start);
             if (start.Y == maze.Height - 1)
-            {
-                // exit found
                 return true;
-            }
             foreach (var direction in Directions)
             {
                 var newPoint = new Point {X = start.X + direction.X, Y = start.Y + direction.Y};
                 if (newPoint.X < 1 || newPoint.X >= maze.Width - 1)
-                {
-                    // at wall, cannot go in this direction
                     continue;
-                }
                 if (newPoint.Y < 1 || newPoint.Y > maze.Height - 1)
-                {
-                    // at wall, cannot go in this direction
                     continue;
-                }
                 if (maze.IsWall(newPoint.X, newPoint.Y))
-                {
                     continue;
-                }
-                if (SimpleSolver(maze, newPoint, visited, path))
-                {
+                if (SimpleSolver_internal(maze, newPoint, visited, path))
                     return true;
-                }
             }
             path.Remove(start);
             return false;

@@ -16,7 +16,7 @@ namespace MazeSolver.UnitTest
 
             // Act
             var path = new List<Point>();
-            bool foundSolution = MazeSolver.SimpleSolver(maze, new Point {X = 3, Y = 0}, new HashSet<Point>(), path);
+            bool foundSolution = MazeSolver.SimpleSolver(maze, new HashSet<Point>(), path);
 
             maze.SavePath(path, "../../../../images/Computerphile_solution.jpg");
 
@@ -33,8 +33,7 @@ namespace MazeSolver.UnitTest
 
             // Act
             var path = new List<Point>();
-            var start = MazeSolver.Entrance(maze);
-            bool foundSolution = MazeSolver.SimpleSolver(maze, start, new HashSet<Point>(), path);
+            bool foundSolution = MazeSolver.SimpleSolver(maze, new HashSet<Point>(), path);
 
             maze.SavePath(path, "../../../../images/31x31_solution.jpg");
 
@@ -50,7 +49,7 @@ namespace MazeSolver.UnitTest
 
             // Act
             var path = new List<Point>();
-            bool foundSolution = MazeSolver.SimpleSolver(maze, new Point {X = 3, Y = 0}, new HashSet<Point>(), path);
+            bool foundSolution = MazeSolver.SimpleSolver(maze, new HashSet<Point>(), path);
 
             maze.SavePath(path, "../../../../images/SimpleMaze1_solution.jpg");
 
@@ -66,7 +65,7 @@ namespace MazeSolver.UnitTest
 
             // Act
             var path = new List<Point>();
-            bool foundSolution = MazeSolver.SimpleSolver(maze, new Point {X = 3, Y = 0}, new HashSet<Point>(), path);
+            bool foundSolution = MazeSolver.SimpleSolver(maze, new HashSet<Point>(), path);
 
             maze.SavePath(path, "../../../../images/SimpleMaze2_solution.jpg");
 
@@ -82,7 +81,7 @@ namespace MazeSolver.UnitTest
 
             // Act
             var path = new List<Point>();
-            bool foundSolution = MazeSolver.SimpleSolver(maze, new Point {X = 3, Y = 0}, new HashSet<Point>(), path);
+            bool foundSolution = MazeSolver.SimpleSolver(maze, new HashSet<Point>(), path);
 
             // Assert
             Assert.False(foundSolution);

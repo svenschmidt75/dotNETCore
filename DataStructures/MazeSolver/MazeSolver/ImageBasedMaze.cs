@@ -1,19 +1,14 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using Djikstra;
 using ImageSharp;
+using ImageSharp.Formats;
 
 namespace MazeSolver
 {
     public class ImageBasedMaze : IMaze
     {
         private readonly Image<Rgba32> _image;
-
-        public IMaze Create(string fileName)
-        {
-            using (FileStream stream = File.OpenRead(fileName))
-            {
-                return new ImageBasedMaze(Image.Load(stream));
-            }
-        }
 
         private ImageBasedMaze(Image<Rgba32> image)
         {
@@ -28,5 +23,19 @@ namespace MazeSolver
         int IMaze.Width => _image.Width;
 
         int IMaze.Height => _image.Height;
+
+        void IMaze.SavePath(IEnumerable<Point> path, string fileName)
+        {
+            path.ForEach(point => { _image[point.X, point.Y] = Rgba32.Red; });
+            _image.Save(fileName, new JpegEncoder {Quality = 100});
+        }
+
+        public static IMaze Create(string fileName)
+        {
+            using (var stream = File.OpenRead(fileName))
+            {
+                return new ImageBasedMaze(Image.Load(stream));
+            }
+        }
     }
 }

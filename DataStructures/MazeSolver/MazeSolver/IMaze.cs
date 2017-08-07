@@ -1,4 +1,6 @@
-﻿namespace MazeSolver
+﻿using System.Collections.Generic;
+
+namespace MazeSolver
 {
     public interface IMaze
     {
@@ -7,5 +9,7 @@
         int Width { get; }
 
         int Height { get; }
+
+        void SavePath(IEnumerable<Point> path, string fileName);
     }
 }

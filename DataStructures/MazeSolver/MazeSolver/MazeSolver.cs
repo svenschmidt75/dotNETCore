@@ -24,19 +24,22 @@ namespace MazeSolver
         ///     This is a simple solver. It checks all 4 cardianal directions
         ///     and moves along those, that it has not yet seen.
         /// </summary>
-        public static bool SimpleSolver(IMaze maze, HashSet<Point> visited, List<Point> path)
+        public static (bool, IEnumerable<Point>) SimpleSolver(IMaze maze)
         {
             // TODO SS: Print elapsed time
+            HashSet<Point> visited = new HashSet<Point>();
+            List<Point> path = new List<Point>();
             var start = Entrance(maze);
             using (ElapsedTime())
             {
-                return SimpleSolver_internal(maze, start, visited, path);
+                return (SimpleSolver_internal(maze, start, visited, path), path);
             }
         }
 
         private static IDisposable ElapsedTime()
         {
             var stopWatch = new Stopwatch();
+            stopWatch.Start();
             return new DisposableHelper(() =>
             {
                 var elapsedTime = stopWatch.ElapsedMilliseconds / 1000.0f;

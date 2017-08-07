@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Djikstra
+namespace MazeSolver
 {
     public static class EnumerableHelper
     {

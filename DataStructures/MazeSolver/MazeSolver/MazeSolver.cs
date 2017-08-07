@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Djikstra;
 
 namespace MazeSolver
 {
@@ -20,8 +19,15 @@ namespace MazeSolver
             return Enumerable.Empty<Point>();
         }
 
-        public static bool Follow(IMaze maze, Point start, HashSet<Point> visited, List<Point> path)
+        /// <summary>
+        /// This is a simple solver. It checks all 4 cardianal directions
+        /// and moves along those, that it has not yet seen.
+        /// </summary>
+        public static bool SimpleSolver(IMaze maze, Point start, HashSet<Point> visited, List<Point> path)
         {
+            // TODO SS: Print elapsed time
+
+
             if (visited.Contains(start))
             {
                 return false;
@@ -50,7 +56,7 @@ namespace MazeSolver
                 {
                     continue;
                 }
-                if (Follow(maze, newPoint, visited, path))
+                if (SimpleSolver(maze, newPoint, visited, path))
                 {
                     return true;
                 }

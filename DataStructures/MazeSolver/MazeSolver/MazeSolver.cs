@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MazeSolver
 {
@@ -71,9 +72,81 @@ namespace MazeSolver
             return false;
         }
 
-//        public static Graph CreateGraph(IMaze maze)
-//        {
-//        }
+        public static Graph CreateGraph(IMaze maze)
+        {
+            var nodes = Enumerable.Range(0, maze.Width).Select(_ => new List<Node>()).ToList();
+            var start = Entrance(maze);
+            var startNode = new Node($"{start.X}, {start.Y}");
+            nodes[0].Add(startNode);
+            var end = Entrance(maze);
+            var endNode = new Node($"{end.X}, {end.Y}");
+            nodes[maze.Height - 1].Add(endNode);
+            var graph = new Graph(startNode, endNode);
+
+            Node prevNode = null;
+
+            for (int y = 1; y < maze.Height - 1; y++)
+            {
+                prevNode = null;
+                for (int x = 1; x < maze.Width - 1; x++)
+                {
+                    if (maze.IsWall(x, y))
+                    {
+                        continue;
+                    }
+                    if (maze.IsWall(x - 1, y) && maze.IsWall(x, y) == false && maze.IsWall(x + 1, y))
+                    {
+                        // 101
+                        if (maze.IsWall(x, y - 1) == false && maze.IsWall(x, y + 1) == false)
+                        {
+                            continue;
+                        }
+                    }
+                    if (maze.IsWall(x, y - 1) && maze.IsWall(x, y) == false && maze.IsWall(x, y + 1))
+                    {
+                        // 1
+                        // 0
+                        // 1
+                        if (maze.IsWall(x - 1, y) == false && maze.IsWall(x + 1, y) == false)
+                        {
+                            continue;
+                        }
+                    }
+                    Console.WriteLine($"Creating node at ({x}, {y})");
+                    var node = new Node($"{x}, {y}");
+                    nodes[y][x] = node;
+                    var edges = graph.Add(node);
+                    if (prevNode != null)
+                    {
+                        edges.Add(new Edge {Node = prevNode, Weight = 1});
+                        graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = 1});
+                    }
+                    prevNode = node;
+                }
+            }
+
+            for (int x = 1; x < maze.Width - 1; x++)
+            {
+                prevNode = null;
+                for (int y = 0; y < maze.Height; y++)
+                {
+                    var node = nodes[y][x];
+                    if (node == null)
+                    {
+                        continue;
+                    }
+                    if (prevNode != null)
+                    {
+                        graph.Nodes[node].Add(new Edge {Node = prevNode, Weight = 1});
+                        graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = 1});
+                    }
+                    prevNode = node;
+                }
+            }
+
+
+            return graph;
+        }
 
         public static Point Entrance(IMaze maze)
         {

@@ -74,13 +74,13 @@ namespace MazeSolver
 
         public static Graph CreateGraph(IMaze maze)
         {
-            var nodes = Enumerable.Range(0, maze.Width).Select(_ => new List<Node>()).ToList();
+            var nodes = Enumerable.Range(0, maze.Height).Select(_1 => Enumerable.Range(0, maze.Width).Select(_2 => (Node)null).ToList()).ToList();
             var start = Entrance(maze);
             var startNode = new Node($"{start.X}, {start.Y}");
-            nodes[0].Add(startNode);
+            nodes[0][start.X] = startNode;
             var end = Entrance(maze);
             var endNode = new Node($"{end.X}, {end.Y}");
-            nodes[maze.Height - 1].Add(endNode);
+            nodes[maze.Height - 1][end.X] = endNode;
             var graph = new Graph(startNode, endNode);
 
             Node prevNode = null;
@@ -92,6 +92,7 @@ namespace MazeSolver
                 {
                     if (maze.IsWall(x, y))
                     {
+                        prevNode = null;
                         continue;
                     }
                     if (maze.IsWall(x - 1, y) && maze.IsWall(x, y) == false && maze.IsWall(x + 1, y))
@@ -120,6 +121,7 @@ namespace MazeSolver
                     {
                         edges.Add(new Edge {Node = prevNode, Weight = 1});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = 1});
+                        Console.WriteLine($"Connection nodes ({prevNode.Name}) and ({node.Name})");
                     }
                     prevNode = node;
                 }
@@ -130,6 +132,11 @@ namespace MazeSolver
                 prevNode = null;
                 for (int y = 0; y < maze.Height; y++)
                 {
+                    if (maze.IsWall(x, y))
+                    {
+                        prevNode = null;
+                        continue;
+                    }
                     var node = nodes[y][x];
                     if (node == null)
                     {
@@ -139,11 +146,11 @@ namespace MazeSolver
                     {
                         graph.Nodes[node].Add(new Edge {Node = prevNode, Weight = 1});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = 1});
+                        Console.WriteLine($"Connection nodes ({prevNode.Name}) and ({node.Name})");
                     }
                     prevNode = node;
                 }
             }
-
 
             return graph;
         }

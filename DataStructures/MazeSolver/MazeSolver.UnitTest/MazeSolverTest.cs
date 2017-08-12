@@ -15,7 +15,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
 
             // Act
-            var (foundSolution, solutionPath) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, solutionPath) = SimpleMazeSolver.SimpleSolver(maze);
             maze.SavePath(solutionPath, "../../../../images/Computerphile_solution.jpg");
 
             // Assert
@@ -29,7 +29,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
 
             // Act
-            var entrance = MazeSolver.Entrance(maze);
+            var entrance = MazeSolverUtility.Entrance(maze);
 
             // Assert
             Assert.Equal(new Point {X = 3, Y = 0}, entrance);
@@ -42,7 +42,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
 
             // Act
-            var entrance = MazeSolver.Exit(maze);
+            var entrance = MazeSolverUtility.Exit(maze);
 
             // Assert
             Assert.Equal(new Point {X = 7, Y = maze.Height - 1}, entrance);
@@ -55,7 +55,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/128x128.jpg");
 
             // Act
-            var (foundSolution, solutionPath) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, solutionPath) = SimpleMazeSolver.SimpleSolver(maze);
             maze.SavePath(solutionPath, "../../../../images/128x128_solution.jpg");
 
             // Assert
@@ -69,7 +69,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/31x31.jpg");
 
             // Act
-            var (foundSolution, solutionPath) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, solutionPath) = SimpleMazeSolver.SimpleSolver(maze);
             maze.SavePath(solutionPath, "../../../../images/31x31_solution.jpg");
 
             // Assert
@@ -83,7 +83,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/31x31.jpg");
 
             // Act
-            var entrance = MazeSolver.Entrance(maze);
+            var entrance = MazeSolverUtility.Entrance(maze);
 
             // Assert
             Assert.Equal(new Point {X = 29, Y = 0}, entrance);
@@ -96,7 +96,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/31x31.jpg");
 
             // Act
-            var entrance = MazeSolver.Exit(maze);
+            var entrance = MazeSolverUtility.Exit(maze);
 
             // Assert
             Assert.Equal(new Point {X = 37, Y = maze.Height - 1}, entrance);
@@ -109,7 +109,7 @@ namespace MazeSolver.UnitTest
             IMaze maze = SimpleMaze.CreateSimpleMaze1();
 
             // Act
-            var (foundSolution, solutionPath) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, solutionPath) = SimpleMazeSolver.SimpleSolver(maze);
             maze.SavePath(solutionPath, "../../../../images/SimpleMaze1_solution.jpg");
 
             // Assert
@@ -123,7 +123,7 @@ namespace MazeSolver.UnitTest
             IMaze maze = SimpleMaze.CreateSimpleMaze2();
 
             // Act
-            var (foundSolution, solutionPath) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, solutionPath) = SimpleMazeSolver.SimpleSolver(maze);
             maze.SavePath(solutionPath, "../../../../images/SimpleMaze2_solution.jpg");
 
             // Assert
@@ -137,7 +137,7 @@ namespace MazeSolver.UnitTest
             IMaze maze = SimpleMaze.CreateSimpleMaze3();
 
             // Act
-            var (foundSolution, _) = MazeSolver.SimpleSolver(maze);
+            var (foundSolution, _) = SimpleMazeSolver.SimpleSolver(maze);
 
             // Assert
             Assert.False(foundSolution);

@@ -12,7 +12,7 @@ namespace MazeSolver.UnitTest
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
 
             // Act
-            var graph = MazeSolver.CreateGraph(maze);
+            var graph = MazeSolverUtility.CreateGraph(maze);
 
             // Assert
         }

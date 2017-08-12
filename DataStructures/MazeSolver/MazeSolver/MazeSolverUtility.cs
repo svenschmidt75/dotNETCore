@@ -60,7 +60,7 @@ namespace MazeSolver
                         int distance = x - prevX;
                         edges.Add(new Edge {Node = prevNode, Weight = distance});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = distance});
-                        Console.WriteLine($"Connection nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
+                        Console.WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
                     }
                     prevNode = node;
                     prevX = x;
@@ -93,7 +93,7 @@ namespace MazeSolver
                         graph.Nodes[node].Add(new Edge {Node = prevNode, Weight = distance});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = distance});
                         Console.
-                            WriteLine($"Connection nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
+                            WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
                     }
                     prevNode = node;
                     prevY = y;

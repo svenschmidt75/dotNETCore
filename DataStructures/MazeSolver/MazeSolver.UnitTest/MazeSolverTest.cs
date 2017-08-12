@@ -142,5 +142,21 @@ namespace MazeSolver.UnitTest
             // Assert
             Assert.False(foundSolution);
         }
+
+        [Fact]
+        public void SimpleMaze1_Djikstra()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            var path = Djikstra.Djikstra.Run(graph);
+
+            // Assert
+            Assert.Equal(new[] {startNode, bNode, cNode, dNode, endNode}, shortestPath);
+        }
+
+
     }
 }

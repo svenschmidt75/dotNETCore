@@ -14,31 +14,33 @@ namespace MazeSolver
                                    ToList();
             var start = Entrance(maze);
             var end = Exit(maze);
+            var graph = CreateGraph(start, end);
+            CreateNodes(maze, start, end, nodes, graph);
+            ConnectAlongXAxis(maze, nodes, graph);
+            Console.WriteLine("Connection along y axis...");
+            ConnectAlongYAxis(maze, nodes, graph);
+            return graph;
+        }
+
+        private static Graph CreateGraph(Point start, Point end)
+        {
             var startNode = new Node($"{start.X}, {start.Y}", Distance(start, end));
-            nodes[0][start.X] = startNode;
+//            nodes[0][start.X] = startNode;
             var endNode = new Node($"{end.X}, {end.Y}", 0);
-            nodes[maze.Height - 1][end.X] = endNode;
+//            nodes[maze.Height - 1][end.X] = endNode;
             var graph = new Graph(startNode, endNode);
             graph.Add(startNode);
             graph.Add(endNode);
-
-            CreateNodes(maze, end, nodes, graph);
-            ConnectAlongXAxis(maze, nodes, graph);
-
-            Console.WriteLine("Connection along y axis...");
-
-            ConnectAlongYAxis(maze, nodes, graph);
-
             return graph;
         }
 
         private static void ConnectAlongYAxis(IMaze maze, List<List<Node>> nodes, Graph graph)
         {
-            for (int x = 1; x < maze.Width - 1; x++)
+            for (var x = 1; x < maze.Width - 1; x++)
             {
                 Node prevNode = null;
-                int prevY = 0;
-                for (int y = 0; y < maze.Height; y++)
+                var prevY = 0;
+                for (var y = 0; y < maze.Height; y++)
                 {
                     if (maze.IsWall(x, y))
                     {
@@ -49,15 +51,14 @@ namespace MazeSolver
 
                     var node = nodes[y][x];
                     if (node == null)
-                    {
                         continue;
-                    }
                     if (prevNode != null)
                     {
-                        int distance = y - prevY;
+                        var distance = y - prevY;
                         graph.Nodes[node].Add(new Edge {Node = prevNode, Weight = distance});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = distance});
-                        Console.WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
+                        Console.
+                            WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
                     }
                     prevNode = node;
                     prevY = y;
@@ -67,11 +68,11 @@ namespace MazeSolver
 
         private static void ConnectAlongXAxis(IMaze maze, List<List<Node>> nodes, Graph graph)
         {
-            for (int y = 1; y < maze.Height - 1; y++)
+            for (var y = 1; y < maze.Height - 1; y++)
             {
-                int prevX = 1;
+                var prevX = 1;
                 Node prevNode = null;
-                for (int x = 1; x < maze.Width - 1; x++)
+                for (var x = 1; x < maze.Width - 1; x++)
                 {
                     if (maze.IsWall(x, y))
                     {
@@ -81,15 +82,14 @@ namespace MazeSolver
                     }
                     var node = nodes[y][x];
                     if (node == null)
-                    {
                         continue;
-                    }
                     if (prevNode != null)
                     {
-                        int distance = x - prevX;
+                        var distance = x - prevX;
                         graph.Nodes[node].Add(new Edge {Node = prevNode, Weight = distance});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = distance});
-                        Console.WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
+                        Console.
+                            WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
                     }
                     prevNode = node;
                     prevX = x;
@@ -97,39 +97,25 @@ namespace MazeSolver
             }
         }
 
-        private static void CreateNodes(IMaze maze, Point end, List<List<Node>> nodes, Graph graph)
+        private static void CreateNodes(IMaze maze, Point start, Point end, List<List<Node>> nodes, Graph graph)
         {
-            for (int y = 1; y < maze.Height - 1; y++)
+            nodes[0][start.X] = graph.Start;
+            nodes[maze.Height - 1][end.X] = graph.End;
+            for (var y = 1; y < maze.Height - 1; y++)
+            for (var x = 1; x < maze.Width - 1; x++)
             {
-                for (int x = 1; x < maze.Width - 1; x++)
-                {
-                    if (maze.IsWall(x, y))
-                    {
+                if (maze.IsWall(x, y))
+                    continue;
+                if (maze.IsWall(x - 1, y) && maze.IsWall(x + 1, y))
+                    if (maze.IsWall(x, y - 1) == false && maze.IsWall(x, y + 1) == false)
                         continue;
-                    }
-                    if (maze.IsWall(x - 1, y) && maze.IsWall(x + 1, y))
-                    {
-                        // 101
-                        if (maze.IsWall(x, y - 1) == false && maze.IsWall(x, y + 1) == false)
-                        {
-                            continue;
-                        }
-                    }
-                    if (maze.IsWall(x, y - 1) && maze.IsWall(x, y + 1))
-                    {
-                        // 1
-                        // 0
-                        // 1
-                        if (maze.IsWall(x - 1, y) == false && maze.IsWall(x + 1, y) == false)
-                        {
-                            continue;
-                        }
-                    }
-                    var node = new Node($"{x}, {y}", Distance(new Point {X = x, Y = y}, end));
-                    Console.WriteLine($"Creating node at ({x}, {y}) with A* distance {node.DistanceToEnd}");
-                    nodes[y][x] = node;
-                    graph.Add(node);
-                }
+                if (maze.IsWall(x, y - 1) && maze.IsWall(x, y + 1))
+                    if (maze.IsWall(x - 1, y) == false && maze.IsWall(x + 1, y) == false)
+                        continue;
+                var node = new Node($"{x}, {y}", Distance(new Point {X = x, Y = y}, end));
+                Console.WriteLine($"Creating node at ({x}, {y}) with A* distance {node.DistanceToEnd}");
+                nodes[y][x] = node;
+                graph.Add(node);
             }
         }
 
@@ -151,7 +137,7 @@ namespace MazeSolver
 
         public static Point Entrance(IMaze maze)
         {
-            var (found, entrance) = GetPoint(maze, (int) 0);
+            var (found, entrance) = GetPoint(maze, 0);
             if (found == false)
                 throw new InvalidOperationException("Maze has no entrance");
             return entrance;

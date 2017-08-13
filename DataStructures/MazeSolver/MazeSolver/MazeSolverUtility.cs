@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -60,7 +61,8 @@ namespace MazeSolver
                         int distance = x - prevX;
                         edges.Add(new Edge {Node = prevNode, Weight = distance});
                         graph.Nodes[prevNode].Add(new Edge {Node = node, Weight = distance});
-                        Console.WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
+                        Console.
+                            WriteLine($"Connecting nodes ({prevNode.Name}) and ({node.Name}) with distance {distance}");
                     }
                     prevNode = node;
                     prevX = x;
@@ -141,6 +143,17 @@ namespace MazeSolver
                 if (maze.IsWall(x, y) == false)
                     return (true, new Point {X = x, Y = y});
             return (false, new Point());
+        }
+
+        public static IEnumerable<Point> NodeToPoint(this IEnumerable<Node> nodes)
+        {
+            return nodes.Select(n =>
+            {
+                var cs = n.Name.Split(',');
+                var x = int.Parse(cs[0].Trim());
+                var y = int.Parse(cs[1].Trim());
+                return new Point {X = x, Y = y};
+            }).ToList();
         }
     }
 }

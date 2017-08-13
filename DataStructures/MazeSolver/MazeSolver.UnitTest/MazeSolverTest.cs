@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace MazeSolver.UnitTest
@@ -151,12 +152,48 @@ namespace MazeSolver.UnitTest
             var graph = MazeSolverUtility.CreateGraph(maze);
 
             // Act
-            var path = Djikstra.Djikstra.Run(graph);
+            IEnumerable<Point> solutionPath = Djikstra.Djikstra.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/Computerphile_Djikstra_solution.jpg");
 
             // Assert
-            Assert.Equal(new[] {startNode, bNode, cNode, dNode, endNode}, shortestPath);
+            Assert.Equal(solutionPath, new List<Point>
+            {
+                new Point {X = 3, Y = 0},
+                new Point {X = 3, Y = 1},
+                new Point {X = 6, Y = 1},
+                new Point {X = 6, Y = 3},
+                new Point {X = 5, Y = 3},
+                new Point {X = 5, Y = 5},
+                new Point {X = 5, Y = 8},
+                new Point {X = 7, Y = 8},
+                new Point {X = 7, Y = 9}
+            });
         }
 
+        [Fact]
+        public void SimpleMaze1_AStar()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
 
+            // Act
+            IEnumerable<Point> solutionPath = Astar.Astar.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/Computerphile_A*_solution.jpg");
+
+            // Assert
+            Assert.Equal(solutionPath, new List<Point>
+            {
+                new Point {X = 3, Y = 0},
+                new Point {X = 3, Y = 1},
+                new Point {X = 6, Y = 1},
+                new Point {X = 6, Y = 3},
+                new Point {X = 5, Y = 3},
+                new Point {X = 5, Y = 5},
+                new Point {X = 5, Y = 8},
+                new Point {X = 7, Y = 8},
+                new Point {X = 7, Y = 9}
+            });
+        }
     }
 }

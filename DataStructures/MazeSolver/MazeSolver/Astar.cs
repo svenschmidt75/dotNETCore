@@ -18,6 +18,7 @@ namespace Astar
         /// </summary>
         public static IEnumerable<Node> Run(Graph graph)
         {
+            Console.WriteLine("Finding a solution using A*...");
             /* For each node, the 'weights' hash map contains the node's
              * cost from the start node, as well as the combined heuristic.
              * As we move through the graph, we update the cost if we find
@@ -60,27 +61,27 @@ namespace Astar
                 var currentNode = FindCheapestNode(toProcess, weights);
                 if (currentNode == graph.End)
                 {
-                    Console.WriteLine("End node reached");
+//                    Console.WriteLine("End node reached");
                     toProcess.Clear();
                 }
                 toProcess.Remove(currentNode);
-                Console.WriteLine($"At current node {currentNode.Name}");
+//                Console.WriteLine($"At current node {currentNode.Name}");
                 var toNodes = graph[currentNode];
                 toNodes.ForEach(currentNodeEdge =>
                 {
                     var n2 = currentNodeEdge.Node;
                     var weight = currentNodeEdge.Weight;
-                    Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
+//                    Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
                     if (toProcess.Contains(n2) == false)
                     {
                         // we have already processed n2
-                        Console.WriteLine($"Skipping {n2.Name}...");
+//                        Console.WriteLine($"Skipping {n2.Name}...");
                         return;
                     }
                     var newWeight = weights[currentNode].DistanceFromStart + weight;
                     if (weights[n2].DistanceFromStart > newWeight)
                     {
-                        Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
+//                        Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
                         weights[n2] = new Item
                         {
                             DistanceFromStart = newWeight,
@@ -91,6 +92,7 @@ namespace Astar
                 });
             }
             var shortestPath = GetShortestPath(graph, parents);
+            Console.WriteLine($"Solution using A* has {shortestPath.Count()} nodes");
             return shortestPath;
         }
 

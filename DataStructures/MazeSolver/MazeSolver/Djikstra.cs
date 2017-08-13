@@ -18,6 +18,7 @@ namespace Djikstra
         /// </summary>
         public static IEnumerable<Node> Run(Graph graph)
         {
+            Console.WriteLine("Finding a solution using Djikstra...");
             /* For each node, the 'weights' hash map contains the node's
             * cost from the start node. As we move through the graph, we
             * update the cost if we find a cheaper path.
@@ -74,6 +75,7 @@ namespace Djikstra
                 });
             }
             var shortestPath = GetShortestPath(graph, parents);
+            Console.WriteLine($"Solution using Djikstra has {shortestPath.Count()} nodes");
             return shortestPath;
         }
 

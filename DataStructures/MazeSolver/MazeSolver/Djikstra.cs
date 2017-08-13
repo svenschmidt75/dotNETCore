@@ -43,8 +43,10 @@ namespace Djikstra
 
             var toProcess = new HashSet<Node>();
             graph.Nodes.ForEach(edge => toProcess.Add(edge.Key));
+            int nodesProcessed = 0;
             while (toProcess.Any())
             {
+                ++nodesProcessed;
                 var currentNode = FindCheapestNode(toProcess, weights);
                 if (currentNode == graph.End)
                 {
@@ -76,6 +78,7 @@ namespace Djikstra
             }
             var shortestPath = GetShortestPath(graph, parents);
             Console.WriteLine($"Solution using Djikstra has {shortestPath.Count()} nodes");
+            Console.WriteLine($"Nodes processed: {nodesProcessed}");
             return shortestPath;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ImageSharp.ColorSpaces.Conversion.Implementation.Rgb;
 using MazeSolver;
 
 namespace Astar
@@ -51,6 +52,7 @@ namespace Astar
 
             var toProcess = new HashSet<Node>();
             graph.Nodes.ForEach(edge => toProcess.Add(edge.Key));
+            int nodesProcessed = 0;
             while (toProcess.Any())
             {
                 // This is where Djikstra and A* differ: While Djikstra simply walks along
@@ -58,6 +60,7 @@ namespace Astar
                 // to the end node (the heuristic).
                 // Note that we only track the weights for the actual path length, so this
                 // is the same as Djikstra.
+                ++nodesProcessed;
                 var currentNode = FindCheapestNode(toProcess, weights);
                 if (currentNode == graph.End)
                 {
@@ -93,6 +96,7 @@ namespace Astar
             }
             var shortestPath = GetShortestPath(graph, parents);
             Console.WriteLine($"Solution using A* has {shortestPath.Count()} nodes");
+            Console.WriteLine($"Nodes processed: {nodesProcessed}");
             return shortestPath;
         }
 

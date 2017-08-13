@@ -14,13 +14,6 @@ namespace MazeSolver
         public static Point East = new Point {X = 1, Y = 0};
         public static IEnumerable<Point> Directions = new[] {North, South, East, West};
 
-        public static IEnumerable<Point> SolveByFloodfille(IMaze maze)
-        {
-            var processed = new HashSet<Point>();
-            var start = MazeSolverUtility.Entrance(maze);
-            return Enumerable.Empty<Point>();
-        }
-
         /// <summary>
         ///     This is a simple solver. It checks all 4 cardianal directions
         ///     and moves along those, that it has not yet seen.

@@ -47,27 +47,27 @@ namespace Djikstra
                 var currentNode = FindCheapestNode(toProcess, weights);
                 if (currentNode == graph.End)
                 {
-                    Console.WriteLine("End node reached");
+//                    Console.WriteLine("End node reached");
                     toProcess.Clear();
                 }
                 toProcess.Remove(currentNode);
-                Console.WriteLine($"At current node {currentNode.Name}");
+//                Console.WriteLine($"At current node {currentNode.Name}");
                 var toNodes = graph[currentNode];
                 toNodes.ForEach(currentNodeEdge =>
                 {
                     var n2 = currentNodeEdge.Node;
                     var weight = currentNodeEdge.Weight;
-                    Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
+//                    Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {weight}");
                     var newWeight = weights[currentNode] + weight;
                     if (toProcess.Contains(n2) == false)
                     {
                         // we have already processed n2
-                        Console.WriteLine($"Skipping {n2.Name}...");
+//                        Console.WriteLine($"Skipping {n2.Name}...");
                         return;
                     }
                     if (weights[n2] > newWeight)
                     {
-                        Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
+//                        Console.WriteLine($"Edge ({currentNode.Name}, {n2.Name}) = {newWeight}");
                         weights[n2] = newWeight;
                         parents[n2] = currentNode;
                     }

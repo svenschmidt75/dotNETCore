@@ -145,7 +145,7 @@ namespace MazeSolver.UnitTest
         }
 
         [Fact]
-        public void SComputerphile_Djikstra()
+        public void Computerphile_Djikstra()
         {
             // Arrange
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
@@ -248,6 +248,66 @@ namespace MazeSolver.UnitTest
                 new Point {X = 7, Y = 8},
                 new Point {X = 7, Y = 9}
             });
+        }
+
+        [Fact]
+        public void Daedelus_63x63_Djikstra()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/31x31.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Djikstra.Djikstra.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/31x31_Djikstra_solution.jpg");
+
+            // Assert
+            Assert.Equal(74, solutionPath.Count());
+        }
+
+        [Fact]
+        public void Daedelus_63x63_AStar()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/31x31.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Astar.Astar.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/31x31_A*_solution.jpg");
+
+            // Assert
+            Assert.Equal(74, solutionPath.Count());
+        }
+
+        [Fact]
+        public void Daedelus_128x128_Djikstra()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/128x128.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Djikstra.Djikstra.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/128x128_Djikstra_solution.jpg");
+
+            // Assert
+            Assert.Equal(449, solutionPath.Count());
+        }
+
+        [Fact]
+        public void Daedelus_128x128_AStar()
+        {
+            // Arrange
+            var maze = ImageBasedMaze.Create("../../../../images/128x128.jpg");
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Astar.Astar.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/128x128_A*_solution.jpg");
+
+            // Assert
+            Assert.Equal(449, solutionPath.Count());
         }
     }
 }

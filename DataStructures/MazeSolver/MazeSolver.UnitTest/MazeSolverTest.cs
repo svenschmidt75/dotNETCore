@@ -145,7 +145,7 @@ namespace MazeSolver.UnitTest
         }
 
         [Fact]
-        public void SimpleMaze1_Djikstra()
+        public void SComputerphile_Djikstra()
         {
             // Arrange
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
@@ -171,7 +171,7 @@ namespace MazeSolver.UnitTest
         }
 
         [Fact]
-        public void SimpleMaze1_AStar()
+        public void Computerphile_AStar()
         {
             // Arrange
             var maze = ImageBasedMaze.Create("../../../../images/Computerphile.jpg");
@@ -189,6 +189,60 @@ namespace MazeSolver.UnitTest
                 new Point {X = 6, Y = 1},
                 new Point {X = 6, Y = 3},
                 new Point {X = 5, Y = 3},
+                new Point {X = 5, Y = 5},
+                new Point {X = 5, Y = 8},
+                new Point {X = 7, Y = 8},
+                new Point {X = 7, Y = 9}
+            });
+        }
+
+        [Fact]
+        public void SimpleMaze1_Djikstra()
+        {
+            // Arrange
+            var maze = SimpleMaze.CreateSimpleMaze1();
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Djikstra.Djikstra.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/SimpleMaze1_Djikstra_solution.jpg");
+
+            // Assert
+            Assert.Equal(solutionPath, new List<Point>
+            {
+                new Point {X = 3, Y = 0},
+                new Point {X = 3, Y = 1},
+                new Point {X = 1, Y = 1},
+                new Point {X = 1, Y = 3},
+                new Point {X = 3, Y = 3},
+                new Point {X = 3, Y = 5},
+                new Point {X = 5, Y = 5},
+                new Point {X = 5, Y = 8},
+                new Point {X = 7, Y = 8},
+                new Point {X = 7, Y = 9}
+            });
+        }
+
+        [Fact]
+        public void SimpleMaze1_AStar()
+        {
+            // Arrange
+            var maze = SimpleMaze.CreateSimpleMaze1();
+            var graph = MazeSolverUtility.CreateGraph(maze);
+
+            // Act
+            IEnumerable<Point> solutionPath = Astar.Astar.Run(graph).NodeToPoint();
+            maze.SavePath(solutionPath, "../../../../images/SimpleMaze1_A*_solution.jpg");
+
+            // Assert
+            Assert.Equal(solutionPath, new List<Point>
+            {
+                new Point {X = 3, Y = 0},
+                new Point {X = 3, Y = 1},
+                new Point {X = 1, Y = 1},
+                new Point {X = 1, Y = 3},
+                new Point {X = 3, Y = 3},
+                new Point {X = 3, Y = 5},
                 new Point {X = 5, Y = 5},
                 new Point {X = 5, Y = 8},
                 new Point {X = 7, Y = 8},

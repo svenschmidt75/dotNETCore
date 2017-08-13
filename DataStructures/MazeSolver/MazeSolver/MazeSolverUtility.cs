@@ -15,26 +15,24 @@ namespace MazeSolver
             var start = Entrance(maze);
             var end = Exit(maze);
             var graph = CreateGraph(start, end);
-            CreateNodes(maze, start, end, nodes, graph);
-            ConnectAlongXAxis(maze, nodes, graph);
+            CreateNodes(maze, graph, nodes, start, end);
+            ConnectAlongXAxis(maze, graph, nodes);
             Console.WriteLine("Connection along y axis...");
-            ConnectAlongYAxis(maze, nodes, graph);
+            ConnectAlongYAxis(maze, graph, nodes);
             return graph;
         }
 
         private static Graph CreateGraph(Point start, Point end)
         {
             var startNode = new Node($"{start.X}, {start.Y}", Distance(start, end));
-//            nodes[0][start.X] = startNode;
             var endNode = new Node($"{end.X}, {end.Y}", 0);
-//            nodes[maze.Height - 1][end.X] = endNode;
             var graph = new Graph(startNode, endNode);
             graph.Add(startNode);
             graph.Add(endNode);
             return graph;
         }
 
-        private static void ConnectAlongYAxis(IMaze maze, List<List<Node>> nodes, Graph graph)
+        private static void ConnectAlongYAxis(IMaze maze, Graph graph, IReadOnlyList<List<Node>> nodes)
         {
             for (var x = 1; x < maze.Width - 1; x++)
             {
@@ -51,7 +49,9 @@ namespace MazeSolver
 
                     var node = nodes[y][x];
                     if (node == null)
+                    {
                         continue;
+                    }
                     if (prevNode != null)
                     {
                         var distance = y - prevY;
@@ -66,7 +66,7 @@ namespace MazeSolver
             }
         }
 
-        private static void ConnectAlongXAxis(IMaze maze, List<List<Node>> nodes, Graph graph)
+        private static void ConnectAlongXAxis(IMaze maze, Graph graph, IReadOnlyList<List<Node>> nodes)
         {
             for (var y = 1; y < maze.Height - 1; y++)
             {
@@ -82,7 +82,9 @@ namespace MazeSolver
                     }
                     var node = nodes[y][x];
                     if (node == null)
+                    {
                         continue;
+                    }
                     if (prevNode != null)
                     {
                         var distance = x - prevX;
@@ -97,7 +99,7 @@ namespace MazeSolver
             }
         }
 
-        private static void CreateNodes(IMaze maze, Point start, Point end, List<List<Node>> nodes, Graph graph)
+        private static void CreateNodes(IMaze maze, Graph graph, List<List<Node>> nodes, Point start, Point end)
         {
             nodes[0][start.X] = graph.Start;
             nodes[maze.Height - 1][end.X] = graph.End;
@@ -105,18 +107,29 @@ namespace MazeSolver
             for (var x = 1; x < maze.Width - 1; x++)
             {
                 if (maze.IsWall(x, y))
+                {
                     continue;
+                }
                 if (maze.IsWall(x - 1, y) && maze.IsWall(x + 1, y))
+                {
                     if (maze.IsWall(x, y - 1) == false && maze.IsWall(x, y + 1) == false)
+                    {
                         continue;
+                    }
+                }
                 if (maze.IsWall(x, y - 1) && maze.IsWall(x, y + 1))
+                {
                     if (maze.IsWall(x - 1, y) == false && maze.IsWall(x + 1, y) == false)
+                    {
                         continue;
+                    }
+                }
                 var node = new Node($"{x}, {y}", Distance(new Point {X = x, Y = y}, end));
                 Console.WriteLine($"Creating node at ({x}, {y}) with A* distance {node.DistanceToEnd}");
                 nodes[y][x] = node;
                 graph.Add(node);
             }
+            Console.WriteLine($"Found {graph.Nodes.Count} nodes");
         }
 
         private static int Distance(Point start, Point end)
@@ -139,7 +152,9 @@ namespace MazeSolver
         {
             var (found, entrance) = GetPoint(maze, 0);
             if (found == false)
+            {
                 throw new InvalidOperationException("Maze has no entrance");
+            }
             return entrance;
         }
 
@@ -147,15 +162,21 @@ namespace MazeSolver
         {
             var (found, entrance) = GetPoint(maze, maze.Height - 1);
             if (found == false)
+            {
                 throw new InvalidOperationException("Maze has no exit");
+            }
             return entrance;
         }
 
         private static (bool, Point) GetPoint(IMaze maze, int y)
         {
             for (var x = 0; x < maze.Width; x++)
+            {
                 if (maze.IsWall(x, y) == false)
+                {
                     return (true, new Point {X = x, Y = y});
+                }
+            }
             return (false, new Point());
         }
 

@@ -16,20 +16,6 @@ namespace MazeSolver
 //            PrintMaze(image);
         }
 
-        private void PrintMaze(Image<Rgba32> image)
-        {
-            for (int j = 0; j < image.Height; j++)
-            {
-//                int j = 0;
-                for (int i = 0; i < image.Width; i++)
-                {
-//                    Console.WriteLine($"({i}, {j}): R: {_image[i, j].R:D3} G: {_image[i, j].G:D3} B: {_image[i, j].B:D3}");
-                    Console.Write(_image[i, j].R < 100 ? "1" : "0");
-                }
-                Console.WriteLine();
-            }
-        }
-
         bool IMaze.IsWall(int x, int y)
         {
             return _image[x, y].R < 100;
@@ -41,8 +27,22 @@ namespace MazeSolver
 
         void IMaze.SavePath(IEnumerable<Point> path, string fileName)
         {
-            path.ForEach(point => { _image[point.X, point.Y] = Rgba32.Red; });
+            path.ExtendPath().ForEach(point => { _image[point.X, point.Y] = Rgba32.Red; });
             _image.Save(fileName, new JpegEncoder {Quality = 100});
+        }
+
+        private void PrintMaze(Image<Rgba32> image)
+        {
+            for (var j = 0; j < image.Height; j++)
+            {
+//                int j = 0;
+                for (var i = 0; i < image.Width; i++)
+                {
+//                    Console.WriteLine($"({i}, {j}): R: {_image[i, j].R:D3} G: {_image[i, j].G:D3} B: {_image[i, j].B:D3}");
+                    Console.Write(_image[i, j].R < 100 ? "1" : "0");
+                }
+                Console.WriteLine();
+            }
         }
 
         public static IMaze Create(string fileName)

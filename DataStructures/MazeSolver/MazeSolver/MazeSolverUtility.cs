@@ -191,5 +191,25 @@ namespace MazeSolver
                 return new Point {X = x, Y = y};
             }).ToList();
         }
+
+        public static IEnumerable<Point> ExtendPath(this IEnumerable<Point> path)
+        {
+            return path.Zip(path.Skip(1), (prev, current) =>
+            {
+                if (prev.Y == current.Y)
+                {
+                    var direction = prev.X < current.X ? 1 : -1;
+                    var n = Math.Abs(current.X - prev.X);
+                    return Enumerable.Range(0, n).Select(i => new Point {X = prev.X + direction * i, Y = prev.Y});
+                }
+                if (prev.X == current.X)
+                {
+                    var direction = prev.Y < current.Y ? 1 : -1;
+                    var n = Math.Abs(current.Y - prev.Y);
+                    return Enumerable.Range(0, n).Select(i => new Point {X = prev.X, Y = prev.Y + direction * i});
+                }
+                return new[] {prev};
+            }).SelectMany(x => x).Append(path.Last());
+        }
     }
 }

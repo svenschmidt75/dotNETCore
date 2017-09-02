@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeNumbersAddUp", "ThreeNumbersAddUp/ThreeNumbersAddUp.csproj", "{A4D40846-6962-41B7-8F84-18A8CF62D884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeNumbersAddUp.UnitTest", "ThreeNumbersAddUp.UnitTest\ThreeNumbersAddUp.UnitTest.csproj", "{8F601D42-CE14-4332-B1FC-E5E32A0E3BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4D40846-6962-41B7-8F84-18A8CF62D884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D40846-6962-41B7-8F84-18A8CF62D884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D40846-6962-41B7-8F84-18A8CF62D884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D40846-6962-41B7-8F84-18A8CF62D884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F601D42-CE14-4332-B1FC-E5E32A0E3BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F601D42-CE14-4332-B1FC-E5E32A0E3BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F601D42-CE14-4332-B1FC-E5E32A0E3BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F601D42-CE14-4332-B1FC-E5E32A0E3BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

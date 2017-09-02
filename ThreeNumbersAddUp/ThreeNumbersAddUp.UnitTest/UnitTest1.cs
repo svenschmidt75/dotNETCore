@@ -89,5 +89,22 @@ namespace ThreeNumbersAddUp.UnitTest
             Assert.Equal(3, solution.Count());
             Assert.Equal(solution, vs);
         }
+
+        [Theory]
+        [InlineData(10, new[] {1, 2, 7})]
+        [InlineData(11, new[] {1, 6, 4})]
+        [InlineData(18, new[] {5, 6, 7})]
+        public void a1_plus_a2_plus_a3_equals_value_complex(int value, int[] vs)
+        {
+            // Arrange
+            var numbers = new[] {1, 2, 5, 6, 3, 4, 7};
+
+            // Act
+            var solution = Class1.ThreeNumbers(numbers, value);
+
+            // Assert
+            Assert.Equal(3, solution.Count());
+            Assert.Equal(solution, vs);
+        }
     }
 }

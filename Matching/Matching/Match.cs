@@ -2,7 +2,7 @@
 {
     public struct Match
     {
-        public double Odometer { get; set; }
-        public double JointLength { get; set; }
+        public double Odom { get; set; }
+        public double JL { get; set; }
     }
 }

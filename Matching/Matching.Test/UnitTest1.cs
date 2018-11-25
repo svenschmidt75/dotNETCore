@@ -26,9 +26,10 @@ namespace Matching.Test
             {
                 new Match {Odom = 10, JL = 1,}, new Match {Odom = 20, JL = 2,}, new Match {Odom = 30, JL = 4,}
             };
+            var matching = new Matching();
 
             // Act
-            Matching.Match(source, target, 0, 1, str => _testOutputHelper.WriteLine(str));
+            matching.Match(source, target, 0, 1, str => _testOutputHelper.WriteLine(str));
 
             // Assert
         }
@@ -56,9 +57,10 @@ namespace Matching.Test
                 new Match {Odom = 179.74, JL = 20.02,}, new Match {Odom = 199.76, JL = 5.41,}, new Match {Odom = 205.18, JL = 4.81,},
                 new Match {Odom = 209.98, JL = 40.24,}
             };
+            var matching = new Matching();
 
             // Act
-            Matching.Match(y2Rows, y1Rows, 0, 50, str => _testOutputHelper.WriteLine(str));
+            matching.Match(y2Rows, y1Rows, 0, 50, str => _testOutputHelper.WriteLine(str));
 
             // Assert
         }

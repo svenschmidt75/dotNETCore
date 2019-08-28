@@ -20,10 +20,10 @@ namespace RadiusMonteCarlo
             var rand = new Random(DateTime.Now.Millisecond);
 
             int nEvents = 0;
-            
-            Dictionary<int, int> bins = new Dictionary<int, int>();
-            
-            for (int sampleIndex = 0; sampleIndex < nSamples; sampleIndex++)
+
+            List<double> values = new List<double>(nSamples);
+
+            while (nEvents < nSamples)
             {
                 double x = rand.NextDouble();
                 double y = rand.NextDouble();
@@ -33,18 +33,30 @@ namespace RadiusMonteCarlo
                     continue;
                 }
                 nEvents++;
-
                 minR = Math.Min(minR, r);
                 maxR = Math.Max(maxR, r);
- 
-                // find bin index
-                var binIndex = BinIndex(minR, maxR, nBins, r);
-                bins[binIndex]++;
+                values.Add(r);
             }
 
-            var binWidth = (maxR - minR) / nBins;
-            return new ProbabilityDistribution(minR, maxR, binWidth, bins, nEvents);
+            return CreateProbabilityDistribution(values, nBins, minR, maxR);
         }
-        
+
+        private static ProbabilityDistribution CreateProbabilityDistribution(List<double> values, int nBins, double min, double max)
+        {
+            int nEvents = values.Count;
+            Dictionary<int, int> bins = new Dictionary<int, int>();
+            values.ForEach(value =>
+            {
+                var binIndex = BinIndex(min, max, nBins, value);
+                if (bins.ContainsKey(binIndex) == false)
+                {
+                    bins.Add(binIndex, 0);
+                }
+                bins[binIndex]++;
+            });
+            var binWidth = (max - min) / nBins;
+            return new ProbabilityDistribution(min, max, binWidth, bins, nEvents);
+        }
+
     }
 }

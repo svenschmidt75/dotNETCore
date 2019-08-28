@@ -35,7 +35,7 @@ namespace RadiusMonteCarlo
         {
             int binIndex = BinIndex(_min, _max, _bins.Count, value);
             var nEventsInBin = _bins[binIndex];
-            var probability = nEventsInBin / _nEvents;
+            var probability = (double)nEventsInBin / _nEvents;
             return probability;
         }
         

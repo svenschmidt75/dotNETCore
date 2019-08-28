@@ -25,9 +25,10 @@ namespace RadiusMonteCarlo
 
             while (nEvents < nSamples)
             {
-                double x = rand.NextDouble();
-                double y = rand.NextDouble();
-                var r = Math.Sqrt((x - 0.5) * (x - 0.5) + (y - 0.5) * (y - 0.5));
+                // generate -1 <= x, y <= 1
+                double x = 2 * rand.NextDouble() - 1.0;
+                double y = 2 * rand.NextDouble() - 1.0;
+                var r = Math.Sqrt(x * x + y * y);
                 if (r > 1)
                 {
                     continue;

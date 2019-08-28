@@ -9,10 +9,12 @@ namespace Tests
         {
             // Arrange
             // Act
-            var probabilityDistribution = RadiusMonteCarlo.RadiusMonteCarlo.Run(100, 10);
+            var probabilityDistribution = RadiusMonteCarlo.RadiusMonteCarlo.Run(100_000, 100);
 
             // Assert
             var probability = probabilityDistribution.Probability(0.1);
+            
+            probabilityDistribution.Plot();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace RadiusMonteCarlo
                 bins[binIndex]++;
             });
             var binWidth = (max - min) / nBins;
-            return new ProbabilityDistribution(min, max, binWidth, bins, nEvents);
+            return new ProbabilityDistribution(min, max, binWidth, bins, nBins, nEvents);
         }
 
     }

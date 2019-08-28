@@ -25,8 +25,6 @@ namespace Matching
 
             StartMapping(target, source, offset, skipPenalty, penalties);
 
-            PrintPenaltyGrid(target.Count, source.Count, penalties, outputText);
-
             for (int targetId = _startTargetId; targetId < target.Count; targetId++)
             {
 

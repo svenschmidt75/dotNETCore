@@ -11,6 +11,31 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.0/build/netcoreapp2.1/nunit.engine.api.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.0/build/netcoreapp2.1/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="DoubleLinkedList" t="IncludeRecursive">
+        <e p="DoubleLinkedList.csproj" t="IncludeRecursive" />
+        <e p="DoublyLinkedList.cs" t="Include" />
+        <e p="Node.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="DoubleLinkedList.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="DoubleLinkedList.Test" t="IncludeRecursive">
+        <e p="DoubleLinkedList.Test.csproj" t="IncludeRecursive" />
+        <e p="DoubleLinkedListTest.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="DoubleLinkedList.Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="LinkedList" t="IncludeRecursive">
         <e p="LinkedList.cs" t="Include" />
         <e p="LinkedList.csproj" t="IncludeRecursive" />

@@ -4,6 +4,17 @@ namespace LinkedList
 {
     public class LinkedList<T>
     {
+        public LinkedList()
+        {
+        }
+
+        public LinkedList(Node<T> head, Node<T> tail)
+        {
+            Head = head;
+            Tail = tail;
+            // TODO SS: initialize Length
+        }
+
         public Node<T> Head { get; set; }
         public Node<T> Tail { get; set; }
         private int Length { get; set; }

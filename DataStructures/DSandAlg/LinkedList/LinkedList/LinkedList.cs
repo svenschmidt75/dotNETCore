@@ -62,7 +62,15 @@ namespace LinkedList
             else
             {
                 var parent = At(index - 1);
-                parent.Next = parent.Next.Next;
+                if (parent.Next == Tail)
+                {
+                    // SS: we are removing the tail
+                    Tail = parent;
+                }
+                else
+                {
+                    parent.Next = parent.Next.Next;
+                }
                 Length--;
             }
         }

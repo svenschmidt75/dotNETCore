@@ -54,7 +54,7 @@ namespace LinkedList.Test
         }
 
         [Test]
-        public void Remove()
+        public void RemoveHead()
         {
             // Arrange
             var linkedList = new LinkedList<int>();
@@ -67,7 +67,22 @@ namespace LinkedList.Test
             // Assert
             var node = linkedList.At(0);
             Assert.AreEqual(2, node.Value);
+        }
 
+        [Test]
+        public void RemoveTail()
+        {
+            // Arrange
+            var linkedList = new LinkedList<int>();
+            linkedList.Append(10);
+            linkedList.Append(2);
+            
+            // Act
+            linkedList.Remove(1);
+
+            // Assert
+            var node = linkedList.At(0);
+            Assert.AreEqual(10, node.Value);
         }
 
     }

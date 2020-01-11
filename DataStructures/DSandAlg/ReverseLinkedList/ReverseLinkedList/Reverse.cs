@@ -28,5 +28,28 @@ namespace ReverseLinkedList
             currentNode.Next = n;
             return (head, n);
         }
+
+        public static void ReverseNonRecursion<T>(this LinkedList<T> master)
+        {
+            var first = master.Head;
+            if (first.Next == null)
+            {
+                // SS: only one element in linked list
+                return;
+            }
+            master.Tail = first;
+            var second = first.Next;
+            while (second != null)
+            {
+                var third = second.Next;
+                second.Next = first;
+                first = second;
+                second = third;
+            }
+
+            master.Head = first;
+            master.Tail.Next = null;
+        }
+        
     }
 }

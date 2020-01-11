@@ -6,7 +6,7 @@ namespace ReverseLinkedList.Test
     public class ReverseLinkedListTest
     {
         [Test]
-        public void Reverse1()
+        public void ReverseRecursive()
         {
             // Arrange
             var linkedList = new LinkedList.LinkedList<int>();
@@ -18,6 +18,23 @@ namespace ReverseLinkedList.Test
             
             // Act
             var reverse = linkedList.ReverseLinkedList();
+
+            // Assert
+        }
+
+        [Test]
+        public void ReverseNonRecursive()
+        {
+            // Arrange
+            var linkedList = new LinkedList.LinkedList<int>();
+            linkedList.Append(1);
+            linkedList.Append(10);
+            linkedList.Append(16);
+            linkedList.Append(99);
+            linkedList.Append(88);
+            
+            // Act
+            linkedList.ReverseNonRecursion();
 
             // Assert
         }

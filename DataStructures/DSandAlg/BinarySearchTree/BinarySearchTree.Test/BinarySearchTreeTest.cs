@@ -49,5 +49,70 @@ namespace BinarySearchTree.Test
             var flattened = bst.TraverseInOrder();
             CollectionAssert.AreEqual(new[] {101, 102, 105, 144, 231}, flattened);
         }
+
+        [Test]
+        public void TestFindNode()
+        {
+            // Arrange
+            var bst = new BinarySearchTree<int>();
+            bst.Insert(41);
+            bst.Insert(65);
+            bst.Insert(50);
+            bst.Insert(91);
+            bst.Insert(99);
+
+            // Act
+            var (found, parent, child) = bst.FindNode(91);
+
+            // Assert
+            Assert.True(found);
+            Assert.AreEqual(65, parent.Value);
+            Assert.AreEqual(91, child.Value);
+        }
+        
+        [Test]
+        public void TestMinimumNodeNoLeftSubtree()
+        {
+            // Arrange
+            var bst = new BinarySearchTree<int>();
+            bst.Insert(41);
+            bst.Insert(65);
+            bst.Insert(50);
+            bst.Insert(91);
+            bst.Insert(99);
+            var (_, parent, child) = bst.FindNode(91);
+
+            // Act
+            var (p, c) = bst.FindSmallestNode(parent, child);
+
+            // Assert
+            Assert.AreEqual(65, parent.Value);
+            Assert.AreEqual(91, child.Value);
+        }
+
+        [Test]
+        public void TestMinimumNode()
+        {
+            // Arrange
+            var bst = new BinarySearchTree<int>();
+            bst.Insert(41);
+            bst.Insert(65);
+            bst.Insert(50);
+            bst.Insert(91);
+            bst.Insert(99);
+            bst.Insert(72);
+            bst.Insert(68);
+            bst.Insert(70);
+            var (_, parent, child) = bst.FindNode(91);
+
+            // Act
+            var (p, c) = bst.FindSmallestNode(parent, child);
+
+            // Assert
+            Assert.AreEqual(72, p.Value);
+            Assert.AreEqual(68, c.Value);
+        }
+
+        
     }
 }

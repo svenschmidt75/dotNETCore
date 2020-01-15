@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindCommonParentInTree", "FindCommonParentInTree\FindCommonParentInTree.csproj", "{053A2206-1DB0-404C-98E3-C3339A856420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindCommonParentInTree.Test", "FindCommonParentInTree.Test\FindCommonParentInTree.Test.csproj", "{58C19601-9509-4B94-A6A8-653FCCF8F8AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{053A2206-1DB0-404C-98E3-C3339A856420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053A2206-1DB0-404C-98E3-C3339A856420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053A2206-1DB0-404C-98E3-C3339A856420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053A2206-1DB0-404C-98E3-C3339A856420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C19601-9509-4B94-A6A8-653FCCF8F8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C19601-9509-4B94-A6A8-653FCCF8F8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C19601-9509-4B94-A6A8-653FCCF8F8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C19601-9509-4B94-A6A8-653FCCF8F8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

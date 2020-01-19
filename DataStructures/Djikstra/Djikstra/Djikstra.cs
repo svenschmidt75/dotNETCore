@@ -12,7 +12,7 @@ namespace Djikstra
         /// with the smallest weight.
         ///
         /// Note: One weakness of Djikstra is that is blindly follows the smallest edges,
-        /// no matter weather it actually moves closer to the end node. This is where A*
+        /// no matter whether it actually moves closer to the end node. This is where A*
         /// comes in...
         /// </summary>
         public static IEnumerable<Node> Run(Graph graph)

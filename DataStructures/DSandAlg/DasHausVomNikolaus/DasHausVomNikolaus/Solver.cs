@@ -62,6 +62,9 @@ namespace DasHausVomNikolaus
         {
             var index = startIndex;
             var connectedNodes = _graph[index];
+            
+            // SS: this is using DFS
+            
             foreach (var targetNode in connectedNodes)
             {
                 // SS: have we visited this edge already?

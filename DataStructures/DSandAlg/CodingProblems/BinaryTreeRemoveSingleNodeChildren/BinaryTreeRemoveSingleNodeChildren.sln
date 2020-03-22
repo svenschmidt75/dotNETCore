@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeRemoveSingleNodeChildren", "BinaryTreeRemoveSingleNodeChildren\BinaryTreeRemoveSingleNodeChildren.csproj", "{2D927393-370D-4988-8F18-FF1EDD0447C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeRemoveSingleNodeChildren.Test", "BinaryTreeRemoveSingleNodeChildren.Test\BinaryTreeRemoveSingleNodeChildren.Test.csproj", "{58DDA279-32BF-47AD-AC70-2B679B054CAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D927393-370D-4988-8F18-FF1EDD0447C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D927393-370D-4988-8F18-FF1EDD0447C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D927393-370D-4988-8F18-FF1EDD0447C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D927393-370D-4988-8F18-FF1EDD0447C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58DDA279-32BF-47AD-AC70-2B679B054CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58DDA279-32BF-47AD-AC70-2B679B054CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58DDA279-32BF-47AD-AC70-2B679B054CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58DDA279-32BF-47AD-AC70-2B679B054CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

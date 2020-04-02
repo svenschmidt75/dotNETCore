@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleProblem1", "GoogleProblem1\GoogleProblem1.csproj", "{5B18AB78-BE3C-462A-B6C4-CEB90C261AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingProblem1.Test", "CodingProblem1.Test\CodingProblem1.Test.csproj", "{370ACCEA-5379-4431-83CA-A2D8FF14F668}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B18AB78-BE3C-462A-B6C4-CEB90C261AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B18AB78-BE3C-462A-B6C4-CEB90C261AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B18AB78-BE3C-462A-B6C4-CEB90C261AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B18AB78-BE3C-462A-B6C4-CEB90C261AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370ACCEA-5379-4431-83CA-A2D8FF14F668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370ACCEA-5379-4431-83CA-A2D8FF14F668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370ACCEA-5379-4431-83CA-A2D8FF14F668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370ACCEA-5379-4431-83CA-A2D8FF14F668}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

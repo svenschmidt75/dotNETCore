@@ -19,7 +19,7 @@ namespace GoogleProblem1
             return indices;
         }
 
-        public static bool FindNodeInTree(Node root, int nodeIndex)
+        public static bool FindNodeInTree1(Node root, int nodeIndex)
         {
             if (root == null) return false;
             if (nodeIndex < 1) return false;
@@ -52,6 +52,36 @@ namespace GoogleProblem1
             }
 
             return false;
+        }
+
+        public static bool FindNodeInTree2(Node root, int nodeIndex)
+        {
+            if (root == null) return false;
+            if (nodeIndex < 1) return false;
+
+            var indexPath = CalculateIndices(nodeIndex);
+            var positionIndexPath = 1;
+
+            var parent = root;
+            var idx = 1;
+
+            while (parent != null && idx != nodeIndex)
+            {
+                if (indexPath[positionIndexPath] == 2 * idx)
+                {
+                    parent = parent.Left;
+                    idx *= 2;
+                }
+                else if (indexPath[positionIndexPath] == 2 * idx + 1)
+                {
+                    parent = parent.Right;
+                    idx = 2 * idx + 1;
+                }
+
+                positionIndexPath++;
+            }
+
+            return parent != null;
         }
     }
 }

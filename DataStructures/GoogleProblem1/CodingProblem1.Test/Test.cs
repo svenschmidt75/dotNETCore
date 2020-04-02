@@ -49,33 +49,73 @@ namespace CodingProblem1.Test
             var node1 = CreateBinaryTree();
 
             // Act
-            var found = FindNodeByIndex.FindNodeInTree(node1, 10);
+            var found = FindNodeByIndex.FindNodeInTree1(node1, 10);
+
+            // Assert
+            Assert.True(found);
+        }
+
+
+        [Test]
+        public void TestFindNode10_2()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+
+            // Act
+            var found = FindNodeByIndex.FindNodeInTree2(node1, 10);
 
             // Assert
             Assert.True(found);
         }
 
         [Test]
-        public void TestFindNode11()
+        public void TestFindNode11_1()
         {
             // Arrange
             var node1 = CreateBinaryTree();
 
             // Act
-            var found = FindNodeByIndex.FindNodeInTree(node1, 11);
+            var found = FindNodeByIndex.FindNodeInTree1(node1, 11);
 
             // Assert
             Assert.False(found);
         }
 
         [Test]
-        public void TestFindRootNode()
+        public void TestFindNode11_2()
         {
             // Arrange
             var node1 = CreateBinaryTree();
 
             // Act
-            var found = FindNodeByIndex.FindNodeInTree(node1, 1);
+            var found = FindNodeByIndex.FindNodeInTree2(node1, 11);
+
+            // Assert
+            Assert.False(found);
+        }
+
+        [Test]
+        public void TestFindRootNode_1()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+
+            // Act
+            var found = FindNodeByIndex.FindNodeInTree1(node1, 1);
+
+            // Assert
+            Assert.True(found);
+        }
+
+        [Test]
+        public void TestFindRootNode_2()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+
+            // Act
+            var found = FindNodeByIndex.FindNodeInTree2(node1, 1);
 
             // Assert
             Assert.True(found);
@@ -83,6 +123,18 @@ namespace CodingProblem1.Test
 
         [Test]
         public void TestGenerateIndices()
+        {
+            // Arrange
+
+            // Act
+            var indices = FindNodeByIndex.CalculateIndices(11);
+
+            // Assert
+            CollectionAssert.AreEqual(new[] {1, 2, 5, 11}, indices);
+        }
+
+        [Test]
+        public void TestGenerateIndices_1()
         {
             // Arrange
 

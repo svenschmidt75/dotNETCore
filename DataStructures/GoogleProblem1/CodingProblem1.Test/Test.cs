@@ -144,5 +144,33 @@ namespace CodingProblem1.Test
             // Assert
             CollectionAssert.AreEqual(new[] {1, 2, 5, 11}, indices);
         }
+
+        [Test]
+        public void TestNumberOfNodes1()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+
+            // Act
+            var nNodes = FindNodeByIndex.NumberOfNodes(node1);
+
+            // Assert
+            Assert.AreEqual(10, nNodes);
+        }
+
+        [Test]
+        public void TestNumberOfNodes2()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+            node1.Left.Right.Right = new Node{Value = "11"};
+
+            // Act
+            var nNodes = FindNodeByIndex.NumberOfNodes(node1);
+
+            // Assert
+            Assert.AreEqual(11, nNodes);
+        }
+        
     }
 }

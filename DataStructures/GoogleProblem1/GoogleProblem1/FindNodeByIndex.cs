@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -83,5 +84,73 @@ namespace GoogleProblem1
 
             return parent != null;
         }
+
+        public static int FindHeight(Node node)
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+
+            return 1 + FindHeight(node.Left);
+        }
+
+        public static int BinarySearch(Node root, int minIndex, int maxIndex)
+        {
+            // SS: Binary search at O(log n), each step is O(log n), so total is O(log^2 n).
+            // Note: range is [min, max), i.e. min is inclusive, max exclusive
+            int lastIndex = -1;
+            int min = minIndex;
+            int max = maxIndex;
+            int mid;
+
+            do
+            {
+                mid = (min + max) / 2;
+                if (FindNodeInTree1(root, mid))
+                {
+                    // SS: node was found
+                    min = mid + 1;
+                    lastIndex = mid;
+                }
+                else
+                {
+                    max = mid;
+                }
+            } while (min < max);
+
+            return lastIndex;
+        }
+        
+        public static int NumberOfNodes(Node root)
+        {
+            /* Find number of nodes in a complete binary tree...
+             * Approach 1: Do tree traversal at O(n) cost
+             * Approach 2: Traverse the left subtrees to find the height of the tree at O(log n).
+             *             Since the tree is complete, this is the only level that might
+             *             not be complete. We need to find the right-most node on this
+             *             level. The first node on that level has index 2^{height - 1},
+             *             and the last one has index 2^{height}-1. For all those nodes,
+             *             we check if their index exists, from left to right. This will
+             *             take runtime: at most half of the nodes are at the deepest level,
+             *             and for each one, we have to run FindNodeInTree at O(log n), hence
+             *             total runtime is O(n log n).
+             * Approach 3: Traverse the left subtrees to find the height of the tree at O(log n).
+             *             Indices for nodes at the last level are: [2^{height - 1}, 2^{height} - 1].
+             *             For the indices, do binary search at O(log n). Total runtime: O(log^2 n)!!!
+             */
+            if (root == null)
+            {
+                return 0;
+            }
+            
+            // SS: find height of tree at O(log n)
+            int height = FindHeight(root);
+            int minNodeIndex = (int)Math.Pow(2, height - 1);
+            int maxNodeIndex = 2 * minNodeIndex;
+            var nNodes = BinarySearch(root, minNodeIndex, maxNodeIndex);
+            return nNodes;
+        }
+        
     }
 }

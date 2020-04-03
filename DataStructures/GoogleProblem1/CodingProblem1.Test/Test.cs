@@ -172,5 +172,20 @@ namespace CodingProblem1.Test
             Assert.AreEqual(11, nNodes);
         }
         
+        [Test]
+        public void TestNumberOfNodesRoot()
+        {
+            // Arrange
+            var node1 = CreateBinaryTree();
+            node1.Left = null;
+            node1.Right = null;
+
+            // Act
+            var nNodes = FindNodeByIndex.NumberOfNodes(node1);
+
+            // Assert
+            Assert.AreEqual(1, nNodes);
+        }
+
     }
 }

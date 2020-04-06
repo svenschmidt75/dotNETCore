@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTree", "AVLTree\AVLTree.csproj", "{3814913B-3A75-4BDE-889B-4F38649849FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTree.Test", "AVLTree.Test\AVLTree.Test.csproj", "{D104970D-E35D-4D7F-91D0-26F630AACA4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3814913B-3A75-4BDE-889B-4F38649849FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3814913B-3A75-4BDE-889B-4F38649849FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3814913B-3A75-4BDE-889B-4F38649849FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3814913B-3A75-4BDE-889B-4F38649849FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D104970D-E35D-4D7F-91D0-26F630AACA4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D104970D-E35D-4D7F-91D0-26F630AACA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D104970D-E35D-4D7F-91D0-26F630AACA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D104970D-E35D-4D7F-91D0-26F630AACA4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

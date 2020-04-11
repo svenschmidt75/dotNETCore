@@ -6,6 +6,112 @@ namespace AVLTree.Test
     public class AVLTreeTest
     {
         [Test]
+        public void TestDeleteNodeLeftRightChildren()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+            avlTree.Insert(5);
+            avlTree.Insert(2);
+            avlTree.Insert(8);
+            avlTree.Insert(1);
+            avlTree.Insert(6);
+            avlTree.Insert(9);
+            avlTree.Insert(7);
+
+            // Act
+            avlTree.Remove(8);
+
+            // Assert
+            Assert.AreEqual(7, avlTree.Root.Right.Value);
+        }
+
+        [Test]
+        public void TestDeleteNodeNoChildren()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+            avlTree.Insert(5);
+            avlTree.Insert(2);
+            avlTree.Insert(8);
+            avlTree.Insert(6);
+            avlTree.Insert(9);
+
+            // Act
+            avlTree.Remove(2);
+
+            // Assert
+            Assert.IsNull(avlTree.Root.Left);
+        }
+
+        [Test]
+        public void TestDeleteNodeNoLeftChild()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+            avlTree.Insert(5);
+            avlTree.Insert(2);
+            avlTree.Insert(8);
+            avlTree.Insert(9);
+
+            // Act
+            avlTree.Remove(8);
+
+            // Assert
+            Assert.AreEqual(9, avlTree.Root.Right.Value);
+        }
+
+        [Test]
+        public void TestDeleteNodeNoRightChild()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+            avlTree.Insert(5);
+            avlTree.Insert(2);
+            avlTree.Insert(8);
+            avlTree.Insert(6);
+
+            // Act
+            avlTree.Remove(8);
+
+            // Assert
+            Assert.AreEqual(6, avlTree.Root.Right.Value);
+        }
+
+        [Test]
+        public void TestDoubleLeftHeavy()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+
+            // Act
+            avlTree.Insert(3);
+            avlTree.Insert(2);
+            avlTree.Insert(1);
+
+            // Assert
+            Assert.AreEqual(2, avlTree.Root.Value);
+            Assert.AreEqual(1, avlTree.Root.Left.Value);
+            Assert.AreEqual(3, avlTree.Root.Right.Value);
+        }
+
+        [Test]
+        public void TestDoubleRightHeavy()
+        {
+            // Arrange
+            var avlTree = AVLTree.Create();
+
+            // Act
+            avlTree.Insert(3);
+            avlTree.Insert(4);
+            avlTree.Insert(5);
+
+            // Assert
+            Assert.AreEqual(4, avlTree.Root.Value);
+            Assert.AreEqual(3, avlTree.Root.Left.Value);
+            Assert.AreEqual(5, avlTree.Root.Right.Value);
+        }
+
+        [Test]
         public void TestHeight()
         {
             // Arrange
@@ -48,40 +154,6 @@ namespace AVLTree.Test
         }
 
         [Test]
-        public void TestDoubleLeftHeavy()
-        {
-            // Arrange
-            var avlTree = AVLTree.Create();
-
-            // Act
-            avlTree.Insert(3);
-            avlTree.Insert(2);
-            avlTree.Insert(1);
-
-            // Assert
-            Assert.AreEqual(2, avlTree.Root.Value);
-            Assert.AreEqual(1, avlTree.Root.Left.Value);
-            Assert.AreEqual(3, avlTree.Root.Right.Value);
-        }
-
-        [Test]
-        public void TestDoubleRightHeavy()
-        {
-            // Arrange
-            var avlTree = AVLTree.Create();
-
-            // Act
-            avlTree.Insert(3);
-            avlTree.Insert(4);
-            avlTree.Insert(5);
-
-            // Assert
-            Assert.AreEqual(4, avlTree.Root.Value);
-            Assert.AreEqual(3, avlTree.Root.Left.Value);
-            Assert.AreEqual(5, avlTree.Root.Right.Value);
-        }
-        
-        [Test]
         public void TestLeftRightHeavy()
         {
             // Arrange
@@ -114,6 +186,5 @@ namespace AVLTree.Test
             Assert.AreEqual(5, avlTree.Root.Left.Value);
             Assert.AreEqual(8, avlTree.Root.Right.Value);
         }
-
     }
 }

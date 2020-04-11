@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Diagnostics;
+
+#endregion
 
 namespace AVLTree
 {
@@ -48,14 +52,15 @@ namespace AVLTree
         {
             var balanceFactor = BalanceFactor(node);
 
-            // SS: Case 1: double-left heavy
             if (balanceFactor > 1)
             {
+                // SS: imbalance in left subtree
+
                 if (value < node.Left.Value)
                 {
                     Console.WriteLine($"Node {node.Value}: left-left heavy");
 
-                    // SS: double-left heavy
+                    // SS: left-left heavy
                     node = RotateRight(node);
                 }
                 else
@@ -69,11 +74,12 @@ namespace AVLTree
             }
             else if (balanceFactor < -1)
             {
+                // SS: imbalance in right subtree
                 if (value > node.Right.Value)
                 {
                     Console.WriteLine($"Node {node.Value}: right-right heavy");
 
-                    // SS: double-right heavy
+                    // SS: right-right heavy
                     node = RotateLeft(node);
                 }
                 else
@@ -181,16 +187,20 @@ namespace AVLTree
 
                 // Case 1: no children
                 if (node.Left == null && node.Right == null)
+                {
                     // SS: nothing to do
                     return null;
+                }
 
                 // Case 2: left child, no right child
-                if (node.Left != null && node.Right == null)
+                if (node.Right == null)
+                {
                     // SS: return left child as the new node
                     return node.Left;
+                }
 
                 // Case 3: no left child, right child
-                if (node.Right != null && node.Left == null)
+                if (node.Left == null)
                 {
                     // SS: return right child as the new node
                     return node.Right;
@@ -202,14 +212,73 @@ namespace AVLTree
                 var n = FindAndDetachLargestNode(node, node.Left);
                 n.Left = node.Left;
                 n.Right = node.Right;
-                return n;
+                node = n;
             }
 
-            if (node.Left != null && value < node.Value) node.Left = RemoveInternal(node.Left, value);
+            if (node.Left != null && value < node.Value)
+            {
+                node.Left = RemoveInternal(node.Left, value);
+            }
 
-            if (node.Right != null && value > node.Value) node.Right = RemoveInternal(node.Right, value);
+            if (node.Right != null && value > node.Value)
+            {
+                node.Right = RemoveInternal(node.Right, value);
+            }
 
-            // SS: node does not exist in tree
+            // SS: Update height
+            node.Height = UpdateHeight(node);
+
+            node = FixViolations(node);
+            
+            return node;
+        }
+
+        private static Node FixViolations(Node node)
+        {
+            var balanceFactor = BalanceFactor(node);
+
+            // SS: Case 1: double-left heavy
+            if (balanceFactor > 1)
+            {
+                // SS: imbalance in left subtree
+                
+                if (BalanceFactor(node.Left) >= 0)
+                {
+                    Console.WriteLine($"Node {node.Value}: left-left heavy");
+
+                    // SS: left-left heavy
+                    node = RotateRight(node);
+                }
+                else
+                {
+                    Console.WriteLine($"Node {node.Value}: left-right heavy");
+
+                    // SS: left-right heavy
+                    node.Left = RotateLeft(node.Left);
+                    node = RotateRight(node);
+                }
+            }
+            else if (balanceFactor < -1)
+            {
+                // SS: imbalance in right subtree
+
+                if (BalanceFactor(node.Right) <= 0)
+                {
+                    Console.WriteLine($"Node {node.Value}: right-right heavy");
+
+                    // SS: right-right heavy
+                    node = RotateLeft(node);
+                }
+                else
+                {
+                    Console.WriteLine($"Node {node.Value}: right-left heavy");
+
+                    // SS: right-left heavy
+                    node.Right = RotateRight(node.Right);
+                    node = RotateLeft(node);
+                }
+            }
+
             return node;
         }
 

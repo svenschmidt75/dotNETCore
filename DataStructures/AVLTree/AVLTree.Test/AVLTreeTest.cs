@@ -1,4 +1,8 @@
-﻿using NUnit.Framework;
+﻿#region
+
+using NUnit.Framework;
+
+#endregion
 
 namespace AVLTree.Test
 {
@@ -29,6 +33,12 @@ namespace AVLTree.Test
         public void TestDeleteNodeNoChildren()
         {
             // Arrange
+            /*
+             *          5
+             *      2       8
+             *           6     9
+             */
+            
             var avlTree = AVLTree.Create();
             avlTree.Insert(5);
             avlTree.Insert(2);
@@ -40,7 +50,13 @@ namespace AVLTree.Test
             avlTree.Remove(2);
 
             // Assert
-            Assert.IsNull(avlTree.Root.Left);
+            /*
+             *          8
+             *     5       9
+             *       6
+             */
+            Assert.AreEqual(5, avlTree.Root.Left.Value);
+            Assert.AreEqual(6, avlTree.Root.Left.Right.Value);
         }
 
         [Test]

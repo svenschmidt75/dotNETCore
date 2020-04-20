@@ -20,14 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eede069e-66ba-4cd6-89ac-a33843291b3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/.idea.Kruskal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kruskal/UnionFindDS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kruskal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kruskal/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kruskal/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kruskal/Kruskal.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kruskal/Kruskal.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +34,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Kruskal/Class1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kruskal/UnionFindDS.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kruskal/Graph.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Kruskal/UnionFindDS.cs" />
         <option value="$PROJECT_DIR$/Kruskal/Class1.cs" />
+        <option value="$PROJECT_DIR$/Kruskal/UndirectedGraph.cs" />
+        <option value="$PROJECT_DIR$/Kruskal/Graph.cs" />
       </list>
     </option>
   </component>
@@ -58,6 +56,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34988055" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29997346" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -74,13 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1587413070500</updated>
       <workItem from="1587413075754" duration="413000" />
+      <workItem from="1587413552565" duration="1438000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -92,8 +93,99 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="445" height="646" key="DebuggerActiveHint" timestamp="1587414688157">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="445" height="646" key="DebuggerActiveHint/0.32.3840.1568@0.32.3840.1568" timestamp="1587414688157" />
+    <state width="3798" height="563" key="GridCell.Tab.0.bottom" timestamp="1587414720642">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.0.bottom/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720642" />
+    <state width="3798" height="563" key="GridCell.Tab.0.center" timestamp="1587414720640">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.0.center/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720640" />
+    <state width="3798" height="563" key="GridCell.Tab.0.left" timestamp="1587414720639">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.0.left/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720639" />
+    <state width="3798" height="563" key="GridCell.Tab.0.right" timestamp="1587414720641">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.0.right/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720641" />
+    <state width="3798" height="563" key="GridCell.Tab.1.bottom" timestamp="1587414720646">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.1.bottom/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720646" />
+    <state width="3798" height="563" key="GridCell.Tab.1.center" timestamp="1587414720645">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.1.center/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720645" />
+    <state width="3798" height="563" key="GridCell.Tab.1.left" timestamp="1587414720643">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.1.left/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720643" />
+    <state width="3798" height="563" key="GridCell.Tab.1.right" timestamp="1587414720646">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.1.right/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720646" />
+    <state width="3798" height="563" key="GridCell.Tab.2.bottom" timestamp="1587414720649">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.2.bottom/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720649" />
+    <state width="3798" height="563" key="GridCell.Tab.2.center" timestamp="1587414720648">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.2.center/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720648" />
+    <state width="3798" height="563" key="GridCell.Tab.2.left" timestamp="1587414720647">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.2.left/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720647" />
+    <state width="3798" height="563" key="GridCell.Tab.2.right" timestamp="1587414720648">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.2.right/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720648" />
+    <state width="3798" height="563" key="GridCell.Tab.3.bottom" timestamp="1587414720651">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.3.bottom/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720651" />
+    <state width="3798" height="563" key="GridCell.Tab.3.center" timestamp="1587414720650">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.3.center/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720650" />
+    <state width="3798" height="563" key="GridCell.Tab.3.left" timestamp="1587414720649">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.3.left/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720649" />
+    <state width="3798" height="563" key="GridCell.Tab.3.right" timestamp="1587414720651">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.3.right/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720651" />
+    <state width="3798" height="563" key="GridCell.Tab.4.bottom" timestamp="1587414720654">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.4.bottom/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720654" />
+    <state width="3798" height="563" key="GridCell.Tab.4.center" timestamp="1587414720653">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.4.center/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720653" />
+    <state width="3798" height="563" key="GridCell.Tab.4.left" timestamp="1587414720652">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.4.left/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720652" />
+    <state width="3798" height="563" key="GridCell.Tab.4.right" timestamp="1587414720653">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state width="3798" height="563" key="GridCell.Tab.4.right/0.32.3840.1568@0.32.3840.1568" timestamp="1587414720653" />
+    <state x="1578" y="487" width="683" height="658" key="find.popup" timestamp="1587414312101">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state x="1578" y="487" width="683" height="658" key="find.popup/0.32.3840.1568@0.32.3840.1568" timestamp="1587414312101" />
   </component>
 </project>

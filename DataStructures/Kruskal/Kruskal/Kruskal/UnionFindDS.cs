@@ -1,4 +1,8 @@
+#region
+
 using System.Collections.Generic;
+
+#endregion
 
 namespace Kruskal
 {
@@ -21,16 +25,17 @@ namespace Kruskal
         public static UnionFindDS MakeSet(int size)
         {
             var disjointSet = new UnionFindDS(size);
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
                 var node = new Node
                 {
                     NodeId = i
                     , Height = 0
-                    , ParentNode = null 
+                    , ParentNode = null
                 };
                 disjointSet._nodes.Add(node);
             }
+
             return disjointSet;
         }
 
@@ -38,17 +43,17 @@ namespace Kruskal
         {
             // SS: Note that we are not updating the height/rank after path compression,
             // because there is not efficient way to do so.
-            
+
             // SS: return the root node id
-            Node node = _nodes[idx];
-            
+            var node = _nodes[idx];
+
             // SS: find the root node (it is the one with ParentNode == null)
             var currentNode = node;
             while (currentNode.ParentNode != null)
             {
                 currentNode = currentNode.ParentNode;
             }
-            
+
             // SS: currentNode is root node
             var rootNode = currentNode;
             currentNode = node;
@@ -95,6 +100,5 @@ namespace Kruskal
                 root1.Height += 1;
             }
         }
-        
     }
 }

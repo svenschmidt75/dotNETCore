@@ -13,11 +13,19 @@ namespace LockableBinaryTree2
     /// We introduce a parent pointer on each node, and also a field IsAnyDescendantLocked,
     /// which we set on a node's parents when locking it.
     /// This allows O(h) lock/unlock operations.
+    ///
+    /// Here, we only allow for one node in the tree to be locked. This rule can be relaxed.
+    /// Locking/unlocking would work almost the same, but instead of IsAnyDescendantLocked,
+    /// we'd have a counter that counts how many descendants are locked.
+    /// The crucial "trick" is to store this field on each node, so we can make lock/unlock
+    /// operate in O(h) (because we only ever traverse the tree up).
     /// </summary>
     public static class LockableBinaryTree
     {
         public static bool Lock(Node node)
         {
+            // SS: If none of node's descendant are locked and none it its parents',
+            // lock node.
             if (node == null)
             {
                 throw new ArgumentException();

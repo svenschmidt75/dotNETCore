@@ -1,13 +1,17 @@
-﻿using System;
+﻿#region
+
+using System;
 using NUnit.Framework;
+
+#endregion
 
 namespace LockableBinaryTree
 {
     /// <summary>
-    /// SS: We add a parent link to each node, effectively turning this tree into a
-    /// graph.
-    /// To check ancestors for locked is O(h) worst-case, where h is the height of the tree.
-    /// To check descendants is O(h) avg. case, but O(n) worst-case.
+    ///     SS: We add a parent link to each node, effectively turning this tree into a
+    ///     graph.
+    ///     To check ancestors for locked is O(h) worst-case, where h is the height of the tree.
+    ///     To check descendants is O(h) avg. case, but O(n) worst-case.
     /// </summary>
     public class LockableTree1
     {
@@ -25,13 +29,13 @@ namespace LockableBinaryTree
                 throw new ArgumentException();
             }
 
-            bool anyAncestorLocked = AnyAncestorLocked(node);
+            var anyAncestorLocked = AnyAncestorLocked(node);
             if (anyAncestorLocked)
             {
                 return false;
             }
 
-            bool anyDescendantLocked = AnyDescendantLocked(node);
+            var anyDescendantLocked = AnyDescendantLocked(node);
             if (anyDescendantLocked)
             {
                 return false;
@@ -43,11 +47,12 @@ namespace LockableBinaryTree
 
         private bool AnyDescendantLocked(Node node)
         {
-            // SS: O(h) avg. case performance (I think)
+            // SS: O(h) avg. case performance (I think), but O(n) worst-case (i.e. call lock on root node)
             if (node == null)
             {
                 return false;
             }
+
             return node.IsLocked || AnyDescendantLocked(node.Left) || AnyDescendantLocked(node.Right);
         }
 
@@ -58,19 +63,25 @@ namespace LockableBinaryTree
             {
                 return false;
             }
+
             return node.IsLocked || AnyAncestorLocked(node.Parent);
         }
-        
-        public void UnLock(Node node)
+
+        public bool UnLock(Node node)
         {
             if (node == null)
             {
                 throw new ArgumentException();
             }
 
+            if (node.IsLocked == false)
+            {
+                return false;
+            }
+
             node.IsLocked = false;
+            return true;
         }
-        
     }
 
     [TestFixture]
@@ -94,47 +105,46 @@ namespace LockableBinaryTree
 
             return new LockableTree1(node1);
         }
-        
+
         [Test]
         public void TestAncestorLocked()
         {
             // Arrange
             var tree = CreateTree();
             tree.Root.IsLocked = true;
-            
+
             // Act
             var nodeLocked = tree.Lock(tree.Root.Left);
 
             // Assert
             Assert.AreEqual(nodeLocked, false);
         }
-        
+
         [Test]
         public void TestDescendantLocked()
         {
             // Arrange
             var tree = CreateTree();
             tree.Root.Left.Right.IsLocked = true;
-            
+
             // Act
             var nodeLocked = tree.Lock(tree.Root.Left);
 
             // Assert
             Assert.AreEqual(nodeLocked, false);
         }
-        
+
         [Test]
         public void TestLocked()
         {
             // Arrange
             var tree = CreateTree();
-            
+
             // Act
             var nodeLocked = tree.Lock(tree.Root.Left);
 
             // Assert
             Assert.AreEqual(nodeLocked, true);
         }
-        
     }
 }

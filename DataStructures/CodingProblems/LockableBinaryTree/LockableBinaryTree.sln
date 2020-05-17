@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockableBinaryTree", "LockableBinaryTree\LockableBinaryTree.csproj", "{26121BE3-7872-48DB-8FB0-E45FA71CA9DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockableBinaryTree2", "LockableBinaryTree2\LockableBinaryTree2.csproj", "{D405366D-F874-4ACF-BC9D-FACD8C0E01C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{26121BE3-7872-48DB-8FB0-E45FA71CA9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26121BE3-7872-48DB-8FB0-E45FA71CA9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26121BE3-7872-48DB-8FB0-E45FA71CA9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D405366D-F874-4ACF-BC9D-FACD8C0E01C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D405366D-F874-4ACF-BC9D-FACD8C0E01C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D405366D-F874-4ACF-BC9D-FACD8C0E01C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D405366D-F874-4ACF-BC9D-FACD8C0E01C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

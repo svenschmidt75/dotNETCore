@@ -1,4 +1,4 @@
-#region
+﻿#region
 
 using System.Collections.Generic;
 using System.Linq;
@@ -7,58 +7,48 @@ using Shared;
 
 #endregion
 
-namespace DisjointSet
+namespace DFS
 {
     public static class FindCycle
     {
         public static bool HasCycle(Graph graph)
         {
-            var nVertices = graph.AdjacencyList.Count;
+            var visited = new HashSet<int>();
 
-            // SS: create disjoint set DS
-            var ds = DisjointSet.MakeSet(nVertices);
+            var startVertex = graph.AdjacencyList.First().Key;
+            visited.Add(startVertex);
 
-            // SS: let's extract edges, although this is not necessary...
-            var edges = GetEdges(graph);
+            var hasCycle = FindCycleDFS(graph, startVertex, startVertex, visited);
 
-            foreach (var edge in edges)
+            return hasCycle;
+        }
+
+        private static bool FindCycleDFS(Graph graph, int vertex, int fromVertex, HashSet<int> visited)
+        {
+            var destVertices = graph.AdjacencyList[vertex];
+            foreach (var toVertex in destVertices)
             {
-                var root1 = ds.Find(edge.Item1);
-                var root2 = ds.Find(edge.Item2);
-                if (root1 == root2)
+                if (visited.Contains(toVertex))
                 {
-                    // SS: both vertices are in the same set, so adding this edge
-                    // would form a cycle.
-                    return true;
+                    // SS: ignore the vertex we came from in cycle detection
+                    if (toVertex != fromVertex)
+                    {
+                        // SS: found cycle
+                        return true;
+                    }
+
+                    continue;
                 }
 
-                ds.Merge(root1, root2);
+                visited.Add(toVertex);
+                if (FindCycleDFS(graph, toVertex, vertex, visited))
+                {
+                    // SS: found cycle
+                    return true;
+                }
             }
 
             return false;
-        }
-
-        private static List<(int start, int end)> GetEdges(Graph graph)
-        {
-            var edges = new HashSet<(int, int)>();
-
-            var adjacencyList = graph.AdjacencyList;
-            foreach (var vertexItem in adjacencyList)
-            {
-                var vertex = vertexItem.Key;
-                var es = vertexItem.Value;
-                foreach (var edge in es)
-                {
-                    if (edges.Contains((vertex, edge)) || edges.Contains((edge, vertex)))
-                    {
-                        continue;
-                    }
-
-                    edges.Add((vertex, edge));
-                }
-            }
-
-            return edges.ToList();
         }
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DisjointSet
+namespace Shared
 {
     public class Graph
     {

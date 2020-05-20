@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad7a8441-b015-40e4-884d-5b41e3e02421" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Djikstra.UnitTest/DjikstraTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Graph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Edge.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/EnumerableHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Djikstra.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Node.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Djikstra.UnitTest/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/Class1.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/Node.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/Edge.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/Graph.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/EnumerableHelper.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7000E29A-4826-4EDA-AE84-6EBEED94FD81/f3/2cd43bc2/Queue`1.cs" />
+        <option value="$PROJECT_DIR$/Djikstra.UnitTest/DjikstraTest.cs" />
+        <option value="$PROJECT_DIR$/Djikstra/Djikstra.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WZzLS8oN8IOru2oe9NZX0aAWsf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.SolutionExplorerActivator" value="true" />
+    <property name="TWShift.4" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad7a8441-b015-40e4-884d-5b41e3e02421" name="Default" comment="" />
+      <created>1501292216690</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1501292216690</updated>
+      <workItem from="1501292218992" duration="5174000" />
+      <workItem from="1501340410932" duration="8621000" />
+      <workItem from="1501369718804" duration="142000" />
+      <workItem from="1501420992595" duration="3179000" />
+      <workItem from="1501949289285" duration="2144000" />
+      <workItem from="1501954801936" duration="2415000" />
+      <workItem from="1502030540231" duration="2710000" />
+      <workItem from="1502043409862" duration="6000" />
+      <workItem from="1579371853239" duration="135000" />
+      <workItem from="1585506363667" duration="112000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1769" y="493" width="992" height="737" key="SettingsEditor" timestamp="1579371938310">
+      <screen x="0" y="32" width="3840" height="1568" />
+    </state>
+    <state x="1769" y="493" width="992" height="737" key="SettingsEditor/0.32.3840.1568@0.32.3840.1568" timestamp="1579371938310" />
+  </component>
+</project>

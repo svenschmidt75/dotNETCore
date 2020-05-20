@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6b70329c-3740-4221-993b-a44566d506fe" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SinglyLinkedList.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+                <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+                <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+                <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utility.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SinglyLinkedList/Utility.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+              <folding>
+                <marker date="1499620978108" expanded="true" signature="46:1327" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="80:1325" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="184:326" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="419:1319" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="491:553" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="626:806" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="689:752" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="839:930" ph="{...}" />
+                <marker date="1499620978108" expanded="true" signature="1063:1177" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnitTest.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2176">
+              <caret line="128" column="40" lean-forward="true" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+              <folding>
+                <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+                <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+                <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/SinglyLinkedList.UnitTest/Class1.cs" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/Program.cs" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/Utility.cs" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="2495" />
+    <option name="height" value="1444" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SinglyLinkedList (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CodeCleanupOptionsPage" />
+    <property name="SearchEverywhereHistoryKey" value="cons&#9;null&#9;null" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.SinglyLinkedList.Test">
+    <configuration default="false" name="SinglyLinkedList.Test" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/SinglyLinkedList.Test/SinglyLinkedList.Test.csproj" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v2.0" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/SinglyLinkedList.Test/bin/Debug/netcoreapp2.0/SinglyLinkedList.Test.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SinglyLinkedList.Test" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.csproj" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v2.0" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/SinglyLinkedList/bin/Debug/netcoreapp2.0/SinglyLinkedList.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SinglyLinkedList" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs>
+        <env name="ASPNETCORE_ENVIRONMENT" value="Production" />
+        <env name="ASPNETCORE_URLS" value="http://localhost:5000" />
+      </envs>
+      <method />
+    </configuration>
+    <configuration />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+      <item index="1" class="java.lang.String" itemvalue=".NET Project.SinglyLinkedList.Test" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue=".NET Project.SinglyLinkedList.Test" />
+      </list>
+    </recent_temporary>
+    <configuration />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b70329c-3740-4221-993b-a44566d506fe" name="Default" comment="" />
+      <created>1499559608505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1499559608505</updated>
+      <workItem from="1499559611690" duration="426000" />
+      <workItem from="1499560059452" duration="398000" />
+      <workItem from="1499560478007" duration="309000" />
+      <workItem from="1499560803755" duration="2691000" />
+      <workItem from="1499607035552" duration="838000" />
+      <workItem from="1499608930301" duration="2527000" />
+      <workItem from="1499620012473" duration="1439000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8628000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="2495" height="1444" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5177334" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5491235" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.49531186" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.4822666" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.49531186" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26416633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.4790053" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39939487" sideWeight="0.49857318" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="33" lean-forward="false" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/Utility.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding>
+            <marker date="1499620978108" expanded="true" signature="46:1327" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="80:1325" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="184:326" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="419:1319" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="491:553" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="626:806" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="689:752" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="839:930" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="1063:1177" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/Utility.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <marker date="1499620978108" expanded="true" signature="46:1327" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="80:1325" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="184:326" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="419:1319" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="491:553" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="626:806" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="689:752" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="839:930" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="1063:1177" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="23" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="23" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/Utility.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <marker date="1499620978108" expanded="true" signature="46:1327" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="80:1325" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="184:326" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="419:1319" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="491:553" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="626:806" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="689:752" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="839:930" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="1063:1177" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.UnitTest/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.UnitTest/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/SinglyLinkedList.Test.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList.Test/UnitTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="128" column="40" lean-forward="true" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+          <folding>
+            <marker date="1499620840605" expanded="true" signature="45:3043" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="73:3041" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="120:380" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="425:598" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="448:478" ph="/* Arrange ... */" />
+            <marker date="1499620840605" expanded="true" signature="650:909" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="964:1190" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1235:1457" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1626:1878" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="1932:2168" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2231:2459" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2522:2750" ph="{...}" />
+            <marker date="1499620840605" expanded="true" signature="2807:3035" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/Utility.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding>
+            <marker date="1499620978108" expanded="true" signature="46:1327" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="80:1325" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="184:326" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="419:1319" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="491:553" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="626:806" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="689:752" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="839:930" ph="{...}" />
+            <marker date="1499620978108" expanded="true" signature="1063:1177" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1499621442719" expanded="true" signature="6:59" ph="..." />
+            <marker date="1499621442719" expanded="true" signature="87:1466" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="94:222" ph="///     Singly linked list, immutable. ... " />
+            <marker date="1499621442719" expanded="true" signature="294:1464" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="481:591" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="799:1007" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1056:1112" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1162:1259" ph="{...}" />
+            <marker date="1499621442719" expanded="true" signature="1316:1458" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

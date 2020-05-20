@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_MazeSolver.-1954981810.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.reporters.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.utility.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="MazeSolver" t="IncludeRecursive">
+        <e p="Astar.cs" t="Include" />
+        <e p="DisposableHelper.cs" t="Include" />
+        <e p="Djikstra.cs" t="Include" />
+        <e p="Edge.cs" t="Include" />
+        <e p="EnumerableHelper.cs" t="Include" />
+        <e p="Graph.cs" t="Include" />
+        <e p="IMaze.cs" t="Include" />
+        <e p="ImageBasedMaze.cs" t="Include" />
+        <e p="MazeHelper.cs" t="Include" />
+        <e p="MazeSolver.csproj" t="IncludeRecursive" />
+        <e p="MazeSolverUtility.cs" t="Include" />
+        <e p="Node.cs" t="Include" />
+        <e p="Point.cs" t="Include" />
+        <e p="SimpleMaze.cs" t="Include" />
+        <e p="SimpleMazeSolver.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="MazeSolver.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="MazeSolver.UnitTest" t="IncludeRecursive">
+        <e p="MazeSolver.UnitTest.csproj" t="IncludeRecursive" />
+        <e p="MazeSolverTest.cs" t="Include" />
+        <e p="MazeToGraphTest.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="MazeSolver.UnitTest.AssemblyInfo.cs" t="Include" />
+              <e p="MazeSolver.UnitTest.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="MazeSolver.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+  <component name="RiderRiderContentModelStore">
+    <excludedPaths />
+  </component>
+</project>

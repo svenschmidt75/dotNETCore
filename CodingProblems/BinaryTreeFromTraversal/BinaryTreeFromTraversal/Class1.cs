@@ -2,6 +2,7 @@
 // Construct a binary tree from given inorder and preorder traversals.
 // Since the output of traversal is not unique for a BT, when given
 // both, we can reconstruct the tree uniquely.
+// https://www.geeksforgeeks.org/construct-a-binary-tree-from-postorder-and-inorder/
 
 #region
 
@@ -333,6 +334,21 @@ namespace BinaryTreeFromTraversal
             // Arrange
             var postorder = new[] {4, 5, 2, 8, 6, 7, 3, 1};
             var inorder = new[] {4, 2, 5, 1, 6, 8, 3, 7};
+
+            // Act
+            var root = Class1.ConstructFromPostOrderAndInOrder(postorder, inorder);
+
+            // Assert
+            CollectionAssert.AreEqual(postorder, Class1.PostOrderTraversal(root));
+            CollectionAssert.AreEqual(inorder, Class1.InOrderTraversal(root));
+        }
+
+        [Test]
+        public void FromPostOrderAndInOrder2()
+        {
+            // Arrange
+            var postorder = new[] {8, 4, 5, 2, 6, 7, 3, 1};
+            var inorder = new[] {4, 8, 2, 5, 1, 6, 3, 7};
 
             // Act
             var root = Class1.ConstructFromPostOrderAndInOrder(postorder, inorder);

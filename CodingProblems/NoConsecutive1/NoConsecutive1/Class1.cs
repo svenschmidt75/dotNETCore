@@ -60,8 +60,27 @@ namespace NoConsecutive1
                 return c1;
             }
         }
-    }
 
+        public static int SolveFast(int n)
+        {
+            // SS: This is the bottom-up approach after realizing that we only ever need to remember the previous
+            // number of 0 and 1.
+            int n0 = 1;
+            int n1 = 1;
+
+            for (int i = 1; i < n; i++)
+            {
+                int nn0 = n0 + n1;
+                int nn1 = n0;
+
+                n0 = nn0;
+                n1 = nn1;
+            }
+
+            return n0 + n1;
+        }
+    }
+    
     [TestFixture]
     public class TestClass
     {
@@ -80,5 +99,22 @@ namespace NoConsecutive1
             // Assert
             Assert.AreEqual(expectedCount, count);
         }
+
+        [TestCase(1, 2)]
+        [TestCase(2, 3)]
+        [TestCase(3, 5)]
+        [TestCase(4, 8)]
+        [TestCase(5, 13)]
+        public void TestFast(int n, int expectedCount)
+        {
+            // Arrange
+
+            // Act
+            var count = Class1.SolveFast(n);
+
+            // Assert
+            Assert.AreEqual(expectedCount, count);
+        }
+        
     }
 }

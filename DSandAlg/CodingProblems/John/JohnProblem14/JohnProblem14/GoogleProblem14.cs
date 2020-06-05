@@ -12,7 +12,7 @@ namespace JohnProblem14
     public class GoogleProblem14
     {
         private readonly bool[] _input;
-        private List<(int priority, int start, int end)> _intervals = new List<(int priority, int start, int end)>();
+        private PriorityQueue<(int start, int end)> _intervals = PriorityQueue<(int start, int end)>.CreateMaxPriorityQueue();
 
         public GoogleProblem14(bool[] input)
         {
@@ -112,8 +112,10 @@ namespace JohnProblem14
                         priority = Math.Max(1, (j - i) / 2);
                     }
 
-                    var interval = (priority, i, j);
-                    _intervals.Add(interval);
+                    var interval = (i, j);
+
+                    // SS: O(log n)
+                    _intervals.Enqueue(interval, priority);
 
                     // SS: a true follows after this false
                     i = j + 1;
@@ -123,14 +125,11 @@ namespace JohnProblem14
                     i++;
                 }
             }
-
-            // SS: sort by priority
-            _intervals = _intervals.OrderByDescending(t => t.priority).ToList();
         }
 
         public int FindIndex()
         {
-            if (_intervals.Any() == false)
+            if (_intervals.IsEmpty)
             {
                 // SS: bench is full, no more people can sit
                 return -1;
@@ -140,8 +139,7 @@ namespace JohnProblem14
 
             // SS: find interval with highest priority
             // With PQ: O(log n)
-            var (priority, start, end) = _intervals[0];
-            _intervals.RemoveAt(0);
+            var (priority, (start, end)) = _intervals.Dequeue();
 
             if (start + 1 == end)
             {
@@ -158,13 +156,13 @@ namespace JohnProblem14
             {
                 // SS: place person on first seat
                 position = start;
-                _intervals.Add((priority - 1, 1, end));
+                _intervals.Enqueue((1, end), priority - 1);
             }
             else if (end == _input.Length)
             {
                 // SS: place person on last seat
                 position = end - 1;
-                _intervals.Add((priority - 1, start, end - 1));
+                _intervals.Enqueue((start, end - 1), priority - 1);
             }
             else
             {
@@ -174,19 +172,16 @@ namespace JohnProblem14
                 if (position > start)
                 {
                     var p = Math.Max(1, (position - start) / 2);
-                    _intervals.Add((p, start, position));
+                    _intervals.Enqueue((start, position), p);
                 }
 
                 // SS: 2nd half of the interval
                 if (position + 1 < end)
                 {
                     var p = Math.Max(1, (end - position) / 2);
-                    _intervals.Add((p, position + 1, end));
+                    _intervals.Enqueue((position + 1, end), p);
                 }
             }
-
-            // SS: sort by priority
-            _intervals = _intervals.OrderByDescending(t => t.priority).ToList();
 
             Console.WriteLine($"{position}");
 

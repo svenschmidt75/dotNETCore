@@ -9,6 +9,10 @@ using NUnit.Framework;
 
 namespace JohnProblem14
 {
+    /// <summary>
+    /// Given a bench, place people on the bench such that their distance is max
+    /// compared to any other person on the bench already.
+    /// </summary>
     public class GoogleProblem14
     {
         private readonly bool[] _input;

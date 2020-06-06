@@ -33,19 +33,26 @@ namespace SortLogFileLines
             var log1StartRhs = log1.IndexOf(' ') + 1;
             var log2StartRhs = log2.IndexOf(' ') + 1;
 
-            // SS: reorder if needed
-            var log1Rhs = log1.Substring(log1StartRhs);
-            var log2Rhs = log2.Substring(log2StartRhs);
-            var comp = log1Rhs.CompareTo(log2Rhs);
-            if (comp == 0)
+            var log1DigitLog = char.IsDigit(log1[log1StartRhs]);
+            var log2DigitLog = char.IsDigit(log2[log2StartRhs]);
+            if (log1DigitLog == false && log2DigitLog == false)
             {
-                // SS: resolve tie
-                var log1Id = log1.Substring(0, log1StartRhs);
-                var log2Id = log2.Substring(0, log2StartRhs);
-                comp = log1Id.CompareTo(log2Id);
+                // SS: reorder if needed
+                var log1Rhs = log1.Substring(log1StartRhs);
+                var log2Rhs = log2.Substring(log2StartRhs);
+                var comp = log1Rhs.CompareTo(log2Rhs);
+                if (comp == 0)
+                {
+                    // SS: resolve tie
+                    var log1Id = log1.Substring(0, log1StartRhs);
+                    var log2Id = log2.Substring(0, log2StartRhs);
+                    comp = log1Id.CompareTo(log2Id);
+                }
+
+                return comp;
             }
 
-            return comp;
+            return log1DigitLog ? log2DigitLog ? 0 : 1 : -1;
         }
     }
 
@@ -53,27 +60,13 @@ namespace SortLogFileLines
     {
         public static string[] Sort(string[] logs)
         {
-            var digitLogs = new List<string>();
-            var letterLogs = new List<string>();
+            // SS: O(n log n)
 
-            for (var i = 0; i < logs.Length; i++)
-            {
-                var logLine = logs[i];
-                var logStartRhs = logLine.IndexOf(' ') + 1;
-                var isDigitLog = char.IsDigit(logLine[logStartRhs]);
-                if (isDigitLog)
-                {
-                    digitLogs.Add(logLine);
-                }
-                else
-                {
-                    letterLogs.Add(logLine);
-                }
-            }
-
-            var sortedLetterLogs = letterLogs.OrderBy(x => x, new Comparer()).ToList();
-
-            return sortedLetterLogs.Concat(digitLogs).ToArray();
+            // SS: Notice, Array.Sort cannot be used as it uses an unstable sorting algorithm.
+            // Since we want the order of the digit-logs to be preserved, we have to use a
+            // stable sorting algorithm. OrderBy uses a stable sorting algorithm, which is why
+            // we use it here!
+            return logs.OrderBy(x => x, new Comparer()).ToArray();
         }
     }
 

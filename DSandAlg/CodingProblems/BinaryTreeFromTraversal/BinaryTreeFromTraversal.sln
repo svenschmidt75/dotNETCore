@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeFromTraversal", "BinaryTreeFromTraversal\BinaryTreeFromTraversal.csproj", "{BC02D62E-2858-492D-BD72-D3D5B0F10072}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC02D62E-2858-492D-BD72-D3D5B0F10072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC02D62E-2858-492D-BD72-D3D5B0F10072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC02D62E-2858-492D-BD72-D3D5B0F10072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC02D62E-2858-492D-BD72-D3D5B0F10072}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

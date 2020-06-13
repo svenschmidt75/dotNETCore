@@ -35,6 +35,8 @@ namespace L76
                 {
                     foundWindow = true;
 
+                    // SS: shrink window, i.e. remove chars from the left until only those
+                    // characters are contained, that we are looking for
                     var i2 = i;
                     while (i <= j && windowChars.IsComplete)
                     {
@@ -54,6 +56,8 @@ namespace L76
             // SS: remainder
             if (windowChars.IsComplete)
             {
+                // SS: shrink window, i.e. remove chars from the left until only those
+                // characters are contained, that we are looking for
                 var i2 = i;
                 while (i <= j && windowChars.IsComplete)
                 {

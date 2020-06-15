@@ -14,22 +14,24 @@ namespace L934
 {
     public class Solution
     {
+        /// <summary>
+        ///     1. find a single 1, part of the 1st cluster
+        ///     2. find and mark all 1s connected to the 1st cluster
+        ///     3. do a BFS keeping track of the level
+        ///     4. the next unmarked 1 we find is part of the 2nd cluster.
+        ///     Since we do BFS, we are guaranteed to find the shortest
+        ///     path.
+        /// </summary>
+        /// <param name="A"></param>
+        /// <returns></returns>
         public int ShortestBridge(int[][] A)
         {
             var nrows = A.Length;
             var ncols = A[0].Length;
 
-            var temp = new int[nrows][];
-            for (var i = 0; i < nrows; i++)
-            {
-                temp[i] = new int[ncols];
-            }
-
-            var visited = new HashSet<(int row, int col)>();
-
-            // extract all 1s
-            var q2 = new Queue<(int row, int col)>();
-
+            // find a single 1
+            var row = -1;
+            var col = -1;
             for (var r = 0; r < nrows; r++)
             {
                 for (var c = 0; c < ncols; c++)
@@ -37,19 +39,62 @@ namespace L934
                     var val = A[r][c];
                     if (val == 1)
                     {
-                        q2.Enqueue((r, c));
-                        visited.Add((r, c));
+                        row = r;
+                        col = c;
+                        break;
                     }
+                }
+
+                if (row != -1)
+                {
+                    break;
                 }
             }
 
             var neighbors = new[] {(-1, 0), (0, -1), (1, 0), (0, 1)};
 
+
+            var q = new Queue<(int row, int col)>();
+            q.Enqueue((row, col));
+
+            var visited = new HashSet<(int row, int col)>();
+            visited.Add((row, col));
+
+            var q2 = new Queue<(int row, int col)>();
+
+            // extract and mark all 1s part of the 1st cluster
+            while (q.Any())
+            {
+                var (r, c) = q.Dequeue();
+                q2.Enqueue((r, c));
+
+                foreach (var neighbor in neighbors)
+                {
+                    var (nr, nc) = (r + neighbor.Item1, c + neighbor.Item2);
+                    if (nr < 0 || nr == nrows || nc < 0 || nc == ncols)
+                    {
+                        continue;
+                    }
+
+                    if (visited.Contains((nr, nc)))
+                    {
+                        continue;
+                    }
+
+                    if (A[nr][nc] == 1)
+                    {
+                        visited.Add((nr, nc));
+                        q.Enqueue((nr, nc));
+                    }
+                }
+            }
+
+            // BFS starting from all 1s in the 1st cluster
             var level = 0;
 
             while (q2.Any())
             {
-                var q = q2;
+                q = q2;
                 q2 = new Queue<(int row, int col)>();
 
                 level++;
@@ -72,25 +117,14 @@ namespace L934
                             continue;
                         }
 
+                        // found 1 of 2nd cluster
                         if (A[nr][nc] == 1)
                         {
-                            continue;
-                        }
-
-                        if (temp[nr][nc] > 0)
-                        {
-                            var v = temp[nr][nc];
-                            if (v == level)
-                            {
-                                return level;
-                            }
-
-                            return level + 1;
+                            return level - 1;
                         }
 
                         visited.Add((nr, nc));
                         q2.Enqueue((nr, nc));
-                        temp[nr][nc] = level;
                     }
                 }
             }
@@ -161,6 +195,5 @@ namespace L934
             // Assert
             Assert.AreEqual(3, dst);
         }
-        
     }
 }

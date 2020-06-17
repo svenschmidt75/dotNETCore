@@ -8,11 +8,14 @@ namespace GoogleProblem17
 {
     public class Graph
     {
-        public IDictionary<int, List<int>> AdjacencyList { get; } = new Dictionary<int, List<int>>();
+        public IDictionary<int, HashSet<int>> AdjacencyList { get; } = new Dictionary<int, HashSet<int>>();
 
         public void AddVertex(int vertexId)
         {
-            AdjacencyList[vertexId] = new List<int>();
+            if (AdjacencyList.ContainsKey(vertexId) == false)
+            {
+                AdjacencyList[vertexId] = new HashSet<int>();
+            }
         }
 
         public void AddDirectedEdge(int fromVertexId, int toVertexId)
@@ -25,6 +28,16 @@ namespace GoogleProblem17
         {
             AddDirectedEdge(fromVertexId, toVertexId);
             AddDirectedEdge(toVertexId, fromVertexId);
+        }
+
+        public bool ContainsEdge(int v1, int v2)
+        {
+            if (AdjacencyList.ContainsKey(v1))
+            {
+                return AdjacencyList[v1].Contains(v2);
+            }
+
+            return false;
         }
     }
 }

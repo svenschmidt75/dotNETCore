@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -16,8 +15,7 @@ namespace GoogleProblem17
     {
         public string Solve(string[] words)
         {
-            var chars = new HashSet<char>();
-            var orderInfo = new HashSet<(char c1, char c2)>();
+            var g = new Graph();
 
             for (var i = 0; i <= words.Length - 2; i++)
             {
@@ -29,22 +27,23 @@ namespace GoogleProblem17
                 for (j = 0; j < length; j++)
                 {
                     var c1 = w1[j];
-                    chars.Add(c1);
+                    var v1 = c1 - 'a';
+                    g.AddVertex(v1);
 
                     var c2 = w2[j];
-                    chars.Add(c2);
+                    var v2 = c2 - 'a';
+                    g.AddVertex(v2);
 
                     if (c1 != c2)
                     {
-                        if (orderInfo.Contains((c2, c1)))
+                        if (g.ContainsEdge(v1, v2))
                         {
                             // Ordering cannot be satisfied due to conflicting ordering.
                             // Graph for topological sort would have a cycle...
                             return string.Empty;
                         }
 
-                        orderInfo.Add((c1, c2));
-                        Console.WriteLine($"{c1} < {c2}");
+                        g.AddDirectedEdge(v2, v1);
                         break;
                     }
                 }
@@ -54,37 +53,21 @@ namespace GoogleProblem17
                 while (j < w1.Length)
                 {
                     var c = w1[j];
-                    chars.Add(c);
+                    var v = c - 'a';
+                    g.AddVertex(v);
                     j++;
                 }
 
                 while (j < w2.Length)
                 {
                     var c = w2[j];
-                    chars.Add(c);
+                    var v = c - 'a';
+                    g.AddVertex(v);
                     j++;
                 }
             }
 
             // generate unordered alphabet
-            var alphabet = chars.ToList();
-
-            // construct graph for topological sort
-            var g = new Graph();
-            foreach (var c in alphabet)
-            {
-                var vertex = c - 'a';
-                g.AddVertex(vertex);
-            }
-
-            // add edges
-            foreach (var t in orderInfo)
-            {
-                var v1 = t.c1 - 'a';
-                var v2 = t.c2 - 'a';
-                g.AddDirectedEdge(v2, v1);
-            }
-
             var sortedVertices = Topo.TopologicalSort(g);
 
             var sortedChars = sortedVertices.Select(vertex => (char) ('a' + vertex)).ToArray();

@@ -17,7 +17,7 @@ namespace GoogleProblem17
         public string Solve(string[] words)
         {
             var chars = new HashSet<char>();
-            var orderInfo = new List<(char c1, char c2)>();
+            var orderInfo = new HashSet<(char c1, char c2)>();
 
             for (var i = 0; i <= words.Length - 2; i++)
             {
@@ -36,6 +36,13 @@ namespace GoogleProblem17
 
                     if (c1 != c2)
                     {
+                        if (orderInfo.Contains((c2, c1)))
+                        {
+                            // Ordering cannot be satisfied due to conflicting ordering.
+                            // Graph for topological sort would have a cycle...
+                            return string.Empty;
+                        }
+
                         orderInfo.Add((c1, c2));
                         Console.WriteLine($"{c1} < {c2}");
                         break;
@@ -62,33 +69,26 @@ namespace GoogleProblem17
             // generate unordered alphabet
             var alphabet = chars.ToList();
 
-            // order alphabet, O(n^3)
-            var reordered = true;
-            var cnt = 0;
-            while (reordered && cnt < alphabet.Count * alphabet.Count)
+            // construct graph for topological sort
+            var g = new Graph();
+            foreach (var c in alphabet)
             {
-                reordered = false;
-                cnt++;
-
-                for (var i = 0; i < orderInfo.Count; i++)
-                {
-                    var (c1, c2) = orderInfo[i];
-
-                    // O(n)
-                    var p1 = alphabet.IndexOf(c1);
-                    var p2 = alphabet.IndexOf(c2);
-
-                    if (p1 > p2)
-                    {
-                        // reorder
-                        alphabet.RemoveAt(p2);
-                        alphabet.Insert(p1, c2);
-                        reordered = true;
-                    }
-                }
+                var vertex = c - 'a';
+                g.AddVertex(vertex);
             }
 
-            return cnt == alphabet.Count * alphabet.Count ? "" : new string(alphabet.ToArray());
+            // add edges
+            foreach (var t in orderInfo)
+            {
+                var v1 = t.c1 - 'a';
+                var v2 = t.c2 - 'a';
+                g.AddDirectedEdge(v2, v1);
+            }
+
+            var sortedVertices = Topo.TopologicalSort(g);
+
+            var sortedChars = sortedVertices.Select(vertex => (char) ('a' + vertex)).ToArray();
+            return new string(sortedChars);
         }
     }
 

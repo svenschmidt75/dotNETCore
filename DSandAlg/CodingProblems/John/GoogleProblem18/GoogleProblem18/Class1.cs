@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -32,7 +33,7 @@ namespace GoogleProblem18
             , new[] {7, 9}
             , new[] {4, 8}
             , new[] {0, 3, 9}
-            , new int [0] // 5 is only possible when we start at 5
+            , new[] {5}
             , new[] {0, 1, 7}
             , new[] {2, 6}
             , new[] {1, 3}
@@ -52,7 +53,7 @@ namespace GoogleProblem18
         {
             phoneNumber = phoneNumber * 10 + pos;
 
-            if (n == 0 || pos == 5)
+            if (n == 0)
             {
                 phoneNumbers.Add(phoneNumber);
             }
@@ -74,7 +75,7 @@ namespace GoogleProblem18
 
             if (moves == 0)
             {
-                return 0;
+                return 1;
             }
 
             var grid = new[] {new int[10], new int[10]};
@@ -188,6 +189,41 @@ namespace GoogleProblem18
             // Assert
             Assert.AreEqual(5, n);
         }
-        
+
+        [Test]
+        public void Test5()
+        {
+            // Arrange
+
+            // Act
+            var n = Enumerable.Range(0, 10).Select(digit => GoogleProblem18.Solve(digit, 0)).Sum();
+
+            // Assert
+            Assert.AreEqual(10, n);
+        }
+
+        [Test]
+        public void Test6()
+        {
+            // Arrange
+
+            // Act
+            var n = Enumerable.Range(0, 10).Select(digit => GoogleProblem18.Solve(digit, 1)).Sum();
+
+            // Assert
+            Assert.AreEqual(21, n);
+        }
+
+        [Test]
+        public void Test7()
+        {
+            // Arrange
+
+            // Act
+            var n = Enumerable.Range(0, 10).Select(digit => GoogleProblem18.Solve(digit, 2)).Sum();
+
+            // Assert
+            Assert.AreEqual(47, n);
+        }
     }
 }

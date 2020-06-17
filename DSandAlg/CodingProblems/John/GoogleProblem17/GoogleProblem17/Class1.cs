@@ -62,7 +62,7 @@ namespace GoogleProblem17
             // generate unordered alphabet
             var alphabet = chars.ToList();
 
-            // order alphabet, O(n^2)
+            // order alphabet, O(n^3)
             var reordered = true;
             var cnt = 0;
             while (reordered && cnt < alphabet.Count * alphabet.Count)

@@ -71,7 +71,7 @@ namespace GoogleProblem18
         {
             // DP bottom-up solution
             // runtime complexity: O(n)
-            // space complexity: O(n), where n = number of moves
+            // space complexity: O(1)
 
             if (moves == 0)
             {

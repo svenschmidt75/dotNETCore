@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42b74d78-f1a3-4abf-ad8d-7fdb16572ec1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../LeetCode/L713/L713/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LeetCode/L713/L713/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +52,14 @@
       <option name="presentableId" value="Default" />
       <updated>1592746721136</updated>
       <workItem from="1592746724976" duration="3025000" />
+      <workItem from="1592956615166" duration="2474000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -5,12 +5,17 @@ namespace GCD
 {
     public static class GCD
     {
-        public static int Gcd(double a, double b)
+        public static int Gcd(int a, int b)
         {
+            if (a == 0 || b == 0)
+            {
+                return a == 0 ? b : a;
+            }
+
             var r1 = Math.Min(a, b);
             var r2 = Math.Max(a, b);
 
-            while (r2 > 0 && r1 > 0)
+            while (r1 != 0)
             {
                 var r3 = r2 % r1;
                 r2 = r1;
@@ -108,6 +113,17 @@ namespace GCD
             Assert.AreEqual(6, gcd);
         }
 
+        [Test]
+        public void Test8()
+        {
+            // Arrange
+            
+            // Act
+            var gcd = GCD.Gcd(65, -52);
+            
+            // Assert
+            Assert.AreEqual(13, gcd);
+        }
         
     }
     

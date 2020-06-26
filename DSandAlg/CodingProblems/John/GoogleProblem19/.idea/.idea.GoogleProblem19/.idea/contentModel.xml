@@ -14,6 +14,7 @@
       <e p="GoogleProblem19" t="IncludeRecursive">
         <e p="Class1.cs" t="Include" />
         <e p="GoogleProblem19.csproj" t="IncludeRecursive" />
+        <e p="Graph.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

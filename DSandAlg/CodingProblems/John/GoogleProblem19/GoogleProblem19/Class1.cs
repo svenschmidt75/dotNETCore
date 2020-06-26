@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -44,46 +45,149 @@ namespace GoogleProblem19
 
         public static int[][] Solve2D(int[][] input)
         {
-            // SS: runtime complexity: O(#rows * #cols * log #cols)
-            // space complexity: O(n)
+            // TODO SS: deal with special cases
 
-            var result = new int[input.Length][];
 
-            for (var i = 0; i < input.Length; i++)
+            // SS: runtime complexity: O(nrows * ncols + nrows * (ncols * log(ncols) + ncols^2) + ncols * (nrows * log(nrows) + nrows^2) + (ncols + nrows) * ncols * nrows + ncols * nrows)
+            // space complexity: 
+
+            var nrows = input.Length;
+            var ncols = input[0].Length;
+
+            var result = new int[nrows][];
+
+            for (var i = 0; i < nrows; i++)
             {
-                result[i] = new int[input[i].Length];
+                result[i] = new int[ncols];
             }
 
-            var hash = new HashSet<int>[input[0].Length];
-            for (var i = 0; i < input[0].Length; i++)
+            // create directed graph such that vertices connect to neighboring vertices if they have
+            // a smaller value
+            // O(nrows * ncols)
+            var graph = new Graph();
+            for (var i = 0; i < nrows; i++)
             {
-                hash[i] = new HashSet<int>();
+                for (var j = 0; j < ncols; j++)
+                {
+                    var index = i * ncols + j;
+                    graph.AddVertex(index);
+                }
             }
 
-            for (var row = 0; row < input.Length; row++)
+            // connect vertices within a row
+            // O(nrows * (ncols * log(ncols) + ncols^2))
+            for (var row = 0; row < nrows; row++)
             {
                 var r = input[row];
 
-                // sort at O(n log n)
-                var sorted = r.Select((v, idx) => (idx, v)).OrderBy(t => t.v).ToArray();
+                // sort at O(ncols * log(ncols))
+                var sorted = r.Select((v, idx) => (idx, v)).OrderByDescending(t => t.v).ToArray();
 
-                var j = 1;
-                for (var i = 0; i < sorted.Length; i++)
+                // connect vertices
+                // this is O(ncols^2)...
+                for (var j = 0; j <= ncols - 2; j++)
                 {
-                    var col = sorted[i].idx;
-                    while (hash[col].Contains(j))
+                    var colIdx1 = sorted[j].idx;
+                    var c1Idx = row * ncols + colIdx1;
+                    var c1 = input[row][colIdx1];
+
+                    for (var k = j + 1; k < ncols; k++)
                     {
-                        j++;
+                        var colIdx2 = sorted[k].idx;
+                        var c2Idx = row * ncols + colIdx2;
+                        var c2 = input[row][colIdx2];
+
+                        graph.AddDirectedEdge(c1Idx, c2Idx);
+                    }
+                }
+            }
+
+            // connect vertices within a column
+            // O(ncols * (nrows * log(nrows) + nrows^2))
+            for (var col = 0; col < ncols; col++)
+            {
+                var r = new int[nrows];
+                for (var i = 0; i < nrows; i++)
+                {
+                    var c = input[i][col];
+                    r[i] = c;
+                }
+
+                // sort at O(nrows * log(nrows))
+                var sorted = r.Select((v, idx) => (idx, v)).OrderByDescending(t => t.v).ToArray();
+
+                // connect vertices
+                // this is O(nrows^2)...
+                for (var j = 0; j <= nrows - 2; j++)
+                {
+                    var rowIdx1 = sorted[j].idx;
+                    var c1Idx = rowIdx1 * ncols + col;
+                    var c1 = input[rowIdx1][col];
+
+                    for (var k = j + 1; k < nrows; k++)
+                    {
+                        var rowIdx2 = sorted[k].idx;
+                        var c2Idx = rowIdx2 * ncols + col;
+                        var c2 = input[rowIdx2][col];
+
+                        graph.AddDirectedEdge(c1Idx, c2Idx);
+                    }
+                }
+            }
+
+            // DFS
+            // O(E + V) = O((ncols + nrows) * ncols * nrows + ncols * nrows)
+            // O(E) = O((ncols + nrows) * ncols * nrows)
+            // O(V) = O(ncols * nrows)
+            var res = new int[ncols * nrows];
+            var visited = new HashSet<int>();
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = 0; j < ncols; j++)
+                {
+                    var index = i * ncols + j;
+
+                    if (visited.Contains(index))
+                    {
+                        result[i][j] = res[index];
+                        continue;
                     }
 
-                    hash[col].Add(j);
-
-                    result[row][col] = j;
-                    j++;
+                    visited.Add(index);
+                    var value = ProcessVertex(graph, index, visited, res);
+                    res[index] = value;
+                    result[i][j] = value;
                 }
             }
 
             return result;
+        }
+
+        private static int ProcessVertex(Graph graph, int vertex, HashSet<int> visited, int[] res)
+        {
+            var neighbors = graph.AdjacencyList[vertex];
+
+            var idx = 0;
+
+            foreach (var neighbor in neighbors)
+            {
+                int i;
+
+                if (visited.Contains(neighbor))
+                {
+                    i = res[neighbor];
+                }
+                else
+                {
+                    visited.Add(neighbor);
+                    i = ProcessVertex(graph, neighbor, visited, res);
+                }
+
+                idx = Math.Max(idx, i);
+            }
+
+            res[vertex] = idx + 1;
+            return res[vertex];
         }
     }
 
@@ -140,6 +244,32 @@ namespace GoogleProblem19
 
             // Act
             CollectionAssert.AreEqual(new[] {new[] {1, 2, 3}, new[] {4, 3, 1}}, result);
+        }
+
+        [Test]
+        public void Test2D_3()
+        {
+            // Arrange
+            var input = new[] {new[] {6, 9, 15}, new[] {3, 1, 7}, new[] {8, 2, 4}};
+
+            // Act
+            var result = Solution.Solve2D(input);
+
+            // Act
+            CollectionAssert.AreEqual(new[] {new[] {3, 4, 5}, new[] {2, 1, 4}, new[] {4, 2, 3}}, result);
+        }
+
+        [Test]
+        public void Test2D_4()
+        {
+            // Arrange
+            var input = new[] {new[] {1, 3, 4}, new[] {1, 2, 3}};
+
+            // Act
+            var result = Solution.Solve2D(input);
+
+            // Act
+            CollectionAssert.AreEqual(new[] {new[] {2, 3, 4}, new[] {1, 2, 3}}, result);
         }
     }
 }

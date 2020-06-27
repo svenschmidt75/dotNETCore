@@ -48,7 +48,8 @@ namespace GoogleProblem19
             // TODO SS: deal with special cases
 
 
-            // SS: runtime complexity: O(nrows * ncols + nrows * (ncols * log(ncols) + ncols^2) + ncols * (nrows * log(nrows) + nrows^2) + (ncols + nrows) * ncols * nrows + ncols * nrows)
+            // SS: runtime complexity: O(nrows * ncols + nrows * (ncols * log(ncols) + ncols) + ncols * (nrows * log(nrows) + nrows) + (ncols + nrows) * ncols * nrows + ncols * nrows)
+            // SS: runtime complexity: O(ncols * nrows * log(nrows) + ncols * nrows * log(ncols))
             // space complexity: 
 
             var nrows = input.Length;
@@ -75,7 +76,7 @@ namespace GoogleProblem19
             }
 
             // connect vertices within a row
-            // O(nrows * (ncols * log(ncols) + ncols^2))
+            // O(nrows * (ncols * log(ncols) + ncols))
             for (var row = 0; row < nrows; row++)
             {
                 var r = input[row];
@@ -84,26 +85,23 @@ namespace GoogleProblem19
                 var sorted = r.Select((v, idx) => (idx, v)).OrderByDescending(t => t.v).ToArray();
 
                 // connect vertices
-                // this is O(ncols^2)...
+                // this is O(ncols)...
                 for (var j = 0; j <= ncols - 2; j++)
                 {
                     var colIdx1 = sorted[j].idx;
                     var c1Idx = row * ncols + colIdx1;
                     var c1 = input[row][colIdx1];
 
-                    for (var k = j + 1; k < ncols; k++)
-                    {
-                        var colIdx2 = sorted[k].idx;
-                        var c2Idx = row * ncols + colIdx2;
-                        var c2 = input[row][colIdx2];
+                    var colIdx2 = sorted[j + 1].idx;
+                    var c2Idx = row * ncols + colIdx2;
+                    var c2 = input[row][colIdx2];
 
-                        graph.AddDirectedEdge(c1Idx, c2Idx);
-                    }
+                    graph.AddDirectedEdge(c1Idx, c2Idx);
                 }
             }
 
             // connect vertices within a column
-            // O(ncols * (nrows * log(nrows) + nrows^2))
+            // O(ncols * (nrows * log(nrows) + nrows))
             for (var col = 0; col < ncols; col++)
             {
                 var r = new int[nrows];
@@ -117,25 +115,22 @@ namespace GoogleProblem19
                 var sorted = r.Select((v, idx) => (idx, v)).OrderByDescending(t => t.v).ToArray();
 
                 // connect vertices
-                // this is O(nrows^2)...
+                // this is O(nrows)...
                 for (var j = 0; j <= nrows - 2; j++)
                 {
                     var rowIdx1 = sorted[j].idx;
                     var c1Idx = rowIdx1 * ncols + col;
                     var c1 = input[rowIdx1][col];
 
-                    for (var k = j + 1; k < nrows; k++)
-                    {
-                        var rowIdx2 = sorted[k].idx;
-                        var c2Idx = rowIdx2 * ncols + col;
-                        var c2 = input[rowIdx2][col];
+                    var rowIdx2 = sorted[j + 1].idx;
+                    var c2Idx = rowIdx2 * ncols + col;
+                    var c2 = input[rowIdx2][col];
 
-                        graph.AddDirectedEdge(c1Idx, c2Idx);
-                    }
+                    graph.AddDirectedEdge(c1Idx, c2Idx);
                 }
             }
 
-            // DFS
+            // DFS - topological sort
             // O(E + V) = O((ncols + nrows) * ncols * nrows + ncols * nrows)
             // O(E) = O((ncols + nrows) * ncols * nrows)
             // O(V) = O(ncols * nrows)

@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42b74d78-f1a3-4abf-ad8d-7fdb16572ec1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoogleProblem19/Graph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoogleProblem19/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem19/Class1.cs" afterDir="false" />
     </list>
@@ -67,7 +65,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="fefc3bce-cc7f-4606-bd2b-e03dd0c4b6e3" />
+  <component name="RunManager" selected="6ebf0618-37a5-4a3c-9a34-2af8e81bd3e7" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,6 +78,8 @@
       <workItem from="1592956615166" duration="2474000" />
       <workItem from="1593176290405" duration="2081000" />
       <workItem from="1593207822222" duration="2670000" />
+      <workItem from="1593215515718" duration="1679000" />
+      <workItem from="1593257024832" duration="198000" />
     </task>
     <servers />
   </component>

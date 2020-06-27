@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42b74d78-f1a3-4abf-ad8d-7fdb16572ec1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem19/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleProblem19/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem19/Class1.cs" afterDir="false" />
-    </list>
+    <list default="true" id="42b74d78-f1a3-4abf-ad8d-7fdb16572ec1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +76,7 @@
       <workItem from="1593176290405" duration="2081000" />
       <workItem from="1593207822222" duration="2670000" />
       <workItem from="1593215515718" duration="1679000" />
-      <workItem from="1593257024832" duration="198000" />
+      <workItem from="1593257024832" duration="441000" />
     </task>
     <servers />
   </component>
@@ -112,6 +109,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="427" height="506" key="DebuggerActiveHint/0.27.3840.1573@0.27.3840.1573" timestamp="1593209316285" />
+    <state x="1698" y="560" width="424" height="520" key="FileChooserDialogImpl" timestamp="1593257373321">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1698" y="560" width="424" height="520" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1593257373321" />
     <state width="3794" height="575" key="GridCell.Tab.0.bottom" timestamp="1593210491652">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

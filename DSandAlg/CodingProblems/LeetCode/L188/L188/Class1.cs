@@ -14,39 +14,36 @@ namespace L188
     {
         public int MaxProfit(int k, int[] prices)
         {
-            var maxProfit = MaxProfitDivideAndConquer(k, prices, 0, 0, true);
+            var maxProfit = MaxProfitDivideAndConquer(2 * k, prices, 0, 0);
             return maxProfit;
         }
 
-        private int MaxProfitDivideAndConquer(int k, int[] prices, int profit, int position, bool buy)
+        private int MaxProfitDivideAndConquer(int k, int[] prices, int profit, int position)
         {
             if (k == 0 || position == prices.Length)
             {
                 return profit;
             }
 
-            int m;
+            int m1;
 
-            // skip this day
-            var m1 = MaxProfitDivideAndConquer(k, prices, profit, position + 1, buy);
-            int m2;
-
-            if (buy)
+            if (k % 2 == 0)
             {
                 // we have to buy
                 var cost = prices[position];
-                profit -= cost;
-                m2 = MaxProfitDivideAndConquer(k, prices, profit, position + 1, false);
+                m1 = MaxProfitDivideAndConquer(k - 1, prices, profit - cost, position + 1);
             }
             else
             {
                 // we have to sell
                 var cost = prices[position];
-                profit += cost;
-                m2 = MaxProfitDivideAndConquer(k - 1, prices, profit, position + 1, true);
+                m1 = MaxProfitDivideAndConquer(k - 1, prices, profit + cost, position + 1);
             }
 
-            m = Math.Max(m1, m2);
+            // skip this day
+            var m2 = MaxProfitDivideAndConquer(k, prices, profit, position + 1);
+
+            var m = Math.Max(m1, m2);
             return m;
         }
     }

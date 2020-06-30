@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -11,17 +10,24 @@ namespace GoogleProblem20
 {
     public class Solution
     {
-        private readonly IDictionary<int, List<(int value, DateTime endTime)>> _map =
-            new Dictionary<int, List<(int value, DateTime endTime)>>();
+        private readonly IDictionary<int, List<(int value, long endTime)>> _map =
+            new Dictionary<int, List<(int value, long endTime)>>();
+
+        private readonly ITimePiece _timePiece;
+
+        public Solution(ITimePiece timePiece)
+        {
+            _timePiece = timePiece;
+        }
 
         public void Put(int key, int value, long durationMs)
         {
-            var endTime = DateTime.Now + TimeSpan.FromMilliseconds(durationMs);
+            var endTime = _timePiece.GetTime() + durationMs;
 
-            List<(int val, DateTime endTime)> values;
+            List<(int val, long endTime)> values;
             if (_map.TryGetValue(key, out values) == false)
             {
-                values = new List<(int value, DateTime endTime)>();
+                values = new List<(int value, long endTime)>();
                 _map[key] = values;
             }
 
@@ -30,16 +36,16 @@ namespace GoogleProblem20
 
         public (bool, int) Get(int key)
         {
-            if (_map.TryGetValue(key, out List<(int val, DateTime endTime)> values) == false)
+            if (_map.TryGetValue(key, out List<(int val, long endTime)> values) == false)
             {
                 return (false, -1);
             }
 
-            var newValues = new List<(int val, DateTime endTime)>();
+            var newValues = new List<(int val, long endTime)>();
             for (var i = 0; i < values.Count; i++)
             {
                 var (val, endTime) = values[i];
-                if (DateTime.Now < endTime)
+                if (_timePiece.GetTime() < endTime)
                 {
                     newValues.Add((val, endTime));
                 }
@@ -54,14 +60,55 @@ namespace GoogleProblem20
     [TestFixture]
     public class Tests
     {
+        private class TestTimePiece : ITimePiece
+        {
+            private long _currentTime;
+
+            public TestTimePiece()
+            {
+                _currentTime = 0;
+            }
+
+            void ITimePiece.Advance(long ms)
+            {
+                _currentTime += ms;
+            }
+
+            long ITimePiece.GetTime()
+            {
+                return _currentTime;
+            }
+        }
+
         [Test]
         public void Test1()
         {
             // Arrange
+            var gp20 = new Solution(new TestTimePiece());
+            gp20.Put('a', 10, 10);
 
             // Act
+            var (found, value) = gp20.Get('a');
 
             // Assert
+            Assert.IsTrue(found);
+            Assert.AreEqual(10, value);
+        }
+
+        [Test]
+        public void Test2()
+        {
+            // Arrange
+            ITimePiece testTimePiece = new TestTimePiece();
+            var gp20 = new Solution(testTimePiece);
+            gp20.Put('a', 10, 10);
+
+            // Act
+            testTimePiece.Advance(20);
+            var (found, value) = gp20.Get('a');
+
+            // Assert
+            Assert.IsFalse(found);
         }
     }
 }

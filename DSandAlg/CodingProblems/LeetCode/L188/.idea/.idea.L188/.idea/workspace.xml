@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e039b06-6b05-4e6c-b155-9fd57433f3e7" name="Default Changelist" comment="" />
+    <list default="true" id="8e039b06-6b05-4e6c-b155-9fd57433f3e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem21/.idea/.idea.GoogleProblem21/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem21/.idea/.idea.GoogleProblem21/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L188/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L188/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L188/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L188/Class1.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +48,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="81b4c30e-5d71-4e40-9f75-b465a0237912" />
+  <component name="RunManager" selected="3a1f9a1f-8193-4e28-ae49-7fe6c13cc0d9" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,6 +63,7 @@
       <workItem from="1593523412195" duration="3072000" />
       <workItem from="1593526824459" duration="449000" />
       <workItem from="1593555322959" duration="925000" />
+      <workItem from="1593612665506" duration="48000" />
     </task>
     <servers />
   </component>

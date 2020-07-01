@@ -50,6 +50,9 @@ namespace L188
 
         private static int MaxProfitDPBottomUp(int k, int[] prices)
         {
+            // SS: runtime complexity: O(#prices * k), where k <= prces.Length
+            // space complexity: O(1)
+
             int[][] memoizationArray = new int[2][];
             memoizationArray[0] = new int[prices.Length];
             memoizationArray[1] = new int[prices.Length];

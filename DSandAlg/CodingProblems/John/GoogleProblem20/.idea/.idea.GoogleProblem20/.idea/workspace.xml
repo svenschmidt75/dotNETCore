@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0b77a6-5051-495d-8da2-3c3536dbd9fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoogleProblem20/ITimePiece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem20/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem20/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem20/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleProblem20/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem20/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LeetCode/L188/.idea/.idea.L188/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LeetCode/L188/.idea/.idea.L188/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +53,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -67,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1593352502477</updated>
       <workItem from="1593352506508" duration="1365000" />
-      <workItem from="1593556249949" duration="1000000" />
+      <workItem from="1593556249949" duration="3787000" />
     </task>
     <servers />
   </component>
@@ -95,6 +97,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state x="1656" y="656" width="518" height="321" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1593557257609" />
+    <state x="1641" y="618" width="824" height="515" key="IDE.errors.dialog" timestamp="1593562151711">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1641" y="618" width="824" height="515" key="IDE.errors.dialog/0.27.3840.1573@0.27.3840.1573" timestamp="1593562151711" />
     <state x="1715" y="495" width="399" height="644" key="RiderGenerateDialog" timestamp="1593557047706">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

@@ -36,6 +36,8 @@ namespace GoogleProblem21
         {
             // SS: post-order traversal to visit each possible start node
             // for player 1
+            // Traversal: O(n)
+
             if (node == null)
             {
                 return (null, 0);
@@ -64,7 +66,7 @@ namespace GoogleProblem21
                 return (null, 0);
             }
 
-            var (nodePlayer1StartNode, nodeCount) = StartGame(node, player2StartNode);
+            var (nodePlayer1StartNode, nodeCount) = RunGame(node, player2StartNode);
             if (nodeCount > maxCount)
             {
                 bestPlayer1StartNode = nodePlayer1StartNode;
@@ -74,15 +76,16 @@ namespace GoogleProblem21
             return (bestPlayer1StartNode, maxCount);
         }
 
-        private (Node player1StartNode, int count) StartGame(Node player1StartNode, Node player2StartNode)
+        private static (Node player1StartNode, int count) RunGame(Node player1StartNode, Node player2StartNode)
         {
-            var player1GraySet = new HashSet<Node> {player1StartNode};
-            var player1BlackSet = new HashSet<Node>();
+            // SS: runtime complexity: O(n)
+            // space complexity: O(n)
+
+            var player1Set = new HashSet<Node> {player1StartNode};
             var player1Queue = new Queue<Node>();
             player1Queue.Enqueue(player1StartNode);
 
-            var player2GraySet = new HashSet<Node> {player2StartNode};
-            var player2BlackSet = new HashSet<Node>();
+            var player2Set = new HashSet<Node> {player2StartNode};
             var player2Queue = new Queue<Node>();
             player2Queue.Enqueue(player2StartNode);
 
@@ -93,101 +96,71 @@ namespace GoogleProblem21
                 if (turnCnt % 2 == 0)
                 {
                     // SS: player 1 move
-                    var q = new Queue<Node>();
-
-                    while (player1Queue.Any())
-                    {
-                        var node = player1Queue.Dequeue();
-
-                        var n = node.Parent;
-                        if (n != null && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false)
-                        {
-                            player1GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        n = node.Left;
-                        if (n != null && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false)
-                        {
-                            player1GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        n = node.Right;
-                        if (n != null && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false)
-                        {
-                            player1GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        // SS: processing done for node
-                        player1GraySet.Remove(node);
-                        player1BlackSet.Add(node);
-                    }
-
-                    player1Queue = q;
+                    player1Queue = ProcessQueue(player1Set, player2Set, player1Queue);
                 }
                 else
                 {
                     // SS: player 2 move
-                    var q = new Queue<Node>();
-
-                    while (player2Queue.Any())
-                    {
-                        var node = player2Queue.Dequeue();
-
-                        var n = node.Parent;
-                        if (n != null && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false)
-                        {
-                            player2GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        n = node.Left;
-                        if (n != null && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false)
-                        {
-                            player2GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        n = node.Right;
-                        if (n != null && player2GraySet.Contains(n) == false && player2BlackSet.Contains(n) == false && player1GraySet.Contains(n) == false && player1BlackSet.Contains(n) == false)
-                        {
-                            player2GraySet.Add(n);
-                            q.Enqueue(n);
-                        }
-
-                        // SS: processing done for node
-                        player2GraySet.Remove(node);
-                        player2BlackSet.Add(node);
-                    }
-
-                    player2Queue = q;
+                    player2Queue = ProcessQueue(player2Set, player1Set, player2Queue);
                 }
 
                 turnCnt++;
             }
 
-            return (player1StartNode, player1BlackSet.Count);
+            return (player1StartNode, player1Set.Count);
+        }
+
+        private static Queue<Node> ProcessQueue(HashSet<Node> player1Set, HashSet<Node> player2Set
+            , Queue<Node> playerQueue)
+        {
+            var q = new Queue<Node>();
+
+            while (playerQueue.Any())
+            {
+                var node = playerQueue.Dequeue();
+
+                var n = node.Parent;
+                if (n != null && player1Set.Contains(n) == false && player2Set.Contains(n) == false)
+                {
+                    player1Set.Add(n);
+                    q.Enqueue(n);
+                }
+
+                n = node.Left;
+                if (n != null && player1Set.Contains(n) == false && player2Set.Contains(n) == false)
+                {
+                    player1Set.Add(n);
+                    q.Enqueue(n);
+                }
+
+                n = node.Right;
+                if (n != null && player1Set.Contains(n) == false && player2Set.Contains(n) == false)
+                {
+                    player1Set.Add(n);
+                    q.Enqueue(n);
+                }
+            }
+
+            return q;
         }
     }
 
     [TestFixture]
     public class Tests
     {
-        private Node CreateTree()
+        private static Node CreateTree()
         {
-            var node1 = new Node{Value = 1};
-            var node2 = new Node{Value = 2};
-            var node3 = new Node{Value = 3};
-            var node4 = new Node{Value = 4};
-            var node5 = new Node{Value = 5};
-            var node6 = new Node{Value = 6};
-            var node7 = new Node{Value = 7};
-            var node8 = new Node{Value = 8};
-            var node9 = new Node{Value = 9};
-            var node10 = new Node{Value = 10};
-            var node11 = new Node{Value = 11};
+            var node1 = new Node {Value = 1};
+            var node2 = new Node {Value = 2};
+            var node3 = new Node {Value = 3};
+            var node4 = new Node {Value = 4};
+            var node5 = new Node {Value = 5};
+            var node6 = new Node {Value = 6};
+            var node7 = new Node {Value = 7};
+            var node8 = new Node {Value = 8};
+            var node9 = new Node {Value = 9};
+            var node10 = new Node {Value = 10};
+            var node11 = new Node {Value = 11};
 
             node8.Parent = node4;
             node4.Left = node8;
@@ -223,7 +196,7 @@ namespace GoogleProblem21
         {
             // Arrange
             var root = CreateTree();
-            
+
             // Act
             var node7 = root.Right.Right;
             var (node, count) = new GP21().Solve(root, node7);

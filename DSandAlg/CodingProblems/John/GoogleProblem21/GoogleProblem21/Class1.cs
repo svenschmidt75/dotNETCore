@@ -148,7 +148,7 @@ namespace GoogleProblem21
     [TestFixture]
     public class Tests
     {
-        private static Node CreateTree()
+        internal static Node CreateTree()
         {
             var node1 = new Node {Value = 1};
             var node2 = new Node {Value = 2};

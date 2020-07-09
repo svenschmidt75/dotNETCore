@@ -23,6 +23,7 @@ namespace GoogleProblem22
         {
             // SS: calculate center of mass
             // runtime complexity: O(N), where N = number of vertices between (minX, maxX), (minY, maxY)
+            // approach does NOT work
             double x = 0;
             double y = 0;
 
@@ -72,19 +73,20 @@ namespace GoogleProblem22
 
         public static (int minDistX, int minDistY) GetMeetingLocation5(int[][] people)
         {
-            // runtime complexity: O(N log N), where N = number of vertices between (minX, maxX), (minY, maxY)
-            
+            // runtime complexity: O(N), where N = number of vertices between (minX, maxX), (minY, maxY)
+            // space complexity: O(N)
+
             var (minX, maxX, minY, maxY) = GetExtent(people);
 
-            // SS: lookup how many person by x, O(N log N)
+            // SS: lookup how many person by x
             var personX = new int[maxX - minX + 1];
-            var personByX = people.OrderBy(person => person[0]).ToArray();
-            for (var i = 0; i < personByX.Length; i++)
+            for (var i = 0; i < people.Length; i++)
             {
-                var x = personByX[i][0];
+                var x = people[i][0];
                 personX[x - minX]++;
             }
 
+            // SS: create prefix sum for x
             var p = personX[0];
             for (var i = 1; i < personX.Length; i++)
             {
@@ -93,15 +95,15 @@ namespace GoogleProblem22
                 p = x;
             }
 
-            // SS: lookup how many person by y, O(N log N)
+            // SS: lookup how many person by y
             var personY = new int[maxY - minY + 1];
-            var personByY = people.OrderBy(person => person[1]).ToArray();
-            for (var i = 0; i < personByY.Length; i++)
+            for (var i = 0; i < people.Length; i++)
             {
-                var y = personByY[i][1];
+                var y = people[i][1];
                 personY[y - minY]++;
             }
 
+            // SS: create prefix sum for y
             p = personY[0];
             for (var i = 1; i < personY.Length; i++)
             {
@@ -110,7 +112,7 @@ namespace GoogleProblem22
                 p = y;
             }
 
-            
+
             // SS: fill into memoization array the distances
             var memArray = new int[maxY - minY + 1][];
             for (var i = 0; i < memArray.Length; i++)
@@ -143,7 +145,13 @@ namespace GoogleProblem22
                         d = memArray[j - minY][i - 1 - minX];
 
                         var nInc = personX[i - 1 - minX];
-                        var nDec = personByX.Length - nInc;
+                        var nDec = people.Length - nInc;
+
+                        // SS: small optimization. From here on, the distance only increases from the minimum
+                        if (nInc > nDec)
+                        {
+                            break;
+                        }
 
                         dist = d + nInc - nDec;
                         memArray[j - minY][i - minX] = dist;
@@ -153,7 +161,13 @@ namespace GoogleProblem22
                         d = memArray[j - 1 - minY][0];
 
                         var nInc = personY[j - 1 - minY];
-                        var nDec = personByY.Length - nInc;
+                        var nDec = people.Length - nInc;
+
+                        // SS: small optimization. From here on, the distance only increases from the minimum
+                        if (nInc > nDec)
+                        {
+                            break;
+                        }
 
                         dist = d + nInc - nDec;
                         memArray[j - minY][0] = dist;
@@ -340,6 +354,5 @@ namespace GoogleProblem22
             // Assert
             Assert.AreEqual(expectedDistance, distance);
         }
-        
     }
 }

@@ -98,10 +98,11 @@ namespace L992
                     {
                         break;
                     }
-                        
+
                     // extend ijk window to right
                     int v = A[k];
 
+                    // grow window
                     k++;
 
                     AddElement(v, ijkMap);
@@ -159,6 +160,20 @@ namespace L992
 
         [Test]
         public void Test3()
+        {
+            // Arrange
+            int[] A = new[] {2, 1, 1, 2, 3};
+            int k = 3;
+
+            // Act
+            var result = new Solution().SubarraysWithKDistinct(A, k);
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void Test4()
         {
             // Arrange
             int[] A = new[] {1, 2, 1, 3, 4};

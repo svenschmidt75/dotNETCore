@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="88ad6917-811a-43ef-92ee-06b0d64480fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L1249/.idea/.idea.L1249/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L1249/.idea/.idea.L1249/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L938/.idea/.idea.L938/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L66/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L66/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +60,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1594578589992</updated>
-      <workItem from="1594578599800" duration="630000" />
+      <workItem from="1594578599800" duration="1655000" />
     </task>
     <servers />
   </component>
@@ -60,14 +84,25 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1656" y="656" width="518" height="321" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1594579228240">
+    <state x="1656" y="656" width="518" height="321" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1594580509764">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1656" y="656" width="518" height="321" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1594579228240" />
+    <state x="1656" y="656" width="518" height="321" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1594580509764" />
     <state width="3794" height="575" key="GridCell.Tab.0.bottom" timestamp="1594579142736">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
@@ -148,5 +183,9 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="575" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1594579142737" />
+    <state x="555" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1594579576997">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="555" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1594579576997" />
   </component>
 </project>

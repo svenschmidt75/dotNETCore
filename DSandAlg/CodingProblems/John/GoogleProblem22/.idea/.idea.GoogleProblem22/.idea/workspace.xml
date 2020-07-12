@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="054d69b3-510a-421e-a798-bfc02084b054" name="Default Changelist" comment="" />
+    <list default="true" id="054d69b3-510a-421e-a798-bfc02084b054" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,9 +17,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoogleProblem22/Class1.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -44,8 +47,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="607095fe-488f-44fe-832e-42e291e5511b" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,6 +59,8 @@
       <updated>1594214067092</updated>
       <workItem from="1594214070817" duration="3598000" />
       <workItem from="1594251547297" duration="3696000" />
+      <workItem from="1594316923952" duration="23000" />
+      <workItem from="1594316957991" duration="96000" />
     </task>
     <servers />
   </component>
@@ -160,6 +165,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state x="1503" y="559" width="824" height="515" key="IDE.errors.dialog/0.27.3840.1573@0.27.3840.1573" timestamp="1594217756876" />
+    <state x="1409" y="448" width="1022" height="737" key="SettingsEditor" timestamp="1594317046972">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1409" y="448" width="1022" height="737" key="SettingsEditor/0.27.3840.1573@0.27.3840.1573" timestamp="1594317046972" />
     <state x="1541" y="487" width="758" height="652" key="find.popup" timestamp="1594251657231">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

@@ -57,7 +57,7 @@
       <workItem from="1594565132874" duration="554000" />
       <workItem from="1594565712137" duration="3871000" />
       <workItem from="1594572553147" duration="2528000" />
-      <workItem from="1594648381609" duration="2372000" />
+      <workItem from="1594648381609" duration="2589000" />
     </task>
     <servers />
   </component>
@@ -158,37 +158,5 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="575" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1594650674354" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L992/Class1.cs</url>
-          <line>56</line>
-          <properties documentPath="$PROJECT_DIR$/L992/Class1.cs" initialLine="56">
-            <startOffsets>
-              <option value="1274" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1288" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L992/Class1.cs</url>
-          <line>78</line>
-          <properties documentPath="$PROJECT_DIR$/L992/Class1.cs" initialLine="78">
-            <startOffsets>
-              <option value="1931" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1952" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -47,6 +47,10 @@ namespace L992
                 return 0;
             }
 
+            // SS: use two sliding windows
+            // 1. the outer is the largest subarray with K elements
+            // 2. the inner one is the smallest subarray with K elements, and "slides"
+            // within the outer one
             var ijkMap = new Dictionary<int, int>();
             var jkMap = new Dictionary<int, int>();
 
@@ -112,95 +116,6 @@ namespace L992
             return count;
         }
 
-
-        public int SubarraysWithKDistinct2(int[] A, int K)
-        {
-            if (A.Length < K || K == 0)
-            {
-                return 0;
-            }
-
-            var ijkMap = new Dictionary<int, int>();
-            var jkMap = new Dictionary<int, int>();
-
-            var i = 0;
-            var j = 0;
-            var k = 0;
-
-            var count = 0;
-
-            while (k <= A.Length)
-            {
-                if (ijkMap.Count < K)
-                {
-                    var v = A[k];
-                    AddElement(v, ijkMap);
-                    AddElement(v, jkMap);
-
-                    k++;
-                }
-                else if (ijkMap.Count > K)
-                {
-                    if (i < j)
-                    {
-                        var v = A[i];
-                        RemoveElement(v, ijkMap);
-                        i++;
-                    }
-                    else
-                    {
-                        var v = A[i];
-                        RemoveElement(v, ijkMap);
-                        RemoveElement(v, jkMap);
-                        i++;
-                        j++;
-                    }
-                }
-                else
-                {
-                    Debug.Assert(ijkMap.Count == K);
-
-                    var n = j - i;
-                    count += n;
-
-                    if (jkMap.Count == K)
-                    {
-                        count++;
-                    }
-
-                    // move sliding window
-                    // slide window of width K by one to the right, if we haven't reached
-                    // the end of the array yet
-                    if (k == A.Length)
-                    {
-                        break;
-                    }
-
-                    // extend ijk window to right
-                    var v = A[k];
-
-                    // grow window
-                    k++;
-
-                    AddElement(v, ijkMap);
-                    AddElement(v, jkMap);
-                    if (ijkMap.Count > K)
-                    {
-                        // window contains more than K elements, need to shrink
-                        continue;
-                    }
-
-                    // remove element at position j
-                    v = A[j];
-                    RemoveElement(v, jkMap);
-                    j++;
-
-                    Debug.Assert(k == j + K);
-                }
-            }
-
-            return count;
-        }
     }
 
     [TestFixture]

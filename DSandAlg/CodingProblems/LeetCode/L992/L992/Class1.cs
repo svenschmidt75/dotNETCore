@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+
+#endregion
 
 // 992. Subarrays with K Different Integers
 // https://leetcode.com/problems/subarrays-with-k-different-integers/ 
@@ -23,7 +27,7 @@ namespace L992
 
         private static void RemoveElement(int value, IDictionary<int, int> map)
         {
-            if (map.TryGetValue(value, out int freq))
+            if (map.TryGetValue(value, out var freq))
             {
                 if (freq == 1)
                 {
@@ -42,21 +46,89 @@ namespace L992
             {
                 return 0;
             }
-            
+
             var ijkMap = new Dictionary<int, int>();
             var jkMap = new Dictionary<int, int>();
 
-            int i = 0;
-            int j = 0;
-            int k = 0;
+            var i = 0;
+            var j = 0;
+            var k = 0;
 
-            int count = 0;
-            
+            var count = 0;
+
+            while (true)
+            {
+                // SS: Step 1: find the largest subarray containing K elements 
+                while (ijkMap.Count <= K && k < A.Length)
+                {
+                    var number = A[k];
+
+                    // SS: can we add `number` without increasing the count?
+                    if (ijkMap.Count < K || ijkMap.ContainsKey(number))
+                    {
+                        AddElement(number, ijkMap);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    k++;
+                }
+
+                if (ijkMap.Count < K)
+                {
+                    break;
+                }
+
+                // SS: Step 2: within the largest subarray, find the smallest subarray containing K elements 
+                while (k - i >= K)
+                {
+                    if (jkMap.Count < K)
+                    {
+                        var number = A[j];
+                        AddElement(number, jkMap);
+                        j++;
+                    }
+                    else
+                    {
+                        var delta = k - j + 1;
+                        count += delta;
+
+                        // shrink
+                        var number = A[i];
+                        RemoveElement(number, jkMap);
+                        RemoveElement(number, ijkMap);
+                        i++;
+                    }
+                }
+            }
+
+            return count;
+        }
+
+
+        public int SubarraysWithKDistinct2(int[] A, int K)
+        {
+            if (A.Length < K || K == 0)
+            {
+                return 0;
+            }
+
+            var ijkMap = new Dictionary<int, int>();
+            var jkMap = new Dictionary<int, int>();
+
+            var i = 0;
+            var j = 0;
+            var k = 0;
+
+            var count = 0;
+
             while (k <= A.Length)
             {
                 if (ijkMap.Count < K)
                 {
-                    int v = A[k];
+                    var v = A[k];
                     AddElement(v, ijkMap);
                     AddElement(v, jkMap);
 
@@ -66,13 +138,13 @@ namespace L992
                 {
                     if (i < j)
                     {
-                        int v = A[i];
+                        var v = A[i];
                         RemoveElement(v, ijkMap);
                         i++;
                     }
                     else
                     {
-                        int v = A[i];
+                        var v = A[i];
                         RemoveElement(v, ijkMap);
                         RemoveElement(v, jkMap);
                         i++;
@@ -83,9 +155,9 @@ namespace L992
                 {
                     Debug.Assert(ijkMap.Count == K);
 
-                    int n = j - i;
+                    var n = j - i;
                     count += n;
-                    
+
                     if (jkMap.Count == K)
                     {
                         count++;
@@ -100,7 +172,7 @@ namespace L992
                     }
 
                     // extend ijk window to right
-                    int v = A[k];
+                    var v = A[k];
 
                     // grow window
                     k++;
@@ -117,14 +189,13 @@ namespace L992
                     v = A[j];
                     RemoveElement(v, jkMap);
                     j++;
-                        
+
                     Debug.Assert(k == j + K);
                 }
             }
-            
+
             return count;
         }
-        
     }
 
     [TestFixture]
@@ -134,8 +205,8 @@ namespace L992
         public void Test1()
         {
             // Arrange
-            int[] A = new[] {2, 1, 2, 1, 3};
-            int k = 2;
+            int[] A = {2, 1, 2, 1, 3};
+            var k = 2;
 
             // Act
             var result = new Solution().SubarraysWithKDistinct(A, k);
@@ -143,13 +214,13 @@ namespace L992
             // Assert
             Assert.AreEqual(7, result);
         }
-        
+
         [Test]
         public void Test2()
         {
             // Arrange
-            int[] A = new[] {2, 1, 1, 2, 3};
-            int k = 2;
+            int[] A = {2, 1, 1, 2, 3};
+            var k = 2;
 
             // Act
             var result = new Solution().SubarraysWithKDistinct(A, k);
@@ -162,8 +233,8 @@ namespace L992
         public void Test3()
         {
             // Arrange
-            int[] A = new[] {2, 1, 1, 2, 3};
-            int k = 3;
+            int[] A = {2, 1, 1, 2, 3};
+            var k = 3;
 
             // Act
             var result = new Solution().SubarraysWithKDistinct(A, k);
@@ -176,8 +247,8 @@ namespace L992
         public void Test4()
         {
             // Arrange
-            int[] A = new[] {1, 2, 1, 3, 4};
-            int k = 3;
+            int[] A = {1, 2, 1, 3, 4};
+            var k = 3;
 
             // Act
             var result = new Solution().SubarraysWithKDistinct(A, k);
@@ -185,6 +256,5 @@ namespace L992
             // Assert
             Assert.AreEqual(3, result);
         }
-
     }
 }

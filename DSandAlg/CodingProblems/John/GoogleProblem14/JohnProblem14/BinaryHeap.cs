@@ -56,7 +56,7 @@ namespace JohnProblem14
 
             var depth = (int) Math.Log2(Data.Count) - 1;
             var nNodesAtDepth = 1 << depth;
-            var startNode = 1 << (depth - 1);
+            var startNode = (1 << depth) - 1;
 
             while (depth >= 0)
             {

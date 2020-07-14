@@ -47,7 +47,7 @@ namespace L992
                 return 0;
             }
 
-            // SS: use two sliding windows
+            // SS: use two sliding windows to achieve O(N) runtime complexity
             // 1. the outer is the largest subarray with K elements
             // 2. the inner one is the smallest subarray with K elements, and "slides"
             // within the outer one
@@ -85,7 +85,7 @@ namespace L992
                     break;
                 }
 
-                // SS: Step 2: within the largest subarray, find the smallest subarray containing K elements 
+                // SS: Step 2: within the largest subarray of K elements, find the smallest subarrays containing K elements 
                 while (k - i >= K)
                 {
                     if (jkMap.Count < K)
@@ -101,6 +101,7 @@ namespace L992
                     }
                     else
                     {
+                        // SS: count the number of subarrays of size K 
                         var delta = k - j + 1;
                         count += delta;
 

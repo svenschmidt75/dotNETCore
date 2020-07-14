@@ -58,9 +58,10 @@ namespace AlgoExpert_AirportConnections
 
             var reach = CalculateReach(airport2VertexMap.Values, graph);
 
+            // SS: We could use Floyd's algorithm here...
             var pq = PriorityQueue<Vertex>.CreateMaxPriorityQueue();
-
             var toVisit = new HashSet<Vertex>();
+
             foreach (var item in reach)
             {
                 pq.Enqueue(item.Key, item.Value);
@@ -110,14 +111,14 @@ namespace AlgoExpert_AirportConnections
 
         private int CalculateReach(Vertex vertex, Dictionary<Vertex, int> reach, HashSet<Vertex> visited, Graph graph)
         {
-            var neighbors = graph.AdjacencyList[vertex];
+            // SS: number of vertices reachable from this vertex
 
-            if (reach.TryGetValue(vertex, out var v))
+            if (reach.TryGetValue(vertex, out var reachable))
             {
-                return v;
+                return reachable;
             }
 
-            var globalR = 0;
+            var neighbors = graph.AdjacencyList[vertex];
             for (var i = 0; i < neighbors.Count; i++)
             {
                 var neighbor = neighbors[i];
@@ -128,21 +129,20 @@ namespace AlgoExpert_AirportConnections
                     continue;
                 }
 
-                if (reach.TryGetValue(neighbor, out v))
+                if (reach.TryGetValue(neighbor, out int v))
                 {
-                    globalR += v + 1;
+                    reachable += v + 1;
                 }
                 else
                 {
                     visited.Add(neighbor);
-                    var r2 = CalculateReach(neighbor, reach, visited, graph);
-                    reach[neighbor] = r2;
-                    globalR += r2 + 1;
+                    var r = CalculateReach(neighbor, reach, visited, graph) + 1;
+                    reachable += r;
                 }
             }
 
-            reach[vertex] = globalR;
-            return globalR;
+            reach[vertex] = reachable;
+            return reachable;
         }
     }
 

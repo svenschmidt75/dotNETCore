@@ -1,0 +1,31 @@
+
+// dot -Tpng graph1.viz -o graph1.png
+
+digraph {
+
+  // horizontal layout
+  rankdir=LR
+
+  // component 1
+  A -> B;
+  B -> C;
+  C -> A;
+
+  B -> D;
+
+  // component 2
+  D -> E;
+  F -> D;
+  E -> F;
+
+  G -> F;
+
+  // component 3
+  G -> H;
+  H -> I;
+  I -> J;
+  J -> G;
+
+  // component 4
+  J -> K;
+}

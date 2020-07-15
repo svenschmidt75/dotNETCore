@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2acfa0c-d6ec-420c-b5d6-ed2c6cf471d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c2acfa0c-d6ec-420c-b5d6-ed2c6cf471d7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +63,7 @@
       <workItem from="1594773504606" duration="1443000" />
       <workItem from="1594820557165" duration="415000" />
       <workItem from="1594821589851" duration="837000" />
+      <workItem from="1594824807360" duration="628000" />
     </task>
     <servers />
   </component>

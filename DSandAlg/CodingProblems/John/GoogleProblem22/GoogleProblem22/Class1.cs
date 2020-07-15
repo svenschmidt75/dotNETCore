@@ -13,7 +13,7 @@ namespace GoogleProblem22
         /// <summary>
         ///     1. For each vertex, calc. total distance, so O(N^2)
         ///     2. Center of mass, at O(N), does not work
-        ///     3. Floyd-Warshall All Pair Shortest Path at O(N^3), then test each vertex at O(N), so O(N^4)
+        ///     3. Floyd-Warshall All Pair Shortest Path at O(N^3), then test each vertex at O(N), so O(N^3)
         ///     4. Dijkstra's Shortest Path at O((E + V) * log V), for each vertex as starting vertex, so O((E + V) * V log V)
         ///     5. use memoization grid, O(N log N)
         /// </summary>

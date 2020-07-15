@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="097b393c-1251-448c-9f80-502db515df8e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +58,14 @@
       <option name="presentableId" value="Default" />
       <updated>1593257465537</updated>
       <workItem from="1593257468788" duration="2505000" />
+      <workItem from="1594820973602" duration="84000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

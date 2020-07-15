@@ -1,74 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e72fafe-4452-484b-a792-0ea068c98726" name="Default" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="4e72fafe-4452-484b-a792-0ea068c98726" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCovering.UnitTest.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCovering.UnitTest.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering/RadioStationsSetCovering.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering/RadioStationsSetCovering.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SetCovering.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-              <folding>
-                <marker date="1502030360671" expanded="false" signature="6:82" ph="..." />
-                <marker date="1502030360671" expanded="true" signature="118:3055" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="156:3053" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="239:410" ph="///     The set cover problem is to identify the smallest sub-collection of ... " />
-                <marker date="1502030360671" expanded="true" signature="507:1186" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="728:824" ph="/* find the smallest set of radio stations, whose union of states equals ... */" />
-                <marker date="1502030360671" expanded="true" signature="871:991" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="1039:1134" ph="/* return the minimum set of radio stations whose union of states ... */" />
-                <marker date="1502030360671" expanded="true" signature="1338:1804" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="1461:1767" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="1624:1751" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="1814:2040" ph="///     The power set, i.e. the combinations of a set with all other sets, ... " />
-                <marker date="1502030360671" expanded="true" signature="2133:3047" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="2401:3005" ph="{...}" />
-                <marker date="1502030360671" expanded="true" signature="2617:2884" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RadioStationsSetCoveringTests.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-              <folding>
-                <marker date="1501947365133" expanded="false" signature="6:79" ph="..." />
-                <marker date="1501947365133" expanded="true" signature="124:3263" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="173:3261" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="225:513" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="561:946" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="663:727" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="998:1669" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="1100:1210" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="1423:1657" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="1721:2654" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="1823:1979" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="2192:2642" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="2706:3255" ph="{...}" />
-                <marker date="1501947365133" expanded="true" signature="2808:3010" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7000E29A-4826-4EDA-AE84-6EBEED94FD81/f2/98df8f7d/List`1.cs" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -81,147 +38,69 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="2495" />
-    <option name="height" value="1444" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="SolutionExplorer" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="SolutionExplorer">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RadioStationsSetCovering (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <option name="show-file-system" value="false" />
-        <option name="show-all-items" value="false" />
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1ej9bVurVXXYxDTHD5x2Dl20GVZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected=".NET Project.Default">
-    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
-      <option name="PROJECT_PATH" value="" />
-      <option name="PROJECT_KIND" value="None" />
-      <option name="PROJECT_TFM" value="" />
+  <component name="RunManager" selected=".NET Project.RadioStationsSetCovering.UnitTest">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="USE_MONO" value="0" />
+      <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <envs />
-      <method />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
+    <configuration name="RadioStationsSetCovering.UnitTest" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCovering.UnitTest.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
-      <method />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="PROJECT_PATH" value="" />
-      <option name="PROJECT_KIND" value="None" />
-      <option name="PROJECT_TFM" value="" />
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="USE_MONO" value="0" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <envs />
-      <method />
-    </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    <list>
+      <item itemvalue=".NET Project.Default" />
+      <item itemvalue=".NET Project.RadioStationsSetCovering.UnitTest" />
     </list>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4e72fafe-4452-484b-a792-0ea068c98726" name="Default" comment="" />
@@ -233,252 +112,20 @@
       <workItem from="1501803381565" duration="33000" />
       <workItem from="1501942268755" duration="5707000" />
       <workItem from="1502029083284" duration="1134000" />
+      <workItem from="1594824208918" duration="37000" />
+      <workItem from="1594824276492" duration="123000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8491000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="2495" height="1444" extended-state="6" />
-    <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25805137" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="3" />
   </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" column="55" lean-forward="false" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="55" />
-          <folding>
-            <marker date="1502030360671" expanded="false" signature="6:82" ph="..." />
-            <marker date="1502030360671" expanded="true" signature="118:3055" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="156:3053" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="239:410" ph="///     The set cover problem is to identify the smallest sub-collection of ... " />
-            <marker date="1502030360671" expanded="true" signature="507:1186" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="728:824" ph="/* find the smallest set of radio stations, whose union of states equals ... */" />
-            <marker date="1502030360671" expanded="true" signature="871:991" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1039:1134" ph="/* return the minimum set of radio stations whose union of states ... */" />
-            <marker date="1502030360671" expanded="true" signature="1338:1804" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1461:1767" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1624:1751" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1814:2040" ph="///     The power set, i.e. the combinations of a set with all other sets, ... " />
-            <marker date="1502030360671" expanded="true" signature="2133:3047" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2401:3005" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2617:2884" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-          <folding>
-            <marker date="1501947365133" expanded="false" signature="6:79" ph="..." />
-            <marker date="1501947365133" expanded="true" signature="124:3263" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="173:3261" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="225:513" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="561:946" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="663:727" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="998:1669" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1100:1210" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1423:1657" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1721:2654" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1823:1979" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2192:2642" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2706:3255" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2808:3010" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502030360671" expanded="false" signature="6:82" ph="..." />
-            <marker date="1502030360671" expanded="true" signature="118:3055" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="156:3053" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="239:410" ph="///     The set cover problem is to identify the smallest sub-collection of ... " />
-            <marker date="1502030360671" expanded="true" signature="507:1186" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="728:824" ph="/* find the smallest set of radio stations, whose union of states equals ... */" />
-            <marker date="1502030360671" expanded="true" signature="871:991" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1039:1134" ph="/* return the minimum set of radio stations whose union of states ... */" />
-            <marker date="1502030360671" expanded="true" signature="1338:1804" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1461:1767" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1624:1751" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1814:2040" ph="///     The power set, i.e. the combinations of a set with all other sets, ... " />
-            <marker date="1502030360671" expanded="true" signature="2133:3047" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2401:3005" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2617:2884" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <marker date="1501947365133" expanded="false" signature="6:79" ph="..." />
-            <marker date="1501947365133" expanded="true" signature="124:3263" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="173:3261" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="225:513" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="561:946" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="663:727" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="998:1669" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1100:1210" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1423:1657" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1721:2654" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1823:1979" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2192:2642" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2706:3255" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2808:3010" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502030360671" expanded="false" signature="6:82" ph="..." />
-            <marker date="1502030360671" expanded="true" signature="118:3055" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="156:3053" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="239:410" ph="///     The set cover problem is to identify the smallest sub-collection of ... " />
-            <marker date="1502030360671" expanded="true" signature="507:1186" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="728:824" ph="/* find the smallest set of radio stations, whose union of states equals ... */" />
-            <marker date="1502030360671" expanded="true" signature="871:991" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1039:1134" ph="/* return the minimum set of radio stations whose union of states ... */" />
-            <marker date="1502030360671" expanded="true" signature="1338:1804" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1461:1767" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1624:1751" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1814:2040" ph="///     The power set, i.e. the combinations of a set with all other sets, ... " />
-            <marker date="1502030360671" expanded="true" signature="2133:3047" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2401:3005" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2617:2884" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <marker date="1501947365133" expanded="false" signature="6:79" ph="..." />
-            <marker date="1501947365133" expanded="true" signature="124:3263" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="173:3261" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="225:513" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="561:946" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="663:727" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="998:1669" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1100:1210" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1423:1657" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1721:2654" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1823:1979" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2192:2642" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2706:3255" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2808:3010" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7000E29A-4826-4EDA-AE84-6EBEED94FD81/f2/98df8f7d/List`1.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCoveringTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-          <folding>
-            <marker date="1501947365133" expanded="false" signature="6:79" ph="..." />
-            <marker date="1501947365133" expanded="true" signature="124:3263" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="173:3261" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="225:513" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="561:946" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="663:727" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="998:1669" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1100:1210" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1423:1657" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1721:2654" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="1823:1979" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2192:2642" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2706:3255" ph="{...}" />
-            <marker date="1501947365133" expanded="true" signature="2808:3010" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <marker date="1502030360671" expanded="false" signature="6:82" ph="..." />
-            <marker date="1502030360671" expanded="true" signature="118:3055" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="156:3053" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="239:410" ph="///     The set cover problem is to identify the smallest sub-collection of ... " />
-            <marker date="1502030360671" expanded="true" signature="507:1186" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="728:824" ph="/* find the smallest set of radio stations, whose union of states equals ... */" />
-            <marker date="1502030360671" expanded="true" signature="871:991" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1039:1134" ph="/* return the minimum set of radio stations whose union of states ... */" />
-            <marker date="1502030360671" expanded="true" signature="1338:1804" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1461:1767" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1624:1751" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="1814:2040" ph="///     The power set, i.e. the combinations of a set with all other sets, ... " />
-            <marker date="1502030360671" expanded="true" signature="2133:3047" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2401:3005" ph="{...}" />
-            <marker date="1502030360671" expanded="true" signature="2617:2884" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>

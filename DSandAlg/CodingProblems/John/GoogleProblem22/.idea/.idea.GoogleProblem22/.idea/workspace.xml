@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="054d69b3-510a-421e-a798-bfc02084b054" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem22/Class1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +62,7 @@
       <workItem from="1594251547297" duration="3696000" />
       <workItem from="1594316923952" duration="23000" />
       <workItem from="1594316957991" duration="96000" />
+      <workItem from="1594770805598" duration="2585000" />
     </task>
     <servers />
   </component>

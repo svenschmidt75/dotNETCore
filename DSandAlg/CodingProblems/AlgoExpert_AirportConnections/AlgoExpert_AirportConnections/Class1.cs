@@ -19,6 +19,11 @@ namespace AlgoExpert_AirportConnections
             // 4. count number of connected components: O(V + V log V)
             // total runtime: O(V log V + E)
 
+            // Alternatively, remove cycles (i.e. collapse strongly connected components) and
+            // connect the starting vertex to all in degree zero vertices in the compressed graph, i.e.
+            // connect to those nodes that that have no incoming edges...
+            // The answer then is the number of in-degree 0 nodes that are not the starting vertex!
+            
             var graph = new Graph();
 
             // SS: map airport names to vertices

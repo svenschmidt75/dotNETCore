@@ -4,6 +4,11 @@
     <list default="true" id="c2acfa0c-d6ec-420c-b5d6-ed2c6cf471d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +21,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/AlgoExpert_AirportConnections/Class1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AlgoExpert_AirportConnections/Graph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4017539B-5AC6-47E1-8ACF-385222B96917/39D/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4017539B-5AC6-47E1-8ACF-385222B96917/39D/Dictionary.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/67BAFE56-0093-4CF2-B36C-2584389C5D2E/A/HashSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AlgoExpert_AirportConnections/PriorityQueue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AlgoExpert_AirportConnections/BinaryHeap.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,6 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RadioStationsSetCovering/RadioStationsSetCovering.sln" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,7 +58,6 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="b5138614-d145-43f0-8f0e-f185ac4b6da0" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,6 +68,9 @@
       <updated>1594745071198</updated>
       <workItem from="1594745075078" duration="7020000" />
       <workItem from="1594758195006" duration="2898000" />
+      <workItem from="1594773504606" duration="1443000" />
+      <workItem from="1594820557165" duration="415000" />
+      <workItem from="1594821589851" duration="837000" />
     </task>
     <servers />
   </component>
@@ -83,6 +91,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="469" height="506" key="DebuggerActiveHint/0.27.3840.1573@0.27.3840.1573" timestamp="1594760387727" />
+    <state x="1703" y="571" width="705" height="880" key="FileChooserDialogImpl" timestamp="1594824205281">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1703" y="571" width="705" height="880" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1594824205281" />
     <state width="3794" height="548" key="GridCell.Tab.0.bottom" timestamp="1594760396921">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

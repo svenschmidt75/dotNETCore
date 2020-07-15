@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad7a8441-b015-40e4-884d-5b41e3e02421" name="Default" comment="" />
+    <list default="true" id="ad7a8441-b015-40e4-884d-5b41e3e02421" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,12 +17,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Djikstra.UnitTest/DjikstraTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Djikstra/Graph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Djikstra/Edge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Djikstra/EnumerableHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Graph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Djikstra/Djikstra.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Djikstra/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra.UnitTest/DjikstraTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Djikstra/Edge.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -43,6 +49,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.SolutionExplorerActivator" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
@@ -79,6 +87,7 @@
       <item itemvalue=".NET Project.Default" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -99,11 +108,12 @@
       <workItem from="1502043409862" duration="6000" />
       <workItem from="1579371853239" duration="135000" />
       <workItem from="1585506363667" duration="112000" />
+      <workItem from="1594821149535" duration="55000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />

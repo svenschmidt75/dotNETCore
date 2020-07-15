@@ -56,7 +56,7 @@ namespace RadioStationsSetCovering
         /// </summary>
         public static List<HashSet<int>> CreatePowerSet<T>(IDictionary<int, HashSet<T>> set)
         {
-            var nPowerSet = (int) Math.Pow(2, set.Count());
+            var nPowerSet = (int) Math.Pow(2, set.Count);
             var powerSet = new List<HashSet<int>>(nPowerSet);
 
             // add the empty set, so each set is added on its own

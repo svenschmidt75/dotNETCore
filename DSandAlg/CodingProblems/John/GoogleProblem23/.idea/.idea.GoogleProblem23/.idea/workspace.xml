@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5e3db58-4149-4143-a1b7-e18da59ffe73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Kosaraju/.idea/.idea.Kosaraju/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kosaraju/.idea/.idea.Kosaraju/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem23/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem23/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleProblem23/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem23/Class1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1594907601566</updated>
       <workItem from="1594907604183" duration="2417000" />
-      <workItem from="1594910045352" duration="783000" />
+      <workItem from="1594910045352" duration="1697000" />
     </task>
     <servers />
   </component>
@@ -70,10 +71,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1594910825541">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1594911703199">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1594910825541" />
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1594911703199" />
     <state width="520" height="646" key="DebuggerActiveHint" timestamp="1594910417922">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

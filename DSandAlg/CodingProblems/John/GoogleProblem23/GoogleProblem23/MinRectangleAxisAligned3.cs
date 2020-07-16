@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using NUnit.Framework;
 
 #endregion
@@ -20,11 +19,11 @@ namespace GoogleProblem23
             }
 
             // SS: add connections
-            int nConnections = 0;
+            var nConnections = 0;
             for (var i = 0; i < points.Length; i++)
             {
                 var p1 = points[i];
-                
+
                 for (var j = i + 1; j < points.Length; j++)
                 {
                     var p2 = points[j];
@@ -69,14 +68,14 @@ namespace GoogleProblem23
 
             if (n > 1)
             {
-                // SS: check that points form right angles...
+                // SS: check that points form right angles, to filter out invalid connections
                 var p0 = points[rect[n - 2]];
                 var p1 = points[rect[n - 1]];
                 var p2 = points[rect[n]];
 
                 var p01x = -p0[0] + p1[0];
                 var p01y = -p0[1] + p1[1];
-            
+
                 var p12x = -p1[0] + p2[0];
                 var p12y = -p1[1] + p2[1];
 
@@ -86,12 +85,12 @@ namespace GoogleProblem23
                     return int.MaxValue;
                 }
             }
-            
+
             if (n == 3)
             {
                 return RectangleArea(rect, points);
             }
-            
+
             var minArea = int.MaxValue;
 
             var neighbors = graph.AdjacencyList[vertex];
@@ -123,29 +122,26 @@ namespace GoogleProblem23
 
             var p01x = -p0[0] + p1[0];
             var p01y = -p0[1] + p1[1];
-            
-            var p12x = -p1[0] + p2[0];
-            var p12y = -p1[1] + p2[1];
-            
+
             var p23x = -p2[0] + p3[0];
             var p23y = -p2[1] + p3[1];
-            
+
             var p30x = -p3[0] + p0[0];
             var p30y = -p3[1] + p0[1];
 
-            // SS: a rectangle has 4 right angles...
+            // SS: check whether edges (0, 1) and (3, 0) form a right angle... 
             var dot = p30x * p01x + p30y * p01y;
             if (dot != 0)
             {
                 return int.MaxValue;
             }
-            
+
             var area = p23x * p30y - p23y * p30x;
             if (area <= 0)
             {
                 return int.MaxValue;
             }
-            
+
             return area;
         }
 

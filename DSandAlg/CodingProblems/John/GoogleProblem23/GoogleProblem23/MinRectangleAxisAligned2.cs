@@ -56,6 +56,10 @@ namespace GoogleProblem23
             var rowIndices = pointsByRow.Keys.OrderBy(x => x);
 
             // SS: runtime complexity: O(N * log N)
+            // Assume sqrt(N) elements per row and column, then
+            // for each column, sort sqrt(N) row items, so
+            // sqrt(N) * sqrt(N) * log(sqrt(N)) = N * log(N)
+            // or simply, in total, we sort all elements
             var right = new Dictionary<(int row, int col), int>();
             foreach (var rowIndex in rowIndices)
             {
@@ -81,6 +85,10 @@ namespace GoogleProblem23
             var colIndices = pointsByColumn.Keys.OrderBy(x => x);
 
             // SS: runtime complexity: O(N * log N)
+            // Assume sqrt(N) elements per row and column, then
+            // for each column, sort sqrt(N) row items, so
+            // sqrt(N) * sqrt(N) * log(sqrt(N)) = N * log(N)
+            // or simply, in total, we sort all elements
             var down = new Dictionary<(int row, int col), int>();
             foreach (var colIndex in colIndices)
             {
@@ -102,6 +110,9 @@ namespace GoogleProblem23
 
 
             // SS: runtime complexity: O(N^2)?
+            // Assume: sqrt(N) points per row and column.
+            // Then, take each point, and search right, then down, i.e.
+            // N * sqrt(N) * sqrt(N) = N^2
             var minArea = int.MaxValue;
             for (var i = 0; i < points.Length; i++)
             {

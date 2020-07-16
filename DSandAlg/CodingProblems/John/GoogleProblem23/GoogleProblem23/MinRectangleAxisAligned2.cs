@@ -7,6 +7,9 @@ using NUnit.Framework;
 
 #endregion
 
+// 939. Minimum Area Rectangle
+// https://leetcode.com/problems/minimum-area-rectangle/ 
+
 namespace GoogleProblem23
 {
     public class MinRectangleAxisAligned2
@@ -19,6 +22,7 @@ namespace GoogleProblem23
 
             var pointsMap = new Dictionary<(int row, int col), int>();
 
+            // SS: runtime complexity: O(N)
             for (var i = 0; i < points.Length; i++)
             {
                 var point = points[i];
@@ -48,9 +52,11 @@ namespace GoogleProblem23
 
 
             // SS: order row indices
+            // SS: runtime complexity: O(N log N)
             var rowIndices = pointsByRow.Keys.OrderBy(x => x);
 
-            var right = new Dictionary<(int row, int col), (int toRow, int toCol)>();
+            // SS: runtime complexity: O(N * log N)
+            var right = new Dictionary<(int row, int col), int>();
             foreach (var rowIndex in rowIndices)
             {
                 var pointsInRow = pointsByRow[rowIndex].OrderBy(idx => points[idx][0]).ToArray();
@@ -60,42 +66,42 @@ namespace GoogleProblem23
                     var p = points[idx];
 
                     var idxNext = pointsInRow[i + 1];
-                    var pNext = points[idxNext];
 
-                    right[(p[1], p[0])] = (pNext[1], pNext[0]);
+                    right[(p[1], p[0])] = idxNext;
                 }
 
                 var idxLast = pointsInRow[^1];
                 var pLast = points[idxLast];
-                right[(pLast[1], pLast[0])] = (-1, -1);
+                right[(pLast[1], pLast[0])] = -1;
             }
 
 
             // SS: order column indices
+            // SS: runtime complexity: O(N log N)
             var colIndices = pointsByColumn.Keys.OrderBy(x => x);
 
-            var down = new Dictionary<(int row, int col), (int toRow, int toCol)>();
+            // SS: runtime complexity: O(N * log N)
+            var down = new Dictionary<(int row, int col), int>();
             foreach (var colIndex in colIndices)
             {
                 var pointsInCol = pointsByColumn[colIndex].OrderBy(idx => points[idx][1]).ToArray();
-
                 for (var i = 0; i <= pointsInCol.Length - 2; i++)
                 {
                     var idx = pointsInCol[i];
                     var p = points[idx];
 
                     var idxNext = pointsInCol[i + 1];
-                    var pNext = points[idxNext];
 
-                    down[(p[1], p[0])] = (pNext[1], pNext[0]);
+                    down[(p[1], p[0])] = idxNext;
                 }
 
                 var idxLast = pointsInCol[^1];
                 var pLast = points[idxLast];
-                down[(pLast[1], pLast[0])] = (-1, -1);
+                down[(pLast[1], pLast[0])] = -1;
             }
 
 
+            // SS: runtime complexity: O(N^2)?
             var minArea = int.MaxValue;
             for (var i = 0; i < points.Length; i++)
             {
@@ -114,44 +120,41 @@ namespace GoogleProblem23
             return minArea;
         }
 
-        private static int MoveRight(int[] p, Dictionary<(int row, int col), (int toRow, int toCol)> right
-            , Dictionary<(int row, int col), (int toRow, int toCol)> down, Dictionary<(int row, int col), int> pointsMap
-            , int[][] points)
+        private static int MoveRight(int[] p, Dictionary<(int row, int col), int> right
+            , Dictionary<(int row, int col), int> down, Dictionary<(int row, int col), int> pointsMap, int[][] points)
         {
             var minArea = int.MaxValue;
 
-            var (nextRow, nextCol) = right[(p[1], p[0])];
-            while (nextCol != -1)
+            var nextIdx = right[(p[1], p[0])];
+            while (nextIdx != -1)
             {
-                var p2Idx = pointsMap[(nextRow, nextCol)];
-                var p2 = points[p2Idx];
+                var p2 = points[nextIdx];
                 var area = MoveDown(p, p2, down, pointsMap, points);
                 minArea = Math.Min(minArea, area);
-                (nextRow, nextCol) = right[(nextRow, nextCol)];
+                nextIdx = right[(p2[1], p2[0])];
             }
 
             return minArea;
         }
 
-        private static int MoveDown(int[] p1, int[] p2, Dictionary<(int row, int col), (int toRow, int toCol)> down, Dictionary<(int row, int col), int> pointsMap
-            , int[][] points)
+        private static int MoveDown(int[] p1, int[] p2, Dictionary<(int row, int col), int> down
+            , Dictionary<(int row, int col), int> pointsMap, int[][] points)
         {
             var minArea = int.MaxValue;
 
-            var (nextRow, nextCol) = down[(p2[1], p2[0])];
-            while (nextCol != -1)
+            var nextIdx = down[(p2[1], p2[0])];
+            while (nextIdx != -1)
             {
-                var p3Idx = pointsMap[(nextRow, nextCol)];
-                var p3 = points[p3Idx];
-                var area = MoveLeft(p1, p2, p3, pointsMap);
+                var p3 = points[nextIdx];
+                var area = MoveLeft(p1, p3, pointsMap);
                 minArea = Math.Min(minArea, area);
-                (nextRow, nextCol) = down[(nextRow, nextCol)];
+                nextIdx = down[(p3[1], p3[0])];
             }
 
             return minArea;
         }
 
-        private static int MoveLeft(int[] p1, int[] p2, int[] p3, Dictionary<(int row, int col), int> pointsMap)
+        private static int MoveLeft(int[] p1, int[] p3, Dictionary<(int row, int col), int> pointsMap)
         {
             var targetRow = p3[1];
             var targetColumn = p1[0];
@@ -159,7 +162,7 @@ namespace GoogleProblem23
             if (pointsMap.ContainsKey((targetRow, targetColumn)))
             {
                 // SS: points form a rectangle
-                var colDst = p2[0] - p1[0];
+                var colDst = p3[0] - p1[0];
                 var rowDst = targetRow - p1[1];
                 var area = colDst * rowDst;
                 return area;

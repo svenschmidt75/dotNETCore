@@ -14,8 +14,10 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="GoogleProblem23" t="IncludeRecursive">
         <e p="GoogleProblem23.csproj" t="IncludeRecursive" />
+        <e p="Graph.cs" t="Include" />
         <e p="MinRectangleAxisAligned1.cs" t="Include" />
         <e p="MinRectangleAxisAligned2.cs" t="Include" />
+        <e p="MinRectangleAxisAligned3.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

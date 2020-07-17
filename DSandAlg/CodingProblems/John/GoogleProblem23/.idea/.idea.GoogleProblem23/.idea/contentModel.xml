@@ -19,6 +19,8 @@
         <e p="MinRectangleAxisAligned2.cs" t="Include" />
         <e p="MinRectangleAxisAligned3.cs" t="Include" />
         <e p="MinRectangleAxisAligned4.cs" t="Include" />
+        <e p="MinRectangleAxisAligned5.cs" t="Include" />
+        <e p="MinRectangleAxisAligned6.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

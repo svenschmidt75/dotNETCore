@@ -8,39 +8,90 @@ using NUnit.Framework;
 
 namespace GoogleProblem23
 {
-    public class MinRectangleAxisAligned4
+    public class MinRectangleAxisAligned6
     {
         public int MinAreaRect(int[][] points)
         {
-            var graph = new Graph();
+            var pointMap = new HashSet<(int row, int col)>();
             for (var i = 0; i < points.Length; i++)
             {
-                graph.AddVertex(i);
+                var point = points[i];
+                pointMap.Add((point[1], point[0]));
             }
 
-            // SS: add connections
-            var nConnections = 0;
-            for (var i = 0; i < points.Length; i++)
+            var minArea = int.MaxValue;
+
+            for (var i = 0; i <= points.Length - 3; i++)
             {
-                var p1 = points[i];
+                var p0 = points[i];
 
-                for (var j = i + 1; j < points.Length; j++)
+                for (var j = i + 1; j <= points.Length - 2; j++)
                 {
-                    var p2 = points[j];
+                    var p1 = points[j];
 
-                    if (OnSameDiagonal(p1, p2))
+                    for (var k = j + 1; k <= points.Length - 1; k++)
                     {
-                        graph.AddUndirectedEdge(i, j);
-                        nConnections++;
+                        var p2 = points[k];
+
+                        var pa = p0;
+                        var pb = p1;
+                        var pc = p2;
+
+                        // SS: find the diagonal
+                        var p01x = -p0[0] + p1[0];
+                        var p01y = -p0[1] + p1[1];
+
+                        var p12x = -p1[0] + p2[0];
+                        var p12y = -p1[1] + p2[1];
+
+                        var p20x = -p2[0] + p0[0];
+                        var p20y = -p2[1] + p0[1];
+
+                        var d0 = p01x * p01x + p01y * p01y;
+                        var d1 = p12x * p12x + p12y * p12y;
+                        var d2 = p20x * p20x + p20y * p20y;
+
+                        if (d0 > d1)
+                        {
+                            pa = p0;
+                            pb = p1;
+                            pc = p2;
+                        }
+
+                        if (d1 > d0)
+                        {
+                            pa = p1;
+                            pb = p2;
+                            pc = p0;
+                        }
+
+                        if (d2 > d0)
+                        {
+                            pa = p0;
+                            pb = p2;
+                            pc = p1;
+                        }
+
+                        if (OnSameDiagonal(pa, pc) == false || OnSameDiagonal(pb, pc) == false)
+                        {
+                            continue;
+                        }
+
+                        // SS: pa and pb form the diagonal, pc is the 3rd point
+                        // find the 4th point...
+                        var p3Row = pc[1] + -pc[1] + pa[1] + -pc[1] + pb[1];
+                        var p3Col = pc[0] + -pc[0] + pa[0] + -pc[0] + pb[0];
+                        var p3 = new[] {p3Col, p3Row};
+
+                        if (pointMap.Contains((p3Row, p3Col)) == false)
+                        {
+                            continue;
+                        }
+
+                        var area = RectangleArea(p0, p1, p2, p3);
+                        minArea = Math.Min(minArea, area);
                     }
                 }
-            }
-
-            var minArea = DFS(0, 0, graph, new HashSet<int>(), new int[points.Length], points);
-            if (minArea == int.MaxValue)
-            {
-                // SS: no rectangle found
-                minArea = 0;
             }
 
             return minArea;
@@ -48,55 +99,14 @@ namespace GoogleProblem23
 
         private static bool OnSameDiagonal(int[] p1, int[] p2)
         {
-            var dx = p2[0] - p1[0];
-            var dy = p2[1] - p1[1];
+            var dx = Math.Abs(p2[0] - p1[0]);
+            var dy = Math.Abs(p2[1] - p1[1]);
             return dx == dy || dx == 0 || dy == 0;
         }
 
-        private static int DFS(int n, int vertex, Graph graph, HashSet<int> visited, int[] rect, int[][] points)
+
+        private static int RectangleArea(int[] p0, int[] p1, int[] p2, int[] p3)
         {
-            if (visited.Contains(vertex))
-            {
-                // SS: we have a cycle, check for rectangle
-                if (n >= 4)
-                {
-                    var r2 = new int[4];
-                    r2[0] = rect[n - 4];
-                    r2[1] = rect[n - 3];
-                    r2[2] = rect[n - 2];
-                    r2[3] = rect[n - 1];
-                    return RectangleArea(r2, points);
-                }
-
-                return int.MaxValue;
-            }
-
-            rect[n] = vertex;
-
-            visited.Add(vertex);
-
-            var minArea = int.MaxValue;
-
-            var neighbors = graph.AdjacencyList[vertex];
-            for (var i = 0; i < neighbors.Count; i++)
-            {
-                var neighbor = neighbors[i];
-                var area = DFS(n + 1, neighbor, graph, visited, rect, points);
-                minArea = Math.Min(minArea, area);
-            }
-
-            visited.Remove(vertex);
-
-            return minArea;
-        }
-
-        private static int RectangleArea(int[] rect, int[][] points)
-        {
-            var p0 = points[rect[0]];
-            var p1 = points[rect[1]];
-            var p2 = points[rect[2]];
-            var p3 = points[rect[3]];
-
             var p01x = -p0[0] + p1[0];
             var p01y = -p0[1] + p1[1];
 
@@ -128,12 +138,12 @@ namespace GoogleProblem23
             }
 
             // SS: check diagonals
-            var p02x = p01x + p12x;
-            var p02y = p01y + p12y;
+            var p02x = -p0[1] + p2[1];
+            var p02y = -p0[0] + p2[0];
             var d02 = p02x * p02x + p02y * p02y;
 
-            var p13x = p23x + p30x;
-            var p13y = p23y + p30y;
+            var p13x = -p1[1] + p3[1];
+            var p13y = -p1[0] + p3[0];
             var d13 = p13x * p13x + p13y * p13y;
 
             if (d02 != d13)
@@ -165,7 +175,7 @@ namespace GoogleProblem23
                 };
 
                 // Act
-                var minArea = new MinRectangleAxisAligned4().MinAreaRect(points);
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
 
                 // Assert
                 Assert.AreEqual(1, minArea);
@@ -181,7 +191,7 @@ namespace GoogleProblem23
                 };
 
                 // Act
-                var minArea = new MinRectangleAxisAligned4().MinAreaRect(points);
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
 
                 // Assert
                 Assert.AreEqual(4, minArea);
@@ -197,7 +207,7 @@ namespace GoogleProblem23
                 };
 
                 // Act
-                var minArea = new MinRectangleAxisAligned4().MinAreaRect(points);
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
 
                 // Assert
                 Assert.AreEqual(2, minArea);
@@ -232,7 +242,7 @@ namespace GoogleProblem23
                 };
 
                 // Act
-                var minArea = new MinRectangleAxisAligned4().MinAreaRect(points);
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
 
                 // Assert
                 Assert.AreEqual(3, minArea);
@@ -373,10 +383,26 @@ namespace GoogleProblem23
                 };
 
                 // Act
-                var minArea = new MinRectangleAxisAligned4().MinAreaRect(points);
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
 
                 // Assert
                 Assert.AreEqual(1964, minArea);
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+                var points = new[]
+                {
+                    new[] {1, 1}, new[] {1, 3}, new[] {2, 2}, new[] {3, 1}, new[] {3, 3}, new[] {4, 2}, new[] {4, 3}
+                };
+
+                // Act
+                var minArea = new MinRectangleAxisAligned6().MinAreaRect(points);
+
+                // Assert
+                Assert.AreEqual(2, minArea);
             }
         }
     }

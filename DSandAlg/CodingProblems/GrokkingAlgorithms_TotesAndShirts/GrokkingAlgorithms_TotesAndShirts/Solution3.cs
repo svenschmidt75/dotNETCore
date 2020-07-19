@@ -1,5 +1,6 @@
 #region
 
+using System;
 using NUnit.Framework;
 
 #endregion
@@ -72,11 +73,19 @@ namespace GrokkingAlgorithms_TotesAndShirts
             return (maxShirts, maxTotes);
         }
 
+        public (int nShirts, int nTotes) Solve2(int nFabric, int nButtons)
+        {
+            // SS: time and space complexity O(1) 
+            var nTotes = Math.Min(nFabric / 2, nButtons / 2);
+            var nShirts = Math.Min(nFabric - nTotes * 2, (nButtons - nTotes * 2) / 5);
+            return (nShirts, nTotes);
+        }
+
         [TestFixture]
         public class Tests
         {
             [Test]
-            public void Test1()
+            public void Test11()
             {
                 // Arrange
                 var nFabric = 11;
@@ -91,7 +100,22 @@ namespace GrokkingAlgorithms_TotesAndShirts
             }
 
             [Test]
-            public void Test2()
+            public void Test12()
+            {
+                // Arrange
+                var nFabric = 11;
+                var nButtons = 20;
+
+                // Act
+                var (nShirts, nTotes) = new Solution3().Solve2(nFabric, nButtons);
+
+                // Assert
+                Assert.AreEqual(1, nShirts);
+                Assert.AreEqual(5, nTotes);
+            }
+
+            [Test]
+            public void Test21()
             {
                 // Arrange
                 var nFabric = 29;
@@ -99,6 +123,21 @@ namespace GrokkingAlgorithms_TotesAndShirts
 
                 // Act
                 var (nShirts, nTotes) = new Solution3().Solve(nFabric, nButtons);
+
+                // Assert
+                Assert.AreEqual(1, nShirts);
+                Assert.AreEqual(14, nTotes);
+            }
+
+            [Test]
+            public void Test22()
+            {
+                // Arrange
+                var nFabric = 29;
+                var nButtons = 33;
+
+                // Act
+                var (nShirts, nTotes) = new Solution3().Solve2(nFabric, nButtons);
 
                 // Assert
                 Assert.AreEqual(1, nShirts);

@@ -9,8 +9,17 @@ namespace GoogleProblem24
 {
     public class Solution
     {
+        /// <summary>
+        ///  Find the longest subarray of houses within our budget such that
+        /// the length of plots of land is maximized.
+        /// </summary>
+        /// <param name="price"></param>
+        /// <param name="plotLength"></param>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public int Solve(int[] price, int[] plotLength, int budget)
         {
+            // SS: runtime complexity: O(N), using sliding window technique
             if (budget == 0)
             {
                 return 0;

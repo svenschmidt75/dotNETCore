@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7770bd09-1e05-4a9f-871a-757707471107" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GrokkingAlgorithms_TotesAndShirts/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GrokkingAlgorithms_TotesAndShirts/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrokkingAlgorithms_TotesAndShirts/Solution3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GrokkingAlgorithms_TotesAndShirts/Solution3.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7770bd09-1e05-4a9f-871a-757707471107" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595111830355</updated>
       <workItem from="1595111832653" duration="5157000" />
-      <workItem from="1595194473500" duration="177000" />
+      <workItem from="1595194473500" duration="808000" />
     </task>
     <servers />
   </component>

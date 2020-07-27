@@ -39,20 +39,22 @@ namespace GoogleProblem25
 
                     while (stack.Any() && stack.Peek().Item2 >= minWaterLevel)
                     {
-                        var (idx2, wl2) = stack.Peek();
+                        var (idx, wl) = stack.Peek();
 
-                        var wl = Math.Min(waterLevel, wl2);
+                        var maxWaterLevel = Math.Min(waterLevel, wl);
 
-                        var width = i - idx2 - 1;
-                        var waterColumn = wl - minWaterLevel;
+                        var width = i - idx - 1;
+                        var waterColumn = maxWaterLevel - minWaterLevel;
                         var vl = width * waterColumn;
                         waterVolume += vl;
 
-                        // SS: pop off item?
-                        if (wl2 < waterLevel)
+                        // SS: pop off item from stack?
+                        if (wl < waterLevel)
                         {
                             stack.Pop();
-                            minWaterLevel = Math.Max(minWaterLevel, wl2);
+                            
+                            // SS: adjust water level
+                            minWaterLevel = Math.Max(minWaterLevel, wl);
                         }
                         else
                         {

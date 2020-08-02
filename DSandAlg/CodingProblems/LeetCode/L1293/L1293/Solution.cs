@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
@@ -21,18 +22,18 @@ namespace L1293
             var ncols = grid[0].Length;
 
             (int distance, int k)[][][] memGrid = new (int, int)[nrows][][];
-            for (int i = 0; i < nrows; i++)
+            for (var i = 0; i < nrows; i++)
             {
                 memGrid[i] = new (int, int)[ncols][];
             }
 
-            for (int i = 0; i < nrows; i++)
+            for (var i = 0; i < nrows; i++)
             {
-                for (int j = 0; j < ncols; j++)
+                for (var j = 0; j < ncols; j++)
                 {
                     memGrid[i][j] = new (int, int)[k + 1];
 
-                    for (int p = 0; p <= k; p++)
+                    for (var p = 0; p <= k; p++)
                     {
                         memGrid[i][j][p] = (-1, p);
                     }
@@ -40,11 +41,11 @@ namespace L1293
             }
 
             memGrid[0][0][0] = (0, 0);
-            
+
             // Pass 1: add distances and number of obstacles removed to each cell
-            for (int i = 0; i < nrows; i++)
+            for (var i = 0; i < nrows; i++)
             {
-                for (int j = 0; j < ncols; j++)
+                for (var j = 0; j < ncols; j++)
                 {
                     if (j > 0)
                     {
@@ -57,27 +58,38 @@ namespace L1293
                     }
                 }
             }
-            
+
             // Pass 2: propagate
-            for (int i = 0; i < nrows; i++)
+            for (var i = 0; i < nrows; i++)
             {
-                for (int j = 0; j < ncols; j++)
+                for (var j = 0; j < ncols; j++)
                 {
-                    PropagateDFS(grid, k, memGrid, i, j, new HashSet<(int row, int col)>{(i, j)});
+                    PropagateDFS(grid, k, memGrid, i, j, new HashSet<(int row, int col)> {(i, j)});
                 }
             }
 
-            return memGrid[nrows - 1][ncols - 1][k].distance;
+            var dist = int.MaxValue;
+            for (var p = 0; p <= k; p++)
+            {
+                var distance = memGrid[nrows - 1][ncols - 1][p].distance;
+                if (distance > -1)
+                {
+                    dist = Math.Min(dist, distance);
+                }
+            }
+
+            return dist == int.MaxValue ? -1 : dist;
         }
 
-        private void PropagateDFS(int[][] grid, int k, (int distance, int k)[][][] memGrid, int row, int col, HashSet<(int row, int col)> visited)
+        private void PropagateDFS(int[][] grid, int k, (int distance, int k)[][][] memGrid, int row, int col
+            , HashSet<(int row, int col)> visited)
         {
             var nrows = grid.Length;
             var ncols = grid[0].Length;
 
-            for (int p = 0; p <= k; p++)
+            for (var p = 0; p <= k; p++)
             {
-                (int dist2, int k2) = memGrid[row][col][p];
+                var (dist2, k2) = memGrid[row][col][p];
                 if (dist2 == -1)
                 {
                     continue;
@@ -92,8 +104,8 @@ namespace L1293
                         if (visited.Contains((r, c)) == false)
                         {
                             visited.Add((r, c));
-                            
-                            bool changed = PropagteCell(grid, k, memGrid, row, col, r, c);
+
+                            var changed = PropagteCell(grid, k, memGrid, row, col, r, c);
                             if (changed)
                             {
                                 PropagateDFS(grid, k, memGrid, r, c, visited);
@@ -104,20 +116,21 @@ namespace L1293
             }
         }
 
-        private bool PropagteCell(int[][] grid, int k, (int distance, int k)[][][] memGrid, int r1, int c1, int r2, int c2)
+        private bool PropagteCell(int[][] grid, int k, (int distance, int k)[][][] memGrid, int r1, int c1, int r2
+            , int c2)
         {
-            bool changed = false;
-            
-            for (int p = 0; p <= k; p++)
+            var changed = false;
+
+            for (var p = 0; p <= k; p++)
             {
-                (int dist1, int k1) = memGrid[r1][c1][p];
+                var (dist1, k1) = memGrid[r1][c1][p];
                 if (dist1 == -1)
                 {
                     // SS: nothing to propagate
                     continue;
                 }
 
-                (int dist2, int k2) = memGrid[r2][c2][p];
+                var (dist2, k2) = memGrid[r2][c2][p];
 
                 // SS: distance has not been set for this cell an k
                 if (dist2 == -1)
@@ -155,9 +168,14 @@ namespace L1293
                         {
                             if (k1 + 1 <= k)
                             {
-                                memGrid[r2][c2][k1].distance = dist1 + 1;
+                                memGrid[r2][c2][k1 + 1].distance = dist1 + 1;
                                 changed = true;
                             }
+                        }
+                        else
+                        {
+                            memGrid[r2][c2][k1].distance = dist1 + 1;
+                            changed = true;
                         }
                     }
                 }
@@ -165,7 +183,7 @@ namespace L1293
 
             return changed;
         }
-        
+
         public int ShortestPath1(int[][] grid, int k)
         {
             if (grid.Length < 1)
@@ -487,7 +505,7 @@ namespace L1293
                         , 1, 1, 1, 1, 1, 1, 1, 0
                     }
                     , new[]
- {
+                    {
                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
                         , 0, 0, 0, 0, 0, 0, 0, 0
                     }
@@ -509,7 +527,7 @@ namespace L1293
                 var result = new Solution().ShortestPath1(grid, k);
 
                 // Assert
-                Assert.AreEqual(-1, result);
+                Assert.AreEqual(387, result);
             }
 
             [Test]
@@ -689,7 +707,7 @@ namespace L1293
                         , 1, 1, 1, 1, 1, 1, 1, 0
                     }
                     , new[]
- {
+                    {
                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
                         , 0, 0, 0, 0, 0, 0, 0, 0
                     }
@@ -711,7 +729,7 @@ namespace L1293
                 var result = new Solution().ShortestPath2(grid, k);
 
                 // Assert
-                Assert.AreEqual(311, result);
+                Assert.AreEqual(387, result);
             }
 
             [Test]
@@ -753,7 +771,7 @@ namespace L1293
                 // Assert
                 Assert.AreEqual(9, result);
             }
- 
+
             [Test]
             public void Test51()
             {
@@ -792,6 +810,86 @@ namespace L1293
 
                 // Assert
                 Assert.AreEqual(7, result);
+            }
+
+            [Test]
+            public void Test62()
+            {
+                // Arrange
+                var grid = new[]
+                {
+                    new[] {0}
+                };
+
+                var k = 1;
+
+                // Act
+                var result = new Solution().ShortestPath2(grid, k);
+
+                // Assert
+                Assert.AreEqual(0, result);
+            }
+
+            [Test]
+            public void Test72()
+            {
+                // Arrange
+                var grid = new[]
+                {
+                    new[]
+                    {
+                        0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0
+                        , 1, 1
+                    }
+                    , new[]
+                    {
+                        1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0
+                        , 0, 0
+                    }
+                    , new[]
+                    {
+                        1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1
+                        , 0, 0
+                    }
+                    , new[]
+                    {
+                        0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1
+                        , 0, 0
+                    }
+                    , new[]
+                    {
+                        1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0
+                        , 1, 0
+                    }
+                    , new[]
+                    {
+                        0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0
+                        , 1, 1
+                    }
+                    , new[]
+                    {
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0
+                        , 1, 0
+                    }
+                    , new[]
+                    {
+                        1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1
+                        , 0, 1
+                    }
+                    , new[]
+                    {
+                        1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0
+                        , 1, 0
+                    }
+                };
+
+                var k = 283;
+
+                // Act
+                var result = new Solution().ShortestPath2(grid, k);
+
+                // Assert
+                Assert.AreEqual(41, result);
             }
         }
     }

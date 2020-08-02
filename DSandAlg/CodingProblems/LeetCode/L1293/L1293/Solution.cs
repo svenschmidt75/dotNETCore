@@ -21,26 +21,26 @@ namespace L1293
             var nrows = grid.Length;
             var ncols = grid[0].Length;
 
-            (int distance, int k)[][][] memGrid = new (int, int)[nrows][][];
+            int [][][] memGrid = new int[nrows][][];
             for (var i = 0; i < nrows; i++)
             {
-                memGrid[i] = new (int, int)[ncols][];
+                memGrid[i] = new int[ncols][];
             }
 
             for (var i = 0; i < nrows; i++)
             {
                 for (var j = 0; j < ncols; j++)
                 {
-                    memGrid[i][j] = new (int, int)[k + 1];
+                    memGrid[i][j] = new int[k + 1];
 
                     for (var p = 0; p <= k; p++)
                     {
-                        memGrid[i][j][p] = (-1, p);
+                        memGrid[i][j][p] = -1;
                     }
                 }
             }
 
-            memGrid[0][0][0] = (0, 0);
+            memGrid[0][0][0] = 0;
 
             // Pass 1: add distances and number of obstacles removed to each cell
             for (var i = 0; i < nrows; i++)
@@ -71,7 +71,7 @@ namespace L1293
             var dist = int.MaxValue;
             for (var p = 0; p <= k; p++)
             {
-                var distance = memGrid[nrows - 1][ncols - 1][p].distance;
+                var distance = memGrid[nrows - 1][ncols - 1][p];
                 if (distance > -1)
                 {
                     dist = Math.Min(dist, distance);
@@ -81,15 +81,14 @@ namespace L1293
             return dist == int.MaxValue ? -1 : dist;
         }
 
-        private void PropagateDFS(int[][] grid, int k, (int distance, int k)[][][] memGrid, int row, int col
-            , HashSet<(int row, int col)> visited)
+        private void PropagateDFS(int[][] grid, int k, int[][][] memGrid, int row, int col, HashSet<(int row, int col)> visited)
         {
             var nrows = grid.Length;
             var ncols = grid[0].Length;
 
             for (var p = 0; p <= k; p++)
             {
-                var (dist2, k2) = memGrid[row][col][p];
+                var dist2 = memGrid[row][col][p];
                 if (dist2 == -1)
                 {
                     continue;
@@ -116,21 +115,21 @@ namespace L1293
             }
         }
 
-        private bool PropagteCell(int[][] grid, int k, (int distance, int k)[][][] memGrid, int r1, int c1, int r2
+        private bool PropagteCell(int[][] grid, int k, int [][][] memGrid, int r1, int c1, int r2
             , int c2)
         {
             var changed = false;
 
             for (var p = 0; p <= k; p++)
             {
-                var (dist1, k1) = memGrid[r1][c1][p];
+                var dist1 = memGrid[r1][c1][p];
                 if (dist1 == -1)
                 {
                     // SS: nothing to propagate
                     continue;
                 }
 
-                var (dist2, k2) = memGrid[r2][c2][p];
+                var dist2 = memGrid[r2][c2][p];
 
                 // SS: distance has not been set for this cell an k
                 if (dist2 == -1)
@@ -139,13 +138,13 @@ namespace L1293
                     if (grid[r2][c2] == 1)
                     {
                         // SS: can we remove this obstacle?
-                        if (k1 + 1 <= k)
+                        if (p + 1 <= k)
                         {
                             // SS: is the path shorter?
-                            dist2 = memGrid[r2][c2][k1 + 1].distance;
+                            dist2 = memGrid[r2][c2][p + 1];
                             if (dist2 == -1 || dist2 > dist1 + 1)
                             {
-                                memGrid[r2][c2][k1 + 1].distance = dist1 + 1;
+                                memGrid[r2][c2][p + 1] = dist1 + 1;
                                 changed = true;
                             }
                         }
@@ -153,28 +152,26 @@ namespace L1293
                     else
                     {
                         // SS: are we propagating to a cell without an obstacle
-                        memGrid[r2][c2][k1] = (dist1 + 1, k1);
+                        memGrid[r2][c2][p] = dist1 + 1;
                         changed = true;
                     }
                 }
                 else
                 {
-                    Debug.Assert(k1 == k2);
-
                     if (dist2 > dist1 + 1)
                     {
                         // SS: are we propagating to a cell with an obstacle?
                         if (grid[r2][c2] == 1)
                         {
-                            if (k1 + 1 <= k)
+                            if (p + 1 <= k)
                             {
-                                memGrid[r2][c2][k1 + 1].distance = dist1 + 1;
+                                memGrid[r2][c2][p + 1] = dist1 + 1;
                                 changed = true;
                             }
                         }
                         else
                         {
-                            memGrid[r2][c2][k1].distance = dist1 + 1;
+                            memGrid[r2][c2][p] = dist1 + 1;
                             changed = true;
                         }
                     }

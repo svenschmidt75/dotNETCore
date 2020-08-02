@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -15,6 +16,67 @@ namespace L1293
     public class Solution
     {
         private static readonly (int r, int c)[] Directions = {(-1, 0), (0, -1), (0, 1), (1, 0)};
+
+        public int ShortestPath3(int[][] grid, int k)
+        {
+            var nrows = grid.Length;
+            var ncols = grid[0].Length;
+
+            int [][][] memGrid = new int[nrows][][];
+            for (var i = 0; i < nrows; i++)
+            {
+                memGrid[i] = new int[ncols][];
+            }
+
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = 0; j < ncols; j++)
+                {
+                    memGrid[i][j] = new int[k + 1];
+
+                    for (var p = 0; p <= k; p++)
+                    {
+                        memGrid[i][j][p] = -1;
+                    }
+                }
+            }
+
+            memGrid[0][0][0] = 0;
+
+            var queue = new Queue<(int r, int c)>();
+            queue.Enqueue((0, 0));
+
+            while (queue.Any())
+            {
+                var (row, col) = queue.Dequeue();
+                
+                for (var i = 0; i < 4; i++)
+                {
+                    var r = row + Directions[i].r;
+                    var c = col + Directions[i].c;
+                    if (r >= 0 && r < nrows && c >= 0 && c < ncols)
+                    {
+                        var changed = PropagteCell(grid, k, memGrid, row, col, r, c);
+                        if (changed)
+                        {
+                            queue.Enqueue((r, c));
+                        }
+                    }
+                }
+            }
+
+            var dist = int.MaxValue;
+            for (var p = 0; p <= k; p++)
+            {
+                var distance = memGrid[nrows - 1][ncols - 1][p];
+                if (distance > -1)
+                {
+                    dist = Math.Min(dist, distance);
+                }
+            }
+
+            return dist == int.MaxValue ? -1 : dist;
+        }
 
         public int ShortestPath2(int[][] grid, int k)
         {
@@ -282,7 +344,7 @@ namespace L1293
                 var k = 1;
 
                 // Act
-                var result = new Solution().ShortestPath2(grid, k);
+                var result = new Solution().ShortestPath3(grid, k);
 
                 // Assert
                 Assert.AreEqual(6, result);
@@ -723,7 +785,7 @@ namespace L1293
                 var k = 5;
 
                 // Act
-                var result = new Solution().ShortestPath2(grid, k);
+                var result = new Solution().ShortestPath3(grid, k);
 
                 // Assert
                 Assert.AreEqual(387, result);
@@ -883,7 +945,7 @@ namespace L1293
                 var k = 283;
 
                 // Act
-                var result = new Solution().ShortestPath2(grid, k);
+                var result = new Solution().ShortestPath3(grid, k);
 
                 // Assert
                 Assert.AreEqual(41, result);

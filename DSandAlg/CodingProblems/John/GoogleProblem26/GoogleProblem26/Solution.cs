@@ -51,6 +51,9 @@ namespace GoogleProblem26
 
             // SS: sort in steps, runtime complexity: O(k * m * log m)
             // space complexity: O(m)
+            
+            // Note: Since we are sorting integers, we could use radix sort for O(k * n * p), where p
+            // is the number with the most digits... 
 
             var m = input.Length;
 

@@ -56,7 +56,7 @@ namespace L230
                 // SS: pre-order
                 minHeap.Push(node.val);
 
-                Console.WriteLine(node.val);
+                TestContext.Progress.WriteLine(node.val);
 
                 DFS(node.left, minHeap);
                 DFS(node.right, minHeap);
@@ -143,6 +143,40 @@ namespace L230
 
                 return (i, k);
             }
+
+            public int KthSmallest3(TreeNode root, int k)
+            {
+                // SS: iterative inorder traversal
+                var stack = new Stack<TreeNode>();
+
+                var node = root;
+
+                while (true)
+                {
+                    while (node != null)
+                    {
+                        stack.Push(node);
+                        node = node.left;
+                    }
+
+                    if (stack.Any() == false)
+                    {
+                        break;
+                    }
+
+                    node = stack.Pop();
+
+                    if (--k == 0)
+                    {
+                        TestContext.WriteLine($"kth element: {node.val}");
+                        return node.val;
+                    }
+
+                    node = node.right;
+                }
+
+                return -1;
+            }
         }
     }
 
@@ -228,6 +262,19 @@ namespace L230
         }
 
         [Test]
+        public void Test13()
+        {
+            // Arrange
+            var tree = CreateTree(new[] {3, 1, 4, 1000, 2});
+
+            // Act
+            var value = new TreeNode.Solution().KthSmallest3(tree, 1);
+
+            // Assert
+            Assert.AreEqual(1, value);
+        }
+
+        [Test]
         public void Test21()
         {
             // Arrange
@@ -260,7 +307,7 @@ namespace L230
             var tree = CreateTree(new[] {5, 3, 6, 2, 4, 1000, 1000, 1});
 
             // Act
-            var value = new TreeNode.Solution().KthSmallest2(tree, 6);
+            var value = new TreeNode.Solution().KthSmallest3(tree, 6);
 
             // Assert
             Assert.AreEqual(6, value);
@@ -307,6 +354,26 @@ namespace L230
         }
 
         [Test]
+        public void Test33()
+        {
+            // Arrange
+            var tree = CreateTree(new[]
+            {
+                45, 30, 46, 10, 36, 1000, 49, 8, 24, 34, 42, 48, 1000, 4, 9, 14, 25, 31, 35, 41, 43, 47, 1000, 0, 6
+                , 1000, 1000, 11, 20, 1000, 28, 1000, 33, 1000, 1000, 37, 1000, 1000, 44, 1000, 1000, 1000, 1, 5, 7
+                , 1000, 12, 19, 21, 26, 29, 32, 1000, 1000, 38, 1000, 1000, 1000, 3, 1000, 1000, 1000, 1000, 1000, 13
+                , 18, 1000, 1000, 22, 1000, 27, 1000, 1000, 1000, 1000, 1000, 39, 2, 1000, 1000, 1000, 15, 1000, 1000
+                , 23, 1000, 1000, 1000, 40, 1000, 1000, 1000, 16, 1000, 1000, 1000, 1000, 1000, 17
+            });
+
+            // Act
+            var value = new TreeNode.Solution().KthSmallest3(tree, 32);
+
+            // Assert
+            Assert.AreEqual(31, value);
+        }
+
+        [Test]
         public void Test42()
         {
             // Arrange
@@ -317,6 +384,22 @@ namespace L230
 
             // Act
             var value = new TreeNode.Solution().KthSmallest2(tree, 3);
+
+            // Assert
+            Assert.AreEqual(2, value);
+        }
+
+        [Test]
+        public void Test43()
+        {
+            // Arrange
+            var tree = CreateTree(new[]
+            {
+                0, 1000, 1, 1000, 3, 2
+            });
+
+            // Act
+            var value = new TreeNode.Solution().KthSmallest3(tree, 3);
 
             // Assert
             Assert.AreEqual(2, value);

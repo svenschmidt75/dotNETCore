@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="927ebd20-3f57-417f-831b-273db07dfe0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.L1293/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L1293/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L1293/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L1293/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +75,7 @@
       <workItem from="1596375031675" duration="8000000" />
       <workItem from="1596387856483" duration="1740000" />
       <workItem from="1596389617151" duration="910000" />
+      <workItem from="1596463517518" duration="527000" />
     </task>
     <servers />
   </component>
@@ -184,37 +184,5 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1596390526099" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L1293/Solution.cs</url>
-          <line>67</line>
-          <properties documentPath="$PROJECT_DIR$/L1293/Solution.cs" initialLine="64">
-            <startOffsets>
-              <option value="1882" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1906" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L1293/Solution.cs</url>
-          <line>46</line>
-          <properties documentPath="$PROJECT_DIR$/L1293/Solution.cs" initialLine="46">
-            <startOffsets>
-              <option value="1198" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1220" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

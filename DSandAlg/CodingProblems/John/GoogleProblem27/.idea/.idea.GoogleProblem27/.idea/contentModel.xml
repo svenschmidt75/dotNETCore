@@ -13,8 +13,8 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.17.0/build/netcoreapp2.1/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="GoogleProblem27" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
         <e p="GoogleProblem27.csproj" t="IncludeRecursive" />
+        <e p="Solution.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

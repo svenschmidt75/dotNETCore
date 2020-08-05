@@ -24,40 +24,16 @@ namespace L223
             var x22 = G;
             var y22 = H;
 
-            var areaRect1 = (x12 - x11) * (y12 - y11);
-            var areaRect2 = (x22 - x21) * (y22 - y21);
+            var area = (x12 - x11) * (y12 - y11) + (x22 - x21) * (y22 - y21);
 
             var overlapX = x11 < x22 && x21 < x12;
             var overlapY = y11 < y22 && y21 < y12;
-
-            var area = 0;
-
-            // SS: rect1 contained in rect2?
-            if (x21 < x11 && x22 > x12 && y21 < y11 && y22 > y12)
+            if (overlapX && overlapY)
             {
-                area = areaRect2;
-            }
-            else if (x11 < x21 && x12 > x22 && y11 < y21 && y12 > y22)
-            {
-                // SS: rect2 contained in rect1?
-                area = areaRect1;
-            }
-            else if (overlapX && overlapY)
-            {
-                int[] xs = {x11, x12, x21, x22};
-                Array.Sort(xs);
-
-                int[] ys = {y11, y12, y21, y22};
-                Array.Sort(ys);
-
-                var xOverlap = xs[2] - xs[1];
-                var yOverlap = ys[2] - ys[1];
+                var xOverlap = Math.Min(x12, x22) - Math.Max(x11, x21);
+                var yOverlap = Math.Min(y12, y22) - Math.Max(y11, y21);
                 var overlapArea = xOverlap * yOverlap;
-                area = areaRect1 + areaRect2 - overlapArea;
-            }
-            else
-            {
-                area = areaRect1 + areaRect2;
+                area -= overlapArea;
             }
 
             return area;

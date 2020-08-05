@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff566c4-848d-465a-8af9-ebc5b38d4ff3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/.idea/.idea.L223/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/.idea/.idea.L223/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/L223/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/L223/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IterativePostorderTraversal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IterativePostorderTraversal/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IterativePostorderTraversal/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativeInorderTraversal/IterativeInorderTraversal/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativeInorderTraversal/IterativeInorderTraversal/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativePreorderTraversal/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativePreorderTraversal/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +57,7 @@
       <updated>1593785584047</updated>
       <workItem from="1593785587882" duration="5219000" />
       <workItem from="1593792259406" duration="2912000" />
-      <workItem from="1596662498563" duration="59000" />
+      <workItem from="1596662498563" duration="1183000" />
     </task>
     <servers />
   </component>

@@ -105,20 +105,24 @@ namespace IterativeInorderTraversal
             var stack = new Stack<TreeNode>();
             var current = node;
 
-            do
+            while (true)
             {
-                if (current != null)
+                while (current != null)
                 {
                     stack.Push(current);
                     current = current.left;
                 }
-                else
+
+                if (stack.Any() == false)
                 {
-                    current = stack.Pop();
-                    values.Add(current.val);
-                    current = current.right;
+                    break;
                 }
-            } while (stack.Any() || current != null);
+
+                current = stack.Pop();
+                values.Add(current.val);
+                current = current.right;
+                
+            }
 
             return values;
         }

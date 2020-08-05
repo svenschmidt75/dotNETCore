@@ -36,7 +36,7 @@ namespace GoogleProblem27
 
             /* Format:
              *   16 bit: string index for node
-             *   16 bit: number of children
+             *   16 bit: number of nodes (children)
              *   16 bit: string index of 1st child
              * ....
              *   16 bit: string index of last child

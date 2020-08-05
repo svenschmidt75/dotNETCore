@@ -35,6 +35,35 @@ namespace IterativePreorderTraversal
             }
         }
 
+        // SS: from Tushar, Iterative Preorder Traversal of Binary Tree
+        // Iterative Preorder Traversal of Binary Tree
+        public IEnumerable<int> IterativePreorderTraversal2(TreeNode root)
+        {
+            var result = new List<int>();
+
+            var stack = new Stack<TreeNode>();
+            stack.Push(root);
+
+            while (stack.Any())
+            {
+                var node = stack.Pop();
+
+                result.Add(node.Value);
+
+                if (node.Right != null)
+                {
+                    stack.Push(node.Right);
+                }
+
+                if (node.Left != null)
+                {
+                    stack.Push(node.Left);
+                }
+            }
+
+            return result;
+        }
+
         public IEnumerable<int> RecursivePreorderTraversal(TreeNode root)
         {
             var result = new List<int>();
@@ -102,10 +131,12 @@ namespace IterativePreorderTraversal
 
                 // Act
                 var result = new Solution().IterativePreorderTraversal(root);
+                var result2 = new Solution().IterativePreorderTraversal2(root);
                 var expectedResult = new Solution().RecursivePreorderTraversal(root);
 
                 // Assert
                 CollectionAssert.AreEqual(expectedResult, result);
+                CollectionAssert.AreEqual(expectedResult, result2);
             }
         }
     }

@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8d933dc-ff1e-44d9-b852-f0e479c49a26" name="Default Changelist" comment="" />
+    <list default="true" id="e8d933dc-ff1e-44d9-b852-f0e479c49a26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IterativePreorderTraversal/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IterativePreorderTraversal/Solution.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,13 +63,14 @@
       <option name="presentableId" value="Default" />
       <updated>1596502705400</updated>
       <workItem from="1596502707406" duration="1236000" />
+      <workItem from="1596635484130" duration="310000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -78,19 +82,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1667" y="654" width="495" height="325" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1596503295555">
+    <state x="1667" y="654" width="495" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1596635758664">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1667" y="654" width="495" height="325" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1596503295555" />
-    <state x="1634" y="216" width="424" height="520" key="FileChooserDialogImpl" timestamp="1596503981580">
+    <state x="1667" y="654" width="495" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1596635758664" />
+    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl" timestamp="1596635777062">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1634" y="216" width="424" height="520" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1596503981580" />
+    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1596635777062" />
     <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1596503950561">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

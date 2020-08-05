@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782e0907-4886-419a-91be-346c6aa09ca0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L223/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L223/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L223/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L223/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../IterativePreorderTraversal/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../IterativePreorderTraversal/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../IterativePreorderTraversal/IterativePreorderTraversal/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../IterativePreorderTraversal/IterativePreorderTraversal/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L223/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L223/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L223/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L223/Class1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +70,14 @@
       <option name="presentableId" value="Default" />
       <updated>1596636936263</updated>
       <workItem from="1596636945535" duration="2534000" />
+      <workItem from="1596639962540" duration="831000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -92,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -181,9 +179,9 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1596639478985" />
-    <state x="1583" y="389" key="search.everywhere.popup" timestamp="1596637486040">
+    <state x="1583" y="389" key="search.everywhere.popup" timestamp="1596640776210">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1583" y="389" key="search.everywhere.popup/0.27.3840.1573@0.27.3840.1573" timestamp="1596637486040" />
+    <state x="1583" y="389" key="search.everywhere.popup/0.27.3840.1573@0.27.3840.1573" timestamp="1596640776210" />
   </component>
 </project>

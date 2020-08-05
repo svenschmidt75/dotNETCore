@@ -58,6 +58,7 @@ namespace IterativePostorderTraversal
             {
                 current = stack1.Pop();
                 stack2.Push(current);
+
                 if (current.left != null)
                 {
                     stack1.Push(current.left);

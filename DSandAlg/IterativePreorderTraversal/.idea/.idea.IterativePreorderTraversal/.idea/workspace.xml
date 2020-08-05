@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8d933dc-ff1e-44d9-b852-f0e479c49a26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IterativePreorderTraversal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IterativePreorderTraversal/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IterativePreorderTraversal/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/.idea/.idea.L223/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/.idea/.idea.L223/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/L223/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L223/L223/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativePostorderTraversal/.idea/.idea.IterativePostorderTraversal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IterativePostorderTraversal/IterativePostorderTraversal/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../IterativePostorderTraversal/IterativePostorderTraversal/Class1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +57,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IterativePostorderTraversal/IterativePostorderTraversal.sln" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,6 +69,7 @@
       <updated>1596502705400</updated>
       <workItem from="1596502707406" duration="1236000" />
       <workItem from="1596635484130" duration="310000" />
+      <workItem from="1596662466853" duration="91000" />
     </task>
     <servers />
   </component>
@@ -92,10 +98,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state x="1667" y="654" width="495" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1596635758664" />
-    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl" timestamp="1596635777062">
+    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl" timestamp="1596662494193">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1596635777062" />
+    <state x="1634" y="216" width="767" height="803" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1596662494193" />
     <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1596503950561">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

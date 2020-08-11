@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad7a8441-b015-40e4-884d-5b41e3e02421" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem28/GoogleProblem28/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Djikstra/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Djikstra/.idea/contentModel.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +106,7 @@
       <workItem from="1579371853239" duration="135000" />
       <workItem from="1585506363667" duration="112000" />
       <workItem from="1594821149535" duration="55000" />
+      <workItem from="1597106770890" duration="74000" />
     </task>
     <servers />
   </component>

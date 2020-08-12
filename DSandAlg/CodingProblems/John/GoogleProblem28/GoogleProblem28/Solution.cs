@@ -28,7 +28,7 @@ namespace GoogleProblem28
                     var flightDuration = destinations[j];
                     if (flightDuration <= 6)
                     {
-                        graph.AddUndirectedEdge(i, j);
+                        graph.AddDirectedEdge(i, j);
                     }
                 }
             }
@@ -41,7 +41,7 @@ namespace GoogleProblem28
         {
             // SS: divide and conquer approach
 
-            if (month == 12)
+            if (month == 4)
             {
                 // done
                 return 0;
@@ -50,7 +50,7 @@ namespace GoogleProblem28
             // SS: number of holidays for this month at the current location
             var n = holidayByLocation[currentLocation][month];
 
-            var bestLocationHolidays = n;
+            var bestLocationHolidays = 0;
             var bestLocation = currentLocation;
 
             // SS: find all locations that we can reach from this one (this includes the current one)
@@ -59,16 +59,16 @@ namespace GoogleProblem28
             {
                 var targetLocation = targetLocations[i];
                 var c = MaximizeNationalHolidays(graph, targetLocation, month + 1, path, holidayByLocation);
-                if (c + n > bestLocationHolidays)
+                if (c >= bestLocationHolidays)
                 {
-                    bestLocationHolidays = c + n;
+                    bestLocationHolidays = c;
                     bestLocation = targetLocation;
                 }
             }
 
 //            path.Add(bestLocation);
 
-            return bestLocationHolidays;
+            return n + bestLocationHolidays;
         }
 
         [TestFixture]
@@ -76,6 +76,36 @@ namespace GoogleProblem28
         {
             [Test]
             public void Test1()
+            {
+                // Arrange
+                
+                // row: location
+                // column: month
+                var holidaysByLocation = new[]
+                {
+                    new[]{0, 1, 0, 0}
+                    , new[]{0, 1, 0, 0}
+                    , new[]{0, 0, 1, 0}
+                    , new[]{0, 0, 0, 1}
+                };
+
+                // SS: flight durations don't have to be symmetric between locations...
+                int[][] flightDuration = new[]
+                {
+                    new[]{0, 2, 7, 7}
+                    , new[]{2, 0, 2, 7}
+                    , new[]{7, 2, 0, 2}
+                    , new[]{7, 7, 7, 0}
+                };
+
+                // Act
+                var itinerary = new Solution().Solve(0, holidaysByLocation, flightDuration);
+
+                // Assert
+            }
+
+            [Test]
+            public void Test2()
             {
                 // Arrange
                 var holidaysByLocation = new[]

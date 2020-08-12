@@ -28,28 +28,13 @@ namespace GoogleProblem28
             return itinerary.Holidays;
         }
 
-        public int SolveBottomUpDP(int startLocation, int[][] holidayByLocation, int[][] flightDurations)
-        {
-            var graph = CreateGraph(flightDurations);
-
-            // SS: memoization array
-            // space complexity: O(#locations^2 * 12), i.e. each cell in the #locations * 12 grid stores
-            // the path of size #locations
-            var memArray = new Payload[holidayByLocation.Length][];
-            for (var i = 0; i < memArray.Length; i++)
-            {
-                memArray[i] = new Payload[holidayByLocation[i].Length];
-            }
-
-            var itinerary = MaximizeNationalHolidaysBottomUpDP(graph, startLocation, holidayByLocation);
-            return itinerary;
-        }
-
-        private int MaximizeNationalHolidaysBottomUpDP(Graph graph, int startLocation, int[][] holidayByLocation)
+        public Payload SolveBottomUpDP(int startLocation, int[][] holidayByLocation, int[][] flightDurations)
         {
             // SS: bottom-up DP solution
             // runtime complexity: O(12 * #locations * #locations) = O(#locations^2)
             // space complexity: O(1) (that's a big difference to top-down DP!) 
+
+            var graph = CreateGraph(flightDurations);
 
             var row1 = new Payload[holidayByLocation.Length];
             for (var i = 0; i < row1.Length; i++)
@@ -99,12 +84,8 @@ namespace GoogleProblem28
 
                     currentRow[currentLocation].Holidays = n + bestPayload.Holidays;
 
-                    // SS: create copy of path
-                    var p = new int[MaxMonths];
-                    Array.Copy(bestPayload.Path, p, MaxMonths);
-                    p[month] = currentLocation;
-
-                    currentRow[currentLocation].Path = p;
+                    // SS: copy best path to currentLocation
+                    Array.Copy(bestPayload.Path, currentRow[currentLocation].Path, MaxMonths);
                     currentRow[currentLocation].Path[month] = currentLocation;
                 }
 
@@ -115,7 +96,8 @@ namespace GoogleProblem28
                 month--;
             }
 
-            return prevRow[startLocation].Holidays;
+            var itinerary = prevRow[startLocation];
+            return itinerary;
         }
 
         private static Graph CreateGraph(int[][] flightDurations)
@@ -177,7 +159,8 @@ namespace GoogleProblem28
             return n + bestLocationHolidays;
         }
 
-        private Payload MaximizeNationalHolidaysTopDownDP(Graph graph, int currentLocation, int month, int[][] holidayByLocation, Payload[][] memArray)
+        private Payload MaximizeNationalHolidaysTopDownDP(Graph graph, int currentLocation, int month
+            , int[][] holidayByLocation, Payload[][] memArray)
         {
             // SS: top-down dynamic programming solution
             // runtime complexity: O(#locations * #locations * 12), i.e. O(#locations^2)
@@ -205,7 +188,8 @@ namespace GoogleProblem28
             for (var i = 0; i < targetLocations.Count; i++)
             {
                 var targetLocation = targetLocations[i];
-                var c = MaximizeNationalHolidaysTopDownDP(graph, targetLocation, month + 1, holidayByLocation, memArray);
+                var c = MaximizeNationalHolidaysTopDownDP(graph, targetLocation, month + 1, holidayByLocation
+                    , memArray);
                 if (c != null && c.Holidays >= bestPayload.Holidays)
                 {
                     bestPayload = c;
@@ -223,7 +207,7 @@ namespace GoogleProblem28
             return payload;
         }
 
-        private class Payload
+        public class Payload
         {
             public int Holidays { get; set; } = -1;
             public int[] Path { get; set; } = new int[12];
@@ -232,6 +216,19 @@ namespace GoogleProblem28
         [TestFixture]
         public class Tests
         {
+            private static int HolidaysForPath(int[] path, int[][] holidayByLocation)
+            {
+                var n = 0;
+                for (var month = 0; month < 12; month++)
+                {
+                    var location = path[month];
+                    var j = holidayByLocation[location][month];
+                    n += j;
+                }
+
+                return n;
+            }
+
             [Test]
             public void Test1()
             {
@@ -292,7 +289,8 @@ namespace GoogleProblem28
 
                 // Assert
                 Assert.AreEqual(4, itinerary1);
-                Assert.AreEqual(itinerary2, itinerary1);
+                Assert.AreEqual(itinerary2.Holidays, itinerary1);
+                Assert.AreEqual(itinerary2.Holidays, HolidaysForPath(itinerary2.Path, holidaysByLocation));
             }
         }
     }

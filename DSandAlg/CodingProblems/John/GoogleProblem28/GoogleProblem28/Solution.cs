@@ -32,7 +32,7 @@ namespace GoogleProblem28
         {
             // SS: bottom-up DP solution
             // runtime complexity: O(12 * #locations * #locations) = O(#locations^2)
-            // space complexity: O(1) (that's a big difference to top-down DP!) 
+            // space complexity: O(#locations) (that's a big difference to top-down DP!) 
 
             var graph = CreateGraph(flightDurations);
 
@@ -159,8 +159,7 @@ namespace GoogleProblem28
             return n + bestLocationHolidays;
         }
 
-        private Payload MaximizeNationalHolidaysTopDownDP(Graph graph, int currentLocation, int month
-            , int[][] holidayByLocation, Payload[][] memArray)
+        private Payload MaximizeNationalHolidaysTopDownDP(Graph graph, int currentLocation, int month, int[][] holidayByLocation, Payload[][] memArray)
         {
             // SS: top-down dynamic programming solution
             // runtime complexity: O(#locations * #locations * 12), i.e. O(#locations^2)
@@ -266,7 +265,7 @@ namespace GoogleProblem28
                 // Arrange
                 var holidaysByLocation = new[]
                 {
-                    new[] {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+                      new[] {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
                     , new[] {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
                     , new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
                     , new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -276,7 +275,7 @@ namespace GoogleProblem28
                 // SS: flight durations don't have to be symmetric between locations...
                 int[][] flightDuration =
                 {
-                    new[] {0, 2, 7, 7, 7}
+                      new[] {0, 2, 7, 7, 7}
                     , new[] {2, 0, 2, 3, 7}
                     , new[] {7, 2, 0, 2, 7}
                     , new[] {7, 2, 3, 0, 3}

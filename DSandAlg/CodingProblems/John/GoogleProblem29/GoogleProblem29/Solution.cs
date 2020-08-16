@@ -1,8 +1,13 @@
 ﻿#region
 
+using System.Collections.Generic;
 using NUnit.Framework;
 
 #endregion
+
+// Also https://www.geeksforgeeks.org/number-of-submatrices-with-all-1s/
+// Also LeetCode 1504. Count Submatrices With All Ones
+// https://leetcode.com/problems/count-submatrices-with-all-ones/
 
 namespace GoogleProblem29
 {
@@ -91,6 +96,104 @@ namespace GoogleProblem29
             return nValid;
         }
 
+        private static void FindPrefixCount(int[][] m, int[][] p_arr)
+        {
+            // Function to find required prefix-count for 
+            // each row from right to left 
+            var nrows = m.Length;
+            var ncols = m[0].Length;
+
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = ncols - 1; j >= 0; j--)
+                {
+                    if (m[i][j] == 1)
+                    {
+                        continue;
+                    }
+
+                    if (j < ncols - 1)
+                    {
+                        p_arr[i][j] += p_arr[i][j + 1];
+                    }
+
+                    p_arr[i][j] += m[i][j] == 0 ? 1 : 0;
+                }
+            }
+        }
+
+        public int Solve2D(int[][] m)
+        {
+            // SS: adapted from https://www.geeksforgeeks.org/number-of-submatrices-with-all-1s/
+            if (m.Length == 0)
+            {
+                return 0;
+            }
+
+            var nrows = m.Length;
+            var ncols = m[0].Length;
+
+            // Array to store required prefix count of 
+            // 1s from right to left for boolean array 
+            var p_arr = new int[nrows][];
+            for (var i = 0; i < nrows; i++)
+            {
+                p_arr[i] = new int[ncols];
+            }
+
+            FindPrefixCount(m, p_arr);
+
+            // variable to store the final answer 
+            var ans = 0;
+
+            /*  Loop to evaluate each column of 
+                the prefix matrix uniquely. 
+                For each index of a column we will try to 
+                determine the number of sub-matrices 
+                starting from that index 
+                and has all 0s
+                 */
+            for (var col = 0; col < ncols; col++)
+            {
+                var row = nrows - 1;
+
+                /*  Stack to store elements and the count 
+                    of the numbers they popped 
+                      
+                    First part of pair will be the 
+                    value of inserted element. 
+                    Second part will be the count 
+                    of the number of elements pushed 
+                    before with a greater value */
+                var q = new Stack<(int p_arr_cell, int c2)>();
+
+                // variable to store the number of 
+                // submatrices with all 1s 
+                var to_sum = 0;
+
+                while (row >= 0)
+                {
+                    var c = 0;
+
+                    var p_arr_cell = p_arr[row][col];
+
+                    while (q.Count != 0 && q.Peek().p_arr_cell > p_arr_cell)
+                    {
+                        var (p_arr_cell2, c2) = q.Pop();
+                        to_sum -= (c2 + 1) * (p_arr_cell2 - p_arr_cell);
+                        c += c2 + 1;
+                    }
+
+                    to_sum += p_arr_cell;
+                    ans += to_sum;
+                    q.Push((p_arr_cell, c));
+                    row--;
+                }
+            }
+
+            return ans;
+        }
+
         private bool isValid(int[][] m, int row, int col, int width, int height)
         {
             for (var r = 0; r < width; r++)
@@ -160,7 +263,7 @@ namespace GoogleProblem29
             }
 
             [Test]
-            public void Test2D1()
+            public void Test2D11()
             {
                 // Arrange
                 var m = new[]
@@ -176,6 +279,81 @@ namespace GoogleProblem29
                 // Assert
                 Assert.AreEqual(6 + 6 + 2 + 1, nValid);
             }
+
+            [Test]
+            public void Test2D14()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {0, 0, 1}
+                    , new[] {0, 0, 0}
+                    , new[] {0, 0, 1}
+                    , new[] {1, 0, 1}
+                };
+
+                // Act
+                var nValid = new Solution().BruteForce2D(m);
+
+                // Assert
+                Assert.AreEqual(25, nValid);
+            }
+
+            [Test]
+            public void Test2D22()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {0, 0, 1}
+                    , new[] {0, 0, 0}
+                    , new[] {1, 0, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2D(m);
+
+                // Assert
+                Assert.AreEqual(6 + 6 + 2 + 1, nValid);
+            }
+
+            [Test]
+            public void Test2D23()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {0, 0, 0}
+                    , new[] {1, 1, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2D(m);
+
+                // Assert
+                Assert.AreEqual(6, nValid);
+            }
+ 
+            [Test]
+            public void Test2D24()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {0, 1, 1}
+                    , new[] {0, 0, 1}
+                    , new[] {0, 0, 0}
+                    , new[] {0, 0, 1}
+                    , new[] {1, 0, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2D(m);
+
+                // Assert
+                Assert.AreEqual(25, nValid);
+            }
+
         }
     }
 }

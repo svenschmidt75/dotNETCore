@@ -83,7 +83,7 @@ namespace GoogleProblem29
 
                             // SS: Starting at cell (r, c), check whether (r, c, r + width, c + height)
                             // is a valid submatrix, O(R * c)
-                            if (isValid(m, r, c, width, height))
+                            if (IsValid(m, r, c, width, height))
                             {
 //                                TestContext.Progress.WriteLine($"{r}, {c}, {width}, {height}");
                                 nValid++;
@@ -96,12 +96,20 @@ namespace GoogleProblem29
             return nValid;
         }
 
-        private static void FindPrefixCount(int[][] m, int[][] p_arr)
+        private static int[][] FindPrefixCount(int[][] m)
         {
             // Function to find required prefix-count for 
             // each row from right to left 
             var nrows = m.Length;
             var ncols = m[0].Length;
+
+            // Array to store required prefix count of 
+            // 1s from right to left for boolean array 
+            var p_arr = new int[nrows][];
+            for (var i = 0; i < nrows; i++)
+            {
+                p_arr[i] = new int[ncols];
+            }
 
             for (var i = 0; i < nrows; i++)
             {
@@ -120,9 +128,43 @@ namespace GoogleProblem29
                     p_arr[i][j] += m[i][j] == 0 ? 1 : 0;
                 }
             }
+
+            return p_arr;
         }
 
-        public int Solve2D(int[][] m)
+        private static int[][] FindRowPrefixSum(int[][] m)
+        {
+            var nrows = m.Length;
+            var ncols = m[0].Length;
+
+            var rowPrefixSum = new int[nrows][];
+            for (var i = 0; i < nrows; i++)
+            {
+                rowPrefixSum[i] = new int[ncols];
+            }
+
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = ncols - 1; j >= 0; j--)
+                {
+                    if (m[i][j] == 0)
+                    {
+                        continue;
+                    }
+
+                    if (j < ncols - 1)
+                    {
+                        rowPrefixSum[i][j] += rowPrefixSum[i][j + 1];
+                    }
+
+                    rowPrefixSum[i][j] += m[i][j] == 1 ? 1 : 0;
+                }
+            }
+
+            return rowPrefixSum;
+        }
+
+        public int Solve2DOptimally(int[][] m)
         {
             // SS: adapted from https://www.geeksforgeeks.org/number-of-submatrices-with-all-1s/
             if (m.Length == 0)
@@ -133,15 +175,7 @@ namespace GoogleProblem29
             var nrows = m.Length;
             var ncols = m[0].Length;
 
-            // Array to store required prefix count of 
-            // 1s from right to left for boolean array 
-            var p_arr = new int[nrows][];
-            for (var i = 0; i < nrows; i++)
-            {
-                p_arr[i] = new int[ncols];
-            }
-
-            FindPrefixCount(m, p_arr);
+            var p_arr = FindPrefixCount(m);
 
             // variable to store the final answer 
             var ans = 0;
@@ -194,7 +228,7 @@ namespace GoogleProblem29
             return ans;
         }
 
-        private bool isValid(int[][] m, int row, int col, int width, int height)
+        private static bool IsValid(int[][] m, int row, int col, int width, int height)
         {
             for (var r = 0; r < width; r++)
             {
@@ -209,6 +243,79 @@ namespace GoogleProblem29
             }
 
             return true;
+        }
+
+        public int Solve2DSubOptimally(int[][] mat)
+        {
+            // SS: runtime complexity: O(R^2 * C)
+            // space complexity: O(R * C)
+
+            var nrows = mat.Length;
+            if (nrows == 0)
+            {
+                return 0;
+            }
+
+            var ncols = mat[0].Length;
+            if (ncols == 0)
+            {
+                return 0;
+            }
+
+            // SS: O(R * C)
+            var rowPrefixSum = FindRowPrefixSum(mat);
+
+            // SS: number of solution
+            var count = 0;
+
+            // SS: O(C)
+            for (var col = 0; col < ncols; col++)
+            {
+                // SS: O(R)
+                for (var row = 0; row < nrows; row++)
+                {
+                    var pv = rowPrefixSum[row][col];
+                    if (pv == 0)
+                    {
+                        continue;
+                    }
+
+                    // SS: number of submatrices starting at cell (row, col)
+                    var localCount = 0;
+
+                    // SS: maximum possible width of submatrix
+                    var width = pv;
+
+                    // SS: current height of submatrix
+                    var height = 1;
+
+                    // SS: height where the submatrix changed width
+                    var height2 = 0;
+
+                    var row2 = row + 1;
+                    while (row2 < nrows)
+                    {
+                        var pv2 = rowPrefixSum[row2][col];
+                        if (pv2 < width)
+                        {
+                            // SS: add combinations for rectangle so far
+                            // rectangle size is 'height x width', taking into account
+                            // double-counting
+                            localCount += (height - height2) * width;
+                            width = pv2;
+                            height2 = height;
+                        }
+
+                        height++;
+                        row2++;
+                    }
+
+                    localCount += (height - height2) * width;
+                    count += localCount;
+                }
+            }
+
+            return count;
         }
 
         [TestFixture]
@@ -263,7 +370,7 @@ namespace GoogleProblem29
             }
 
             [Test]
-            public void Test2D11()
+            public void Test2D_1_1()
             {
                 // Arrange
                 var m = new[]
@@ -281,7 +388,7 @@ namespace GoogleProblem29
             }
 
             [Test]
-            public void Test2D14()
+            public void Test2D_1_4()
             {
                 // Arrange
                 var m = new[]
@@ -300,7 +407,7 @@ namespace GoogleProblem29
             }
 
             [Test]
-            public void Test2D22()
+            public void Test2D_2_2()
             {
                 // Arrange
                 var m = new[]
@@ -311,14 +418,14 @@ namespace GoogleProblem29
                 };
 
                 // Act
-                var nValid = new Solution().Solve2D(m);
+                var nValid = new Solution().Solve2DOptimally(m);
 
                 // Assert
                 Assert.AreEqual(6 + 6 + 2 + 1, nValid);
             }
 
             [Test]
-            public void Test2D23()
+            public void Test2D_2_3()
             {
                 // Arrange
                 var m = new[]
@@ -328,14 +435,14 @@ namespace GoogleProblem29
                 };
 
                 // Act
-                var nValid = new Solution().Solve2D(m);
+                var nValid = new Solution().Solve2DOptimally(m);
 
                 // Assert
                 Assert.AreEqual(6, nValid);
             }
- 
+
             [Test]
-            public void Test2D24()
+            public void Test2D_2_4()
             {
                 // Arrange
                 var m = new[]
@@ -348,12 +455,144 @@ namespace GoogleProblem29
                 };
 
                 // Act
-                var nValid = new Solution().Solve2D(m);
+                var nValid = new Solution().Solve2DOptimally(m);
+
+                // Assert
+                Assert.AreEqual(29, nValid);
+            }
+
+            [Test]
+            public void Test2D_2_5()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {0, 0, 0, 0, 0}
+                    , new[] {0, 0, 0, 1, 1}
+                    , new[] {0, 0, 1, 1, 1}
+                    , new[] {0, 1, 1, 1, 1}
+                    , new[] {1, 1, 1, 1, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DOptimally(m);
+
+                // Assert
+                Assert.AreEqual(40, nValid);
+            }
+
+            [Test]
+            public void Test2D_3_1()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 1, 0}
+                    , new[] {1, 1, 1}
+                    , new[] {0, 1, 0}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
+
+                // Assert
+                Assert.AreEqual(6 + 6 + 2 + 1, nValid);
+            }
+
+            [Test]
+            public void Test2D_3_2()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 1, 0}
+                    , new[] {1, 1, 1}
+                    , new[] {1, 1, 0}
+                    , new[] {0, 1, 0}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
 
                 // Assert
                 Assert.AreEqual(25, nValid);
             }
 
+            [Test]
+            public void Test2D_3_3()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 1, 1, 1, 1}
+                    , new[] {1, 1, 1, 0, 0}
+                    , new[] {1, 1, 0, 0, 0}
+                    , new[] {1, 0, 0, 0, 0}
+                    , new[] {0, 0, 0, 0, 0}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
+
+                // Assert
+                Assert.AreEqual(40, nValid);
+            }
+
+            [Test]
+            public void Test2D_3_4()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 0, 0}
+                    , new[] {1, 1, 0}
+                    , new[] {1, 1, 1}
+                    , new[] {1, 1, 0}
+                    , new[] {0, 1, 0}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
+
+                // Assert
+                Assert.AreEqual(29, nValid);
+            }
+
+            [Test]
+            public void Test2D_3_5()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 1, 1}
+                    , new[] {1, 1, 1}
+                    , new[] {1, 1, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
+
+                // Assert
+                Assert.AreEqual(36, nValid);
+            }
+
+            [Test]
+            public void Test2D_3_6()
+            {
+                // Arrange
+                var m = new[]
+                {
+                    new[] {1, 1, 1}
+                    , new[] {1, 0, 1}
+                    , new[] {1, 1, 1}
+                };
+
+                // Act
+                var nValid = new Solution().Solve2DSubOptimally(m);
+
+                // Assert
+                Assert.AreEqual(20, nValid);
+            }
         }
     }
 }

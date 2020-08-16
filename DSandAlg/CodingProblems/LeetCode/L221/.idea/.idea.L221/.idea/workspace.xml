@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="742443d9-5538-46c1-8e8e-e47e4c243e38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L221/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem29/.idea/.idea.GoogleProblem29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem29/.idea/.idea.GoogleProblem29/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L1277/.idea/.idea.L1277/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L1277/.idea/.idea.L1277/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="742443d9-5538-46c1-8e8e-e47e4c243e38" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597588889470</updated>
-      <workItem from="1597588896682" duration="281000" />
+      <workItem from="1597588896682" duration="939000" />
     </task>
     <servers />
   </component>

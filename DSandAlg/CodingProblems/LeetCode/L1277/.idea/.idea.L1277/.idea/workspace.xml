@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66bc2ffe-bdff-4b3f-86da-9fc810b3c480" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L221/.idea/.idea.L221/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem29/.idea/.idea.GoogleProblem29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem29/.idea/.idea.GoogleProblem29/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem29/GoogleProblem29/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem29/GoogleProblem29/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem30/.idea/.idea.GoogleProblem30/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem30/.idea/.idea.GoogleProblem30/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +74,7 @@
       <updated>1597506205016</updated>
       <workItem from="1597506207532" duration="4527000" />
       <workItem from="1597585396437" duration="5000" />
-      <workItem from="1597585603452" duration="3062000" />
+      <workItem from="1597585603452" duration="3396000" />
     </task>
     <servers />
   </component>
@@ -179,9 +183,9 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1597588391913" />
-    <state x="1515" y="548" key="Rider.ProjectTemplateDialog.Size" timestamp="1597506204479">
+    <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1597588888958">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1515" y="548" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1597506204479" />
+    <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1597588888958" />
   </component>
 </project>

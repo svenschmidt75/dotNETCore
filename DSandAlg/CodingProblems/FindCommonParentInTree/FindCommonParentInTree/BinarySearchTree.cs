@@ -1,11 +1,15 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+
+#endregion
 
 namespace BinarySearchTree
 {
     public class BinarySearchTree<T> where T : IComparable
     {
-        private Node<T> Root { get; set; }
+        public Node<T> Root { get; set; }
 
         public void Insert(T item)
         {
@@ -127,6 +131,36 @@ namespace BinarySearchTree
 
             // SS: lowest common parent
             return child1Parents[child1Parents.Count - 1 - idx + 1];
+        }
+
+        public Node<T> FindCommonParent2(T child1Value, T child2Value)
+        {
+            // Traverse tree, build parent-child relationship
+            var node = FindCommonParent2(Root, child1Value, child2Value);
+            return node;
+        }
+
+        private static Node<T> FindCommonParent2(Node<T> node, T child1Value, T child2Value)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            if (node.Value.CompareTo(child1Value) == 0 || node.Value.CompareTo(child2Value) == 0)
+            {
+                return node;
+            }
+
+            var n1 = FindCommonParent2(node.Left, child1Value, child2Value);
+            var n2 = FindCommonParent2(node.Right, child1Value, child2Value);
+
+            if (n1 != null && n2 != null)
+            {
+                return node;
+            }
+
+            return n1 ?? n2;
         }
 
         private void Traverse(Node<T> parent, IDictionary<Node<T>, Node<T>> parentChild)

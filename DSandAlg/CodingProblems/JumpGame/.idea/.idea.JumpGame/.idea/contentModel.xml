@@ -6,22 +6,22 @@
     </e>
     <e p="C:\Users\s.schmidt\.nuget\packages\microsoft.testplatform.testhost\16.7.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
     <e p="C:\Users\s.schmidt\.nuget\packages\microsoft.testplatform.testhost\16.7.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
-    <e p="C:\Users\s.schmidt\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\s.schmidt\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_GoogleProblem29.-930207215.00" t="ExcludeRecursive" />
-    <e p="D:\dev\personal\dotNETCore\DSandAlg\CodingProblems\John\GoogleProblem29" t="IncludeFlat">
-      <e p="GoogleProblem29" t="IncludeRecursive">
+    <e p="C:\Users\s.schmidt\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\s.schmidt\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_JumpGame.-2098209050.00" t="ExcludeRecursive" />
+    <e p="D:\dev\personal\dotNETCore\DSandAlg\CodingProblems\JumpGame" t="IncludeFlat">
+      <e p="JumpGame" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="GoogleProblem29.csproj" t="IncludeRecursive" />
+        <e p="JumpGame.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="GoogleProblem29.AssemblyInfo.cs" t="Include" />
+              <e p="JumpGame.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Solution.cs" t="Include" />
       </e>
-      <e p="GoogleProblem29.sln" t="IncludeFlat" />
+      <e p="JumpGame.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

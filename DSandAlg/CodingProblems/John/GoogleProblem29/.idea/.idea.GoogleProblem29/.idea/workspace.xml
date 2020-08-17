@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae187e38-2229-476b-bf49-9348d9938700" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleProblem29/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem29/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LeetCode/L1277/.idea/.idea.L1277/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LeetCode/L1277/.idea/.idea.L1277/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LeetCode/L221/.idea/.idea.L221/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LeetCode/L221/.idea/.idea.L221/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/SimpleMaze1_A*_solution.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +62,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="RunManager" selected="9c0f6346-7a54-48c2-bba2-dbcd0c15f314" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,6 +78,7 @@
       <workItem from="1597585666842" duration="607000" />
       <workItem from="1597590205593" duration="607000" />
       <workItem from="1597615349279" duration="6063000" />
+      <workItem from="1597673193010" duration="1508000" />
     </task>
     <servers />
   </component>
@@ -188,9 +191,14 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1597620956387" />
-    <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1597494654399">
-      <screen x="0" y="27" width="3840" height="1573" />
+    <state x="1010" y="464" width="714" height="478" key="Rider.ProjectTemplateDialog.Size" timestamp="1597674098051">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1597494654399" />
+    <state x="1010" y="464" width="714" height="478" key="Rider.ProjectTemplateDialog.Size/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1597674098051" />
+    <state x="709" y="169" width="996" height="981" key="SettingsEditor" timestamp="1597673269396">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="709" y="169" width="996" height="981" key="SettingsEditor/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1597673269396" />
   </component>
 </project>

@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae187e38-2229-476b-bf49-9348d9938700" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/.idea/.idea.FindCommonParentInTree/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree.Test/FindCommonParentInTreeTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree.Test/FindCommonParentInTreeTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree/BinarySearchTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree/BinarySearchTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JumpGame/.idea/.idea.JumpGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JumpGame/.idea/.idea.JumpGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JumpGame/JumpGame/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../JumpGame/JumpGame/Solution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />

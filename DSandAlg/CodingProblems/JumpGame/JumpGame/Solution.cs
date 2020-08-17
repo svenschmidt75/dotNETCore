@@ -54,8 +54,7 @@ namespace JumpGame
         {
             // SS: Bottom-Up Dynamic Programming approach
             // runtime complexity: O(N * maxStep)
-            // space complexity: O(N)
-            // can be optimized to O(maxStep)
+            // space complexity: O(N), could be optimized to O(maxStep) maybe...
             if (maxStep == 0 || arr.Length == 0)
             {
                 return false;

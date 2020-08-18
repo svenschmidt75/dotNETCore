@@ -176,5 +176,46 @@ namespace FindCommonParentInTree.Test
             // Assert
             Assert.AreEqual(2, parent.Value);
         }
+
+        [Test]
+        public void Test52()
+        {
+            // Arrange
+            var node1 = new Node<int> {Value = 1};
+            var node5 = new Node<int> {Value = 5};
+            var node4 = new Node<int> {Value = 4};
+            var node3 = new Node<int> {Value = 3, Left = node5};
+            var node2 = new Node<int> {Value = 2, Left = node3, Right = node4};
+            var node0 = new Node<int> {Value = 0, Left = node1, Right = node2};
+
+            var bt = new BinarySearchTree<int> {Root = node0};
+
+            // Act
+            var parent = bt.FindCommonParent2(3, 5);
+
+            // Assert
+            Assert.AreEqual(3, parent.Value);
+        }
+        
+        [Test]
+        public void Test62()
+        {
+            // Arrange
+            var node1 = new Node<int> {Value = 1};
+            var node5 = new Node<int> {Value = 5};
+            var node4 = new Node<int> {Value = 4};
+            var node3 = new Node<int> {Value = 3, Left = node5};
+            var node2 = new Node<int> {Value = 2, Left = node3, Right = node4};
+            var node0 = new Node<int> {Value = 0, Left = node1, Right = node2};
+
+            var bt = new BinarySearchTree<int> {Root = node0};
+
+            // Act
+            var parent = bt.FindCommonParent2(3, 3);
+
+            // Assert
+            Assert.AreEqual(3, parent.Value);
+        }
+
     }
 }

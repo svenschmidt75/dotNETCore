@@ -56,7 +56,7 @@ namespace L581
             }
 
             var i = 0;
-            while (i + 1 < nums.Length && nums[i] < nums[i + 1])
+            while (i + 1 < nums.Length && nums[i] <= nums[i + 1])
             {
                 i++;
             }
@@ -70,8 +70,8 @@ namespace L581
             var min = nums[i];
             var max = nums[i];
 
-            var p = i;
-            var k = p;
+            var upperIndex = i;
+            var k = upperIndex;
             while (k < nums.Length)
             {
                 var v = nums[k];
@@ -79,29 +79,29 @@ namespace L581
                 min = Math.Min(min, v);
                 max = Math.Max(max, v);
 
+                // SS: if the current element is smaller than the maximum element
+                // we have seen so far, we need to grow the window
                 if (v < max)
                 {
-                    p = k;
-                    k++;
-                    continue;
+                    upperIndex = k;
                 }
-
-                if (k + 1 < nums.Length && v > nums[k + 1])
+                else if (k + 1 < nums.Length && v > nums[k + 1])
                 {
-                    p = k;
+                    // SS: wrong order, so keep growing window
+                    upperIndex = k;
                 }
 
                 k++;
             }
 
-            // SS: backtrack to find the 1st item less than nums[i]
+            // SS: grow window to the left to find the 1st item less than nums[i]
             var lowerIndex = i;
             while (lowerIndex > 0 && nums[lowerIndex - 1] > min)
             {
                 lowerIndex--;
             }
 
-            var windowWidth = p - lowerIndex + 1;
+            var windowWidth = upperIndex - lowerIndex + 1;
             return windowWidth;
         }
 
@@ -262,6 +262,45 @@ namespace L581
 
                 // Act
                 Assert.AreEqual(9, result);
+            }
+
+            [Test]
+            public void Test72()
+            {
+                // Arrange
+                var nums = new[] {1, 2, 3, 3, 3};
+
+                // Act
+                var result = new Solution().FindUnsortedSubarray2(nums);
+
+                // Act
+                Assert.AreEqual(0, result);
+            }
+
+            [Test]
+            public void Test82()
+            {
+                // Arrange
+                var nums = new[] {1, 3, 2, 3, 3};
+
+                // Act
+                var result = new Solution().FindUnsortedSubarray2(nums);
+
+                // Act
+                Assert.AreEqual(2, result);
+            }
+
+            [Test]
+            public void Test92()
+            {
+                // Arrange
+                var nums = new[] {2, 3, 3, 2, 4};
+
+                // Act
+                var result = new Solution().FindUnsortedSubarray2(nums);
+
+                // Act
+                Assert.AreEqual(3, result);
             }
         }
     }

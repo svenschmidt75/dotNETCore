@@ -317,7 +317,7 @@ namespace GoogleProblem29
 
             return count;
         }
-
+        
         [TestFixture]
         public class Tests
         {

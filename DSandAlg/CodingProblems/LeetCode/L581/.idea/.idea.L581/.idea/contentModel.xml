@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\s.schmidt\.nuget\packages\microsoft.net.test.sdk\16.7.0\build\netcoreapp2.1" t="Include">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_L581.-1720576305.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.0/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
-    <e p="C:\Users\s.schmidt\.nuget\packages\microsoft.testplatform.testhost\16.7.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
-    <e p="C:\Users\s.schmidt\.nuget\packages\microsoft.testplatform.testhost\16.7.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
-    <e p="C:\Users\s.schmidt\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\s.schmidt\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_L581.-1193952199.00" t="ExcludeRecursive" />
-    <e p="D:\dev\personal\dotNETCore\DSandAlg\CodingProblems\LeetCode\L581" t="IncludeFlat">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="L581" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
         <e p="L581.csproj" t="IncludeRecursive" />
+        <e p="Solution.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -19,7 +18,6 @@
             </e>
           </e>
         </e>
-        <e p="Solution.cs" t="Include" />
       </e>
       <e p="L581.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

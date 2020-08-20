@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae187e38-2229-476b-bf49-9348d9938700" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree.Test/FindCommonParentInTreeTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../FindCommonParentInTree/FindCommonParentInTree.Test/FindCommonParentInTreeTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem29/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/SimpleMaze1_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeetCode/L581/.idea/.idea.L581/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LeetCode/L581/.idea/.idea.L581/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +74,7 @@
       <workItem from="1597590205593" duration="607000" />
       <workItem from="1597615349279" duration="6063000" />
       <workItem from="1597673193010" duration="1509000" />
+      <workItem from="1597931651933" duration="8000" />
     </task>
     <servers />
   </component>

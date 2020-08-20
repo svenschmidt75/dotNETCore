@@ -49,6 +49,7 @@ namespace L581
         {
             // SS: runtime complexity: O(N)
             // space complexity: O(1)
+            // uses the sliding widow technique
 
             if (nums.Length == 0)
             {

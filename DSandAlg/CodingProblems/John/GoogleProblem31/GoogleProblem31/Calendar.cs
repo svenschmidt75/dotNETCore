@@ -14,9 +14,12 @@ namespace GoogleProblem31
 
         public Calendar(List<(int start, int end)> events)
         {
-            // SS: find overlaps of existing events
+            // SS: preprocessing stage
+            // find overlaps of existing events
             // precondition: no triple-overlaps
             var a = new (int eventIdx, int idx, int value)[events.Count * 2];
+
+            // SS: O(n)
             for (var i = 0; i < events.Count; i++)
             {
                 var (start, end) = events[i];
@@ -24,6 +27,7 @@ namespace GoogleProblem31
                 a[2 * i + 1] = (i, 1, end);
             }
 
+            // SS: O(n log n)
             Array.Sort(a, new EventComparer());
 
             // SS: extract overlaps
@@ -40,7 +44,7 @@ namespace GoogleProblem31
             }
 
             // SS: insert overlap intervals into interval tree
-            // construction of interval tree: O(n)
+            // construction of interval tree: O(n log n)
             _intervalSearchTree = new IntervalSearchTree();
             for (var i = 0; i < overlaps.Count; i++)
             {

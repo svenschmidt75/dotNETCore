@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2696959-61b5-4751-870f-b963495d0f7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../John/GoogleProblem31/GoogleProblem31/Calendar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../John/GoogleProblem31/GoogleProblem31/Calendar.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e2696959-61b5-4751-870f-b963495d0f7f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +70,7 @@
       <updated>1599658057474</updated>
       <workItem from="1599658061737" duration="1943000" />
       <workItem from="1599689685456" duration="2992000" />
-      <workItem from="1599692741397" duration="92000" />
+      <workItem from="1599692741397" duration="205000" />
     </task>
     <servers />
   </component>
@@ -97,10 +95,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1599691381838">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1599692846721">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1599691381838" />
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1599692846721" />
     <state width="3794" height="563" key="GridCell.Tab.0.bottom" timestamp="1599692677617">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>

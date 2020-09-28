@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8db0118-a7f2-4790-8a14-de3e0c35ecb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoogleProblem33/BoardInitializer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoogleProblem33/IBoardInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoogleProblem32/.idea/.idea.GoogleProblem32/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GoogleProblem32/.idea/.idea.GoogleProblem32/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499867" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30002657" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -67,14 +68,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601079208429</updated>
-      <workItem from="1601079212759" duration="2138000" />
+      <workItem from="1601079212759" duration="2176000" />
+      <workItem from="1601332894177" duration="1302000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -86,6 +88,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -95,5 +98,104 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1601081077798" />
+    <state width="3794" height="563" key="GridCell.Tab.0.bottom" timestamp="1601334177682">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177682" />
+    <state width="3794" height="563" key="GridCell.Tab.0.center" timestamp="1601334177682">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.center/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177682" />
+    <state width="3794" height="563" key="GridCell.Tab.0.left" timestamp="1601334177682">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.left/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177682" />
+    <state width="3794" height="563" key="GridCell.Tab.0.right" timestamp="1601334177682">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177682" />
+    <state width="3794" height="563" key="GridCell.Tab.1.bottom" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.1.center" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.center/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.1.left" timestamp="1601334177682">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.left/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177682" />
+    <state width="3794" height="563" key="GridCell.Tab.1.right" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.2.bottom" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.2.center" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.center/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.2.left" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.left/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.2.right" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.3.bottom" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.3.center" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.center/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.3.left" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.left/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.3.right" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.4.bottom" timestamp="1601334177684">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177684" />
+    <state width="3794" height="563" key="GridCell.Tab.4.center" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.center/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.4.left" timestamp="1601334177683">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.left/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177683" />
+    <state width="3794" height="563" key="GridCell.Tab.4.right" timestamp="1601334177684">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177684" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs</url>
+          <line>156</line>
+          <properties documentPath="$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs" initialLine="156">
+            <startOffsets>
+              <option value="4596" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4628" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

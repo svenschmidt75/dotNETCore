@@ -12,20 +12,25 @@ namespace GoogleProblem33
     public class Minesweeper
     {
         private static readonly (int, int)[] _neighbors = {(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)};
+        private readonly int _nBombs;
         private readonly int _ncols;
         private readonly int _nrows;
-        private readonly int[][][] _grid;
-        private int nRevealedCells;
-        private int _nBombs;
+        private int _nRevealedCells;
 
+        /// <summary>
+        /// Each cell is an array of size 2 with
+        /// cell[0] = 0 => cell is not yet revealed, 1 => cell was revealed
+        /// cell[1] = -1 => a bomb is placed, x: there are x bombs in surrounding
+        /// cells, 0: no bomb in surrounding cells   
+        /// </summary>
         public Minesweeper(int nrows, int ncols, int nBombs, IBoardInitializer boardInitializer)
         {
             _nrows = nrows;
             _ncols = ncols;
             _nBombs = nBombs;
-            
+
             // SS: initialize grid/game board
-            _grid = new int[nrows][][];
+            Grid = new int[nrows][][];
 
             for (var i = 0; i < nrows; i++)
             {
@@ -42,7 +47,7 @@ namespace GoogleProblem33
             Preprocess(nrows, ncols);
         }
 
-        internal int[][][] Grid => _grid;
+        internal int[][][] Grid { get; }
 
         private void Preprocess(int nrows, int ncols)
         {
@@ -114,8 +119,8 @@ namespace GoogleProblem33
 
                 // SS: reveal cell
                 cell[0] = 1;
-                nRevealedCells++;
-                
+                _nRevealedCells++;
+
                 if (cell[1] == -1)
                 {
                     // clicked on bomb, game over
@@ -149,14 +154,14 @@ namespace GoogleProblem33
                 }
             }
 
-            return nRevealedCells == _nrows * _ncols - _nBombs;
+            return _nRevealedCells == _nrows * _ncols - _nBombs;
         }
 
         private void PrintGrid(int[][][] grid)
         {
-            for (int i = 0; i < _nrows; i++)
+            for (var i = 0; i < _nrows; i++)
             {
-                for (int j = 0; j < _ncols; j++)
+                for (var j = 0; j < _ncols; j++)
                 {
                     var cell = Grid[i][j];
 
@@ -178,7 +183,7 @@ namespace GoogleProblem33
                         }
                     }
                 }
-                
+
                 Console.WriteLine();
             }
         }
@@ -186,7 +191,7 @@ namespace GoogleProblem33
         [TestFixture]
         public class Tests
         {
-            class TestBoardInitializer1 : IBoardInitializer
+            private class TestBoardInitializer1 : IBoardInitializer
             {
                 void IBoardInitializer.Initialize(int nrows, int ncols, int nBombs, int[][][] grid)
                 {
@@ -227,7 +232,7 @@ namespace GoogleProblem33
 
                 // Assert
                 Assert.False(wonGame);
-                
+
                 // check that cells are uncovered
                 Assert.AreEqual(1, game.Grid[0][0][0]);
                 Assert.AreEqual(1, game.Grid[0][1][0]);
@@ -237,7 +242,7 @@ namespace GoogleProblem33
                 Assert.AreEqual(0, game.Grid[0][5][0]);
                 Assert.AreEqual(0, game.Grid[0][6][0]);
                 Assert.AreEqual(0, game.Grid[0][7][0]);
-                
+
                 Assert.AreEqual(1, game.Grid[1][0][0]);
                 Assert.AreEqual(1, game.Grid[1][1][0]);
                 Assert.AreEqual(1, game.Grid[1][2][0]);
@@ -261,7 +266,7 @@ namespace GoogleProblem33
 
                 // Assert
                 Assert.False(wonGame);
-                
+
                 // check that cells are uncovered
                 Assert.AreEqual(1, game.Grid[0][0][0]);
                 Assert.AreEqual(1, game.Grid[0][1][0]);
@@ -271,7 +276,7 @@ namespace GoogleProblem33
                 Assert.AreEqual(1, game.Grid[0][5][0]);
                 Assert.AreEqual(1, game.Grid[0][6][0]);
                 Assert.AreEqual(1, game.Grid[0][7][0]);
-                
+
                 Assert.AreEqual(1, game.Grid[1][0][0]);
                 Assert.AreEqual(1, game.Grid[1][1][0]);
                 Assert.AreEqual(1, game.Grid[1][2][0]);
@@ -281,7 +286,7 @@ namespace GoogleProblem33
                 Assert.AreEqual(1, game.Grid[1][6][0]);
                 Assert.AreEqual(1, game.Grid[1][7][0]);
             }
-            
+
             [Test]
             public void Test1MoveThree()
             {
@@ -296,7 +301,7 @@ namespace GoogleProblem33
 
                 // Assert
                 Assert.True(wonGame);
-                
+
                 // check that cells are uncovered
                 Assert.AreEqual(1, game.Grid[0][0][0]);
                 Assert.AreEqual(1, game.Grid[0][1][0]);
@@ -306,7 +311,7 @@ namespace GoogleProblem33
                 Assert.AreEqual(1, game.Grid[0][5][0]);
                 Assert.AreEqual(1, game.Grid[0][6][0]);
                 Assert.AreEqual(1, game.Grid[0][7][0]);
-                
+
                 Assert.AreEqual(1, game.Grid[1][0][0]);
                 Assert.AreEqual(1, game.Grid[1][1][0]);
                 Assert.AreEqual(1, game.Grid[1][2][0]);

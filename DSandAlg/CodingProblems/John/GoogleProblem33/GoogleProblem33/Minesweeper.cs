@@ -44,6 +44,7 @@ namespace GoogleProblem33
 
             boardInitializer.Initialize(nrows, ncols, nBombs, Grid);
 
+            // SS: O(n) runtime complexity
             Preprocess(nrows, ncols);
         }
 
@@ -98,6 +99,8 @@ namespace GoogleProblem33
 
         public bool Click(int rowClick, int colClick)
         {
+            // SS: O(n) runtime complexity
+
             if (rowClick < 0 || rowClick >= _nrows || colClick < 0 || colClick >= _ncols)
             {
                 return false;

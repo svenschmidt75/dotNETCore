@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="553b7ea0-5c7a-484d-aded-ebe12d3d7da7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/L12/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L12/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/SimpleMaze1_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem33/.idea/.idea.GoogleProblem33/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem33/.idea/.idea.GoogleProblem33/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem33/GoogleProblem33/Minesweeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem33/GoogleProblem33/Minesweeper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L12/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L12/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1601388609594</updated>
       <workItem from="1601388615496" duration="3044000" />
+      <workItem from="1601421805695" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -89,6 +88,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -23,10 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8db0118-a7f2-4790-8a14-de3e0c35ecb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoogleProblem33/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleProblem33/BoardInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem33/BoardInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleProblem33/Minesweeper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
@@ -100,7 +96,7 @@
       <updated>1601079208429</updated>
       <workItem from="1601079212759" duration="2176000" />
       <workItem from="1601332894177" duration="1302000" />
-      <workItem from="1601387315671" duration="262000" />
+      <workItem from="1601387315671" duration="928000" />
     </task>
     <servers />
   </component>
@@ -210,6 +206,10 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1601334177684" />
+    <state x="873" y="433" key="Rider.ProjectTemplateDialog.Size" timestamp="1601388586859">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="873" y="433" key="Rider.ProjectTemplateDialog.Size/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601388586859" />
     <state x="782" y="346" key="SettingsEditor" timestamp="1601387430985">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

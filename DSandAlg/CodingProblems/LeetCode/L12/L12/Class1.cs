@@ -23,74 +23,52 @@ namespace L12
                 var remainder = number / divider;
                 if (remainder > 0)
                 {
+                    var a = "";
+                    var b = "";
+                    var c = "";
+
                     var pos = nDigits - 1 - n;
                     if (pos == 3)
                     {
                         // M
-                        roman += new string('M', remainder);
+                        a = "M";
                     }
                     else if (pos == 2)
                     {
-                        if (remainder < 4)
-                        {
-                            roman += new string('C', remainder);
-                        }
-                        else if (remainder == 4)
-                        {
-                            roman += "CD";
-                        }
-                        else if (remainder < 9)
-                        {
-                            roman += "D";
-                            roman += new string('C', remainder - 5);
-                        }
-                        else
-                        {
-                            // remainder == 9
-                            roman += "CM";
-                        }
+                        a = "C";
+                        b = "D";
+                        c = "M";
                     }
                     else if (pos == 1)
                     {
-                        if (remainder < 4)
-                        {
-                            roman += new string('X', remainder);
-                        }
-                        else if (remainder == 4)
-                        {
-                            roman += "XL";
-                        }
-                        else if (remainder < 9)
-                        {
-                            roman += "L";
-                            roman += new string('X', remainder - 5);
-                        }
-                        else
-                        {
-                            // remainder == 9
-                            roman += "XC";
-                        }
+                        a = "X";
+                        b = "L";
+                        c = "C";
                     }
                     else
                     {
-                        if (remainder < 4)
-                        {
-                            roman += new string('I', remainder);
-                        }
-                        else if (remainder == 4)
-                        {
-                            roman += "IV";
-                        }
-                        else if (remainder < 9)
-                        {
-                            roman += "V";
-                            roman += new string('I', remainder - 5);
-                        }
-                        else
-                        {
-                            // remainder == 9
-                            roman += "IX";
-                        }
+                        a = "I";
+                        b = "V";
+                        c = "X";
+                    }
+
+                    if (remainder < 4)
+                    {
+                        roman += new string(a[0], remainder);
+                    }
+                    else if (remainder == 4)
+                    {
+                        roman += $"{a}{b}";
+                    }
+                    else if (remainder < 9)
+                    {
+                        roman += b;
+                        roman += new string(a[0], remainder - 5);
+                    }
+                    else
+                    {
+                        // remainder == 9
+                        roman += $"{a}{c}";
                     }
                 }
 

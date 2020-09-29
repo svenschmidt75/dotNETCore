@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="553b7ea0-5c7a-484d-aded-ebe12d3d7da7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../John/GoogleProblem33/.idea/.idea.GoogleProblem33/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../John/GoogleProblem33/.idea/.idea.GoogleProblem33/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L12/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L12/Class1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
@@ -70,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601388609594</updated>
-      <workItem from="1601388615496" duration="2991000" />
+      <workItem from="1601388615496" duration="3044000" />
     </task>
     <servers />
   </component>
@@ -94,10 +94,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1601391013788">
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1601391656327">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601391013788" />
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601391656327" />
     <state width="2517" height="511" key="GridCell.Tab.0.bottom" timestamp="1601391044913">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

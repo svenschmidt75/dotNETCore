@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1967c2d7-052e-4edb-adf3-5a79fb14f53a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Tarjan/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeSolver/images/128x128_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeSolver/images/31x31_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeSolver/images/Computerphile_A*_solution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeSolver/images/SimpleMaze1_A*_solution.jpg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Tarjan/Class1.cs" />
+        <option value="$PROJECT_DIR$/Tarjan/Graph.cs" />
+        <option value="$PROJECT_DIR$/Tarjan/Tarjan.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iSlJoIQbOiUT5YmiUhLvSDpdS6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34995976" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30008045" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1967c2d7-052e-4edb-adf3-5a79fb14f53a" name="Default Changelist" comment="" />
+      <created>1601908811577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601908811577</updated>
+      <workItem from="1601908822021" duration="3991000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1601913551672">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913551672" />
+    <state width="431" height="646" key="DebuggerActiveHint" timestamp="1601913544513">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="431" height="646" key="DebuggerActiveHint/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913544513" />
+    <state width="2517" height="511" key="GridCell.Tab.0.bottom" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.0.bottom/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.0.center" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.0.center/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.0.left" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.0.left/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.0.right" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.0.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.1.bottom" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.1.bottom/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.1.center" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.1.center/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.1.left" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.1.left/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.1.right" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.1.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.2.bottom" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.2.bottom/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.2.center" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.2.center/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.2.left" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.2.left/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.2.right" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.2.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.3.bottom" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.3.bottom/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.3.center" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.3.center/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.3.left" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.3.left/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.3.right" timestamp="1601913547037">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.3.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547037" />
+    <state width="2517" height="511" key="GridCell.Tab.4.bottom" timestamp="1601913547038">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.4.bottom/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547038" />
+    <state width="2517" height="511" key="GridCell.Tab.4.center" timestamp="1601913547038">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.4.center/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547038" />
+    <state width="2517" height="511" key="GridCell.Tab.4.left" timestamp="1601913547038">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.4.left/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547038" />
+    <state width="2517" height="511" key="GridCell.Tab.4.right" timestamp="1601913547038">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="511" key="GridCell.Tab.4.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601913547038" />
+    <state x="782" y="346" key="SettingsEditor" timestamp="1601909070762">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="782" y="346" key="SettingsEditor/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601909070762" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601909518974">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601909518974" />
+  </component>
+</project>

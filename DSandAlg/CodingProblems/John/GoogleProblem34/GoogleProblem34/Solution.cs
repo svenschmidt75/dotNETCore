@@ -8,12 +8,27 @@ namespace GoogleProblem34
 {
     /// <summary>
     ///     Given: 2D array of size W * H. Start from the cell at 0,0 and go to the cell at W,0, given the available moves from cell (x,y) are (x+1, y+{-1,0,1}).
-    ///     In how many ways can you go from Start to End following these rules?
+    ///     1. In how many ways can you go from Start to End following these rules?
+    ///        see below
+    ///     2. You must touch coordinates s,t on the way
+    ///        Do one pass from start cell (s, t) to end cell (w - 1, 0) and another pass
+    ///        from start cell (0, 0) to end cell (s, t). Runtime: O(N)
+    ///     3. You must touch height z on the way
+    ///        Do one pass with the start cell (0, 0) and end cell (w - 1, h - 1).
+    ///        Then, extract all #paths for cells with row z from bottom (height z).
+    ///        For each such cell, do another pass with that cell as end point and check
+    ///        whether there are any solutions. If there are, multiply the #paths to get
+    ///        the answer. Runtime complexity: O(N * #cols).
+    ///     4. You must touch {ordered list of heights} in the given order on the way.
+    ///        Similar to before, but for each cell with height, do another pass up to
+    ///        #rows times. Runtime complexity: O(N * #rows^2) 
     /// </summary>
     public class Solution
     {
         public int GetNumberOfPaths(int w, int h)
         {
+            // SS: runtime complexity: O(3^N) when using Divide and Conquer, N=#grid cells
+            // Here, we are using top-down DP, so runtime in O(N) and space complexity is O(N)
             var memArray = new int[h][];
             for (var i = 0; i < h; i++)
             {

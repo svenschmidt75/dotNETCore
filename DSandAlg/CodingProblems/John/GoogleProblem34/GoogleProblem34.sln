@@ -1,0 +1,15 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleProblem34", "GoogleProblem34\GoogleProblem34.csproj", "{17854653-14A0-4AE6-B82B-D374EAB48DAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17854653-14A0-4AE6-B82B-D374EAB48DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17854653-14A0-4AE6-B82B-D374EAB48DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17854653-14A0-4AE6-B82B-D374EAB48DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17854653-14A0-4AE6-B82B-D374EAB48DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

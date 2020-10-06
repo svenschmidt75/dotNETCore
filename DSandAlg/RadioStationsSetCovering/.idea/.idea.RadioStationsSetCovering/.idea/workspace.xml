@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e72fafe-4452-484b-a792-0ea068c98726" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/.idea/.idea.AlgoExpert_AirportConnections/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/DetectCycleDirectedGraph/.idea/.idea.DetectCycleDirectedGraph/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/.idea/.idea.GoogleProblem22/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/John/GoogleProblem22/GoogleProblem22/Class1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Djikstra/.idea/.idea.Djikstra/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RadioStationsSetCovering/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCovering.UnitTest.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering.UnitTest/RadioStationsSetCovering.UnitTest.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering/RadioStationsSetCovering.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering/RadioStationsSetCovering.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RadioStationsSetCovering/SetCovering.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +38,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ArticulationPointsAndBridges/ArticulationPointsAndBridges.sln" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.RadioStationsSetCovering.UnitTest">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
@@ -114,6 +107,7 @@
       <workItem from="1502029083284" duration="1134000" />
       <workItem from="1594824208918" duration="37000" />
       <workItem from="1594824276492" duration="123000" />
+      <workItem from="1602026338889" duration="51000" />
     </task>
     <servers />
   </component>
@@ -127,5 +121,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1703" y="571" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602026388738">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1703" y="571" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1602026388738" />
+    <state x="1409" y="448" width="1022" height="737" key="SettingsEditor" timestamp="1602026346393">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1409" y="448" width="1022" height="737" key="SettingsEditor/0.27.3840.1573@0.27.3840.1573" timestamp="1602026346393" />
   </component>
 </project>

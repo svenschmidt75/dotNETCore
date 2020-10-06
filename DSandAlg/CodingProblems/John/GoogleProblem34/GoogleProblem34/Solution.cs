@@ -21,16 +21,24 @@ namespace GoogleProblem34
     ///        the answer. Runtime complexity: O(N * #cols).
     ///     4. You must touch {ordered list of heights} in the given order on the way.
     ///        Similar to before, but for each cell with height, do another pass up to
+<<<<<<< HEAD
     ///        #rows times. Runtime complexity: O(N * #rows^2)
     ///        NOTE: the list of heights is ordered! That can probably be used to cut down
     ///              on the runtime complexity...
+=======
+    ///        #rows times. Runtime complexity: O(N * #rows^2) 
+>>>>>>> master
     /// </summary>
     public class Solution
     {
         public int GetNumberOfPaths(int w, int h)
         {
             // SS: runtime complexity: O(3^N) when using Divide and Conquer, N=#grid cells
+<<<<<<< HEAD
             // Here, we are using top-down DP with runtime complexity and space complexity O(N)
+=======
+            // Here, we are using top-down DP, so runtime in O(N) and space complexity is O(N)
+>>>>>>> master
             var memArray = new int[h][];
             for (var i = 0; i < h; i++)
             {

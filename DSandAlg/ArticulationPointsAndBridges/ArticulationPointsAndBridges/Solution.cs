@@ -1,39 +1,43 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+
+#endregion
 
 namespace ArticulationPointsAndBridges
 {
     public class Solution
     {
         private int _time;
-        
-        public int[] GetArticulationPoints(Graph g)
+
+        public int[] FindArticulationPoints(Graph g)
         {
             var visited = new HashSet<int>();
-            int[] disc = new int[g.AdjacencyList.Count];
-            int[] low = new int[g.AdjacencyList.Count];
-            int[] ap = new int[g.AdjacencyList.Count];
+            var disc = new int[g.AdjacencyList.Count];
+            var low = new int[g.AdjacencyList.Count];
+            var ap = new int[g.AdjacencyList.Count];
 
-            int[] parent = new int[g.AdjacencyList.Count];
-            for (int i = 0; i < parent.Length; i++)
+            var parent = new int[g.AdjacencyList.Count];
+            for (var i = 0; i < parent.Length; i++)
             {
                 parent[i] = -1;
             }
 
             // SS: discovery time for the first vertex
             _time = 1;
-            
-            for (int i = 0; i < g.AdjacencyList.Count; i++)
+
+            for (var i = 0; i < g.AdjacencyList.Count; i++)
             {
                 if (visited.Contains(i))
                 {
                     continue;
                 }
-                
+
                 DFS(g, i, visited, disc, low, parent, ap);
             }
-            
+
             return ap;
         }
 
@@ -48,7 +52,7 @@ namespace ArticulationPointsAndBridges
             _time++;
 
             var neighbors = g.AdjacencyList[vertex];
-            for (int i = 0; i < neighbors.Count; i++)
+            for (var i = 0; i < neighbors.Count; i++)
             {
                 var toVertex = neighbors[i];
                 if (visited.Contains(toVertex))
@@ -60,16 +64,27 @@ namespace ArticulationPointsAndBridges
                         // SS: record the earliest time we can reach from vertex
                         low[vertex] = Math.Min(low[vertex], disc[toVertex]);
                     }
+
                     continue;
                 }
 
                 parent[toVertex] = vertex;
-                
+
                 DFS(g, toVertex, visited, disc, low, parent, ap);
-                
+
+                // SS: the parent's low value cannot be larger than the min. low value
+                // between all its children
                 low[vertex] = Math.Min(low[vertex], low[toVertex]);
-                
-                if (low[toVertex] >= disc[vertex])
+
+                // SS: root is special
+                if (parent[vertex] == -1 && neighbors.Count > 1)
+                {
+                    // SS: If the root has more than 1 child, removing it
+                    // would increase the number of connected components.
+                    // Hence, the root vertex is an articulation point.
+                    ap[vertex] = 1;
+                }
+                else if (low[toVertex] >= disc[vertex])
                 {
                     // SS: toVertex does not have a path to an ancestor of vertex,
                     // so removing vertex would increase the number of connected
@@ -85,7 +100,7 @@ namespace ArticulationPointsAndBridges
             private static Graph CreateGraph1()
             {
                 // SS: from https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/tutorial/
-                
+
                 var g = new Graph();
                 g.AddNode(0);
                 g.AddNode(1);
@@ -93,13 +108,13 @@ namespace ArticulationPointsAndBridges
                 g.AddNode(3);
                 g.AddNode(4);
                 g.AddNode(5);
-                
+
                 g.AddUndirectedEdge(0, 1);
                 g.AddUndirectedEdge(0, 5);
-                
+
                 g.AddUndirectedEdge(1, 2);
                 g.AddUndirectedEdge(1, 3);
-                
+
                 g.AddUndirectedEdge(2, 3);
                 g.AddUndirectedEdge(2, 4);
 
@@ -113,12 +128,12 @@ namespace ArticulationPointsAndBridges
             {
                 // Arrange
                 var g = CreateGraph1();
-                
+
                 // Act
-                var ap = new Solution().GetArticulationPoints(g);
-                
+                var ap = new Solution().FindArticulationPoints(g);
+
                 // Assert
-                CollectionAssert.AreEqual(new[]{1, 1, 0, 0, 0, 0}, ap);
+                CollectionAssert.AreEqual(new[] {1, 1, 0, 0, 0, 0}, ap);
             }
         }
     }

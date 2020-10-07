@@ -104,6 +104,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1602082213884">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1027" y="522" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1602082213884" />
     <state width="406" height="646" key="DebuggerActiveHint" timestamp="1602081239039">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

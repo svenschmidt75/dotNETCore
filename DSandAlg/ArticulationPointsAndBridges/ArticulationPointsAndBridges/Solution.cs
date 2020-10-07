@@ -53,7 +53,9 @@ namespace ArticulationPointsAndBridges
                 var toVertex = neighbors[i];
                 if (visited.Contains(toVertex))
                 {
-                    if (g.AdjacencyList[vertex].Contains(toVertex) == false)
+                    // SS: If we have a connection to the parent, we don't want to
+                    // update the low value...
+                    if (parent[vertex] != toVertex)
                     {
                         // SS: record the earliest time we can reach from vertex
                         low[vertex] = Math.Min(low[vertex], disc[toVertex]);
@@ -64,6 +66,9 @@ namespace ArticulationPointsAndBridges
                 parent[toVertex] = vertex;
                 
                 DFS(g, toVertex, visited, disc, low, parent, ap);
+                
+                low[vertex] = Math.Min(low[vertex], low[toVertex]);
+                
                 if (low[toVertex] >= disc[vertex])
                 {
                     // SS: toVertex does not have a path to an ancestor of vertex,
@@ -113,6 +118,7 @@ namespace ArticulationPointsAndBridges
                 var ap = new Solution().GetArticulationPoints(g);
                 
                 // Assert
+                CollectionAssert.AreEqual(new[]{1, 1, 0, 0, 0, 0}, ap);
             }
         }
     }

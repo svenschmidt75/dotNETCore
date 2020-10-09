@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -30,6 +31,33 @@ namespace PowerSet
             }
         }
 
+        public List<int[]> Generate(int n)
+        {
+            var subsets = new List<int[]>();
+            var currentSubset = new int[n];
+            Generate(0, n, subsets, currentSubset);
+            return subsets;
+        }
+
+        private void Generate(int start, int n, List<int[]> subsets, int[] currentSubset)
+        {
+            // SS: Here, the subsets are always of length n...
+            if (start == n)
+            {
+                subsets.Add(currentSubset.ToArray());
+            }
+            else
+            {
+                // SS: add item
+                currentSubset[start] = 1;
+                Generate(start + 1, n, subsets, currentSubset);
+
+                // SS: do not add item
+                currentSubset[start] = 0;
+                Generate(start + 1, n, subsets, currentSubset);
+            }
+        }
+
         [TestFixture]
         public class Tests
         {
@@ -44,6 +72,18 @@ namespace PowerSet
 
                 // Assert
                 Assert.AreEqual(Math.Pow(2, set.Count), subsets.Count);
+            }
+
+            [Test]
+            public void Test2()
+            {
+                // Arrange
+
+                // Act
+                var subsets = new Solution().Generate(5);
+
+                // Assert
+                Assert.AreEqual(Math.Pow(2, 5), subsets.Count);
             }
         }
     }

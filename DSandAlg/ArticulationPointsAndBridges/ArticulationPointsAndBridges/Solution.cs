@@ -227,6 +227,34 @@ namespace ArticulationPointsAndBridges
                 Assert.AreEqual((0, 1), bridges[0]);
                 Assert.AreEqual((0, 5), bridges[1]);
             }
+
+            [Test]
+            public void TestBridges2()
+            {
+                // SS: from LeetCode 1192, https://leetcode.com/problems/critical-connections-in-a-network/
+                
+                // Arrange
+                var g = new Graph();
+                g.AddNode(0);
+                g.AddNode(1);
+                g.AddNode(2);
+                g.AddNode(3);
+
+                g.AddUndirectedEdge(0, 1);
+                g.AddUndirectedEdge(0, 2);
+                
+                g.AddUndirectedEdge(1, 3);
+                g.AddUndirectedEdge(1, 2);
+                
+                
+                // Act
+                var bridges = new Solution().FindBridges(g);
+
+                // Assert
+                Assert.AreEqual(1, bridges.Count);
+                Assert.AreEqual((1, 3), bridges[0]);
+            }
+            
         }
     }
 }

@@ -20,7 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db27b6aa-6392-4783-a772-8c4b04794635" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/.idea/.idea.L1192/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/L1192/Graph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/L1192/L1192/Solution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ArticulationPointsAndBridges/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArticulationPointsAndBridges/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArticulationPointsAndBridges/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ArticulationPointsAndBridges/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingProblems/LeetCode/DistortedPalindrome/.idea/.idea.DistortedPalindrome/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodingProblems/LeetCode/DistortedPalindrome/.idea/.idea.DistortedPalindrome/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +83,7 @@
       <updated>1601993007173</updated>
       <workItem from="1601993012376" duration="3340000" />
       <workItem from="1602026392725" duration="268000" />
+      <workItem from="1602440727377" duration="765000" />
     </task>
     <servers />
   </component>
@@ -209,9 +221,10 @@
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1602165271003" />
     <state width="2517" height="511" key="GridCell.Tab.4.right/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1602094121405" />
-    <state x="873" y="433" key="Rider.ProjectTemplateDialog.Size" timestamp="1601993007150">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="1310" y="514" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1602440822426">
+      <screen x="0" y="27" width="3840" height="1573" />
     </state>
+    <state x="1310" y="514" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1602440822426" />
     <state x="873" y="433" key="Rider.ProjectTemplateDialog.Size/3840.5.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1601993007150" />
     <state x="1173" y="416" width="1022" height="737" key="SettingsEditor" timestamp="1602164057170">
       <screen x="0" y="27" width="3840" height="1573" />

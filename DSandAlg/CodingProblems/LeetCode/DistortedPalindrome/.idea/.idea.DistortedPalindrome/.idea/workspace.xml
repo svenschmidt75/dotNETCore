@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24e3009f-5298-442a-be91-2673b0e1e816" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../L1504/.idea/.idea.L1504/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L1504/.idea/.idea.L1504/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/.idea.LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/.idea.LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/.idea.LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/.idea.LongestSubstringWithout3ContiguousOccurrencesofLetter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/LongestSubstringWithout3ContiguousOccurrencesofLetter/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LongestSubstringWithout3ContiguousOccurrencesofLetter/LongestSubstringWithout3ContiguousOccurrencesofLetter/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DistortedPalindrome/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DistortedPalindrome/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DistortedPalindrome/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DistortedPalindrome/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602426235198</updated>
-      <workItem from="1602426239303" duration="2391000" />
+      <workItem from="1602426239303" duration="3802000" />
     </task>
     <servers />
   </component>
@@ -94,10 +92,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1602428626657">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1602430040524">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1602428626657" />
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1602430040524" />
     <state width="3794" height="563" key="GridCell.Tab.0.bottom" timestamp="1602428614897">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
@@ -178,37 +176,5 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1602428614899" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DistortedPalindrome/Solution.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/DistortedPalindrome/Solution.cs" initialLine="17">
-            <startOffsets>
-              <option value="364" />
-            </startOffsets>
-            <endOffsets>
-              <option value="394" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DistortedPalindrome/Solution.cs</url>
-          <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/DistortedPalindrome/Solution.cs" initialLine="38">
-            <startOffsets>
-              <option value="817" />
-            </startOffsets>
-            <endOffsets>
-              <option value="854" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

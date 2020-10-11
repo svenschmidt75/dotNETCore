@@ -27,7 +27,10 @@ namespace DistortedPalindrome
              * Hence, for each char, we have to do up to O(N^2) swaps.
              * We do this for each char, so O(N^3) in total.
              *
-             * We could 
+             * Turns out we don't have to do the linear searches. Instead, we just swap until the char is
+             * where we expect it to be. So total runtime is then O(N^2).
+             *
+             * Space complexity: O(N)
             */
 
             if (input.Length <= 1)

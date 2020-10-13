@@ -33,40 +33,6 @@ namespace L406
 
             // SS: 0 taller people in front is a special case
             var i = 1;
-            while (i < sortedPeople.Length && sortedPeople[i][1] == 0)
-            {
-                var node = root;
-                var prev = node;
-
-                var person = sortedPeople[i];
-
-                var newNode = new Node
-                {
-                    Height = person[0]
-                    , TallerOrEqualPeopleInFront = person[1]
-                };
-
-                while (node != null && node.Height < person[0])
-                {
-                    prev = node;
-                    node = node.Next;
-                }
-
-                // SS: the smaller height needs to come first
-                if (node == root)
-                {
-                    root = newNode;
-                    newNode.Next = prev;
-                }
-                else
-                {
-                    prev.Next = newNode;
-                    newNode.Next = node;
-                }
-
-                i++;
-            }
-
             while (i < sortedPeople.Length)
             {
                 var person = sortedPeople[i];
@@ -95,21 +61,23 @@ namespace L406
                 }
 
                 // SS: check for violations
-                while (node != null)
+                while (node != null && node.Height < person[0])
                 {
-                    if (node.Height < person[0])
-                    {
-                        prev = node;
-                        node = node.Next;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    prev = node;
+                    node = node.Next;
                 }
 
-                newNode.Next = node;
-                prev.Next = newNode;
+                // SS: the smaller height needs to come first
+                if (node == root)
+                {
+                    root = newNode;
+                    newNode.Next = prev;
+                }
+                else
+                {
+                    prev.Next = newNode;
+                    newNode.Next = node;
+                }
 
                 i++;
             }

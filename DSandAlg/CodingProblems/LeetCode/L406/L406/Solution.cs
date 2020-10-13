@@ -77,6 +77,20 @@ namespace L406
                         node = node.Next;
                     }
 
+                    // SS: check for violations
+                    while (node != null)
+                    {
+                        if (node.Height < person[0] && node.TallerOrEqualPeopleInFront == person[1])
+                        {
+                            prev = node;
+                            node = node.Next;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
                     newNode.Next = node;
                     prev.Next = newNode;
                 }
@@ -124,6 +138,26 @@ namespace L406
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {new[] {5, 0}, new[] {7, 0}, new[] {5, 2}, new[] {6, 1}, new[] {4, 4}, new[] {7, 1}}, result);
+            }
+
+            [Test]
+            public void Test2()
+            {
+                // Arrange
+                int[][] people =
+                {
+                    new[] {8, 1}
+                    , new[] {9, 1}
+                    , new[] {6, 3}
+                    , new[] {10, 0}
+                    , new[] {7, 0}
+                };
+
+                // Act
+                var result = new Solution().ReconstructQueue(people);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {7, 0}, new[] {10, 0}, new[] {8, 1}, new[] {6, 3}, new[] {9, 1}}, result);
             }
         }
     }

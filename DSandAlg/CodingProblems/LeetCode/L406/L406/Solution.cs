@@ -14,6 +14,9 @@ namespace L406
     {
         public int[][] ReconstructQueue(int[][] people)
         {
+            // SS: runtime complexity: O(N^2)
+            // space complexity: O(N)
+
             if (people.Length == 0)
             {
                 return people;
@@ -28,7 +31,43 @@ namespace L406
                 , TallerOrEqualPeopleInFront = sortedPeople[0][1]
             };
 
-            for (var i = 1; i < sortedPeople.Length; i++)
+            // SS: 0 taller people in front is a special case
+            var i = 1;
+            while (i < sortedPeople.Length && sortedPeople[i][1] == 0)
+            {
+                var node = root;
+                var prev = node;
+
+                var person = sortedPeople[i];
+
+                var newNode = new Node
+                {
+                    Height = person[0]
+                    , TallerOrEqualPeopleInFront = person[1]
+                };
+
+                while (node != null && node.Height < person[0])
+                {
+                    prev = node;
+                    node = node.Next;
+                }
+
+                // SS: the smaller height needs to come first
+                if (node == root)
+                {
+                    root = newNode;
+                    newNode.Next = prev;
+                }
+                else
+                {
+                    prev.Next = newNode;
+                    newNode.Next = node;
+                }
+
+                i++;
+            }
+
+            while (i < sortedPeople.Length)
             {
                 var person = sortedPeople[i];
 
@@ -40,60 +79,39 @@ namespace L406
 
                 var node = root;
 
-                if (node.TallerOrEqualPeopleInFront == person[1])
+                var k = person[1];
+                var prev = root;
+
+                // SS: skip over k taller people
+                while (k > 0)
                 {
-                    var prev = node;
-                    while (node != null && node.TallerOrEqualPeopleInFront == person[1] && node.Height < person[0])
+                    if (node.Height >= person[0])
+                    {
+                        k--;
+                    }
+
+                    prev = node;
+                    node = node.Next;
+                }
+
+                // SS: check for violations
+                while (node != null)
+                {
+                    if (node.Height < person[0])
                     {
                         prev = node;
                         node = node.Next;
-                    }
-
-                    // SS: the smaller height needs to come first
-                    if (prev == root)
-                    {
-                        root = newNode;
-                        newNode.Next = prev;
                     }
                     else
                     {
-                        prev.Next = newNode;
-                        newNode.Next = node;
+                        break;
                     }
                 }
-                else
-                {
-                    var k = person[1];
-                    var prev = root;
 
-                    while (k > 0)
-                    {
-                        if (node.Height >= person[0])
-                        {
-                            k--;
-                        }
+                newNode.Next = node;
+                prev.Next = newNode;
 
-                        prev = node;
-                        node = node.Next;
-                    }
-
-                    // SS: check for violations
-                    while (node != null)
-                    {
-                        if (node.Height < person[0] && node.TallerOrEqualPeopleInFront == person[1])
-                        {
-                            prev = node;
-                            node = node.Next;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    newNode.Next = node;
-                    prev.Next = newNode;
-                }
+                i++;
             }
 
             var result = new int[people.Length][];
@@ -158,6 +176,23 @@ namespace L406
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {new[] {7, 0}, new[] {10, 0}, new[] {8, 1}, new[] {6, 3}, new[] {9, 1}}, result);
+            }
+
+            [Test]
+            public void Test3()
+            {
+                // Arrange
+                int[][] people =
+                {
+                    new[] {1, 0}
+                    , new[] {2, 0}
+                };
+
+                // Act
+                var result = new Solution().ReconstructQueue(people);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {1, 0}, new[] {2, 0}}, result);
             }
         }
     }

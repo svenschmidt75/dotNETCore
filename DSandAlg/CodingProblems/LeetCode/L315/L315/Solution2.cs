@@ -72,13 +72,12 @@ namespace L315
                     if (position == min)
                     {
                         // SS: leaf node, insert
-                        _data[nodeIdx] = value + 1;
-                        return _data[nodeIdx];
+                        _data[nodeIdx] = 1;
+                        return value + 1;
                     }
 
                     // SS: return the larger of the values
-                    var v1 = Math.Max(_data[nodeIdx], value);
-                    return v1;
+                    return _data[nodeIdx];
                 }
 
                 if (position < min)
@@ -90,7 +89,7 @@ namespace L315
                 // SS: can this case happen?
                 if (position > max)
                 {
-                    return value;
+                    return 0;
                 }
 
                 // SS we have overlap and need to test both
@@ -100,11 +99,11 @@ namespace L315
                 var r = Insert(position, value, rightNodeIdx, mid + 1, max);
 
                 var leftNodeIdx = 2 * nodeIdx + 1;
-                var l = Insert(position, r, leftNodeIdx, min, mid);
+                var l = Insert(position, r + value, leftNodeIdx, min, mid);
 
                 _data[nodeIdx]++;
 
-                return l;
+                return Math.Max(l, r);
             }
         }
 
@@ -349,7 +348,6 @@ namespace L315
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 0, 0}, result);
             }
-            
         }
     }
 }

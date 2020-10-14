@@ -13,6 +13,11 @@ namespace L315
     {
         public IList<int> CountSmaller(int[] nums)
         {
+            if (nums.Length == 0)
+            {
+                return nums;
+            }
+
             var result = new int[nums.Length];
 
             // SS: sort results, O(N log N)
@@ -38,7 +43,8 @@ namespace L315
             public SegmentTree(int n)
             {
                 _n = n;
-                var exp = (int) Math.Ceiling(Math.Log2(n)) + 1;
+                var log = Math.Log10(n) / Math.Log10(2.0);
+                var exp = (int) Math.Ceiling(log) + 1;
                 var treeSize = (int) Math.Pow(2, exp);
                 _data = new int[treeSize];
             }
@@ -330,6 +336,20 @@ namespace L315
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 1, 1, 0}, result);
             }
+
+            [Test]
+            public void Test41()
+            {
+                // Arrange
+                int[] nums = {2, 0, 1};
+
+                // Act
+                var result = new Solution2().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 0, 0}, result);
+            }
+            
         }
     }
 }

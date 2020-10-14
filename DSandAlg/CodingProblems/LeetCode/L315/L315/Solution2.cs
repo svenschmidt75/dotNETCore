@@ -11,6 +11,13 @@ namespace L315
 {
     public class Solution2
     {
+        /// <summary>
+        /// We build a segment tree. When inserting a number going up the tree, we increase
+        /// the root node index.
+        /// Runtime complexity is: O(N log N) for sorting. For each insert, we pay O(log N)
+        /// and we insert N items, so O(N log N) total runtime.
+        /// It is assumed the insertions happen in sorted order of the input values!
+        /// </summary>
         public IList<int> CountSmaller(int[] nums)
         {
             if (nums.Length == 0)

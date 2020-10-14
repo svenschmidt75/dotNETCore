@@ -1,6 +1,8 @@
 #region
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -9,10 +11,29 @@ namespace L315
 {
     public class Solution2
     {
+        public IList<int> CountSmaller(int[] nums)
+        {
+            var result = new int[nums.Length];
+
+            // SS: sort results, O(N log N)
+            var enumerated = nums.Select((i, idx) => (i, idx)).OrderBy(t => t.i).ToArray();
+
+            var segmentTree = new SegmentTree(nums.Length);
+
+            for (var i = 0; i < enumerated.Length; i++)
+            {
+                var (value, idx) = enumerated[i];
+                var cnt = segmentTree.Insert(idx);
+                result[idx] = cnt - 1;
+            }
+
+            return result;
+        }
+
         private class SegmentTree
         {
-            private readonly int _n;
             private readonly int[] _data;
+            private readonly int _n;
 
             public SegmentTree(int n)
             {
@@ -179,6 +200,19 @@ namespace L315
             }
 
             [Test]
+            public void Test17()
+            {
+                // Arrange
+                int[] nums = {3, 7, 5, 2, 4, 1};
+
+                // Act
+                var result = new Solution2().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 4, 3, 1, 1, 0}, result);
+            }
+
+            [Test]
             public void Test21()
             {
                 // Arrange
@@ -211,6 +245,19 @@ namespace L315
 
                 // Assert
                 Assert.AreEqual(4, value);
+            }
+
+            [Test]
+            public void Test23()
+            {
+                // Arrange
+                int[] nums = {3, 5, 7, 2, 4, 1};
+
+                // Act
+                var result = new Solution2().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 3, 3, 1, 1, 0}, result);
             }
 
             [Test]
@@ -269,6 +316,19 @@ namespace L315
 
                 // Assert
                 Assert.AreEqual(2, value);
+            }
+
+            [Test]
+            public void Test35()
+            {
+                // Arrange
+                int[] nums = {5, 2, 6, 1};
+
+                // Act
+                var result = new Solution2().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 1, 1, 0}, result);
             }
         }
     }

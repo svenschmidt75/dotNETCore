@@ -49,6 +49,32 @@ namespace L315
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 1, 1, 0}, result);
             }
+
+            [Test]
+            public void Test21()
+            {
+                // Arrange
+                int[] nums = {3, 5, 7, 2, 4, 1};
+
+                // Act
+                var result = new Solution().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 3, 3, 1, 1, 0}, result);
+            }
+
+            [Test]
+            public void Test31()
+            {
+                // Arrange
+                int[] nums = {3, 7, 5, 2, 4, 1};
+
+                // Act
+                var result = new Solution().CountSmaller(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {2, 4, 3, 1, 1, 0}, result);
+            }
         }
     }
 }

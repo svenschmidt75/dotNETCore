@@ -93,13 +93,12 @@ namespace L315
                     return _data[nodeIdx];
                 }
 
-                // SS: can this case happen?
                 if (position > max)
                 {
                     return 0;
                 }
 
-                // SS we have overlap and need to test both
+                // SS: we have overlap and need to test both subtrees
                 var mid = (min + max) / 2;
 
                 var rightNodeIdx = 2 * nodeIdx + 2;

@@ -19,24 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d7b746-ee05-4dd8-bf47-28b9f86644da" name="Default Changelist" comment="" />
+    <list default="true" id="cf20d35f-010f-4e38-b0cf-3665d51446b1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../LeetCode/L965/.idea/.idea.L965/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCode/L965/.idea/.idea.L965/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/L965/Class1.cs" />
-        <option value="$PROJECT_DIR$/L965/Solution.cs" />
+        <option value="$PROJECT_DIR$/UniversalValueTreeProblem/Class1.cs" />
+        <option value="$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1jC28t3VQhJj6o8YPGuDntqpYMB" />
+  <component name="ProjectId" id="1jC3pl0J9B0rkfInOy7QY5sDi9A" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -52,12 +54,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c1d7b746-ee05-4dd8-bf47-28b9f86644da" name="Default Changelist" comment="" />
-      <created>1603293597698</created>
+      <changelist id="cf20d35f-010f-4e38-b0cf-3665d51446b1" name="Default Changelist" comment="" />
+      <created>1603294431177</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603293597698</updated>
-      <workItem from="1603293601845" duration="829000" />
+      <updated>1603294431177</updated>
+      <workItem from="1603294433837" duration="1461000" />
     </task>
     <servers />
   </component>
@@ -81,13 +83,32 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1603294227725">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1603295892617">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1603294227725" />
-    <state x="1698" y="560" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603294416893">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1603295892617" />
+    <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size" timestamp="1603294430659">
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
-    <state x="1698" y="560" width="424" height="520" key="FileChooserDialogImpl/0.27.3840.1573@0.27.3840.1573" timestamp="1603294416893" />
+    <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1603294430659" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs</url>
+          <line>15</line>
+          <properties documentPath="$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs" initialLine="16">
+            <startOffsets>
+              <option value="346" />
+            </startOffsets>
+            <endOffsets>
+              <option value="363" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

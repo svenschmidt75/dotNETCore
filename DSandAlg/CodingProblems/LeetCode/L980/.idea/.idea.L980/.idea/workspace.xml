@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e28215dc-33db-4b8b-95bc-62a084b65cae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L980/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L980/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L965/.idea/.idea.L965/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L965/.idea/.idea.L965/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L965/.idea/.idea.L965/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.L980/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L980/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L980/L980.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/L980/L980.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/L980/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L980/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +68,7 @@
       <workItem from="1603290743262" duration="485000" />
       <workItem from="1603291568769" duration="519000" />
       <workItem from="1603292181330" duration="736000" />
+      <workItem from="1603293610866" duration="47000" />
     </task>
     <servers />
   </component>

@@ -20,27 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e28215dc-33db-4b8b-95bc-62a084b65cae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/.idea/.idea.ClassLibrary1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/.idea/.idea.ClassLibrary1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/.idea/.idea.ClassLibrary1/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/.idea/.idea.ClassLibrary1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/.idea/.idea.ClassLibrary1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/ClassLibrary1.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/ClassLibrary1/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../IntervalTree/ClassLibrary1/ClassLibrary1/ClassLibrary1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L30/.idea/.idea.L30/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L30/.idea/.idea.L30/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/.idea/.idea.Kruskal/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/Kruskal.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/Kruskal/Graph.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/Kruskal/Kruskal.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Kruskal/Kruskal/Kruskal/UnionFindDS.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L980/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L980/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L980/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L980/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L980/L980.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/L980/L980.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L980/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L980/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +37,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/L980/Class1.cs" />
+        <option value="$PROJECT_DIR$/L980/Solution.cs" />
       </list>
     </option>
   </component>
@@ -66,6 +50,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499867" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30002657" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -78,14 +64,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603290738847</updated>
-      <workItem from="1603290743262" duration="267000" />
+      <workItem from="1603290743262" duration="485000" />
+      <workItem from="1603291568769" duration="519000" />
+      <workItem from="1603292181330" duration="736000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -97,8 +85,99 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1603292680686">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state x="1652" y="635" width="525" height="363" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.27.3840.1573@0.27.3840.1573" timestamp="1603292680686" />
+    <state width="448" height="646" key="DebuggerActiveHint" timestamp="1603292583615">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="448" height="646" key="DebuggerActiveHint/0.27.3840.1573@0.27.3840.1573" timestamp="1603292583615" />
+    <state width="3794" height="563" key="GridCell.Tab.0.bottom" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.0.center" timestamp="1603292916965">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.center/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916965" />
+    <state width="3794" height="563" key="GridCell.Tab.0.left" timestamp="1603292916965">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.left/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916965" />
+    <state width="3794" height="563" key="GridCell.Tab.0.right" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.0.right/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.1.bottom" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.1.center" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.center/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.1.left" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.left/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.1.right" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.1.right/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.2.bottom" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.2.center" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.center/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.2.left" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.left/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.2.right" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.2.right/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.3.bottom" timestamp="1603292916967">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916967" />
+    <state width="3794" height="563" key="GridCell.Tab.3.center" timestamp="1603292916967">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.center/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916967" />
+    <state width="3794" height="563" key="GridCell.Tab.3.left" timestamp="1603292916966">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.left/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916966" />
+    <state width="3794" height="563" key="GridCell.Tab.3.right" timestamp="1603292916967">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.3.right/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916967" />
+    <state width="3794" height="563" key="GridCell.Tab.4.bottom" timestamp="1603292916969">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.bottom/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916969" />
+    <state width="3794" height="563" key="GridCell.Tab.4.center" timestamp="1603292916968">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.center/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916968" />
+    <state width="3794" height="563" key="GridCell.Tab.4.left" timestamp="1603292916968">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.left/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916968" />
+    <state width="3794" height="563" key="GridCell.Tab.4.right" timestamp="1603292916968">
+      <screen x="0" y="27" width="3840" height="1573" />
+    </state>
+    <state width="3794" height="563" key="GridCell.Tab.4.right/0.27.3840.1573@0.27.3840.1573" timestamp="1603292916968" />
   </component>
 </project>

@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf20d35f-010f-4e38-b0cf-3665d51446b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../LeetCode/L965/.idea/.idea.L965/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCode/L965/.idea/.idea.L965/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UniversalValueTreeProblem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UniversalValueTreeProblem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +50,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -59,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603294431177</updated>
-      <workItem from="1603294433837" duration="1461000" />
+      <workItem from="1603294433837" duration="2691000" />
     </task>
     <servers />
   </component>
@@ -91,24 +98,5 @@
       <screen x="0" y="27" width="3840" height="1573" />
     </state>
     <state x="1515" y="548" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/0.27.3840.1573@0.27.3840.1573" timestamp="1603294430659" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs</url>
-          <line>15</line>
-          <properties documentPath="$PROJECT_DIR$/UniversalValueTreeProblem/Solution.cs" initialLine="16">
-            <startOffsets>
-              <option value="346" />
-            </startOffsets>
-            <endOffsets>
-              <option value="363" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -13,6 +13,7 @@ namespace UniversalValueTreeProblem
     {
         public int NumberOfUnivalTrees(TreeNode root)
         {
+            // SS: runtime complexity: O(N), N = #nodes, as we are doing a post-order traversal
             if (root == null)
             {
                 // SS: empty tree is by definition a univalued tree

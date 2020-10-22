@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba0f9c9c-f52a-4219-9656-5dfab17b97df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L1218/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/L1218/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L1218/Solution.cs" afterDir="false" />
     </list>
@@ -35,7 +33,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/00E4CC82-435B-478C-B083-227A479F9D7B/11/Array.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L1218/Solution.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -75,7 +77,8 @@
       <workItem from="1603380538845" duration="2852000" />
       <workItem from="1603383448415" duration="25000" />
       <workItem from="1603383596710" duration="21000" />
-      <workItem from="1603383629537" duration="4404000" />
+      <workItem from="1603383629537" duration="6084000" />
+      <workItem from="1603391482347" duration="2415000" />
     </task>
     <servers />
   </component>
@@ -98,5 +101,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L1218/Solution.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/L1218/Solution.cs" initialLine="40" containingFunctionPresentation="method 'LongestSubsequenceBruteForce'">
+            <startOffsets>
+              <option value="1082" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1086" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L1218/Solution.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/L1218/Solution.cs" initialLine="30" containingFunctionPresentation="method 'LongestSubsequenceBruteForce'">
+            <startOffsets>
+              <option value="827" />
+            </startOffsets>
+            <endOffsets>
+              <option value="847" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

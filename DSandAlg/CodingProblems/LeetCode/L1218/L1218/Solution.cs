@@ -563,6 +563,8 @@ namespace L1218
 
         public int LongestSubsequence(int[] arr, int difference)
         {
+            // SS: runtime complexity: O(N
+            // space complexity: O(N)
             if (arr.Length == 0)
             {
                 return 0;

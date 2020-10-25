@@ -196,7 +196,7 @@ namespace FindCommonParentInTree.Test
             // Assert
             Assert.AreEqual(3, parent.Value);
         }
-        
+
         [Test]
         public void Test62()
         {
@@ -216,6 +216,5 @@ namespace FindCommonParentInTree.Test
             // Assert
             Assert.AreEqual(3, parent.Value);
         }
-
     }
 }

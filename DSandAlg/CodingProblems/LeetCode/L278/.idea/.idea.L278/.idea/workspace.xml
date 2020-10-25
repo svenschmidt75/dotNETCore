@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0153a6ef-8d15-44a1-816f-1febac3e4483" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../L1218/.idea/.idea.L1218/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L1218/.idea/.idea.L1218/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L1218/L1218/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L1218/L1218/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L278/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L278/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L278/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L278/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +13,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/L278/Solution.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -48,14 +52,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603470165785</updated>
-      <workItem from="1603470170219" duration="1880000" />
+      <workItem from="1603470170219" duration="2491000" />
+      <workItem from="1603474092007" duration="70000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -67,6 +72,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

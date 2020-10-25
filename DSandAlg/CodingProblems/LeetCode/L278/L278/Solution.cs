@@ -9,14 +9,6 @@ using NUnit.Framework;
 
 namespace L278
 {
-    public class VersionControl
-    {
-        public virtual bool IsBadVersion(int version)
-        {
-            return false;
-        }
-    }
-
     public class Solution : VersionControl
     {
         public int FirstBadVersion(int n)
@@ -49,12 +41,20 @@ namespace L278
         }
     }
 
+    public class VersionControl
+    {
+        protected virtual bool IsBadVersion(int version)
+        {
+            return false;
+        }
+    }
+
     [TestFixture]
     public class Tests
     {
         private class SolutionTest1 : Solution
         {
-            public override bool IsBadVersion(int version)
+            protected override bool IsBadVersion(int version)
             {
                 return version >= 1;
             }
@@ -62,7 +62,7 @@ namespace L278
 
         private class SolutionTest2 : Solution
         {
-            public override bool IsBadVersion(int version)
+            protected override bool IsBadVersion(int version)
             {
                 return version >= 4;
             }
@@ -70,7 +70,7 @@ namespace L278
 
         private class SolutionTest3 : Solution
         {
-            public override bool IsBadVersion(int version)
+            protected override bool IsBadVersion(int version)
             {
                 return version >= 1702766719;
             }

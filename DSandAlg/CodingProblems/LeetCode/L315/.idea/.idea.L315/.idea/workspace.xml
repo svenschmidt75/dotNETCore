@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a51763c-586c-44f1-9dc5-bd69935475b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L315/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L315/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L315/Solution2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L315/Solution2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L2/.idea/.idea.L2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L2/.idea/.idea.L2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L315/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L315/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L315/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L315/.idea/modules.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,15 +31,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/L315/Class1.cs" />
-        <option value="$PROJECT_DIR$/L315/Solution.cs" />
-        <option value="$PROJECT_DIR$/L315/Solution2.cs" />
-      </list>
-    </option>
   </component>
   <component name="ProjectId" id="1ipDC8qnKF7YNVU32jOgIbkaRys" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -74,6 +66,7 @@
       <workItem from="1602636653271" duration="2172000" />
       <workItem from="1602682726017" duration="2319000" />
       <workItem from="1602719994015" duration="58000" />
+      <workItem from="1603750593227" duration="619000" />
     </task>
     <servers />
   </component>

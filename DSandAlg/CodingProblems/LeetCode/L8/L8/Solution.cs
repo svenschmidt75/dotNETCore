@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using NUnit.Framework;
 
 #endregion
@@ -66,29 +65,18 @@ namespace L8
             var exp = 1;
             while (k >= 0)
             {
-                try
+                // would adding digits[k] * exp cause and overflow?
+                if ((int.MaxValue - result) / exp < digits[k])
                 {
-                    checked
-                    {
-                        result += digits[k] * exp;
-                    }
-                }
-                catch (OverflowException)
-                {
-                    // if we have exhausted all digits, we return the result
                     return sign < 0 ? int.MinValue : int.MaxValue;
                 }
 
-                try
+                result += digits[k] * exp;
+
+                // would multiplying exp by 10 cause an overflow?
+                if (int.MaxValue / 10 - exp < 0)
                 {
-                    checked
-                    {
-                        exp *= 10;
-                    }
-                }
-                catch (OverflowException)
-                {
-                    // if we have exhausted all digits, we return the result
+                    // we return the result of we have processed all numbers...
                     if (k == 0)
                     {
                         return sign * result;
@@ -97,6 +85,7 @@ namespace L8
                     return sign < 0 ? int.MinValue : int.MaxValue;
                 }
 
+                exp *= 10;
                 k--;
             }
 
@@ -118,7 +107,7 @@ namespace L8
                 // Assert
                 Assert.AreEqual(42, result);
             }
-            
+
             [Test]
             public void Test2()
             {
@@ -236,6 +225,31 @@ namespace L8
                 Assert.AreEqual(-2147483647, result);
             }
 
+            [Test]
+            public void Test11()
+            {
+                // Arrange
+                var s = "2147483648";
+
+                // Act
+                var result = new Solution().MyAtoi(s);
+
+                // Assert
+                Assert.AreEqual(2147483647, result);
+            }
+
+            [Test]
+            public void Test12()
+            {
+                // Arrange
+                var s = "-6147483648";
+
+                // Act
+                var result = new Solution().MyAtoi(s);
+
+                // Assert
+                Assert.AreEqual(int.MinValue, result);
+            }
         }
     }
 }

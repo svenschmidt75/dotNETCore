@@ -14,7 +14,8 @@ namespace L11
     {
         public int MaxArea(int[] height)
         {
-            return MaxAreaNaive(height);
+//            return MaxAreaNaive(height);
+            return MaxAreaBetter(height);
         }
 
         public int MaxAreaNaive(int[] height)
@@ -30,6 +31,50 @@ namespace L11
                     var height2 = height[j];
                     var area = (j - i) * Math.Min(height1, height2);
                     maxArea = Math.Max(maxArea, area);
+                }
+            }
+
+            return maxArea;
+        }
+
+        public int MaxAreaBetter(int[] height)
+        {
+            // SS: runtime complexity: O(n)!
+
+            // SS: height has at least 2 elements
+
+            // SS: we assume we have no trailing 0
+            var i = 0;
+            var j = height.Length - 1;
+            var maxArea = 0;
+
+            while (i < j)
+            {
+                // advance the smaller height to the next taller one
+                var h1 = height[i];
+                var h2 = height[j];
+                var area = Math.Min(height[i], height[j]) * (j - i);
+                maxArea = Math.Max(maxArea, area);
+
+                if (h1 <= h2)
+                {
+                    var k = i + 1;
+                    while (k < j && height[k] < h1)
+                    {
+                        k++;
+                    }
+
+                    i = k;
+                }
+                else
+                {
+                    var k = j - 1;
+                    while (k > i && height[k] < h2)
+                    {
+                        k--;
+                    }
+
+                    j = k;
                 }
             }
 
@@ -122,6 +167,19 @@ namespace L11
             {
                 // Arrange
                 int[] height = {1, 8, 4, 2, 8, 0, 0, 0, 0, 1};
+
+                // Act
+                var maxArea = new Solution().MaxArea(height);
+
+                // Assert
+                Assert.AreEqual(24, maxArea);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                int[] height = {1, 3, 2, 5, 25, 24, 5};
 
                 // Act
                 var maxArea = new Solution().MaxArea(height);

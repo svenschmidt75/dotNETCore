@@ -1,13 +1,30 @@
 #region
 
+using System.Collections.Generic;
 using NUnit.Framework;
 
 #endregion
 
+// Problem: 13. Roman to Integer
+// URL: https://leetcode.com/problems/roman-to-integer/
+
 namespace LeetCode13
 {
-    public class Solution
+    public class Solution2
     {
+        private readonly IDictionary<char, int> _map = new Dictionary<char, int>
+        {
+            {'I', 0}
+            , {'V', 1}
+            , {'X', 2}
+            , {'L', 3}
+            , {'C', 4}
+            , {'D', 5}
+            , {'M', 6}
+        };
+
+        private readonly int[] _values = {1, 5, 10, 50, 100, 500, 1000};
+
         public int RomanToInt(string s)
         {
             var result = 0;
@@ -15,73 +32,21 @@ namespace LeetCode13
             for (var i = 0; i < s.Length; i++)
             {
                 var c = s[i];
+                var idx = _map[c];
+                var v = _values[idx];
 
-                var v = 0;
-
-                if (c == 'I')
+                if (c == 'I' || c == 'X' || c == 'C')
                 {
-                    v = 1;
-
                     if (i <= s.Length - 2)
                     {
                         var c2 = s[i + 1];
-                        if (c2 == 'V' || c2 == 'X')
+                        var idx2 = _map[c2];
+                        if (idx2 == idx + 1 || idx2 == idx + 2)
                         {
-                            v = -1;
+                            v *= -1;
                         }
                     }
                 }
-                else if (c == 'X')
-                {
-                    v = 10;
-
-                    if (i <= s.Length - 2)
-                    {
-                        var c2 = s[i + 1];
-                        if (c2 == 'L' || c2 == 'C')
-                        {
-                            v = -10;
-                        }
-                    }
-                }
-                else if (c == 'C')
-                {
-                    v = 100;
-
-                    if (i <= s.Length - 2)
-                    {
-                        var c2 = s[i + 1];
-                        if (c2 == 'D' || c2 == 'M')
-                        {
-                            v = -100;
-                        }
-                    }
-                }
-                else if (c == 'V')
-                {
-                    v = 5;
-                }
-                else if (c == 'X')
-                {
-                    v = 10;
-                }
-                else if (c == 'L')
-                {
-                    v = 50;
-                }
-                else if (c == 'C')
-                {
-                    v = 100;
-                }
-                else if (c == 'D')
-                {
-                    v = 500;
-                }
-                else if (c == 'M')
-                {
-                    v = 1000;
-                }
-
 
                 result += v;
             }

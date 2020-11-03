@@ -10,6 +10,7 @@
       <e p="L13" t="IncludeRecursive">
         <e p="L13.csproj" t="IncludeRecursive" />
         <e p="Solution.cs" t="Include" />
+        <e p="Solution2.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

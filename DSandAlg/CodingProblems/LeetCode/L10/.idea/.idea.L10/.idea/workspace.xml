@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61ff74c7-dd24-430f-b520-48e40b198dbb" name="Default Changelist" comment="" />
+    <list default="true" id="61ff74c7-dd24-430f-b520-48e40b198dbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L10/Solution2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L10/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L10/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L10/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L10/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L10/Solution.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +21,7 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/L10/Class1.cs" />
+      <option value="$PROJECT_DIR$/L10/Solution2.cs" />
       <option value="$PROJECT_DIR$/L10/Solution.cs" />
     </changedPaths>
   </component>
@@ -52,7 +58,7 @@
       <updated>1604328974254</updated>
       <workItem from="1604328975353" duration="4257000" />
       <workItem from="1604333247020" duration="61000" />
-      <workItem from="1604357217425" duration="2619000" />
+      <workItem from="1604357217425" duration="5130000" />
     </task>
     <servers />
   </component>
@@ -75,5 +81,29 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L10/Solution.cs</url>
+          <line>22</line>
+          <properties documentPath="$PROJECT_DIR$/L10/Solution.cs" initialLine="22" containingFunctionPresentation="method 'IsMatch'">
+            <startOffsets>
+              <option value="415" />
+            </startOffsets>
+            <endOffsets>
+              <option value="433" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="Value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

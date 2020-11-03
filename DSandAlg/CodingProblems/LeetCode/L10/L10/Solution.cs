@@ -1,14 +1,10 @@
-﻿#region
+#region
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
 #endregion
-
-// 10. Regular Expression Matching
-// https://leetcode.com/problems/regular-expression-matching/
 
 namespace L10
 {
@@ -16,85 +12,48 @@ namespace L10
     {
         public bool IsMatch(string s, string p)
         {
-            if (s.Length == 0 && p.Length == 0)
+            var g = BuildGraph(p);
+
+            if (g.NVertices == 0)
             {
-                return true;
+                return s.Length == 0;
             }
 
-            var queue = new Queue<State>();
+            var q = new Queue<(int vertex, int sPosition)>();
+            q.Enqueue((0, 0));
 
-            var startState = new State
+            while (q.Any())
             {
-                TransitionState = StateEnums.UNDEF
-                , Char = (char) 0
-                , POffset = 0
-                , SOffset = 0
-            };
-            queue.Enqueue(startState);
+                var (vertex, sPosition) = q.Dequeue();
 
-            while (queue.Any())
-            {
-                var state = queue.Dequeue();
-                if (state.TransitionState == StateEnums.UNDEF)
-                {
-                    var newState = CreateStateTransition(state, s, p);
-                    queue.Enqueue(newState);
-                    continue;
-                }
+                var transitions = g.AdjacencyList[vertex];
 
-                // pattern exhausted?
-                if (state.POffset == p.Length)
+                if (transitions.Any() == false)
                 {
-                    if (state.SOffset == s.Length)
+                    // end state
+                    if (sPosition == s.Length)
                     {
                         return true;
                     }
+
                     continue;
                 }
-                
-                if ((state.TransitionState & StateEnums.SUCCESS) > 0)
-                {
-                    return true;
-                }
 
-                if ((state.TransitionState & StateEnums.FAIL) > 0)
+                for (var i = 0; i < transitions.Count; i++)
                 {
-                    continue;
-                }
-                
-                // match a character in the input array s
-                if ((state.TransitionState & StateEnums.KLEENE) > 0)
-                {
-                    // Kleene operator, so we need two states, one that loops and consumes a character
-                    // of the input array s and another that skips the Kleene operator
-                    var newState = new State
+                    var transition = transitions[i];
+                    if (transition.skip == 0)
                     {
-                        TransitionState = StateEnums.UNDEF
-                        , Char = (char) 0
-                        , SOffset = state.SOffset
-                        , POffset = state.POffset + 2
-                    };
-                    queue.Enqueue(newState);
-                }
-
-                if (state.SOffset < s.Length)
-                {
-                    var c = s[state.SOffset];
-                    if ((state.TransitionState & StateEnums.ANY) > 0 || state.Char == c)
+                        // simply move to the next state
+                        q.Enqueue((transition.targetVertex, sPosition));
+                    }
+                    else if (sPosition < s.Length)
                     {
-                        var newState = new State
+                        var c = s[sPosition];
+                        if (c == transition.c || transition.c == '.')
                         {
-                            TransitionState = StateEnums.UNDEF
-                            , POffset = state.POffset
-                            , SOffset = state.SOffset + 1
-                        };
-
-                        if ((state.TransitionState & StateEnums.KLEENE) == 0)
-                        {
-                            newState.POffset++;
+                            q.Enqueue((transition.targetVertex, sPosition + transition.skip));
                         }
-
-                        queue.Enqueue(newState);
                     }
                 }
             }
@@ -102,80 +61,56 @@ namespace L10
             return false;
         }
 
-        private State CreateStateTransition(State state, string s, string p)
+        private Graph BuildGraph(string p)
         {
-            if (state.POffset == p.Length)
+            var g = new Graph();
+
+            var currentVertex = 0;
+            var i = 0;
+            while (i < p.Length)
             {
-                var newState = new State
+                g.AddVertex(currentVertex);
+
+                var c = p[i];
+                var offset = 1;
+
+                if (i <= p.Length - 2 && p[i + 1] == '*')
                 {
-                    TransitionState = state.SOffset == s.Length ? StateEnums.SUCCESS : StateEnums.FAIL
-                };
-                return newState;
-            }
-
-            if (state.TransitionState == StateEnums.UNDEF)
-            {
-                // transition to start state
-                var (stateEnum, c, po) = NextChar(p, state.POffset);
-
-                var newState = new State
-                {
-                    TransitionState = stateEnum
-                    , Char = c
-                    , SOffset = state.SOffset
-                    , POffset = state.POffset
-                };
-                return newState;
-            }
-
-            throw new InvalidOperationException();
-        }
-
-        private (StateEnums, char, int) NextChar(string p, int pOffset)
-        {
-            if (pOffset == p.Length)
-            {
-                throw new ArgumentException();
-            }
-
-            StateEnums e = 0;
-
-            var c = p[pOffset];
-            var po = 1;
-
-            if (c == '.')
-            {
-                e |= StateEnums.ANY;
-            }
-
-            if (pOffset <= p.Length - 2)
-            {
-                if (p[pOffset + 1] == '*')
-                {
-                    e |= StateEnums.KLEENE;
-                    po++;
+                    g.AddDirectedEdge(currentVertex, currentVertex, c, 1);
+                    g.AddDirectedEdge(currentVertex, currentVertex + 1, (char) 0, 0);
+                    offset++;
                 }
+                else
+                {
+                    g.AddDirectedEdge(currentVertex, currentVertex + 1, c, 1);
+                }
+
+                i += offset;
+                currentVertex++;
             }
 
-            return (e, c, po);
+            // add end state
+            g.AddVertex(currentVertex);
+
+            return g;
         }
 
-        private struct State
+        public class Graph
         {
-            public StateEnums TransitionState;
-            public char Char;
-            public int POffset;
-            public int SOffset;
-        }
+            public int NVertices { get; set; }
 
-        [Flags]
-        private enum StateEnums
-        {
-            UNDEF = 1
-            , ANY = 2
-            , KLEENE = 4
-            , SUCCESS = 8
-            , FAIL = 16
+            public Dictionary<int, List<(int targetVertex, char c, int skip)>> AdjacencyList { get; } = new Dictionary<int, List<(int targetVertex, char c, int skip)>>();
+
+            public void AddVertex(int node)
+            {
+                AdjacencyList[node] = new List<(int, char, int)>();
+                NVertices++;
+            }
+
+            public void AddDirectedEdge(int fromNode, int toNode, char c, int skip)
+            {
+                AdjacencyList[fromNode].Add((toNode, c, skip));
+            }
         }
 
         [TestFixture]
@@ -278,7 +213,7 @@ namespace L10
                 // Assert
                 Assert.True(isMatch);
             }
- 
+
             [Test]
             public void Test8()
             {
@@ -292,7 +227,6 @@ namespace L10
                 // Assert
                 Assert.False(isMatch);
             }
-
         }
     }
 }

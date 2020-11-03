@@ -20,6 +20,8 @@ namespace L10
                 return sIdx == s.Length;
             }
 
+            bool isMatch;
+            
             // Kleene operator?
             if (pIdx <= p.Length - 2 && p[pIdx + 1] == '*')
             {
@@ -30,25 +32,25 @@ namespace L10
                     return true;
                 }
 
-                // match 1 character
                 if (sIdx == s.Length)
                 {
                     return false;
                 }
 
-                var isMatch = s[sIdx] == p[pIdx] || p[pIdx] == '.';
+                // match 1 character
+                isMatch = s[sIdx] == p[pIdx] || p[pIdx] == '.';
                 var s2 = isMatch && IsMatch(s, p, sIdx + 1, pIdx);
                 return s2;
             }
 
-            // single-character pattern
             if (sIdx == s.Length)
             {
                 return false;
             }
 
-            var isMatch2 = s[sIdx] == p[pIdx] || p[pIdx] == '.';
-            return isMatch2 && IsMatch(s, p, sIdx + 1, pIdx + 1);
+            // single-character pattern
+            isMatch = s[sIdx] == p[pIdx] || p[pIdx] == '.';
+            return isMatch && IsMatch(s, p, sIdx + 1, pIdx + 1);
         }
 
 

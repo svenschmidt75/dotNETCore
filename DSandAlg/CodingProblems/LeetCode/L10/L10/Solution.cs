@@ -1,7 +1,5 @@
 #region
 
-using System.Collections.Generic;
-using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -12,106 +10,47 @@ namespace L10
     {
         public bool IsMatch(string s, string p)
         {
-            var g = BuildGraph(p);
-
-            if (g.NVertices == 0)
-            {
-                return s.Length == 0;
-            }
-
-            var q = new Queue<(int vertex, int sPosition)>();
-            q.Enqueue((0, 0));
-
-            while (q.Any())
-            {
-                var (vertex, sPosition) = q.Dequeue();
-
-                var transitions = g.AdjacencyList[vertex];
-
-                if (transitions.Any() == false)
-                {
-                    // end state
-                    if (sPosition == s.Length)
-                    {
-                        return true;
-                    }
-
-                    continue;
-                }
-
-                for (var i = 0; i < transitions.Count; i++)
-                {
-                    var transition = transitions[i];
-                    if (transition.skip == 0)
-                    {
-                        // simply move to the next state
-                        q.Enqueue((transition.targetVertex, sPosition));
-                    }
-                    else if (sPosition < s.Length)
-                    {
-                        var c = s[sPosition];
-                        if (c == transition.c || transition.c == '.')
-                        {
-                            q.Enqueue((transition.targetVertex, sPosition + transition.skip));
-                        }
-                    }
-                }
-            }
-
-            return false;
+            return IsMatch(s, p, 0, 0);
         }
 
-        private Graph BuildGraph(string p)
+        private bool IsMatch(string s, string p, int sIdx, int pIdx)
         {
-            var g = new Graph();
-
-            var currentVertex = 0;
-            var i = 0;
-            while (i < p.Length)
+            if (pIdx == p.Length)
             {
-                g.AddVertex(currentVertex);
+                return sIdx == s.Length;
+            }
 
-                var c = p[i];
-                var offset = 1;
-
-                if (i <= p.Length - 2 && p[i + 1] == '*')
+            // Kleene operator?
+            if (pIdx <= p.Length - 2 && p[pIdx + 1] == '*')
+            {
+                // match 0 characters
+                var s1 = IsMatch(s, p, sIdx, pIdx + 2);
+                if (s1)
                 {
-                    g.AddDirectedEdge(currentVertex, currentVertex, c, 1);
-                    g.AddDirectedEdge(currentVertex, currentVertex + 1, (char) 0, 0);
-                    offset++;
-                }
-                else
-                {
-                    g.AddDirectedEdge(currentVertex, currentVertex + 1, c, 1);
+                    return true;
                 }
 
-                i += offset;
-                currentVertex++;
+                // match 1 character
+                if (sIdx == s.Length)
+                {
+                    return false;
+                }
+
+                var isMatch = s[sIdx] == p[pIdx] || p[pIdx] == '.';
+                var s2 = isMatch && IsMatch(s, p, sIdx + 1, pIdx);
+                return s2;
             }
 
-            // add end state
-            g.AddVertex(currentVertex);
+            // single-character pattern
+            if (sIdx == s.Length)
+            {
+                return false;
+            }
 
-            return g;
+            var isMatch2 = s[sIdx] == p[pIdx] || p[pIdx] == '.';
+            return isMatch2 && IsMatch(s, p, sIdx + 1, pIdx + 1);
         }
 
-        public class Graph
-        {
-            public int NVertices { get; set; }
-
-            public Dictionary<int, List<(int targetVertex, char c, int skip)>> AdjacencyList { get; } = new Dictionary<int, List<(int targetVertex, char c, int skip)>>();
-
-            public void AddVertex(int node)
-            {
-                AdjacencyList[node] = new List<(int, char, int)>();
-                NVertices++;
-            }
-
-            public void AddDirectedEdge(int fromNode, int toNode, char c, int skip)
-            {
-                AdjacencyList[fromNode].Add((toNode, c, skip));
-            }
-        }
 
         [TestFixture]
         public class Tests
@@ -220,6 +159,20 @@ namespace L10
                 // Arrange
                 var s = "a";
                 var p = "";
+
+                // Act
+                var isMatch = new Solution().IsMatch(s, p);
+
+                // Assert
+                Assert.False(isMatch);
+            }
+
+            [Test]
+            public void Test9()
+            {
+                // Arrange
+                var s = "ab";
+                var p = ".*c";
 
                 // Act
                 var isMatch = new Solution().IsMatch(s, p);

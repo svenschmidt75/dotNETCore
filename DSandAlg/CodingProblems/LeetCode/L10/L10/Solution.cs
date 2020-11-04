@@ -16,8 +16,7 @@ namespace L10
         private bool IsMatch(string s, string p, int sIdx, int pIdx)
         {
             // SS: divide and conquer
-            // runtime complexity: O(N * 2^k), where N is the length of the
-            // string s and k is the number of Kleene operators in p.
+            // runtime complexity: O(s + p), because we always advance either s or p.
             if (pIdx == p.Length)
             {
                 return sIdx == s.Length;

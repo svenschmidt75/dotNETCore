@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3992e96f-a191-4d19-ad2a-4bc521c45150" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L13/Solution2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L13/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L13/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L13/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L13/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L13/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L13/Solution.cs" afterDir="false" />
-    </list>
+    <list default="true" id="3992e96f-a191-4d19-ad2a-4bc521c45150" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +38,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604413662398</updated>
-      <workItem from="1604413666910" duration="718000" />
+      <workItem from="1604413666910" duration="741000" />
     </task>
     <servers />
   </component>

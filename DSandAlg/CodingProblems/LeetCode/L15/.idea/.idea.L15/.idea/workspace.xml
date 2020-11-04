@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61ff74c7-dd24-430f-b520-48e40b198dbb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L10/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L10/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L10/Solution.cs" afterDir="false" />
+    <list default="true" id="3b33ec6d-f32a-4af9-9f41-eb4d7d207726" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L10/.idea/.idea.L10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L10/.idea/.idea.L10/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L10/L10/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L10/L10/Solution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../L13/.idea/.idea.L13/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L13/.idea/.idea.L13/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,17 +14,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L10/Class1.cs" />
-      <option value="$PROJECT_DIR$/L10/Solution2.cs" />
-      <option value="$PROJECT_DIR$/L10/Solution.cs" />
+      <option value="$PROJECT_DIR$/L15/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1jjsjkuQys2lgafthICfFvsHQn8" />
+  <component name="ProjectId" id="1jnicoXtcyc7j2ezFIxKDN4iQwd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -44,23 +39,18 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="RiderCSharpFileTemplatesSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="61ff74c7-dd24-430f-b520-48e40b198dbb" name="Default Changelist" comment="" />
-      <created>1604328974254</created>
+      <changelist id="3b33ec6d-f32a-4af9-9f41-eb4d7d207726" name="Default Changelist" comment="" />
+      <created>1604446340220</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604328974254</updated>
-      <workItem from="1604328975353" duration="4257000" />
-      <workItem from="1604333247020" duration="61000" />
-      <workItem from="1604357217425" duration="5180000" />
-      <workItem from="1604362415262" duration="1933000" />
-      <workItem from="1604370307157" duration="1509000" />
-      <workItem from="1604500569798" duration="48000" />
+      <updated>1604446340220</updated>
+      <workItem from="1604446344162" duration="3875000" />
+      <workItem from="1604500620965" duration="2828000" />
     </task>
     <servers />
   </component>
@@ -83,12 +73,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="Value" />
-      </pinned-members>
-    </pin-to-top-manager>
   </component>
 </project>

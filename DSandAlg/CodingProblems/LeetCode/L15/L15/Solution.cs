@@ -15,8 +15,51 @@ namespace LeetCode15
     {
         public IList<IList<int>> ThreeSum(int[] nums)
         {
+            // SS: O(N^2) solution, sliding window approach
+
+            // SS: sort nums, O(N log N)
+            var sortedNums = nums.OrderBy(x => x).ToArray();
+
+            var values = new HashSet<(int i1, int i2, int i3)>();
+
+            for (var i = 0; i < sortedNums.Length; i++)
+            {
+                var a = sortedNums[i];
+
+                var j = i + 1;
+                var k = sortedNums.Length - 1;
+
+                while (j < k)
+                {
+                    var b = sortedNums[j];
+                    var c = sortedNums[k];
+
+                    var sum = b + c + a;
+                    if (sum < 0)
+                    {
+                        j++;
+                    }
+                    else if (sum > 0)
+                    {
+                        k--;
+                    }
+                    else
+                    {
+                        values.Add((a, b, c));
+                        j++;
+                        k--;
+                    }
+                }
+            }
+
+            var result = values.Select(t => (IList<int>) new List<int> {t.i1, t.i2, t.i3}).ToList();
+            return result;
+        }
+
+        public IList<IList<int>> ThreeSum3(int[] nums)
+        {
             // SS: O(N^2) solution
-            
+
             // SS: sort nums, O(N log N)
             var sortedNums = nums.OrderBy(x => x).ToArray();
 
@@ -51,7 +94,7 @@ namespace LeetCode15
         public IList<IList<int>> ThreeSum2(int[] nums)
         {
             // SS: O(N^2) solution
-            
+
             // SS: sort nums, O(N log N)
             var sortedNums = nums.OrderBy(x => x).ToArray();
 

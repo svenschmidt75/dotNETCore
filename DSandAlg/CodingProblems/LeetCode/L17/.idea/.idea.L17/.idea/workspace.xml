@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0156939a-22c9-4fda-890a-08d09c512e55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L17/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L16/.idea/.idea.L16/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L16/.idea/.idea.L16/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L17/Solution2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L17/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L17/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L17/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L17/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L17/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L17/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,9 +15,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/00E4CC82-435B-478C-B083-227A479F9D7B/3A1/KeyValuePair.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/L17/Solution.cs" />
+      <option value="$PROJECT_DIR$/L17/Solution2.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1jsHkW6OTk5ufQfVa0Z6eDUyTJs" />
@@ -48,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604586022254</updated>
-      <workItem from="1604586025226" duration="2420000" />
+      <workItem from="1604586025226" duration="3662000" />
     </task>
     <servers />
   </component>
@@ -70,5 +78,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L17/Solution2.cs</url>
+          <line>110</line>
+          <properties documentPath="$PROJECT_DIR$/L17/Solution2.cs" initialLine="102" containingFunctionPresentation="method 'Test2'">
+            <startOffsets>
+              <option value="2770" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2826" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L17/Solution2.cs</url>
+          <line>113</line>
+          <properties documentPath="$PROJECT_DIR$/L17/Solution2.cs" initialLine="105" containingFunctionPresentation="method 'Test2'">
+            <startOffsets>
+              <option value="2870" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2893" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

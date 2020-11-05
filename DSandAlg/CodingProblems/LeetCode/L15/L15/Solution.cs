@@ -20,10 +20,15 @@ namespace LeetCode15
             // SS: sort nums, O(N log N)
             var sortedNums = nums.OrderBy(x => x).ToArray();
 
-            var values = new HashSet<(int i1, int i2, int i3)>();
+            var result = new List<IList<int>>();
 
             for (var i = 0; i < sortedNums.Length; i++)
             {
+                if (i > 0 && sortedNums[i] == sortedNums[i - 1])
+                {
+                    continue;
+                }
+
                 var a = sortedNums[i];
 
                 var j = i + 1;
@@ -38,21 +43,46 @@ namespace LeetCode15
                     if (sum < 0)
                     {
                         j++;
+
+                        // skip duplicates
+                        while (j < k && sortedNums[j] == sortedNums[j - 1])
+                        {
+                            j++;
+                        }
                     }
                     else if (sum > 0)
                     {
                         k--;
+
+                        // skip duplicates
+                        while (j < k && sortedNums[k] == sortedNums[k + 1])
+                        {
+                            k--;
+                        }
                     }
                     else
                     {
-                        values.Add((a, b, c));
+                        result.Add(new List<int> {a, b, c});
+
                         j++;
+
+                        // skip duplicates
+                        while (j < k && sortedNums[j] == sortedNums[j - 1])
+                        {
+                            j++;
+                        }
+
                         k--;
+
+                        // skip duplicates
+                        while (j < k && sortedNums[k] == sortedNums[k + 1])
+                        {
+                            k--;
+                        }
                     }
                 }
             }
 
-            var result = values.Select(t => (IList<int>) new List<int> {t.i1, t.i2, t.i3}).ToList();
             return result;
         }
 

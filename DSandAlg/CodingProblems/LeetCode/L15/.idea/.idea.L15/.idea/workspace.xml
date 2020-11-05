@@ -13,6 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/L15/Solution.cs" />
@@ -50,7 +53,7 @@
       <updated>1604446340220</updated>
       <workItem from="1604446344162" duration="3875000" />
       <workItem from="1604500620965" duration="5293000" />
-      <workItem from="1604542112352" duration="1077000" />
+      <workItem from="1604542112352" duration="2638000" />
     </task>
     <servers />
   </component>
@@ -79,42 +82,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/L15/Solution.cs</url>
-          <line>22</line>
-          <properties documentPath="$PROJECT_DIR$/L15/Solution.cs" initialLine="22" containingFunctionPresentation="method 'ThreeSum'">
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/L15/Solution.cs" initialLine="26" containingFunctionPresentation="method 'ThreeSum'">
             <startOffsets>
-              <option value="459" />
+              <option value="583" />
             </startOffsets>
             <endOffsets>
-              <option value="512" />
+              <option value="631" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L15/Solution.cs</url>
-          <line>47</line>
-          <properties documentPath="$PROJECT_DIR$/L15/Solution.cs" initialLine="47" containingFunctionPresentation="method 'ThreeSum'">
-            <startOffsets>
-              <option value="1167" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1189" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L15/Solution.cs</url>
-          <line>54</line>
-          <properties documentPath="$PROJECT_DIR$/L15/Solution.cs" initialLine="54" containingFunctionPresentation="method 'ThreeSum'">
-            <startOffsets>
-              <option value="1315" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1403" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

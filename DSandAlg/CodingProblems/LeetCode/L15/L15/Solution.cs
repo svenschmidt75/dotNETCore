@@ -15,6 +15,43 @@ namespace LeetCode15
     {
         public IList<IList<int>> ThreeSum(int[] nums)
         {
+            // SS: O(N^2) solution
+            
+            // SS: sort nums, O(N log N)
+            var sortedNums = nums.OrderBy(x => x).ToArray();
+
+            var values = new HashSet<(int i1, int i2, int i3)>();
+
+            var hashMap = new Dictionary<int, (int v1, int v2)>();
+            for (var i = 0; i < sortedNums.Length; i++)
+            {
+                var v1 = sortedNums[i];
+
+                for (var j = i + 1; j < sortedNums.Length; j++)
+                {
+                    var v2 = sortedNums[j];
+
+                    if (hashMap.TryGetValue(v2, out (int i1, int i2) items))
+                    {
+                        values.Add((items.i1, items.i2, v2));
+                        hashMap.Remove(v2);
+                    }
+
+                    var s = v1 + v2;
+                    hashMap[-s] = (v1, v2);
+                }
+
+                hashMap.Clear();
+            }
+
+            var result = values.Select(t => (IList<int>) new List<int> {t.i1, t.i2, t.i3}).ToList();
+            return result;
+        }
+
+        public IList<IList<int>> ThreeSum2(int[] nums)
+        {
+            // SS: O(N^2) solution
+            
             // SS: sort nums, O(N log N)
             var sortedNums = nums.OrderBy(x => x).ToArray();
 

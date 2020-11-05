@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fb147be-fb00-475e-84ec-85b4e504a42b" name="Default Changelist" comment="" />
+    <list default="true" id="0156939a-22c9-4fda-890a-08d09c512e55" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L17/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L16/.idea/.idea.L16/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L16/.idea/.idea.L16/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +15,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L16/Solution.cs" />
+      <option value="$PROJECT_DIR$/L17/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1jsDHVBuYMR4VXATsTzXeq8lnf2" />
+  <component name="ProjectId" id="1jsHkW6OTk5ufQfVa0Z6eDUyTJs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -40,12 +43,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8fb147be-fb00-475e-84ec-85b4e504a42b" name="Default Changelist" comment="" />
-      <created>1604583818855</created>
+      <changelist id="0156939a-22c9-4fda-890a-08d09c512e55" name="Default Changelist" comment="" />
+      <created>1604586022254</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604583818855</updated>
-      <workItem from="1604583819715" duration="2202000" />
+      <updated>1604586022254</updated>
+      <workItem from="1604586025226" duration="2420000" />
     </task>
     <servers />
   </component>
@@ -67,24 +70,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L16/Solution.cs</url>
-          <line>83</line>
-          <properties documentPath="$PROJECT_DIR$/L16/Solution.cs" initialLine="83" containingFunctionPresentation="method 'ThreeSumClosest'">
-            <startOffsets>
-              <option value="2293" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2297" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

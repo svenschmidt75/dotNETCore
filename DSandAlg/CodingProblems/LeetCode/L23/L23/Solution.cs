@@ -15,6 +15,34 @@ namespace LeetCode23
     {
         public ListNode MergeKLists(ListNode[] lists)
         {
+            // SS: runtime complexity: O(n * log k), n=list length
+            // best runtime solution
+
+            if (lists.Length == 0)
+            {
+                return null;
+            }
+
+            var k = lists.Length;
+            var stride = 1;
+
+            while (stride < k)
+            {
+                for (var i = 0; i < k - stride; i += stride * 2)
+                {
+                    lists[i] = MergeTwoLists(lists[i], lists[i + stride]);
+                }
+
+                stride *= 2;
+            }
+
+            return lists[0];
+        }
+
+        public ListNode MergeKLists5(ListNode[] lists)
+        {
+            // SS: runtime complexity: O(n * k^2)
+
             if (lists.Length == 0)
             {
                 return null;

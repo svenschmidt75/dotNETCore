@@ -15,6 +15,79 @@ namespace LeetCode23
     {
         public ListNode MergeKLists(ListNode[] lists)
         {
+            // SS: runtime complexity: O(#maxLength * k)
+            // sorting is not necessary, as we are only interested in the smallest
+            // element, which we can find in O(n) time
+            
+            if (lists.Length == 0)
+            {
+                return null;
+            }
+
+            var k = lists.Length;
+
+            (int val, ListNode node)[] currentNodes = new (int, ListNode)[k];
+            for (var i = 0; i < k; i++)
+            {
+                var node = lists[i];
+
+                // we need to deal with empty lists
+                currentNodes[i] = node != null ? (node.val, node) : (int.MaxValue, null);
+            }
+
+            // find index of min value
+            int minIdx = FindMinimum(currentNodes);
+            if (minIdx == -1)
+            {
+                return null;
+            }
+
+            var root = currentNodes[minIdx].node;
+
+            // advance to next number in linked list
+            var nextNode = root.next;
+            currentNodes[minIdx] = nextNode == null ? (int.MaxValue, null) : (nextNode.val, nextNode);
+
+            var current = root;
+
+            while (true)
+            {
+                minIdx = FindMinimum(currentNodes);
+                if (minIdx == -1)
+                {
+                    return root;
+                }
+
+                var node = currentNodes[minIdx].node;
+
+                current.next = node;
+                current = current.next;
+
+                // advance to next number in linked list
+                nextNode = node.next;
+                currentNodes[minIdx] = nextNode == null ? (int.MaxValue, null) : (nextNode.val, nextNode);
+            }
+        }
+
+        private int FindMinimum((int val, ListNode node)[] currentNodes)
+        {
+            int minIdx = -1;
+            int minVal = int.MaxValue;
+
+            for (int i = 0; i < currentNodes.Length; i++)
+            {
+                if (currentNodes[i].val < minVal)
+                {
+                    minIdx = i;
+                    minVal = currentNodes[i].val;
+                }
+            }
+
+            return minIdx;
+        } 
+        
+        public ListNode MergeKLists2(ListNode[] lists)
+        {
             // SS: runtime complexity is O(#maxLength * k * log k)
             if (lists.Length == 0)
             {

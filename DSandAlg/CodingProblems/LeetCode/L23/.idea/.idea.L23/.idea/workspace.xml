@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77fdf55-e255-471b-ab2d-bb6bbf1b0f81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L23/BinaryHeap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L23/Solution2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L23/Solution3.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L23/Solution4.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L23/Solution5.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L23/Solution6.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L23/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L23/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.L23/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L23/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/L23/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L23/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L25/.idea/.idea.L25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L25/.idea/.idea.L25/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +21,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../L973/L973/BinaryHeap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../AlgoExpert_AirportConnections/AlgoExpert_AirportConnections/BinaryHeap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../L230/L230/BinaryHeap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../John/GoogleProblem14/JohnProblem14/BinaryHeap.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/L23/Solution2.cs" />
+      <option value="$PROJECT_DIR$/L23/Solution3.cs" />
+      <option value="$PROJECT_DIR$/L23/Solution4.cs" />
+      <option value="$PROJECT_DIR$/L23/Solution5.cs" />
+      <option value="$PROJECT_DIR$/L23/Solution6.cs" />
+      <option value="$PROJECT_DIR$/L23/BinaryHeap.cs" />
       <option value="$PROJECT_DIR$/L23/Solution.cs" />
     </changedPaths>
   </component>
@@ -49,13 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1604760750833</updated>
       <workItem from="1604760755256" duration="4179000" />
+      <workItem from="1604791447013" duration="1345000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -67,6 +88,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

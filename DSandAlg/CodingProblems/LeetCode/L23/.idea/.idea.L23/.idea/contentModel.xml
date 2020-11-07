@@ -8,8 +8,14 @@
     </e>
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="L23" t="IncludeRecursive">
+        <e p="BinaryHeap.cs" t="Include" />
         <e p="L23.csproj" t="IncludeRecursive" />
         <e p="Solution.cs" t="Include" />
+        <e p="Solution2.cs" t="Include" />
+        <e p="Solution3.cs" t="Include" />
+        <e p="Solution4.cs" t="Include" />
+        <e p="Solution5.cs" t="Include" />
+        <e p="Solution6.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

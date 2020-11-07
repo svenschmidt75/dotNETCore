@@ -1,60 +1,67 @@
-// Problem: 23. Merge k Sorted Lists
-// URL: https://leetcode.com/problems/merge-k-sorted-lists/
-
 #region
 
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
 
 namespace LeetCode23
 {
-    public class Solution
+    public class Solution2
     {
         public ListNode MergeKLists(ListNode[] lists)
         {
-            // SS: runtime complexity: O(k * log k + n log k) ~ O(n log k), n=list length
-            var minHeap = BinaryHeap<(int val, ListNode node)>.CreateHeap((t1, t2) => t1.val > t2.val);
-
-            // O(k log k)
-            for (var i = 0; i < lists.Length; i++)
+            // SS: runtime complexity is O(#maxLength * k * log k)
+            if (lists.Length == 0)
             {
-                var r = lists[i];
-                if (r == null)
-                {
-                    continue;
-                }
-
-                minHeap.Push((r.val, r));
+                return null;
             }
 
-            ListNode root = null;
-            ListNode current = null;
+            var k = lists.Length;
 
-            // O(n log k)
-            while (minHeap.IsEmpty == false)
+            (int val, ListNode node)[] currentNodes = new (int, ListNode)[k];
+            for (var i = 0; i < k; i++)
             {
-                (_, var node) = minHeap.Pop();
+                var node = lists[i];
 
-                if (root == null)
-                {
-                    root = node;
-                    current = node;
-                }
-                else
-                {
-                    current.next = node;
-                    current = node;
-                }
-
-                if (node.next != null)
-                {
-                    minHeap.Push((node.next.val, node.next));
-                }
+                // we need to deal with empty lists
+                currentNodes[i] = node != null ? (node.val, node) : (int.MaxValue, null);
             }
 
-            return root;
+            // sort at O(K log k)
+            currentNodes = currentNodes.OrderBy(n => n.val).ToArray();
+
+            var root = currentNodes[0].node;
+            if (root == null)
+            {
+                return null;
+            }
+
+            // advance to next number in linked list
+            var nextNode = currentNodes[0].node.next;
+            currentNodes[0] = nextNode == null ? (int.MaxValue, null) : (nextNode.val, nextNode);
+
+            var current = root;
+
+            while (true)
+            {
+                // sort at O(K log k)
+                currentNodes = currentNodes.OrderBy(n => n.val).ToArray();
+
+                var node = currentNodes[0].node;
+                if (node == null)
+                {
+                    return root;
+                }
+
+                current.next = node;
+                current = current.next;
+
+                // advance to next number in linked list
+                nextNode = currentNodes[0].node.next;
+                currentNodes[0] = nextNode == null ? (int.MaxValue, null) : (nextNode.val, nextNode);
+            }
         }
 
         public class ListNode
@@ -84,7 +91,7 @@ namespace LeetCode23
                 };
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution2().MergeKLists(lists);
 
                 // Assert
                 var vals = new List<int>();
@@ -105,7 +112,7 @@ namespace LeetCode23
                 var lists = new ListNode[0];
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution2().MergeKLists(lists);
 
                 // Assert
                 Assert.Null(root);
@@ -118,7 +125,7 @@ namespace LeetCode23
                 ListNode[] lists = {null};
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution2().MergeKLists(lists);
 
                 // Assert
                 Assert.Null(root);

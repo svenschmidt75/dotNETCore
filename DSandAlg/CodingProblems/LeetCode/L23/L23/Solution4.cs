@@ -1,6 +1,3 @@
-// Problem: 23. Merge k Sorted Lists
-// URL: https://leetcode.com/problems/merge-k-sorted-lists/
-
 #region
 
 using System.Collections.Generic;
@@ -10,51 +7,83 @@ using NUnit.Framework;
 
 namespace LeetCode23
 {
-    public class Solution
+    public class Solution4
     {
         public ListNode MergeKLists(ListNode[] lists)
         {
-            // SS: runtime complexity: O(k * log k + n log k) ~ O(n log k), n=list length
-            var minHeap = BinaryHeap<(int val, ListNode node)>.CreateHeap((t1, t2) => t1.val > t2.val);
+            // SS: runtime complexity: O(#maxLength * k)
 
-            // O(k log k)
+            if (lists.Length == 0)
+            {
+                return null;
+            }
+
+            var k = lists.Length;
+
+            ListNode root = null;
+
+            var minValue = int.MaxValue;
+            var minIdx = -1;
+
             for (var i = 0; i < lists.Length; i++)
             {
-                var r = lists[i];
-                if (r == null)
+                var n = lists[i];
+                if (n == null)
                 {
                     continue;
                 }
 
-                minHeap.Push((r.val, r));
+                if (n.val < minValue)
+                {
+                    minValue = n.val;
+                    root = n;
+                    minIdx = i;
+                }
             }
 
-            ListNode root = null;
-            ListNode current = null;
-
-            // O(n log k)
-            while (minHeap.IsEmpty == false)
+            if (root == null)
             {
-                (_, var node) = minHeap.Pop();
-
-                if (root == null)
-                {
-                    root = node;
-                    current = node;
-                }
-                else
-                {
-                    current.next = node;
-                    current = node;
-                }
-
-                if (node.next != null)
-                {
-                    minHeap.Push((node.next.val, node.next));
-                }
+                return null;
             }
 
-            return root;
+            // advance the minimum index
+            lists[minIdx] = lists[minIdx].next;
+
+            var current = root;
+
+            while (true)
+            {
+                minIdx = -1;
+                minValue = int.MaxValue;
+                ListNode node = null;
+
+                for (var i = 0; i < lists.Length; i++)
+                {
+                    var n = lists[i];
+                    if (n == null)
+                    {
+                        continue;
+                    }
+
+                    if (n.val < minValue)
+                    {
+                        minValue = n.val;
+                        node = n;
+                        minIdx = i;
+                    }
+                }
+
+                if (node == null)
+                {
+                    return root;
+                }
+
+                current.next = node;
+                current = current.next;
+
+                // advance the minimum index
+                lists[minIdx] = node.next;
+            }
         }
 
         public class ListNode
@@ -68,6 +97,7 @@ namespace LeetCode23
                 this.next = next;
             }
         }
+
 
         [TestFixture]
         public class Tests
@@ -84,7 +114,7 @@ namespace LeetCode23
                 };
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution4().MergeKLists(lists);
 
                 // Assert
                 var vals = new List<int>();
@@ -105,7 +135,7 @@ namespace LeetCode23
                 var lists = new ListNode[0];
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution4().MergeKLists(lists);
 
                 // Assert
                 Assert.Null(root);
@@ -118,7 +148,7 @@ namespace LeetCode23
                 ListNode[] lists = {null};
 
                 // Act
-                var root = new Solution().MergeKLists(lists);
+                var root = new Solution4().MergeKLists(lists);
 
                 // Assert
                 Assert.Null(root);

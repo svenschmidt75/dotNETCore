@@ -15,10 +15,171 @@ namespace LeetCode23
     {
         public ListNode MergeKLists(ListNode[] lists)
         {
+            if (lists.Length == 0)
+            {
+                return null;
+            }
+
+            var k = lists.Length;
+
+            var root = lists[0];
+
+            for (var i = 1; i < k; i++)
+            {
+                root = MergeTwoLists(root, lists[i]);
+            }
+
+            return root;
+        }
+
+        public ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            if (l1 == null)
+            {
+                return l2;
+            }
+
+            if (l2 == null)
+            {
+                return l1;
+            }
+
+            ListNode root = null;
+
+            var currentL1 = l1;
+            var currentL2 = l2;
+
+            // SS: We know that l1 != null and l2 != null
+            if (currentL1.val <= currentL2.val)
+            {
+                root = currentL1;
+                currentL1 = currentL1.next;
+            }
+            else
+            {
+                root = currentL2;
+                currentL2 = currentL2.next;
+            }
+
+            var current = root;
+
+            while (currentL1 != null && currentL2 != null)
+            {
+                if (currentL1.val <= currentL2.val)
+                {
+                    // SS: store next pointer, because we'll overwrite it
+                    current.next = currentL1;
+                    current = current.next;
+                    currentL1 = currentL1.next;
+                }
+                else
+                {
+                    current.next = currentL2;
+                    current = current.next;
+                    currentL2 = currentL2.next;
+                }
+            }
+
+            while (currentL1 != null)
+            {
+                current.next = currentL1;
+                current = current.next;
+                currentL1 = currentL1.next;
+            }
+
+            while (currentL2 != null)
+            {
+                current.next = currentL2;
+                current = current.next;
+                currentL2 = currentL2.next;
+            }
+
+            return root;
+        }
+
+        public ListNode MergeKLists4(ListNode[] lists)
+        {
+            // SS: runtime complexity: O(#maxLength * k)
+
+            if (lists.Length == 0)
+            {
+                return null;
+            }
+
+            var k = lists.Length;
+
+            ListNode root = null;
+
+            var minValue = int.MaxValue;
+            var minIdx = -1;
+
+            for (var i = 0; i < lists.Length; i++)
+            {
+                var n = lists[i];
+                if (n == null)
+                {
+                    continue;
+                }
+
+                if (n.val < minValue)
+                {
+                    minValue = n.val;
+                    root = n;
+                    minIdx = i;
+                }
+            }
+
+            if (root == null)
+            {
+                return null;
+            }
+
+            // advance the minimum index
+            lists[minIdx] = lists[minIdx].next;
+
+            var current = root;
+
+            while (true)
+            {
+                minIdx = -1;
+                minValue = int.MaxValue;
+                ListNode node = null;
+
+                for (var i = 0; i < lists.Length; i++)
+                {
+                    var n = lists[i];
+                    if (n == null)
+                    {
+                        continue;
+                    }
+
+                    if (n.val < minValue)
+                    {
+                        minValue = n.val;
+                        node = n;
+                        minIdx = i;
+                    }
+                }
+
+                if (node == null)
+                {
+                    return root;
+                }
+
+                current.next = node;
+                current = current.next;
+
+                // advance the minimum index
+                lists[minIdx] = node.next;
+            }
+        }
+
+        public ListNode MergeKLists3(ListNode[] lists)
+        {
             // SS: runtime complexity: O(#maxLength * k)
             // sorting is not necessary, as we are only interested in the smallest
             // element, which we can find in O(n) time
-            
+
             if (lists.Length == 0)
             {
                 return null;
@@ -36,7 +197,7 @@ namespace LeetCode23
             }
 
             // find index of min value
-            int minIdx = FindMinimum(currentNodes);
+            var minIdx = FindMinimum(currentNodes);
             if (minIdx == -1)
             {
                 return null;
@@ -71,10 +232,10 @@ namespace LeetCode23
 
         private int FindMinimum((int val, ListNode node)[] currentNodes)
         {
-            int minIdx = -1;
-            int minVal = int.MaxValue;
+            var minIdx = -1;
+            var minVal = int.MaxValue;
 
-            for (int i = 0; i < currentNodes.Length; i++)
+            for (var i = 0; i < currentNodes.Length; i++)
             {
                 if (currentNodes[i].val < minVal)
                 {
@@ -84,8 +245,8 @@ namespace LeetCode23
             }
 
             return minIdx;
-        } 
-        
+        }
+
         public ListNode MergeKLists2(ListNode[] lists)
         {
             // SS: runtime complexity is O(#maxLength * k * log k)

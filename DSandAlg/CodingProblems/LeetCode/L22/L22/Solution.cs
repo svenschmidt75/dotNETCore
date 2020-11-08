@@ -29,6 +29,10 @@ namespace LeetCode22
 
         private void GenerateParenthesisDQ(int nOpen, int nClose, char[] current, int pos, List<string> result)
         {
+            // SS: I don't think this is a DP problem, since there can be no overlapping
+            // subproblems (I think). This is because the parenthesis cannot be arranged
+            // arbitrarily...
+
             if (nOpen == 0 && nClose == 0)
             {
                 var r = new string(current);

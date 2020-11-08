@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a09237be-2960-47b1-a028-1124e476507e" name="Default Changelist" comment="" />
+    <list default="true" id="dba2c8f9-bd38-42cf-91fc-fad7a87876e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L26/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L22/.idea/.idea.L22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L22/.idea/.idea.L22/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +15,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L22/Solution.cs" />
+      <option value="$PROJECT_DIR$/L26/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1k0m3ekcvyU8xQVmIpVIL7sGAPV" />
+  <component name="ProjectId" id="1k0oC0sEjLdbOcn2B0HQqT3a4oM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -34,19 +37,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a09237be-2960-47b1-a028-1124e476507e" name="Default Changelist" comment="" />
-      <created>1604845685906</created>
+      <changelist id="dba2c8f9-bd38-42cf-91fc-fad7a87876e4" name="Default Changelist" comment="" />
+      <created>1604846738574</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604845685906</updated>
-      <workItem from="1604845690781" duration="1048000" />
+      <updated>1604846738574</updated>
+      <workItem from="1604846741893" duration="1501000" />
+      <workItem from="1604848259869" duration="798000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -58,40 +62,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L22/Solution.cs</url>
-          <line>73</line>
-          <properties documentPath="$PROJECT_DIR$/L22/Solution.cs" initialLine="64" containingFunctionPresentation="method 'Test1'">
-            <startOffsets>
-              <option value="2034" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2131" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L22/Solution.cs</url>
-          <line>86</line>
-          <properties documentPath="$PROJECT_DIR$/L22/Solution.cs" initialLine="77" containingFunctionPresentation="method 'Test2'">
-            <startOffsets>
-              <option value="2401" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2454" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

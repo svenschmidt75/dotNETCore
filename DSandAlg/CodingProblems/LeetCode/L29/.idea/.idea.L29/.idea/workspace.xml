@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba2c8f9-bd38-42cf-91fc-fad7a87876e4" name="Default Changelist" comment="" />
+    <list default="true" id="a03ecb6b-2720-4044-b68c-2bab95ff1039" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L29/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L22/.idea/.idea.L22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L22/.idea/.idea.L22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L22/L22/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L22/L22/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L26/.idea/.idea.L26/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L26/.idea/.idea.L26/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,12 +15,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L26/Solution.cs" />
+      <option value="$PROJECT_DIR$/L29/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1k0oC0sEjLdbOcn2B0HQqT3a4oM" />
+  <component name="ProjectId" id="1k3bWKhYYauJDwVRJAUHcCF8rxG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -29,18 +37,26 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dba2c8f9-bd38-42cf-91fc-fad7a87876e4" name="Default Changelist" comment="" />
-      <created>1604846738574</created>
+      <changelist id="a03ecb6b-2720-4044-b68c-2bab95ff1039" name="Default Changelist" comment="" />
+      <created>1604932255265</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604846738574</updated>
-      <workItem from="1604846741893" duration="1501000" />
-      <workItem from="1604848259869" duration="822000" />
+      <updated>1604932255265</updated>
+      <workItem from="1604932259264" duration="5236000" />
+      <workItem from="1604937551678" duration="980000" />
+      <workItem from="1604967961342" duration="2725000" />
+      <workItem from="1604970698286" duration="1198000" />
     </task>
     <servers />
   </component>

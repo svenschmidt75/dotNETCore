@@ -42,6 +42,9 @@ namespace LeetCode22
 
             if (nOpen > 0)
             {
+                // SS: not necessary to new up a new array here,
+                // sufficient to only do so when doing closing
+                // parenthesis...
                 var c = new char[current.Length];
                 Array.Copy(current, c, pos);
                 c[pos] = '(';

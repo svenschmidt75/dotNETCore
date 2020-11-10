@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a09237be-2960-47b1-a028-1124e476507e" name="Default Changelist" comment="" />
+    <list default="true" id="a09237be-2960-47b1-a028-1124e476507e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L22/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L22/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L26/.idea/.idea.L26/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L26/.idea/.idea.L26/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,13 +44,14 @@
       <option name="presentableId" value="Default" />
       <updated>1604845685906</updated>
       <workItem from="1604845690781" duration="1048000" />
+      <workItem from="1604891788068" duration="34000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -58,6 +63,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -67,26 +73,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/L22/Solution.cs</url>
-          <line>73</line>
+          <line>76</line>
           <properties documentPath="$PROJECT_DIR$/L22/Solution.cs" initialLine="64" containingFunctionPresentation="method 'Test1'">
             <startOffsets>
-              <option value="2034" />
+              <option value="2196" />
             </startOffsets>
             <endOffsets>
-              <option value="2131" />
+              <option value="2293" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/L22/Solution.cs</url>
-          <line>86</line>
+          <line>89</line>
           <properties documentPath="$PROJECT_DIR$/L22/Solution.cs" initialLine="77" containingFunctionPresentation="method 'Test2'">
             <startOffsets>
-              <option value="2401" />
+              <option value="2563" />
             </startOffsets>
             <endOffsets>
-              <option value="2454" />
+              <option value="2616" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a03ecb6b-2720-4044-b68c-2bab95ff1039" name="Default Changelist" comment="" />
+    <list default="true" id="e152efcd-d20c-495d-bdf8-28af9550d63d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L32/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L29/.idea/.idea.L29/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L29/.idea/.idea.L29/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,15 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L29/Solution.cs" />
+      <option value="$PROJECT_DIR$/L32/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1k3bWKhYYauJDwVRJAUHcCF8rxG" />
+  <component name="ProjectId" id="1k54sg5KaclCrJhbyizsZG4d6kO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -43,15 +43,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a03ecb6b-2720-4044-b68c-2bab95ff1039" name="Default Changelist" comment="" />
-      <created>1604932255265</created>
+      <changelist id="e152efcd-d20c-495d-bdf8-28af9550d63d" name="Default Changelist" comment="" />
+      <created>1604977326513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604932255265</updated>
-      <workItem from="1604932259264" duration="5236000" />
-      <workItem from="1604937551678" duration="980000" />
-      <workItem from="1604967961342" duration="2725000" />
-      <workItem from="1604970698286" duration="1819000" />
+      <updated>1604977326513</updated>
+      <workItem from="1604977329713" duration="2918000" />
+      <workItem from="1604980281461" duration="2409000" />
+      <workItem from="1605105687122" duration="1161000" />
     </task>
     <servers />
   </component>
@@ -74,5 +73,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#LeetCode32.Solution.LongestValidParentheses" memberName="stack" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

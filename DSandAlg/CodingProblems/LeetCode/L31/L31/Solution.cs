@@ -14,6 +14,69 @@ namespace LeetCode31
     {
         public void NextPermutation(int[] nums)
         {
+            NextPermutation3(nums);
+        }
+
+        public void NextPermutation3(int[] nums)
+        {
+            // SS: runtime complexity: O(N)
+            if (nums.Length == 1)
+            {
+                return;
+            }
+
+            // SS: from the right, find index of first number that is greater
+            var i = nums.Length - 2;
+            while (i >= 0 && nums[i] >= nums[i + 1])
+            {
+                i--;
+            }
+
+            if (i == -1)
+            {
+                // SS: is already max permutation, i.e. the array is sorted in
+                // decreasing order. Reverse to sort in increasing order.
+                Reverse(nums, 0);
+            }
+            else
+            {
+                // SS: The array from nums[index + 1..] is sorted in decreasing order!
+
+                // from the right, we need to find the first number that is larger than
+                // nums[index]
+                var j = nums.Length - 1;
+                while (j > i && nums[j] <= nums[i])
+                {
+                    j--;
+                }
+
+                // swap the two numbers
+                var tmp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = tmp;
+
+                // remember, nums is still sorted in decreasing order, even after the swap
+                Reverse(nums, i + 1);
+            }
+        }
+
+        private void Reverse(int[] nums, int startIndex)
+        {
+            var i = startIndex;
+            var j = nums.Length - 1;
+            while (i < j)
+            {
+                var tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+
+                i++;
+                j--;
+            }
+        }
+
+        public void NextPermutation2(int[] nums)
+        {
             // SS: runtime complexity: O(N log N)
 
             if (nums.Length == 1)
@@ -74,6 +137,19 @@ namespace LeetCode31
         [TestFixture]
         public class Tests
         {
+            [Test]
+            public void Test10()
+            {
+                // Arrange
+                int[] nums = {7, 4, 3, 9, 7, 2, 1};
+
+                // Act
+                new Solution().NextPermutation(nums);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {7, 4, 7, 1, 2, 3, 9}, nums);
+            }
+
             [Test]
             public void Test9()
             {

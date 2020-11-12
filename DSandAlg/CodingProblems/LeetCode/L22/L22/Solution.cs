@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security;
 using NUnit.Framework;
 
 #endregion
@@ -15,7 +17,52 @@ namespace LeetCode22
     {
         public IList<string> GenerateParenthesis(int n)
         {
-            return GenerateParenthesisDQ(n);
+            return GenerateParenthesisLarry(n);
+        }
+
+        private IList<string> GenerateParenthesisLarry(int n)
+        {
+            // SS: Larry's approach: https://www.youtube.com/watch?v=hvdeiy6SPKY
+            var results = new HashSet<string>();
+            
+            if (n == 1)
+            {
+                results.Add("()");
+            }
+            else
+            {
+                var r = GenerateParenthesisLarry(n - 1);
+                foreach (var item in r)
+                {
+                    results.Add("(" + item + ")");
+                    results.Add("()" + item);
+                    results.Add(item + "()");
+                }
+
+                for (int i = 2; i < n - 2 + 1; i++)
+                {
+                    // SS: generate of length i (say n = 8) (i.e. 2, 3, 4, 5, 6)
+                    var rLeft = GenerateParenthesisLarry(i);
+
+                    // SS: generate of length n - 1 (i.e. 6, 5, 4, 3, 2)
+                    var rRight = GenerateParenthesisLarry(n - i);
+
+                    //  length i (say n = 8)  (i.e. 2, 3, 4, 5, 6)
+                    // length n - 1           (i.e. 6, 5, 4, 3, 2)
+                    //                              8, 8, 8, 8, 8
+                    foreach (var leftItem in rLeft)
+                    {
+                        foreach (var rightItem in rRight)
+                        {
+                            results.Add(leftItem + rightItem);
+                        }
+                    }
+                }
+            }
+
+            var res = results.ToList();
+            res.Sort();
+            return res;
         }
 
         private IList<string> GenerateParenthesisDQ(int n)
@@ -88,6 +135,19 @@ namespace LeetCode22
 
                 // Assert
                 CollectionAssert.AreEquivalent(new[] {"()"}, result);
+            }
+
+            [Test]
+            public void Test3()
+            {
+                // Arrange
+                var n = 4;
+
+                // Act
+                var result = new Solution().GenerateParenthesis(n);
+
+                // Assert
+                CollectionAssert.AreEquivalent(new[] {"(((())))","((()()))","((())())","((()))()","(()(()))","(()()())","(()())()","(())(())","(())()()","()((()))","()(()())","()(())()","()()(())","()()()()"}, result);
             }
         }
     }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdf25afa-3915-4c1e-b8d7-3a7746c2927c" name="Default Changelist" comment="" />
+    <list default="true" id="484d29c2-8549-47df-8c5b-02cefd1cd2cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L1143/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L39/.idea/.idea.L39/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L39/.idea/.idea.L39/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +15,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L39/Solution.cs" />
+      <option value="$PROJECT_DIR$/L1143/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1kF3MxlT0Sx5l7PTjqyWtrCGbLN" />
+  <component name="ProjectId" id="1kNVsDXxtLrSimR9BYDyIBFW08b" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -40,15 +43,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bdf25afa-3915-4c1e-b8d7-3a7746c2927c" name="Default Changelist" comment="" />
-      <created>1605282469255</created>
+      <changelist id="484d29c2-8549-47df-8c5b-02cefd1cd2cf" name="Default Changelist" comment="" />
+      <created>1605541240238</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605282469255</updated>
-      <workItem from="1605282471861" duration="1729000" />
-      <workItem from="1605312882220" duration="1875000" />
-      <workItem from="1605539497355" duration="13000" />
-      <workItem from="1605539576990" duration="1663000" />
+      <updated>1605541240238</updated>
+      <workItem from="1605541243386" duration="2223000" />
+      <workItem from="1605543524732" duration="2005000" />
+      <workItem from="1605545541820" duration="211000" />
     </task>
     <servers />
   </component>

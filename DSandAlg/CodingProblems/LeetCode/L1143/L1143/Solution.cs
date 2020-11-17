@@ -20,6 +20,9 @@ namespace LeetCode1143
 
         public int LongestCommonSubsequenceTopDown(string text1, string text2)
         {
+            // SS: runtime and space complexity: O(text1.Length * text2.Length)
+            // (because we fill in a memoization grid of dimension text1.Length * text2.Length
+
             var memArray = new int[text1.Length][];
             for (var i = 0; i < text1.Length; i++)
             {
@@ -55,25 +58,26 @@ namespace LeetCode1143
 
         private int LongestCommonSubsequenceBottomUp(string text1, string text2)
         {
-            var a1 = new int[text2.Length];
-            var a2 = new int[text2.Length];
+            // SS: runtime complexity: O(text1.Length * text2.Length)
+            // SS: space complexity: O(text2.Length)
 
-            var tmp = new int[2][];
-            tmp[0] = a1;
-            tmp[1] = a2;
+            var row1 = new int[text2.Length];
+            var row2 = new int[text2.Length];
 
-            var i1 = 1;
-            var i2 = 0;
+            var tmp = new[] {row1, row2};
+
+            var rowIdx1 = 1;
+            var rowIdx2 = 0;
 
             for (var i = text1.Length - 1; i >= 0; i--)
             {
                 for (var j = text2.Length - 1; j >= 0; j--)
                 {
                     // SS: l1 from top-down solution
-                    var l1 = tmp[i2][j];
+                    var l1 = tmp[rowIdx2][j];
 
                     // SS: l1 from top-down solution
-                    var l2 = j <= text2.Length - 2 ? tmp[i1][j + 1] : 0;
+                    var l2 = j <= text2.Length - 2 ? tmp[rowIdx1][j + 1] : 0;
 
                     // SS: l3 from top-down solution
                     var l3 = 0;
@@ -82,27 +86,27 @@ namespace LeetCode1143
                         l3 = 1;
                         if (j <= text2.Length - 2)
                         {
-                            l3 += tmp[i2][j + 1];
+                            l3 += tmp[rowIdx2][j + 1];
                         }
                     }
 
                     var total = Math.Max(Math.Max(l1, l2), l3);
-                    tmp[i1][j] = total;
+                    tmp[rowIdx1][j] = total;
                 }
 
-                if (i1 == 1)
+                if (rowIdx1 == 1)
                 {
-                    i1 = 0;
-                    i2 = 1;
+                    rowIdx1 = 0;
+                    rowIdx2 = 1;
                 }
                 else
                 {
-                    i1 = 1;
-                    i2 = 0;
+                    rowIdx1 = 1;
+                    rowIdx2 = 0;
                 }
             }
 
-            return tmp[i2][0];
+            return tmp[rowIdx2][0];
         }
 
         [TestFixture]

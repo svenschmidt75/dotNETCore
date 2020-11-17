@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdf25afa-3915-4c1e-b8d7-3a7746c2927c" name="Default Changelist" comment="" />
+    <list default="true" id="bdf25afa-3915-4c1e-b8d7-3a7746c2927c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L1143/.idea/.idea.L1143/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L1143/.idea/.idea.L1143/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L1143/L1143/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L1143/L1143/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L39/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L39/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L39/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L39/Solution.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +40,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -49,6 +55,7 @@
       <workItem from="1605312882220" duration="1875000" />
       <workItem from="1605539497355" duration="13000" />
       <workItem from="1605539576990" duration="1663000" />
+      <workItem from="1605623469586" duration="2474000" />
     </task>
     <servers />
   </component>

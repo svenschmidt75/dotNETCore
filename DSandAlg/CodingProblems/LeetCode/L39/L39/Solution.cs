@@ -16,9 +16,9 @@ namespace LeetCode39
     {
         public IList<IList<int>> CombinationSum(int[] candidates, int target)
         {
-            var results = CombinationSumDQ(candidates, target);
+//            var results = CombinationSumDQ(candidates, target);
 
-//            var results = CombinationSumDQ2(candidates, target);
+            var results = CombinationSumDQ2(candidates, target);
             return results;
         }
 
@@ -60,6 +60,10 @@ namespace LeetCode39
 
         private IList<IList<int>> CombinationSumDQ2(int[] candidates, int target)
         {
+            // SS: Divide and Conquer solution
+            // runtime complexity: O(2^N)
+            // space complexity: O(N) for call stack and O(N^2) for results
+
             var sorted = candidates.OrderBy(x => x).ToArray();
 
             IList<int[]> results = new List<int[]>();
@@ -98,7 +102,7 @@ namespace LeetCode39
                 return;
             }
 
-            Console.WriteLine($"{target} {pos}");
+//            Console.WriteLine($"{target} {pos}");
 
             var c = candidates[pos];
 
@@ -119,59 +123,9 @@ namespace LeetCode39
                 CombinationSumDQ2(candidates, target - i * c, pos + 1, results, result);
             }
 
+            // SS: restore state (typical in backtracking)
             result[pos] = 0;
         }
-
-
-        //
-        // private void CombinationSumTopDown(int[] candidates, int target, int pos, IList<IList<int>> results, List<int> result, IList<IList<int>>[][] memArray)
-        // {
-        //     // SS: Divide and Conquer solution
-        //     // runtime complexity: O(2^N)
-        //     // space complexity: O(N) for call stack and O(N^2) for results
-        //
-        //     if (target == 0)
-        //     {
-        //         results.Add(result);
-        //
-        //         var slot = memArray[pos][target];
-        //         if (slot == null)
-        //         {
-        //             slot = new List<IList<int>>();
-        //             memArray[pos][target] = slot;
-        //         }
-        //
-        //         slot.Add(result);
-        //         
-        //         return;
-        //     }
-        //
-        //     if (pos == candidates.Length || target < 0)
-        //     {
-        //         return;
-        //     }
-        //
-        //     Console.WriteLine($"{target} {pos}");
-        //
-        //
-        //     var slot2 = memArray[pos][target];
-        //     if (slot2 != null)
-        //     {
-        //         return;
-        //     }
-        //     
-        //     var c = candidates[pos];
-        //
-        //     // SS: use the same number again
-        //     var r1 = new List<int>(result) {c};
-        //     CombinationSumTopDown(candidates, target - c, pos, results, r1, memArray);
-        //
-        //     // skip this position
-        //     CombinationSumTopDown(candidates, target, pos + 1, results, result, memArray);
-        //     
-        //     slot2 = new List<IList<int>>(results);
-        //     memArray[pos][target] = slot2;
-        // }
 
         [TestFixture]
         public class Tests
@@ -272,6 +226,20 @@ namespace LeetCode39
 
                 // Assert
                 Assert.AreEqual(887, result.Count);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                int[] candidates = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+                var target = 20;
+
+                // Act
+                var result = new Solution().CombinationSum(candidates, target);
+                
+                // Assert
+                Assert.AreEqual(530, result.Count);
             }
         }
     }

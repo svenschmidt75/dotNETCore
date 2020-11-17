@@ -14,8 +14,8 @@ namespace LeetCode1143
     {
         public int LongestCommonSubsequence(string text1, string text2)
         {
-            return LongestCommonSubsequenceTopDown(text1, text2) - 1;
-//            return LongestCommonSubsequenceBottomUp(text1, text2);
+//            return LongestCommonSubsequenceTopDown(text1, text2) - 1;
+            return LongestCommonSubsequenceBottomUp(text1, text2);
         }
 
         public int LongestCommonSubsequenceTopDown(string text1, string text2)
@@ -61,23 +61,18 @@ namespace LeetCode1143
             // SS: runtime complexity: O(text1.Length * text2.Length)
             // SS: space complexity: O(text2.Length)
 
-            var row1 = new int[text2.Length];
-            var row2 = new int[text2.Length];
-
-            var tmp = new[] {row1, row2};
-
-            var rowIdx1 = 1;
-            var rowIdx2 = 0;
+            var now = new int[text2.Length];
+            var prev = new int[text2.Length];
 
             for (var i = text1.Length - 1; i >= 0; i--)
             {
                 for (var j = text2.Length - 1; j >= 0; j--)
                 {
                     // SS: l1 from top-down solution
-                    var l1 = tmp[rowIdx2][j];
+                    var l1 = prev[j];
 
                     // SS: l1 from top-down solution
-                    var l2 = j <= text2.Length - 2 ? tmp[rowIdx1][j + 1] : 0;
+                    var l2 = j <= text2.Length - 2 ? now[j + 1] : 0;
 
                     // SS: l3 from top-down solution
                     var l3 = 0;
@@ -86,27 +81,20 @@ namespace LeetCode1143
                         l3 = 1;
                         if (j <= text2.Length - 2)
                         {
-                            l3 += tmp[rowIdx2][j + 1];
+                            l3 += prev[j + 1];
                         }
                     }
 
                     var total = Math.Max(Math.Max(l1, l2), l3);
-                    tmp[rowIdx1][j] = total;
+                    now[j] = total;
                 }
 
-                if (rowIdx1 == 1)
-                {
-                    rowIdx1 = 0;
-                    rowIdx2 = 1;
-                }
-                else
-                {
-                    rowIdx1 = 1;
-                    rowIdx2 = 0;
-                }
+                var tmp = now;
+                now = prev;
+                prev = tmp;
             }
 
-            return tmp[rowIdx2][0];
+            return prev[0];
         }
 
         [TestFixture]

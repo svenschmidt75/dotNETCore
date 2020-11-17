@@ -14,8 +14,8 @@ namespace LeetCode1143
     {
         public int LongestCommonSubsequence(string text1, string text2)
         {
-//            return LongestCommonSubsequenceTopDown(text1, text2);
-            return LongestCommonSubsequenceBottomUp(text1, text2);
+            return LongestCommonSubsequenceTopDown(text1, text2) - 1;
+//            return LongestCommonSubsequenceBottomUp(text1, text2);
         }
 
         public int LongestCommonSubsequenceTopDown(string text1, string text2)
@@ -38,7 +38,7 @@ namespace LeetCode1143
         {
             if (pos1 == text1.Length || pos2 == text2.Length)
             {
-                return 0;
+                return 1;
             }
 
             if (memArray[pos1][pos2] > 0)
@@ -46,14 +46,14 @@ namespace LeetCode1143
                 return memArray[pos1][pos2];
             }
 
-            var l1 = LongestCommonSubsequenceTopDown(text1, text2, pos1 + 1, pos2, memArray);
-            var l2 = LongestCommonSubsequenceTopDown(text1, text2, pos1, pos2 + 1, memArray);
-            var l3 = LongestCommonSubsequenceTopDown(text1, text2, pos1 + 1, pos2 + 1, memArray) + (text1[pos1] == text2[pos2] ? 1 : 0);
+            var l1 = LongestCommonSubsequenceTopDown(text1, text2, pos1 + 1, pos2, memArray) - 1;
+            var l2 = LongestCommonSubsequenceTopDown(text1, text2, pos1, pos2 + 1, memArray) - 1;
+            var l3 = LongestCommonSubsequenceTopDown(text1, text2, pos1 + 1, pos2 + 1, memArray) + (text1[pos1] == text2[pos2] ? 1 : 0) - 1;
 
             var total = Math.Max(Math.Max(l1, l2), l3);
-            memArray[pos1][pos2] = total;
+            memArray[pos1][pos2] = total + 1;
 
-            return total;
+            return total + 1;
         }
 
         private int LongestCommonSubsequenceBottomUp(string text1, string text2)

@@ -8,8 +8,6 @@ namespace LeetCode322
 {
     public class Solution
     {
-        private static int _cnt = 0;
-        
         public int CoinChange(int[] coins, int amount)
         {
             if (amount == 0)
@@ -24,8 +22,6 @@ namespace LeetCode322
             }
 
             CoinChangeTopDown(coins, amount, coins.Length - 1, dp);
-
-            Console.WriteLine($"{_cnt} evaluations");
 
             return dp[amount][^1] - 2;
         }
@@ -67,8 +63,6 @@ namespace LeetCode322
 
             dp[remaining][pos] = min + 2;
 
-            _cnt++;
-            
             return min + 2;
         }
         

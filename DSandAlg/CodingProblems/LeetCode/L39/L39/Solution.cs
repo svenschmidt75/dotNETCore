@@ -10,6 +10,11 @@ using NUnit.Framework;
 // Problem: 39. Combination Sum
 // URL: https://leetcode.com/problems/combination-sum/
 
+/* Note that this is essentially the coin change problem, https://www.geeksforgeeks.org/coin-change-dp-7/,
+ * except that we have to actually generate the solutions in this problem, not just return how many
+ * solutions there are.
+ */
+
 namespace LeetCode39
 {
     public class Solution
@@ -88,6 +93,8 @@ namespace LeetCode39
         {
             // SS: candidates is assumed to be sorted
             // runtime complexity: O( pi_{i=0}^{candidates.Length - 1} target/candidates[i])
+            // = O( target^N * 1 / pi_{i=0}^{candidates.Length - 1} target/candidates[i]), i.e exponential
+            // complexity.
 
             if (target == 0)
             {

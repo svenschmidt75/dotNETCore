@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53aacdba-31d1-408a-ad52-b7e16bb898af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L322/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L322/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L322/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L322/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L322/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,9 +12,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -53,7 +51,8 @@
       <workItem from="1605660173062" duration="3335000" />
       <workItem from="1605663521463" duration="3043000" />
       <workItem from="1605668053590" duration="1431000" />
-      <workItem from="1605706707445" duration="2017000" />
+      <workItem from="1605706707445" duration="3084000" />
+      <workItem from="1605709947447" duration="181000" />
     </task>
     <servers />
   </component>

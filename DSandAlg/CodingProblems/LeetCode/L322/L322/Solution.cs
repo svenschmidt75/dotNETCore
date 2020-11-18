@@ -8,6 +8,8 @@ namespace LeetCode322
 {
     public class Solution
     {
+        private static int _cnt = 0;
+        
         public int CoinChange(int[] coins, int amount)
         {
             if (amount == 0)
@@ -23,47 +25,51 @@ namespace LeetCode322
 
             CoinChangeTopDown(coins, amount, coins.Length - 1, dp);
 
-            return Math.Max(0, dp[amount][^1]);
+            Console.WriteLine($"{_cnt} evaluations");
+
+            return dp[amount][^1] - 2;
         }
 
         private int CoinChangeTopDown(int[] coins, int remaining, int pos, int[][] dp)
         {
             if (pos == -1)
             {
-                return -1;
+                return -1 + 2;
             }
 
             if (remaining == 0)
             {
-                return 0;
+                return 0 + 2;
             }
 
             if (remaining < 0)
             {
-                return -1;
+                return -1 + 2;
             }
 
-            // if (dp[remaining][pos] > 0)
-            // {
-            //     return dp[remaining][pos];
-            // }
-
+            if (dp[remaining][pos] > 0)
+            {
+                return dp[remaining][pos];
+            }
+            
             // SS: use current coin and do not advance to next coin
-            int min = CoinChangeTopDown(coins, remaining - coins[pos], pos, dp);
+            int min = CoinChangeTopDown(coins, remaining - coins[pos], pos, dp) - 2;
             if (min >= 0)
             {
                 min++;
             }
             
-            int i2 = CoinChangeTopDown(coins, remaining, pos - 1, dp);
+            int i2 = CoinChangeTopDown(coins, remaining, pos - 1, dp) - 2;
             if (min == -1 || i2 >= 0 && i2 < min)
             {
                 min = i2;
             }
 
-            dp[remaining][pos] = min;
+            dp[remaining][pos] = min + 2;
 
-            return min;
+            _cnt++;
+            
+            return min + 2;
         }
         
         [TestFixture]
@@ -108,7 +114,7 @@ namespace LeetCode322
                 int nCoins = new Solution().CoinChange(coins, target);
 
                 // Assert
-                Assert.AreEqual(0, nCoins);
+                Assert.AreEqual(-1, nCoins);
             }
 
             [Test]
@@ -165,6 +171,20 @@ namespace LeetCode322
 
                 // Assert
                 Assert.AreEqual(4, nCoins);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                int[] coins = {52,480,116,409,170,240,496};
+                int target = 8230;
+
+                // Act
+                int nCoins = new Solution().CoinChange(coins, target);
+
+                // Assert
+                Assert.AreEqual(18, nCoins);
             }
 
         }

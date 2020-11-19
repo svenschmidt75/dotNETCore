@@ -1,5 +1,6 @@
 #region
 
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -13,9 +14,9 @@ namespace LeetCode518
     {
         public int Change(int amount, int[] coins)
         {
-            if (amount == 1)
+            if (amount == 0)
             {
-                return 0;
+                return 1;
             }
 
             if (coins.Length == 0)
@@ -23,7 +24,8 @@ namespace LeetCode518
                 return 0;
             }
 
-            return ChangeTopDown(amount, coins);
+//            return ChangeTopDown(amount, coins);
+            return ChangeBottomUp(amount, coins);
         }
 
         private int ChangeTopDown(int amount, int[] coins)
@@ -63,6 +65,45 @@ namespace LeetCode518
 
             var n = Change2(amount, coins, 0) - 1;
             return n;
+        }
+
+        private int ChangeBottomUp(int amount, int[] coins)
+        {
+            var sortedCoins = coins.OrderBy(x => x).ToArray();
+
+            var dp = new int[amount + 1][];
+            for (var i = 0; i <= amount; i++)
+            {
+                dp[i] = new int[sortedCoins.Length];
+            }
+
+            // SS: initialize 0 amount
+            for (var i = 0; i < sortedCoins.Length; i++)
+            {
+                dp[0][i] = 1;
+            }
+
+            for (var i = 1; i <= amount; i++)
+            {
+                for (var j = sortedCoins.Length - 1; j >= 0; j--)
+                {
+                    if (i - sortedCoins[j] < 0)
+                    {
+                        continue;
+                    }
+
+                    var cnt = dp[i - sortedCoins[j]][j];
+
+                    if (j <= sortedCoins.Length - 2)
+                    {
+                        cnt += dp[i][j + 1];
+                    }
+
+                    dp[i][j] = cnt;
+                }
+            }
+
+            return dp[amount][0];
         }
 
 

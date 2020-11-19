@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c7ce12a-22fa-45cb-9c5d-c9ba57211aa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L518/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L518/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L518/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L518/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L518/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605743055127</updated>
-      <workItem from="1605743060041" duration="2399000" />
+      <workItem from="1605743060041" duration="3935000" />
     </task>
     <servers />
   </component>
@@ -69,5 +70,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L518/Solution.cs</url>
+          <line>16</line>
+          <properties documentPath="$PROJECT_DIR$/L518/Solution.cs" initialLine="16" containingFunctionPresentation="method 'Change'">
+            <startOffsets>
+              <option value="278" />
+            </startOffsets>
+            <endOffsets>
+              <option value="294" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

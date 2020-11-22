@@ -25,7 +25,8 @@ namespace LeetCode518
             }
 
 //            return ChangeTopDown(amount, coins);
-            return ChangeBottomUp(amount, coins);
+//            return ChangeBottomUp(amount, coins);
+            return ChangeBottomUp2(amount, coins);
         }
 
         private int ChangeTopDown(int amount, int[] coins)
@@ -104,6 +105,27 @@ namespace LeetCode518
             }
 
             return dp[amount][0];
+        }
+
+        private int ChangeBottomUp2(int amount, int[] coins)
+        {
+            int[] dp = new int[amount + 1];
+        
+            // SS: initialize 0 amount
+            dp[0] = 1;
+
+            // SS outer loop is over each coin
+            for (var i = 0; i < coins.Length; i++)
+            {
+                int coin = coins[i];
+                
+                for (var j = coin; j <= amount; j++)
+                {
+                    dp[j] += dp[j - coin];
+                }
+            }
+
+            return dp[amount];
         }
 
 

@@ -15,7 +15,7 @@ namespace LeetCode41
     {
         public int FirstMissingPositive(int[] nums)
         {
-            return FirstMissingPositive3(nums);
+            return FirstMissingPositive4(nums);
         }
 
         public int FirstMissingPositive2(int[] nums)
@@ -106,6 +106,46 @@ namespace LeetCode41
             }
 
             return min;
+        }
+
+        public int FirstMissingPositive4(int[] nums)
+        {
+            // Solution from Larry, https://www.youtube.com/watch?v=0f7AQJcD3QY
+            // Reorder nums such that element x is at position nums[x - 1] 
+            // Runtime complexity: O(N), despite the inner while loop (can see that
+            // we reorder element at most constant time, how?)
+            // Since this is in-place, the space complexity is O(1)
+            
+            int n = nums.Length;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] == i + 1)
+                {
+                    // element at the correct position, so ignore
+                    continue;
+                }
+
+                // element nums[i] is not at the correct position, so let's put it there
+                int x = nums[i];
+                while (x > 0 && x <= n && nums[x - 1] != x)
+                {
+                    // 'before' is at the wrong position, so move it
+                    int before = nums[x - 1];
+                    nums[x - 1] = x;
+                    x = before;
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] != i + 1)
+                {
+                    return i + 1;
+                }
+            }
+
+            return n + 1;
         }
 
         [TestFixture]

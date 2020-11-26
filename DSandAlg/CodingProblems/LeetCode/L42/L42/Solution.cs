@@ -54,24 +54,22 @@ namespace LeetCode42
                             stack.Pop();
                         }
 
-                        if (h2 < h1)
-                        {
-                            continue;
-                        }
-
                         var w = rightIndex - idx2 - 1;
                         var h = Math.Min(h2, maxHeight);
                         var waterLevel = h - h1;
 
                         var localWater = waterLevel * w;
-                        water += localWater;
+
+                        if (localWater >= 0)
+                        {
+                            water += localWater;
+                            h1 = h;
+                        }
 
                         if (h2 >= maxHeight)
                         {
                             break;
                         }
-
-                        h1 = h;
                     }
                 }
 

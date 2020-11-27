@@ -14,6 +14,52 @@ namespace LeetCode50
     {
         public double MyPow(double x, int n)
         {
+            // SS: runtime performance: O(sqrt n) (I did NOT see this coming...)
+            // space complexity: O(1)
+            // The idea is to decompose for example:
+            // x^18 = x^15 * x^3 = x * x^2 * x^3 * x^4 * x^5 * x^3
+            // The largest exponent 5 comes from 18 = 5*(5+1)/2 
+
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            if (x == 1)
+            {
+                return x;
+            }
+
+            var n2 = n < 0 ? -(long) n : n;
+
+            // SS: largest exponent
+            var n3 = (long) (Math.Sqrt(2 * n2 + 0.25) - 0.5);
+            var t = n3 * (n3 + 1) / 2;
+            var remainder = n2 - t;
+
+            var result = 1.0;
+            var result2 = n < 0 ? 1 / x : x;
+            double v = 1;
+            double tmp = 1;
+
+            for (var i = 0; i < n3; i++)
+            {
+                result *= v * result2;
+                v *= result2;
+
+                if (i + 1 == remainder)
+                {
+                    tmp = v;
+                }
+            }
+
+            result *= tmp;
+
+            return result;
+        }
+
+        public double MyPow2(double x, int n)
+        {
             // SS: runtime performance: O(log n)
             // space complexity: O(log n)
             // The idea is to decompose for example:
@@ -141,10 +187,10 @@ namespace LeetCode50
                 // Arrange
 
                 // Act
-                var result = new Solution().MyPow(2.0, 16 + 1);
+                var result = new Solution().MyPow(2.0, 16 + 2);
 
                 // Assert
-                Assert.That(result, Is.EqualTo(2 * 65536));
+                Assert.That(result, Is.EqualTo(2 * 2 * 65536));
             }
 
             [Test]

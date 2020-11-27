@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ae8ac34-f9ef-41a3-93a7-957ba04bf5d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L50/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L46/.idea/.idea.L46/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L46/.idea/.idea.L46/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L50/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L50/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L50/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L50/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606487945999</updated>
-      <workItem from="1606487948986" duration="5719000" />
+      <workItem from="1606487948986" duration="7279000" />
     </task>
     <servers />
   </component>
@@ -64,32 +64,32 @@
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Solution 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Solution 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Solution 0% 106/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Solution 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Tests 0% 40/40" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>

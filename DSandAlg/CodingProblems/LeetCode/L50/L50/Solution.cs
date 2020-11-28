@@ -14,6 +14,38 @@ namespace LeetCode50
     {
         public double MyPow(double x, int n)
         {
+            // SS: Larry's solution, https://www.youtube.com/watch?v=gWu0f0LiDA8
+            // Divide and Conquer, i.e. x^n = x^(n/2) * x^(n/2) = (x * x)^(n/2)
+            // runtime complexity: O(log n)
+            // space complexity: O(log n), due to recursion
+
+            double MyPowInt(double x, long n)
+            {
+                if (n == 0)
+                {
+                    return 1;
+                }
+
+                if (n < 0)
+                {
+                    return 1 / MyPowInt(x, -n);
+                }
+
+                var x2 = MyPowInt(x * x, n / 2);
+
+                if (n % 2 == 1)
+                {
+                    return x * x2;
+                }
+
+                return x2;
+            }
+
+            return MyPowInt(x, n);
+        }
+
+        public double MyPow3(double x, int n)
+        {
             // SS: runtime performance: O(sqrt n) (I did NOT see this coming...)
             // space complexity: O(1)
             // The idea is to decompose for example:

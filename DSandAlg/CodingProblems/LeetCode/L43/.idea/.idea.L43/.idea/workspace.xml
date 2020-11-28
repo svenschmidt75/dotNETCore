@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffe98d5b-86c1-4f4f-9dd1-7bb01e937984" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L43/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JumpGame/.idea/.idea.JumpGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JumpGame/.idea/.idea.JumpGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L42/.idea/.idea.L42/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L42/.idea/.idea.L42/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L42/L42/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L42/L42/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L50/.idea/.idea.L50/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L50/.idea/.idea.L50/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L50/L50/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L50/L50/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +47,14 @@
       <option name="presentableId" value="Default" />
       <updated>1606405217901</updated>
       <workItem from="1606405222238" duration="1552000" />
+      <workItem from="1606572361126" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -67,6 +66,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

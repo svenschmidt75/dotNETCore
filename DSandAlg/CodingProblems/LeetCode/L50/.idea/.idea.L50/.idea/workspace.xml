@@ -48,7 +48,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606487945999</updated>
-      <workItem from="1606487948986" duration="7279000" />
+      <workItem from="1606487948986" duration="7317000" />
+      <workItem from="1606517113823" duration="716000" />
     </task>
     <servers />
   </component>
@@ -59,44 +60,44 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="550" />
+    <option name="symbolColumnWidth" value="795" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Solution 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Solution 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="L50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LeetCode50 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Solution 0% 103/103" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="L50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LeetCode50 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Solution 0% 119/119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Tests 0% 40/40" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
     </coverage-tree-state>
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -108,6 +109,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -16,6 +16,64 @@ namespace LeetCode42
     {
         public int Trap(int[] height)
         {
+            return Trap3(height);
+        }
+
+        public int Trap3(int[] height)
+        {
+            // SS: Larry's solution, https://www.youtube.com/watch?v=PlYQ5LAZDtI&t=5s
+            // runtime complexity: O(N)
+            // space complexity: O(N) due to array reverse (we could do in-place...)
+
+            int SolveIncreasing(int[] height)
+            {
+                var peak = 0;
+                var water = 0;
+
+                for (var i = 0; i < height.Length; i++)
+                {
+                    var h = height[i];
+                    if (h >= peak)
+                    {
+                        peak = h;
+                    }
+                    else
+                    {
+                        water += peak - h;
+                    }
+                }
+
+                return water;
+            }
+
+            if (height.Length == 0)
+            {
+                return 0;
+            }
+
+            // SS: The solution idea is to find the highest peak and split the problem into two
+            // smaller sub problems. One to the left of the peak, the other to it's right.
+            // At each position, we calculate the entire water column.
+
+            var peakIndex = 0;
+            for (var i = 0; i < height.Length; i++)
+            {
+                var h = height[i];
+                if (h > height[peakIndex])
+                {
+                    peakIndex = i;
+                }
+            }
+
+            // solve the problem from 0 to peakIndex (excluding the peak itself)
+            return SolveIncreasing(height[..peakIndex]) + SolveIncreasing(height[(peakIndex + 1)..].Reverse().ToArray());
+        }
+
+        public int Trap2(int[] height)
+        {
+            // SS: runtime complexity: O(n)
+            // space complexity: O(n)
+
             if (height.Length < 2)
             {
                 return 0;

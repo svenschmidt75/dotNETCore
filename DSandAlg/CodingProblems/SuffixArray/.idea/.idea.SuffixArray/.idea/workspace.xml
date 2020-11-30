@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fc8337d-a838-4d9c-8b5d-cbc7b14e4e7e" name="Default Changelist" comment="" />
+    <list default="true" id="4fc8337d-a838-4d9c-8b5d-cbc7b14e4e7e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../LeetCode/L48/.idea/.idea.L48/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCode/L48/.idea/.idea.L48/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +56,7 @@
       <updated>1606577070503</updated>
       <workItem from="1606577075459" duration="2311000" />
       <workItem from="1606659704857" duration="3765000" />
+      <workItem from="1606746053263" duration="608000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,7 @@ namespace LeetCode44
 {
     public class Solution
     {
-        public bool IsMatch(string s, string p)
+        public bool IsMatch2(string s, string p)
         {
             var dp = new bool[s.Length + 1][];
             for (var i = 0; i <= s.Length; i++)
@@ -67,14 +67,16 @@ namespace LeetCode44
             return dp[0][0];
         }
 
-        public bool IsMatch2(string s, string p)
+        public bool IsMatch(string s, string p)
         {
             // SS: Divide & Conquer solution, times out
 
             bool Matches(int sIdx, int pIdx)
             {
+                // SS: boundary conditions (terminates recursion)
                 if (sIdx == s.Length)
                 {
+                    // SS: the Kleene operator matches the empty string...
                     while (pIdx < p.Length && p[pIdx] == '*')
                     {
                         pIdx++;
@@ -85,10 +87,11 @@ namespace LeetCode44
 
                 if (pIdx == p.Length)
                 {
+                    // SS: we still have input left to match...
                     return false;
                 }
 
-                var b1 = true;
+                var b1 = false;
                 var b2 = false;
 
                 if (p[pIdx] == '*')
@@ -103,10 +106,6 @@ namespace LeetCode44
                 {
                     // SS: match 1 char
                     b1 = Matches(sIdx + 1, pIdx + 1);
-                }
-                else
-                {
-                    b1 = false;
                 }
 
                 return b1 || b2;

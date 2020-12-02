@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e39e0edd-4222-4d63-bd22-27b42740f5df" name="Default Changelist" comment="" />
+    <list default="true" id="448a5a6f-e8f1-4de2-a234-043020b369d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L45/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../GrokkingAlgorithms/Knapsack/.idea/.idea.Knapsack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../GrokkingAlgorithms/Knapsack/.idea/.idea.Knapsack/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Solution.cs" />
+      <option value="$PROJECT_DIR$/L45/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1l3fYpBWxBDNRCuyRq8FzfIXSYN" />
+  <component name="ProjectId" id="1l4w2sPLoq7KfPjGGkM0hR4nqOf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -40,19 +43,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e39e0edd-4222-4d63-bd22-27b42740f5df" name="Default Changelist" comment="" />
-      <created>1606830748160</created>
+      <changelist id="448a5a6f-e8f1-4de2-a234-043020b369d5" name="Default Changelist" comment="" />
+      <created>1606869468702</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606830748160</updated>
-      <workItem from="1606830752958" duration="2601000" />
+      <updated>1606869468702</updated>
+      <workItem from="1606869471635" duration="4437000" />
+      <workItem from="1606906476026" duration="3107000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -64,8 +68,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/L45/Solution.cs</url>
+          <line>21</line>
+          <properties documentPath="$PROJECT_DIR$/L45/Solution.cs" initialLine="21" containingFunctionPresentation="method 'Jump'">
+            <startOffsets>
+              <option value="453" />
+            </startOffsets>
+            <endOffsets>
+              <option value="485" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

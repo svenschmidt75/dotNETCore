@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09c59e10-6333-4f2a-97fa-03170529033f" name="Default Changelist" comment="" />
+    <list default="true" id="c5e668d0-c859-45a0-ae74-7fc639afb2e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.L28/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L28.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L28/L28.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/L28/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L38/.idea/.idea.L38/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L38/.idea/.idea.L38/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ZAlgorithm/.idea/.idea.ZAlgorithm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ZAlgorithm/.idea/.idea.ZAlgorithm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ZAlgorithm/ZAlgorithm/ZAlgorithm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ZAlgorithm/ZAlgorithm/ZAlgorithm.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +26,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L38/Solution.cs" />
+      <option value="$PROJECT_DIR$/L28/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1l7hbBWxbrn3xJMBRXrkSZnQKJD" />
+  <component name="ProjectId" id="1lAeoFc1wPlmlcQhHSBp7iImL0W" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -24,28 +38,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499867" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="09c59e10-6333-4f2a-97fa-03170529033f" name="Default Changelist" comment="" />
-      <created>1606954107205</created>
+      <changelist id="c5e668d0-c859-45a0-ae74-7fc639afb2e0" name="Default Changelist" comment="" />
+      <created>1607044495729</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606954107205</updated>
-      <workItem from="1606954112121" duration="2744000" />
+      <updated>1607044495729</updated>
+      <workItem from="1607044505228" duration="609000" />
     </task>
     <servers />
   </component>

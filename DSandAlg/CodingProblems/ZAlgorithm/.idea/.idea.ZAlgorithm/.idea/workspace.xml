@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93e2dd45-1db4-40d7-a96e-050ec7648b96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/.idea/.idea.L28/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/L28.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/L28/L28.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/L28/L28/Solution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LeetCode/L38/.idea/.idea.L38/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCode/L38/.idea/.idea.L38/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZAlgorithm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZAlgorithm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZAlgorithm/ZAlgorithm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ZAlgorithm/ZAlgorithm.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607041138283</updated>
-      <workItem from="1607041143546" duration="3308000" />
+      <workItem from="1607041143546" duration="4108000" />
     </task>
     <servers />
   </component>

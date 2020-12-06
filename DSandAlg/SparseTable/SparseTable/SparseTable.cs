@@ -70,7 +70,7 @@ namespace SparseTable
 
         public int QueryNonOverlapFriendly(int min, int max)
         {
-            // SS: interval [min, max]
+            // SS: interval [min, max]. Cannot overlap intervals.
             // runtime complexity: O(log N)
 
             var length = max - min + 1;

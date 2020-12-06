@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a045b591-f57a-4610-ad8c-571a9ffb3782" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SparseTable/SparseTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/.idea/.idea.Kosaraju/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/Graph.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/Kosaraju.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/Solution.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/graph1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/graph1.viz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/graph2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/Kosaraju/Kosaraju/graph2.viz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/.idea/.idea.SuffixArray/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/SuffixArray.Test/SuffixArray.Test.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/SuffixArray.Test/SuffixArrayTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/SuffixArray.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/SuffixArray/SuffixArray.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingProblems/SuffixArray/SuffixArray/SuffixArray.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SparseTable/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SparseTable/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SparseTable/SparseTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SparseTable/SparseTable.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,25 +111,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/SparseTable/SparseTable.cs</url>
-          <line>75</line>
-          <properties documentPath="$PROJECT_DIR$/SparseTable/SparseTable.cs" initialLine="75" containingFunctionPresentation="method 'QueryNonOverlapFriendly'">
-            <startOffsets>
-              <option value="1889" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1916" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

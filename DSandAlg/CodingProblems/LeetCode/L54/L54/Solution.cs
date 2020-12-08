@@ -15,6 +15,90 @@ namespace LeetCode54
     {
         public IList<int> SpiralOrder(int[][] matrix)
         {
+            return SpiralOrder3(matrix);
+        }
+
+        public IList<int> SpiralOrder3(int[][] matrix)
+        {
+            // SS: runtime complexity: O(m n)
+            // Larry's solution...
+            var nrows = matrix.Length;
+            var ncols = matrix[0].Length;
+
+            var minRow = 0;
+            var maxRow = nrows - 1;
+
+            var minCol = 0;
+            var maxCol = ncols - 1;
+
+            var result = new List<int>();
+
+            while (minRow <= maxRow && minCol <= maxCol)
+            {
+                var x = minRow;
+                var y = minCol;
+
+                while (y <= maxCol)
+                {
+                    result.Add(matrix[x][y]);
+                    y++;
+                }
+
+                y--;
+                x++;
+
+                if (x > maxRow)
+                {
+                    break;
+                }
+
+                while (x <= maxRow)
+                {
+                    result.Add(matrix[x][y]);
+                    x++;
+                }
+
+                if (minCol == maxCol && y == maxCol)
+                {
+                    break;
+                }
+
+                x--;
+                y--;
+
+                if (y < 0)
+                {
+                    break;
+                }
+
+                while (y >= minCol)
+                {
+                    result.Add(matrix[x][y]);
+                    y--;
+                }
+
+                y++;
+                x--;
+
+                while (x > minRow)
+                {
+                    result.Add(matrix[x][y]);
+                    x--;
+                }
+
+                minRow++;
+                maxRow--;
+
+                minCol++;
+                maxCol--;
+            }
+
+            return result;
+        }
+
+        public IList<int> SpiralOrder2(int[][] matrix)
+        {
+            // SS: runtime complexity: O(m n)
             var nrows = matrix.Length;
             var ncols = matrix[0].Length;
 

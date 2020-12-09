@@ -47,43 +47,34 @@ namespace LeetCode54
                 y--;
                 x++;
 
-                if (x > maxRow)
-                {
-                    break;
-                }
-
                 while (x <= maxRow)
                 {
                     result.Add(matrix[x][y]);
                     x++;
                 }
 
-                if (minCol == maxCol && y == maxCol)
-                {
-                    break;
-                }
-
                 x--;
                 y--;
 
-                if (y < 0)
+                if (minRow != maxRow)
                 {
-                    break;
-                }
+                    while (y >= minCol)
+                    {
+                        result.Add(matrix[x][y]);
+                        y--;
+                    }
 
-                while (y >= minCol)
-                {
-                    result.Add(matrix[x][y]);
-                    y--;
-                }
-
-                y++;
-                x--;
-
-                while (x > minRow)
-                {
-                    result.Add(matrix[x][y]);
+                    y++;
                     x--;
+                }
+
+                if (minCol != maxCol)
+                {
+                    while (x > minRow)
+                    {
+                        result.Add(matrix[x][y]);
+                        x--;
+                    }
                 }
 
                 minRow++;

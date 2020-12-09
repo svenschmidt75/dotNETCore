@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44c28f16-9962-4587-b624-14bbfb4aca91" name="Default Changelist" comment="" />
+    <list default="true" id="a527b91e-2c3b-45fc-954a-eedd0fc3ffbc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L56/Solution.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/LeetCode.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LeetCode/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L62/.idea/.idea.L62/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L62/.idea/.idea.L62/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +17,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L62/Solution.cs" />
+      <option value="$PROJECT_DIR$/L56/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1lOpgNTZ8GkxuH9C7YKzUj2O4sv" />
+  <component name="ProjectId" id="1lQJ6CNqfA0fpFDniCzTeADLsKi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -34,12 +39,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="44c28f16-9962-4587-b624-14bbfb4aca91" name="Default Changelist" comment="" />
-      <created>1607478103710</created>
+      <changelist id="a527b91e-2c3b-45fc-954a-eedd0fc3ffbc" name="Default Changelist" comment="" />
+      <created>1607523204959</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607478103710</updated>
-      <workItem from="1607478108224" duration="1159000" />
+      <updated>1607523204959</updated>
+      <workItem from="1607523210467" duration="673000" />
     </task>
     <servers />
   </component>

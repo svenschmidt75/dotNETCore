@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a527b91e-2c3b-45fc-954a-eedd0fc3ffbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/L56/Solution.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LeetCode/LeetCode.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LeetCode/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L62/.idea/.idea.L62/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L62/.idea/.idea.L62/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a527b91e-2c3b-45fc-954a-eedd0fc3ffbc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +39,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607523204959</updated>
-      <workItem from="1607523210467" duration="673000" />
+      <workItem from="1607523210467" duration="1183000" />
     </task>
     <servers />
   </component>

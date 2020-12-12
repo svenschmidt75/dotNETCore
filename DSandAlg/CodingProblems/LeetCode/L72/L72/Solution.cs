@@ -15,6 +15,59 @@ namespace LeetCode
         public int MinDistance(string word1, string word2)
         {
             // SS: runtime complexity: O(word1.Length * word2.Length)
+            // SS: memory complexity: O(word1.Length)
+            // problem is symmetric, so can even do O(min(word1.Length, word2.Length))
+
+            var dp1 = new int[word1.Length + 1];
+            var dp2 = new int[word1.Length + 1];
+
+            // SS: set boundary conditions
+
+            // SS: set to insert, based on how many characters are left to insert
+            for (var i = 0; i < word1.Length; i++)
+            {
+                dp2[i] = word1.Length - i;
+            }
+
+            // SS: fill-in grid
+            for (var idx2 = word2.Length - 1; idx2 >= 0; idx2--)
+            {
+                // SS: set number of removes
+                dp1[^1] = word2.Length - idx2;
+
+                for (var idx1 = word1.Length - 1; idx1 >= 0; idx1--)
+                {
+                    if (word1[idx1] == word2[idx2])
+                    {
+                        dp1[idx1] = dp2[idx1 + 1];
+                    }
+                    else
+                    {
+                        // SS: insert word[idx2] into position idx1
+                        var c1 = 1 + dp2[idx1];
+
+                        // SS: remove word1[idx1]
+                        var c2 = 1 + dp1[idx1 + 1];
+
+                        // SS: replace word1[idx1] with word2[idx2]
+                        var c3 = 1 + dp2[idx1 + 1];
+
+                        var c = Math.Min(c1, Math.Min(c2, c3));
+                        dp1[idx1] = c;
+                    }
+                }
+
+                var tmp = dp2;
+                dp2 = dp1;
+                dp1 = tmp;
+            }
+
+            return dp2[0];
+        }
+
+        public int MinDistance3(string word1, string word2)
+        {
+            // SS: runtime complexity: O(word1.Length * word2.Length)
             // SS: memory complexity: O(word1.Length * word2.Length)
 
             var dp = new int[word2.Length + 1][];
@@ -77,7 +130,19 @@ namespace LeetCode
                     return 0;
                 }
 
-                if (idx1 < word1.Length && idx2 < word2.Length && word1[idx1] == word2[idx2])
+                if (idx1 == word1.Length)
+                {
+                    // SS: can only do inserts
+                    return word2.Length - idx2;
+                }
+
+                if (idx2 == word2.Length)
+                {
+                    // SS: can only do removes
+                    return word1.Length - idx1;
+                }
+
+                if (word1[idx1] == word2[idx2])
                 {
                     // SS: nothing to do
                     return Solve(idx1 + 1, idx2 + 1);
@@ -85,24 +150,16 @@ namespace LeetCode
 
                 // SS: replace character word1[idx1] with word2[idx2]
                 var c1 = int.MaxValue;
-                if (idx1 < word1.Length && idx2 < word2.Length)
+                if (idx2 < word2.Length)
                 {
                     c1 = 1 + Solve(idx1 + 1, idx2 + 1);
                 }
 
                 // SS: remove character work1[idx1]
-                var c2 = int.MaxValue;
-                if (idx1 < word1.Length)
-                {
-                    c2 = 1 + Solve(idx1 + 1, idx2);
-                }
+                var c2 = 1 + Solve(idx1 + 1, idx2);
 
                 // SS: insert character word2[idx2]
-                var c3 = int.MaxValue;
-                if (idx2 < word2.Length)
-                {
-                    c3 = 1 + Solve(idx1, idx2 + 1);
-                }
+                var c3 = 1 + Solve(idx1, idx2 + 1);
 
                 var c = Math.Min(c1, Math.Min(c2, c3));
                 return c;

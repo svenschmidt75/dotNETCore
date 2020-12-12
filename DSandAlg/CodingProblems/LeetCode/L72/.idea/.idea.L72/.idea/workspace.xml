@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db61b9cf-cad8-419c-b609-a7e7f20d9401" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/L72.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/L72/L72.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/L72/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L72/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L72/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L72/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L72/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +51,7 @@
       <updated>1607646144431</updated>
       <workItem from="1607646147786" duration="4802000" />
       <workItem from="1607651051007" duration="340000" />
+      <workItem from="1607732286708" duration="1642000" />
     </task>
     <servers />
   </component>

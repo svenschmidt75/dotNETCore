@@ -1,6 +1,8 @@
 #region
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -14,117 +16,63 @@ namespace Leetcode
     {
         public int LargestRectangleArea(int[] heights)
         {
-            if (heights.Length == 1)
+            // SS: runtime ocmplexity: O(n), from Tushar, https://www.youtube.com/watch?v=ZmnqCZp9bBs
+            
+            var stack = new Stack<int>();
+
+            var maxArea = 0;
+            int area;
+
+            for (var i = 0; i < heights.Length; i++)
             {
-                return heights[0];
-            }
-
-            var dp = new int[heights.Length];
-
-            var maxHeight = 0;
-
-            var j = 0;
-            var k = 0;
-            while (j < heights.Length)
-            {
-                while (j < heights.Length && heights[j] == 0)
+                if (stack.Any() == false || heights[i] >= heights[stack.Peek()])
                 {
-                    j++;
+                    stack.Push(i);
                 }
-
-                // SS: find next peak
-                while (j <= heights.Length - 2 && heights[j] > 0 && heights[j] < heights[j + 1])
+                else
                 {
-                    j++;
-                }
-
-                if (j == heights.Length)
-                {
-                    break;
-                }
-
-                // SS: find left min
-                var left = j;
-                while (left > k && heights[left - 1] > 0 && heights[left - 1] < heights[left])
-                {
-                    left--;
-                }
-
-                var right = j;
-                while (right <= heights.Length - 2 && heights[right + 1] > 0 && heights[right + 1] < heights[right])
-                {
-                    right++;
-                }
-
-                // SS: analyze between left and right
-                var i1 = j;
-                var i2 = j;
-                var h = j;
-                while (true)
-                {
-                    var w = i2 - i1 + 1;
-                    var h2 = heights[h] + dp[h];
-                    var area = w * h2;
-                    maxHeight = Math.Max(maxHeight, area);
-
-                    if (i1 > left && i2 < right)
+                    while (stack.Any())
                     {
-                        if (heights[i1 - 1] >= heights[i2 + 1])
+                        var idx = stack.Pop();
+
+                        if (stack.Any() == false)
                         {
-                            h = i1 - 1;
-                            i1--;
+                            area = heights[idx] * i;
                         }
                         else
                         {
-                            h = i2 + 1;
-                            i2++;
+                            area = heights[idx] * (i - stack.Peek() - 1);
                         }
-                    }
-                    else if (i1 > left)
-                    {
-                        h = i1 - 1;
-                        i1--;
-                    }
-                    else if (i2 < right)
-                    {
-                        h = i2 + 1;
-                        i2++;
-                    }
-                    else
-                    {
-                        // extend to right
-                        if (right == heights.Length - 1)
+
+                        maxArea = Math.Max(maxArea, area);
+
+                        if (stack.Any() == false || heights[stack.Peek()] <= heights[i])
                         {
-                            return maxHeight;
+                            break;
                         }
-
-                        var p = right + 1;
-                        while (p < heights.Length && heights[p] - dp[p] > 0 && heights[p] >= heights[right])
-                        {
-                            p++;
-                        }
-
-                        w = p - left;
-                        h2 = heights[right] + dp[right];
-                        area = w * h2;
-                        maxHeight = Math.Max(maxHeight, area);
-
-                        h = heights[right];
-                        for (var i = right; i < p; i++)
-                        {
-                            dp[i] += h;
-                            heights[i] -= h;
-                        }
-
-                        // set k
-                        k = right + 1;
-                        j = k;
-                        break;
                     }
+
+                    stack.Push(i);
                 }
             }
 
-            return maxHeight;
+            while (stack.Any())
+            {
+                var idx = stack.Pop();
+
+                if (stack.Any() == false)
+                {
+                    area = heights[idx] * heights.Length;
+                }
+                else
+                {
+                    area = heights[idx] * (heights.Length - stack.Peek() - 1);
+                }
+
+                maxArea = Math.Max(maxArea, area);
+            }
+
+            return maxArea;
         }
 
         [TestFixture]
@@ -219,6 +167,19 @@ namespace Leetcode
 
                 // Assert
                 Assert.AreEqual(8, maxArea);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                int[] heights = {1, 2, 2};
+
+                // Act
+                var maxArea = new Solution().LargestRectangleArea(heights);
+
+                // Assert
+                Assert.AreEqual(4, maxArea);
             }
         }
     }

@@ -14,7 +14,8 @@ namespace Leetcode
     {
         public int NumTrees(int n)
         {
-            // SS: runtime performance: O(1 + 1 + 3 + 4 + ... + n) = O(N^2)
+            // SS: Divide & Conquer
+            // runtime performance: O(1 + 1 + 3 + 4 + ... + n) = O(N^2)
             // The idea is that for n = 4, we iterate over 1, 2, 3, 4 and for
             // each iteration, we have a sub problem on the left and right of
             // a size we have already solved, so we just lookup.
@@ -23,6 +24,11 @@ namespace Leetcode
             //    /   \         /   \        /   \        /   \
             //  P(0)  P(3)   P(1)   P(2)   P(2)  P(1)   P(3)  P(0)
             // etc.
+            // According to Larry, the numbers are the Catalan sequence, 
+            // https://www.youtube.com/watch?v=y0r847XC7Z4...
+            // Actually, this problem is described in Wikipedia as and
+            // example where the Catalan sequence occurs:
+            // https://en.wikipedia.org/wiki/Catalan_number
 
             if (n <= 2)
             {

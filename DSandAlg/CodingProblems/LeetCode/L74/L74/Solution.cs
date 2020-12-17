@@ -13,9 +13,9 @@ namespace LeetCode
     {
         public bool SearchMatrix(int[][] matrix, int target)
         {
-            // SS: find the row the number could be in, O(R), then
+            // SS: find the row the number could be in, O(log R), then
             // do binary search on the row, O(log C) for a total of
-            // O(R * log C)
+            // O(log R + log C)
 
             var nrows = matrix.Length;
             if (nrows == 0)
@@ -62,38 +62,35 @@ namespace LeetCode
             return false;
         }
 
-        private static int FindRow(int[][] matrix, in int target)
+        private static int FindRow(int[][] matrix, int target)
         {
-            // SS: O(R)
-
-            // SS: target too small?
-            if (matrix[0][0] > target)
-            {
-                return -1;
-            }
-
-            // SS: target too large?
-            if (matrix[^1][^1] < target)
-            {
-                return -1;
-            }
-
+            // SS: O(log R)
             var nrows = matrix.Length;
 
-            if (nrows == 1)
+            // SS: BS on the first column, O(log R)
+            var min = 0;
+            var max = nrows;
+            while (min < max)
             {
-                return 0;
-            }
+                var mid = min + (max - min) / 2;
+                var v = matrix[mid][0];
 
-            for (var i = 1; i < nrows; i++)
-            {
-                if (matrix[i - 1][0] <= target && matrix[i][0] > target)
+                if (v == target)
                 {
-                    return i - 1;
+                    return mid;
+                }
+
+                if (v < target)
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    max = mid;
                 }
             }
 
-            return nrows - 1;
+            return min == -1 ? -1 : min - 1;
         }
 
         [TestFixture]

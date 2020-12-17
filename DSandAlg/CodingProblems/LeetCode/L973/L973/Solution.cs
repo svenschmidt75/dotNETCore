@@ -7,8 +7,8 @@ using NUnit.Framework;
 
 #endregion
 
-// 973. K Closest Points to Origin
-// https://leetcode.com/problems/k-closest-points-to-origin/
+// Problem: 973. K Closest Points to Origin
+// Url: https://leetcode.com/problems/k-closest-points-to-origin/
 
 namespace L973
 {

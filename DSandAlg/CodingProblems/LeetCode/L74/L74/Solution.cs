@@ -15,7 +15,7 @@ namespace LeetCode
         {
             // SS: find the row the number could be in, O(log R), then
             // do binary search on the row, O(log C) for a total of
-            // O(log R + log C)
+            // O(log R + log C) = O(log (R * C))
 
             var nrows = matrix.Length;
             if (nrows == 0)

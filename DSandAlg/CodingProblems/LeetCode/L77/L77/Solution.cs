@@ -15,6 +15,12 @@ namespace LeetCode
     {
         public IList<IList<int>> Combine(int n, int k)
         {
+            // SS: runtime complexity: n_C_k, or
+            //                 n!
+            //   n_C_k = -----------
+            //            k!(n - k)!
+            // SS: memory complexity: O(n_C_k * k)
+            
             var combinations = new List<IList<int>>();
 
             if (n < k)

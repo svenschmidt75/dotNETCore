@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e8eb3e1-eb45-4077-b65b-ea55ae9ebd2d" name="Default Changelist" comment="" />
+    <list default="true" id="1e123cff-2b7a-4447-91e1-c8c5ce44c6a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L71/.idea/.idea.L71/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L71/.idea/.idea.L71/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +14,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L71/Solution.cs" />
+      <option value="$PROJECT_DIR$/L61/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1lpfhX5sGrFXbkYwjCZgXJNaxde" />
+  <component name="ProjectId" id="1lpk4P7P1Bm8ZUJNUF1Cf6HMDHf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -29,23 +31,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e8eb3e1-eb45-4077-b65b-ea55ae9ebd2d" name="Default Changelist" comment="" />
-      <created>1608299074096</created>
+      <changelist id="1e123cff-2b7a-4447-91e1-c8c5ce44c6a0" name="Default Changelist" comment="" />
+      <created>1608301227178</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608299074096</updated>
-      <workItem from="1608299077595" duration="2149000" />
+      <updated>1608301227178</updated>
+      <workItem from="1608301229294" duration="1768000" />
     </task>
     <servers />
   </component>

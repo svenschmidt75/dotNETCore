@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e123cff-2b7a-4447-91e1-c8c5ce44c6a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../L71/.idea/.idea.L71/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L71/.idea/.idea.L71/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1e123cff-2b7a-4447-91e1-c8c5ce44c6a0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,13 +40,14 @@
       <option name="presentableId" value="Default" />
       <updated>1608301227178</updated>
       <workItem from="1608301229294" duration="1768000" />
+      <workItem from="1608384359171" duration="47000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -60,6 +59,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

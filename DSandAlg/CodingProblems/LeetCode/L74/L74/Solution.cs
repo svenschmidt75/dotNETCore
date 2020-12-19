@@ -16,6 +16,10 @@ namespace LeetCode
             // SS: find the row the number could be in, O(log R), then
             // do binary search on the row, O(log C) for a total of
             // O(log R + log C) = O(log (R * C))
+            //
+            // If each item is larger than the item in the previous row
+            // as well, we can concatenate all rows and search for the
+            // element in a single 1D array, also at cost O(log (R * C))... 
 
             var nrows = matrix.Length;
             if (nrows == 0)

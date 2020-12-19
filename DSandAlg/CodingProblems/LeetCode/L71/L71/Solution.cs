@@ -30,6 +30,9 @@ namespace LeetCode
                 }
                 else if (path[i] == '.')
                 {
+                    // A folder that starts with . is hidden, so "..hidden"
+                    // is a hidden folder with name ".folder"..
+
                     var k = i;
                     while (k < path.Length && path[k] == '.')
                     {
@@ -62,7 +65,7 @@ namespace LeetCode
                 {
                     // SS: must be an folder name
                     var k = i;
-                    while (k < path.Length && path[k] != '.' && path[k] != '/')
+                    while (k < path.Length && path[k] != '/')
                     {
                         k++;
                     }
@@ -183,6 +186,7 @@ namespace LeetCode
             public void Test6()
             {
                 // Arrange
+                
                 var path = "/..hidden";
 
                 // Act
@@ -190,6 +194,20 @@ namespace LeetCode
 
                 // Assert
                 Assert.AreEqual("/..hidden", simplified);
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+                
+                var path = "/f1/f2.f3/../";
+
+                // Act
+                var simplified = new Solution().SimplifyPath(path);
+
+                // Assert
+                Assert.AreEqual("/f1", simplified);
             }
         }
     }

@@ -22,15 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6682b90d-cf91-459f-9934-be9b4147ae3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../L74/.idea/.idea.L74/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L74/.idea/.idea.L74/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L74/L74/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L74/L74/Solution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L973/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L973/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L973/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L973/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L973/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L973/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L973/L973.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/L973/L973.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L973/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L973/Solution.cs" afterDir="false" />
-    </list>
+    <list default="true" id="6682b90d-cf91-459f-9934-be9b4147ae3c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +60,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="140700c3-a6d9-4cb2-a811-53f91685b9d1">
+  <component name="RunManager" selected=".NET Project.L973">
     <configuration name="L973" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -98,6 +90,7 @@
       <updated>1594733612483</updated>
       <workItem from="1594733616336" duration="4923000" />
       <workItem from="1608245770257" duration="39000" />
+      <workItem from="1608389187145" duration="11000" />
     </task>
     <servers />
   </component>

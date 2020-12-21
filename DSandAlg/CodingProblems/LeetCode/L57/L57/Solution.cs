@@ -15,6 +15,68 @@ namespace LeetCode
     {
         public int[][] Insert(int[][] intervals, int[] newInterval)
         {
+            return InsertEventBased(intervals, newInterval);
+        }
+
+        private static int Compare((int a, int b) x, (int a, int b) y)
+        {
+            if (x.a != y.a)
+            {
+                return x.a.CompareTo(y.a);
+            }
+
+            // SS: is an interval starts where another ends, we return the opening part
+            // first, because we want to merge them later.
+            return (-x.b).CompareTo(-y.b);
+        }
+
+        public int[][] InsertEventBased(int[][] intervals, int[] newInterval)
+        {
+            // SS: event-based approach (generalizes easily to more than one interval to insert)
+            // We map the beginning of an interval to 1, the end to -1. After sorting, we generate
+            // the new intervals. Runtime complexity is O(N log N).
+            // Larry's solution, https://www.youtube.com/watch?v=C5gsLIBktwA
+
+            var events = new List<(int value, int offset)>();
+            foreach (var interval in intervals)
+            {
+                // SS: opening interval value is event +1
+                events.Add((interval[0], 1));
+
+                // SS: closing interval value is event -1
+                events.Add((interval[1], -1));
+            }
+
+            events.Add((newInterval[0], 1));
+            events.Add((newInterval[1], -1));
+
+            // SS: O(N log N)
+            events.Sort(Compare);
+
+            // SS: reconstruct the intervals
+            var results = new List<int[]>();
+            var v = 0;
+            var start = -1;
+
+            foreach (var item in events)
+            {
+                v += item.offset;
+
+                if (v == 1 && item.offset == 1)
+                {
+                    start = item.value;
+                }
+                else if (v == 0 && item.offset == -1)
+                {
+                    results.Add(new[] {start, item.value});
+                }
+            }
+
+            return results.ToArray();
+        }
+
+        public int[][] InsertLinear(int[][] intervals, int[] newInterval)
+        {
             // SS: runtime complexity: O(N)
             // space complexity: O(N)
 
@@ -45,14 +107,14 @@ namespace LeetCode
                 return results.ToArray();
             }
 
-            if (intervals[i][0] <= newInterval[1] && intervals[i][1] >= newInterval[1])
+            if (newInterval[1] < intervals[i][0])
             {
-                results.Add(new[] {a, intervals[i][1]});
-                i++;
+                results.Add(new[] {a, newInterval[1]});
             }
             else
             {
-                results.Add(new[] {a, newInterval[1]});
+                results.Add(new[] {a, intervals[i][1]});
+                i++;
             }
 
             while (i < intervals.Length)

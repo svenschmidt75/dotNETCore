@@ -35,7 +35,7 @@ namespace LeetCode
 
         private int MySqrt3(int x)
         {
-            // SS: runtime complexity: O(log x)
+            // SS:bisection, runtime complexity: O(log x)
             // space complexity: O(1)
             long min = 0;
             var max = (long) x + 1;

@@ -15,7 +15,7 @@ namespace LeetCode
     {
         public IList<string> FullJustify(string[] words, int maxWidth)
         {
-            // SS: runtime complexity: O(words.Length * maxWidth)
+            // SS: runtime complexity: O(words.Length)
             
             var results = new List<string>();
 
@@ -83,7 +83,7 @@ namespace LeetCode
             // SS: format words[i..j] on a line with maxWidth width
             var nWords = j - i;
             var spaces = new int[nWords];
-
+            
             var lineWidth = 0;
 
             for (var k = 0; k < nWords; k++)

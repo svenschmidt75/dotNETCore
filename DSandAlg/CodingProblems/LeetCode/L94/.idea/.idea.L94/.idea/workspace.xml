@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33f4451-0336-4a34-916e-edc1f8871652" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.L75/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L75/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/L75/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L75/Solution.cs" afterDir="false" />
+    <list default="true" id="e20efbf5-5f7a-4afd-baac-e22bd90fbeb7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L75/.idea/.idea.L75/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L75/.idea/.idea.L75/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L75/L75/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L75/L75/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +15,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L75/Solution.cs" />
+      <option value="$PROJECT_DIR$/L94/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1m1BuZ5gx3jDCSmDwZbGw6WIHrH" />
+  <component name="ProjectId" id="1m3eA6BvrJaxFDyVPD6J9fDQW12" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -32,31 +32,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a33f4451-0336-4a34-916e-edc1f8871652" name="Default Changelist" comment="" />
-      <created>1608651439424</created>
+      <changelist id="e20efbf5-5f7a-4afd-baac-e22bd90fbeb7" name="Default Changelist" comment="" />
+      <created>1608726557614</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608651439424</updated>
-      <workItem from="1608651440607" duration="2357000" />
-      <workItem from="1608653882163" duration="93000" />
+      <updated>1608726557614</updated>
+      <workItem from="1608726561471" duration="1577000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -68,7 +61,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

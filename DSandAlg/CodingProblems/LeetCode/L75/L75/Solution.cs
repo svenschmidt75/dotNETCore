@@ -17,6 +17,9 @@ namespace LeetCode
             // SS: The idea is to move 2's to the end and 0's to the beginning
             // using a 3-pointer sliding window.
             // runtime complexity: O(n)
+            // A clever solution counts the occurrence of each colors and overwrites
+            // the input array accordingly. But that would be a 2-pass solution, but
+            // the problem statement asks for a 1-pass solution...
 
             var i = 0;
             var j = 0;

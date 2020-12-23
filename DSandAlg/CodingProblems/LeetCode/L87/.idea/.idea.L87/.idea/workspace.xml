@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20efbf5-5f7a-4afd-baac-e22bd90fbeb7" name="Default Changelist" comment="" />
+    <list default="true" id="dd415c13-0433-4f93-9e61-95b1a58b187e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L94/.idea/.idea.L94/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L94/.idea/.idea.L94/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,12 +12,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/3F/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L94/Solution.cs" />
+      <option value="$PROJECT_DIR$/L87/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1m3eA6BvrJaxFDyVPD6J9fDQW12" />
+  <component name="ProjectId" id="1m3iDc8RP8um29mBPSqOVQflMiN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -40,12 +45,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e20efbf5-5f7a-4afd-baac-e22bd90fbeb7" name="Default Changelist" comment="" />
-      <created>1608726557614</created>
+      <changelist id="dd415c13-0433-4f93-9e61-95b1a58b187e" name="Default Changelist" comment="" />
+      <created>1608728556914</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608726557614</updated>
-      <workItem from="1608726561471" duration="1996000" />
+      <updated>1608728556914</updated>
+      <workItem from="1608728560146" duration="4428000" />
     </task>
     <servers />
   </component>

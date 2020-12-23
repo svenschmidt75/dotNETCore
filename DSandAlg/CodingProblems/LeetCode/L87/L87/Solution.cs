@@ -15,14 +15,9 @@ namespace LeetCode
         {
             bool Solve(string s, string suffix)
             {
-                if (s + suffix == s2)
+                if (s.Length == 1)
                 {
-                    return true;
-                }
-
-                if (s.Length <= 1)
-                {
-                    return false;
+                    return s + suffix == s2;
                 }
                 
                 for (var i = 1; i < s.Length; i++)

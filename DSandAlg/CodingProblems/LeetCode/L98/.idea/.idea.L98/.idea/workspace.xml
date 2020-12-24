@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f6c049-276f-4fbd-b594-2656372a460e" name="Default Changelist" comment="" />
+    <list default="true" id="dc08e523-f973-4726-98da-52dccc9aaa77" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../L63/.idea/.idea.L63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L63/.idea/.idea.L63/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,15 +12,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/L63/Solution.cs" />
+      <option value="$PROJECT_DIR$/L98/Solution.cs" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1m6gZWH4vXlOoD80mqZ6iQWMSUM" />
+  <component name="ProjectId" id="1m6ikF1nnJ2GrkuEoixOmQn1Ide" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -32,17 +31,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="45f6c049-276f-4fbd-b594-2656372a460e" name="Default Changelist" comment="" />
-      <created>1608819511050</created>
+      <changelist id="dc08e523-f973-4726-98da-52dccc9aaa77" name="Default Changelist" comment="" />
+      <created>1608820582838</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608819511050</updated>
-      <workItem from="1608819514156" duration="1069000" />
+      <updated>1608820582838</updated>
+      <workItem from="1608820585742" duration="2407000" />
     </task>
     <servers />
   </component>
@@ -64,24 +69,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/L63/Solution.cs</url>
-          <line>15</line>
-          <properties documentPath="$PROJECT_DIR$/L63/Solution.cs" initialLine="15" containingFunctionPresentation="method 'UniquePathsWithObstacles'">
-            <startOffsets>
-              <option value="274" />
-            </startOffsets>
-            <endOffsets>
-              <option value="306" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

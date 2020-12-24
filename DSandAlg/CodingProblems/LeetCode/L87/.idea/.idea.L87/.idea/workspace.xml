@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd415c13-0433-4f93-9e61-95b1a58b187e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L87/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L87/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/L87/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L87/Solution.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +15,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/3F/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/3D/String.Comparison.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -50,14 +53,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608728556914</updated>
-      <workItem from="1608728560146" duration="5019000" />
+      <workItem from="1608728560146" duration="8726000" />
+      <workItem from="1608737300762" duration="920000" />
+      <workItem from="1608738865631" duration="2875000" />
+      <workItem from="1608817388757" duration="2122000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -69,6 +75,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

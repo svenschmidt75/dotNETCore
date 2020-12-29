@@ -18,6 +18,46 @@ namespace LeetCode
                 return head;
             }
 
+            // SS: By introducing a sentinel node as the new head, we no longer
+            // have to treat the head of the list as a special case, since the
+            // old head is merely an internal node.
+            var sentinelNode = new ListNode {val = 0, next = head};
+
+            // SS: newHead is not a duplicate node
+            var prev = sentinelNode;
+            var current = prev.next;
+            while (true)
+            {
+                var last = FindLastWithSameValue(current);
+                if (last == null)
+                {
+                    prev.next = null;
+                    break;
+                }
+
+                if (last != current)
+                {
+                    current = last.next;
+                }
+                else
+                {
+                    // SS: not a duplicate node
+                    prev.next = current;
+                    prev = current;
+                    current = current.next;
+                }
+            }
+
+            return sentinelNode.next;
+        }
+
+        public ListNode DeleteDuplicates2(ListNode head)
+        {
+            if (head == null)
+            {
+                return head;
+            }
+
             // SS: skip duplicates at the beginning
             ListNode newHead = null;
             var current = head;

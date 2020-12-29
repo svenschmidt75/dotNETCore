@@ -21,63 +21,32 @@ namespace LeetCode
                 return result;
             }
 
-            List<TreeNode> Solve(HashSet<int> candidates)
+            List<TreeNode> Solve(int min, int max)
             {
                 var trees = new List<TreeNode>();
 
-                foreach (var value in candidates)
+                if (min > max)
                 {
-                    // SS: partition values < value for left subtree
-                    var leftCandidates = new HashSet<int>();
-                    foreach (var v2 in candidates)
+                    trees.Add(null);
+                    return trees;
+                }
+                
+                for (int i = min; i <= max; i++)
+                {
+                    var leftTrees = Solve(min, i - 1);
+                    var rightTrees = Solve(i + 1, max);
+
+                    foreach (var leftSubTree in leftTrees)
                     {
-                        if (v2 < value)
+                        foreach (var rightSubTree in rightTrees)
                         {
-                            leftCandidates.Add(v2);
-                        }
-                    }
-
-                    var leftTrees = Solve(leftCandidates);
-
-                    // SS: partition values > value for right subtree
-                    var rightCandidates = new HashSet<int>();
-                    foreach (var v2 in candidates)
-                    {
-                        if (v2 > value)
-                        {
-                            rightCandidates.Add(v2);
-                        }
-                    }
-
-                    var rightTrees = Solve(rightCandidates);
-
-                    // SS: create new trees
-                    var nLeft = leftTrees.Count;
-                    var nRight = rightTrees.Count;
-
-                    var nTrees = Math.Max(1, nLeft) * Math.Max(1, nRight);
-                    var lIdx = 0;
-                    var rIdx = 0;
-
-                    var treeCnt = 0;
-                    while (treeCnt < nTrees)
-                    {
-                        var leftSubTree = lIdx < leftTrees.Count ? leftTrees[lIdx] : null;
-                        var rightSubTree = rIdx < rightTrees.Count ? rightTrees[rIdx] : null;
-                        var newTree = new TreeNode
-                        {
-                            val = value
-                            , left = leftSubTree
-                            , right = rightSubTree
-                        };
-                        trees.Add(newTree);
-
-                        treeCnt++;
-                        lIdx++;
-                        if (lIdx >= leftTrees.Count)
-                        {
-                            lIdx = 0;
-                            rIdx++;
+                            var newTree = new TreeNode
+                            {
+                                val = i
+                                , left = leftSubTree
+                                , right = rightSubTree
+                            };
+                            trees.Add(newTree);
                         }
                     }
                 }
@@ -85,13 +54,7 @@ namespace LeetCode
                 return trees;
             }
 
-            var candidates = new HashSet<int>();
-            for (var i = 1; i <= n; i++)
-            {
-                candidates.Add(i);
-            }
-
-            return Solve(candidates);
+            return Solve(1, n);
         }
 
         public class TreeNode

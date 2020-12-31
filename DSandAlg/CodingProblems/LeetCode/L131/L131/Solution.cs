@@ -15,6 +15,8 @@ namespace LeetCode
         public IList<IList<string>> Partition(string s)
         {
             // SS: solve using backtracking
+            // runtime performance: O(s^2)
+
             var results = new List<IList<string>>();
 
             void Solve(int idx, IList<string> r)

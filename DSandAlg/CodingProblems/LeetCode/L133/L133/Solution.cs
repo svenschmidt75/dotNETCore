@@ -1,6 +1,7 @@
 #region
 
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -12,18 +13,75 @@ namespace LeetCode
 {
     public class Solution
     {
-        public Node CloneGraph(Node node)
+        public Node CloneGraphBFS(Node node)
         {
+            // SS: BF traversal with runtime complexity O(N)
+            // space complexity: O(N) 
             if (node == null)
             {
                 return null;
             }
 
-            var nodeList = new List<Node>();
+            var nodeMap = new Dictionary<Node, Node>
+            {
+                {node, new Node(node.val, new List<Node>(node.neighbors))}
+            };
+
+            var visited = new HashSet<int> {node.val};
+
+            var queue = new Queue<Node>();
+            queue.Enqueue(node);
+
+            while (queue.Any())
+            {
+                var n = queue.Dequeue();
+
+                var adjList = n.neighbors;
+                for (var i = 0; i < adjList.Count; i++)
+                {
+                    var neighbor = adjList[i];
+
+                    if (nodeMap.ContainsKey(neighbor) == false)
+                    {
+                        var clonedNode = new Node(neighbor.val, new List<Node>(neighbor.neighbors));
+                        nodeMap[neighbor] = clonedNode;
+                    }
+
+                    if (visited.Contains(neighbor.val))
+                    {
+                        nodeMap[n].neighbors[i] = nodeMap[neighbor];
+                        continue;
+                    }
+
+                    visited.Add(neighbor.val);
+
+                    nodeMap[n].neighbors[i] = nodeMap[neighbor];
+
+                    queue.Enqueue(neighbor);
+                }
+            }
+
+            return nodeMap[node];
+        }
+
+        public Node CloneGraphDFS(Node node)
+        {
+            // SS: DFS with runtime complexity O(N)
+            // space complexity: O(N) 
+            if (node == null)
+            {
+                return null;
+            }
+
             var visited = new HashSet<int>();
 
-            void DFS(Node node)
+            var nodeMap = new Dictionary<Node, Node>();
+
+            Node DFS(Node node)
             {
+                var clonedNode = new Node(node.val, new List<Node>(node.neighbors));
+                nodeMap[node] = clonedNode;
+
                 var adjList = node.neighbors;
                 for (var i = 0; i < adjList.Count; i++)
                 {
@@ -31,43 +89,25 @@ namespace LeetCode
 
                     if (visited.Contains(neighbor.val))
                     {
+                        clonedNode.neighbors[i] = nodeMap[neighbor];
                         continue;
                     }
 
                     visited.Add(neighbor.val);
-                    nodeList.Add(neighbor);
 
                     DFS(neighbor);
+
+                    clonedNode.neighbors[i] = nodeMap[neighbor];
                 }
+
+                return clonedNode;
             }
 
             visited.Add(node.val);
-            nodeList.Add(node);
-            DFS(node);
 
-            // SS: clone graph
+            var clonedNode = DFS(node);
 
-            var nodeHash = new Dictionary<Node, Node>();
-            for (var i = 0; i < nodeList.Count; i++)
-            {
-                var n = nodeList[i];
-                var deepCopy = new Node(n.val, new List<Node>(n.neighbors));
-                nodeHash[n] = deepCopy;
-            }
-
-            for (var i = 0; i < nodeList.Count; i++)
-            {
-                var n = nodeList[i];
-                var deepCopy = nodeHash[n];
-
-                for (var j = 0; j < n.neighbors.Count; j++)
-                {
-                    var neighbor = n.neighbors[j];
-                    deepCopy.neighbors[j] = nodeHash[neighbor];
-                }
-            }
-
-            return nodeHash[node];
+            return clonedNode;
         }
 
         public class Node

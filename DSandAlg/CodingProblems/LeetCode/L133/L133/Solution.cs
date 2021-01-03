@@ -13,10 +13,45 @@ namespace LeetCode
 {
     public class Solution
     {
+        public Node CloneGraphDFS2(Node node)
+        {
+            // SS: DF traversal with runtime complexity O(V + E)
+            // space complexity: O(V) 
+            // Larry's solution: https://www.youtube.com/watch?v=LqCqHbR80io&t=1s
+            if (node == null)
+            {
+                return null;
+            }
+
+            var nodeHash = new Dictionary<Node, Node>();
+
+            Node DFS(Node n)
+            {
+                if (nodeHash.ContainsKey(n))
+                {
+                    // SS: node already processed
+                    return nodeHash[n];
+                }
+
+                var clone = new Node(n.val, new List<Node>(n.neighbors));
+                nodeHash[n] = clone;
+
+                for (var i = 0; i < n.neighbors.Count; i++)
+                {
+                    var neighbor = n.neighbors[i];
+                    clone.neighbors[i] = DFS(neighbor);
+                }
+
+                return clone;
+            }
+
+            return DFS(node);
+        }
+
         public Node CloneGraphBFS(Node node)
         {
-            // SS: BF traversal with runtime complexity O(N)
-            // space complexity: O(N) 
+            // SS: BF traversal with runtime complexity O(V + E)
+            // space complexity: O(V) 
             if (node == null)
             {
                 return null;
@@ -66,8 +101,8 @@ namespace LeetCode
 
         public Node CloneGraphDFS(Node node)
         {
-            // SS: DFS with runtime complexity O(N)
-            // space complexity: O(N) 
+            // SS: DFS with runtime complexity O(V + E)
+            // space complexity: O(V) 
             if (node == null)
             {
                 return null;

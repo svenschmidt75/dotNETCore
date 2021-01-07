@@ -10,7 +10,8 @@
       <e p="L315" t="IncludeRecursive">
         <e p="L315.csproj" t="IncludeRecursive" />
         <e p="Solution.cs" t="Include" />
-        <e p="Solution2.cs" t="Include" />
+        <e p="SolutionFenwickTree.cs" t="Include" />
+        <e p="SolutionSegmentTree.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

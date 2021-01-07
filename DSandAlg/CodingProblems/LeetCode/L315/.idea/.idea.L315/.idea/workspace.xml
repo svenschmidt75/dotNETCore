@@ -23,7 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a51763c-586c-44f1-9dc5-bd69935475b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/L315/SolutionFenwickTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L315/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L315/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.L315/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L315/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/L315/Solution2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/L315/SolutionSegmentTree.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/L315/SolutionSegmentTree.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/L315/Solution2.cs" />
+      <option value="$PROJECT_DIR$/L315/SolutionSegmentTree.cs" />
+      <option value="$PROJECT_DIR$/L315/SolutionFenwickTree.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1ipDC8qnKF7YNVU32jOgIbkaRys" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -43,7 +57,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499867" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30002657" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -89,6 +103,9 @@
       <workItem from="1602719994015" duration="58000" />
       <workItem from="1603750593227" duration="619000" />
       <workItem from="1609716441395" duration="172000" />
+      <workItem from="1609769354795" duration="4966000" />
+      <workItem from="1609942497522" duration="4470000" />
+      <workItem from="1610025912023" duration="1517000" />
     </task>
     <servers />
   </component>

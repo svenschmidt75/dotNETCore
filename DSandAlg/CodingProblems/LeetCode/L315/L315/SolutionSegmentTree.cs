@@ -9,14 +9,14 @@ using NUnit.Framework;
 
 namespace L315
 {
-    public class Solution2
+    public class SolutionSegmentTree
     {
         /// <summary>
-        /// We build a segment tree. When inserting a number going up the tree, we increase
-        /// the root node index.
-        /// Runtime complexity is: O(N log N) for sorting. For each insert, we pay O(log N)
-        /// and we insert N items, so O(N log N) total runtime.
-        /// It is assumed the insertions happen in sorted order of the input values!
+        ///     We build a segment tree. When inserting a number going up the tree, we increase
+        ///     the root node index.
+        ///     Runtime complexity is: O(N log N) for sorting. For each insert, we pay O(log N)
+        ///     and we insert N items, so O(N log N) total runtime.
+        ///     It is assumed the insertions happen in sorted order of the input values!
         /// </summary>
         public IList<int> CountSmaller(int[] nums)
         {
@@ -217,7 +217,7 @@ namespace L315
                 int[] nums = {3, 7, 5, 2, 4, 1};
 
                 // Act
-                var result = new Solution2().CountSmaller(nums);
+                var result = new SolutionSegmentTree().CountSmaller(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 4, 3, 1, 1, 0}, result);
@@ -265,7 +265,7 @@ namespace L315
                 int[] nums = {3, 5, 7, 2, 4, 1};
 
                 // Act
-                var result = new Solution2().CountSmaller(nums);
+                var result = new SolutionSegmentTree().CountSmaller(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 3, 3, 1, 1, 0}, result);
@@ -336,7 +336,7 @@ namespace L315
                 int[] nums = {5, 2, 6, 1};
 
                 // Act
-                var result = new Solution2().CountSmaller(nums);
+                var result = new SolutionSegmentTree().CountSmaller(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 1, 1, 0}, result);
@@ -349,7 +349,7 @@ namespace L315
                 int[] nums = {2, 0, 1};
 
                 // Act
-                var result = new Solution2().CountSmaller(nums);
+                var result = new SolutionSegmentTree().CountSmaller(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {2, 0, 0}, result);

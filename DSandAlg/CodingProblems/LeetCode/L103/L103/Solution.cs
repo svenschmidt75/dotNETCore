@@ -15,6 +15,66 @@ namespace LeetCode
     {
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
+            // SS: Larry's solution using 2 queues
+            // https://www.youtube.com/watch?v=m3k1tpmaOYc
+
+            var results = new List<IList<int>>();
+
+            if (root == null)
+            {
+                return results;
+            }
+
+            var queue1 = new Queue<TreeNode>();
+            queue1.Enqueue(root);
+
+            var queue2 = new Queue<TreeNode>();
+
+            while (true)
+            {
+                results.Add(new List<int>());
+
+                while (queue1.Any())
+                {
+                    var node = queue1.Dequeue();
+
+                    results[^1].Add(node.val);
+
+                    if (node.left != null)
+                    {
+                        queue2.Enqueue(node.left);
+                    }
+
+                    if (node.right != null)
+                    {
+                        queue2.Enqueue(node.right);
+                    }
+                }
+
+                if (queue2.Any() == false)
+                {
+                    break;
+                }
+
+                queue1 = queue2;
+                queue2 = new Queue<TreeNode>();
+            }
+
+            // SS: reverse every other
+            for (var i = 1; i < results.Count; i += 2)
+            {
+                var l = (List<int>) results[i];
+                l.Reverse();
+            }
+
+            return results;
+        }
+
+        public IList<IList<int>> ZigzagLevelOrder2(TreeNode root)
+        {
+            // SS: runtime complexity: O(n)
+            // space complexity: O(n)
+
             var results = new List<IList<int>>();
 
             if (root == null)
@@ -31,7 +91,7 @@ namespace LeetCode
 
             while (queue.Any())
             {
-                (var node, var level) = queue.Dequeue();
+                var (node, level) = queue.Dequeue();
 
                 if (currentLevel < level)
                 {

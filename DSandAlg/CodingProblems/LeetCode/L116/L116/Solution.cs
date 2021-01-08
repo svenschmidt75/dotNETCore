@@ -15,7 +15,52 @@ namespace LeetCode
     {
         public Node Connect(Node root)
         {
-            return ConnectRecursive(root);
+            return ConnectConstantSpace(root);
+        }
+
+        private Node ConnectConstantSpace(Node root)
+        {
+            // SS: Larry's solution: https://www.youtube.com/watch?v=PPFvaY4IWoI
+            // runtime complexity: O(N)
+            // space complexity: O(1)
+
+            if (root == null)
+            {
+                return null;
+            }
+
+            var prev = root;
+
+            while (prev != null)
+            {
+                var startLevel = prev.left;
+                var current = startLevel;
+
+                if (current == null)
+                {
+                    break;
+                }
+
+                current.next = prev.right;
+                current = current.next;
+
+                prev = prev.next;
+
+                while (prev != null)
+                {
+                    current.next = prev.left;
+                    current = current.next;
+
+                    current.next = prev.right;
+                    current = current.next;
+
+                    prev = prev.next;
+                }
+
+                prev = startLevel;
+            }
+
+            return root;
         }
 
         private Node ConnectRecursive(Node root)
@@ -183,6 +228,83 @@ namespace LeetCode
                 Assert.AreSame(n.right.left.next, n.right.right);
                 Assert.IsNull(n.right.next);
                 Assert.IsNull(n.right.right.next);
+            }
+
+            [Test]
+            public void Test2()
+            {
+                // Arrange
+                Node root = new()
+                {
+                    val = -1
+                    , left = new()
+                    {
+                        val = 0
+                        , left = new()
+                        {
+                            val = 2
+                            , left = new()
+                            {
+                                val = 6
+                            }
+                            , right = new()
+                            {
+                                val = 7
+                            }
+                        }
+                        , right = new()
+                        {
+                            val = 3
+                            , left = new()
+                            {
+                                val = 8
+                            }
+                            , right = new()
+                            {
+                                val = 9
+                            }
+                        }
+                    }
+                    , right = new()
+                    {
+                        val = 1
+                        , left = new()
+                        {
+                            val = 4
+                            , left = new()
+                            {
+                                val = 10
+                            }
+                            , right = new()
+                            {
+                                val = 11
+                            }
+                        }
+                        , right = new()
+                        {
+                            val = 5
+                            , left = new()
+                            {
+                                val = 12
+                            }
+                            , right = new()
+                            {
+                                val = 13
+                            }
+                        }
+                    }
+                };
+
+                // Act
+                var n = new Solution().Connect(root);
+
+                // Assert
+                Assert.IsNull(n.next);
+                Assert.AreSame(n.left.next, n.right);
+                Assert.AreSame(n.left.left.next, n.left.right);
+                Assert.AreSame(n.left.right.next, n.right.left);
+                Assert.AreSame(n.right.left.next, n.right.right);
+                Assert.AreSame(n.left.right.right.next, n.right.left.left);
             }
         }
     }

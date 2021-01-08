@@ -15,6 +15,67 @@ namespace LeetCode
     {
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
+            // SS: Solution using 2 stacks
+
+            var results = new List<IList<int>>();
+
+            if (root == null)
+            {
+                return results;
+            }
+
+            var stack1 = new Stack<TreeNode>();
+            stack1.Push(root);
+
+            var stack2 = new Stack<TreeNode>();
+
+            while (true)
+            {
+                results.Add(new List<int>());
+
+                while (stack1.Any())
+                {
+                    var node = stack1.Pop();
+
+                    results[^1].Add(node.val);
+
+                    if (node.left != null)
+                    {
+                        stack2.Push(node.left);
+                    }
+
+                    if (node.right != null)
+                    {
+                        stack2.Push(node.right);
+                    }
+                }
+
+                if (stack2.Any() == false)
+                {
+                    break;
+                }
+
+                stack1 = new Stack<TreeNode>();
+                while (stack2.Any())
+                {
+                    stack1.Push(stack2.Pop());
+                }
+
+                stack2 = new Stack<TreeNode>();
+            }
+
+            // SS: reverse every other
+            for (var i = 1; i < results.Count; i += 2)
+            {
+                var l = (List<int>) results[i];
+                l.Reverse();
+            }
+
+            return results;
+        }
+
+        public IList<IList<int>> ZigzagLevelOrder3(TreeNode root)
+        {
             // SS: Larry's solution using 2 queues
             // https://www.youtube.com/watch?v=m3k1tpmaOYc
 

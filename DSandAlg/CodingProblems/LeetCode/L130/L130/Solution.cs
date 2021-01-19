@@ -17,7 +17,88 @@ namespace LeetCode
         {
             // SS: runtime complexity: O(R * C)
             // space complexity: O(R * C)
-            
+
+            var nrows = board.Length;
+            if (nrows == 0)
+            {
+                return;
+            }
+
+            var ncols = board[0].Length;
+            if (ncols == 0)
+            {
+                return;
+            }
+
+            var stack = new Stack<(int r, int c)>();
+
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = 0; j < ncols; j++)
+                {
+                    if ((i == 0 || i == nrows - 1 || j == 0 || j == ncols - 1) && board[i][j] == 'O')
+                    {
+                        // SS: mark all regions leading to a border
+                        stack.Push((i, j));
+                        DFS(stack, board, 'P');
+                    }
+                }
+            }
+
+            // SS: set all P to O and all V to X
+            for (var i = 0; i < nrows; i++)
+            {
+                for (var j = 0; j < ncols; j++)
+                {
+                    if (board[i][j] == 'P')
+                    {
+                        board[i][j] = 'O';
+                    }
+                    else if (board[i][j] == 'O')
+                    {
+                        board[i][j] = 'X';
+                    }
+                }
+            }
+        }
+
+        private void DFS(Stack<(int r, int c)> stack, char[][] board, char marker)
+        {
+            var nrows = board.Length;
+            var ncols = board[0].Length;
+
+            while (stack.Any())
+            {
+                var (r, c) = stack.Pop();
+                board[r][c] = marker;
+
+                if (r > 0 && board[r - 1][c] == 'O')
+                {
+                    stack.Push((r - 1, c));
+                }
+
+                if (r < nrows - 1 && board[r + 1][c] == 'O')
+                {
+                    stack.Push((r + 1, c));
+                }
+
+                if (c > 0 && board[r][c - 1] == 'O')
+                {
+                    stack.Push((r, c - 1));
+                }
+
+                if (c < ncols - 1 && board[r][c + 1] == 'O')
+                {
+                    stack.Push((r, c + 1));
+                }
+            }
+        }
+
+        public void Solve2(char[][] board)
+        {
+            // SS: runtime complexity: O(R * C)
+            // space complexity: O(R * C)
+
             var nrows = board.Length;
             if (nrows == 0)
             {

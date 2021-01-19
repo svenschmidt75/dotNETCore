@@ -40,7 +40,7 @@ namespace LeetCode
                     {
                         // SS: mark all regions leading to a border
                         stack.Push((i, j));
-                        DFS(stack, board, 'P');
+                        DFS(stack, board, 'V');
                     }
                 }
             }
@@ -50,7 +50,7 @@ namespace LeetCode
             {
                 for (var j = 0; j < ncols; j++)
                 {
-                    if (board[i][j] == 'P')
+                    if (board[i][j] == 'V')
                     {
                         board[i][j] = 'O';
                     }

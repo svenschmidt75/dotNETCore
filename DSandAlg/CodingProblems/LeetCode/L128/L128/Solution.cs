@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 #endregion
@@ -14,7 +15,62 @@ namespace LeetCode
     {
         public int LongestConsecutive(int[] nums)
         {
-            return LongestConsecutiveSlow(nums);
+//            return LongestConsecutiveSlow(nums);
+            return LongestConsecutiveFast(nums);
+        }
+
+        private int LongestConsecutiveFast(int[] nums)
+        {
+            // SS: runtime complexity: O(N)
+            // space complexity: O(N)
+            
+            if (nums.Length == 0)
+            {
+                return 0;
+            }
+
+            var toVisit = new HashSet<int>();
+            for (var i = 0; i < nums.Length; i++)
+            {
+                toVisit.Add(nums[i]);
+            }
+
+            var maxCount = 0;
+
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var v = nums[i];
+                if (toVisit.Contains(v) == false)
+                {
+                    continue;
+                }
+
+                toVisit.Remove(v);
+
+                var count = 1;
+
+                // SS: find all consecutive lower
+                var vnext = v - 1;
+                while (toVisit.Contains(vnext))
+                {
+                    toVisit.Remove(vnext);
+                    vnext--;
+                    count++;
+                }
+
+                // SS: find all consecutive larger
+                vnext = v + 1;
+                while (toVisit.Contains(vnext))
+                {
+                    toVisit.Remove(vnext);
+                    vnext++;
+                    count++;
+                }
+
+                maxCount = Math.Max(maxCount, count);
+            }
+
+            return maxCount;
         }
 
         private int LongestConsecutiveSlow(int[] nums)
@@ -101,6 +157,19 @@ namespace LeetCode
 
                 // Assert
                 Assert.AreEqual(7, longest);
+            }
+
+            [Test]
+            public void Test5()
+            {
+                // Arrange
+                int[] nums = {1, 2, 3, 0};
+
+                // Act
+                var longest = new Solution().LongestConsecutive(nums);
+
+                // Assert
+                Assert.AreEqual(4, longest);
             }
         }
     }

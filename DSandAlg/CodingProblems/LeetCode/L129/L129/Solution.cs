@@ -13,6 +13,9 @@ namespace LeetCode
     {
         public int SumNumbers(TreeNode root)
         {
+            // SS: runtime performance: O(V), i.e. DFS
+            // Space complexity: O(log N) on avg., due to recursion
+            
             if (root == null)
             {
                 return 0;

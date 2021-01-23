@@ -14,13 +14,18 @@ namespace LeetCode
     {
         public int MaxProfit(int[] prices)
         {
-            return MaxProfitDQ(prices);
+//            return MaxProfitDQ(prices);
+            return MaxProfitBottomUp(prices);
         }
 
         private int MaxProfitDQ(int[] prices)
         {
+            // SS: runtime complexity: O(2^N)
+            // space complexity: O(N), due to callstack
+            
             int Solve(int state, int idx)
             {
+                // SS: recursion base case
                 if (idx == prices.Length || state == 4)
                 {
                     return 0;
@@ -28,9 +33,9 @@ namespace LeetCode
 
                 var price = prices[idx];
 
-                if (state == 0)
+                if (state % 2 == 0)
                 {
-                    // SS: buy1 at price
+                    // SS: buy at price
                     var mp1 = -price + Solve(state + 1, idx + 1);
 
                     // SS: skip, do not buy at this price
@@ -38,10 +43,9 @@ namespace LeetCode
 
                     return Math.Max(mp1, mp2);
                 }
-
-                if (state == 1)
+                else
                 {
-                    // SS: sell1 at price
+                    // SS: sell at price
                     var mp1 = price + Solve(state + 1, idx + 1);
 
                     // SS: skip, do not sell at this price
@@ -49,34 +53,54 @@ namespace LeetCode
 
                     return Math.Max(mp1, mp2);
                 }
-
-                if (state == 2)
-                {
-                    // SS: buy2 at price
-                    var mp1 = -price + Solve(state + 1, idx + 1);
-
-                    // SS: skip, do not buy at this price
-                    var mp2 = Solve(state, idx + 1);
-
-                    return Math.Max(mp1, mp2);
-                }
-
-                if (state == 3)
-                {
-                    // SS: sell2 at price
-                    var mp1 = price + Solve(state + 1, idx + 1);
-
-                    // SS: skip, do not sell at this price
-                    var mp2 = Solve(state, idx + 1);
-
-                    return Math.Max(mp1, mp2);
-                }
-
-                throw new InvalidOperationException();
             }
 
             var maxProfit = Solve(0, 0);
             return maxProfit;
+        }
+
+        private int MaxProfitBottomUp(int[] prices)
+        {
+            // SS: runtime complexity: O(#t * N), #t: number of transactions,
+            // i.e. t = 4 (buy1, sell1, buy2, sell2)
+            // space complexity: O(N)
+            
+            int[] dpEvenState = new int[prices.Length + 1];
+            int[] dpOddState = new int[prices.Length + 1];
+
+            int[] currentRow = dpOddState;
+            int[] prevRow = dpEvenState;
+
+            int sign = 1;
+            
+            // SS: t for transactions
+            for (int t = 3; t >= 0; t--)
+            {
+                for (int idx = prices.Length - 1; idx >= 0; idx--)
+                {
+                    // SS: transitions
+                    var price = prices[idx];
+
+                    // SS: do transaction (buy or sell)
+                    var mp1 = sign * price + prevRow[idx + 1];
+
+                    // SS: skip, do not buy/sell at this price
+                    var mp2 = currentRow[idx + 1];
+
+                    int maxProfit = Math.Max(mp1, mp2);
+
+                    currentRow[idx] = maxProfit;
+                }
+
+                // SS: swap rows (i.e. even state to odd state and vice versa)
+                int[] tmp = currentRow;
+                currentRow = prevRow;
+                prevRow = tmp;
+
+                sign *= -1;
+            }
+
+            return dpEvenState[0];
         }
 
         [TestFixture]
@@ -133,6 +157,20 @@ namespace LeetCode
                 // Assert
                 Assert.AreEqual(0, maxProfit);
             }
+
+            [Test]
+            public void Test5()
+            {
+                // Arrange
+                int[] prices = new int[0];
+
+                // Act
+                var maxProfit = new Solution().MaxProfit(prices);
+
+                // Assert
+                Assert.AreEqual(0, maxProfit);
+            }
+            
         }
     }
 }

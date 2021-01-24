@@ -15,7 +15,7 @@ namespace LeetCode
     {
         public bool WordBreak(string s, IList<string> wordDict)
         {
-            return WordBreak3(s, wordDict);
+            return WordBreakBottomUp(s, wordDict);
         }
 
         private bool WordBreak1(string s, IList<string> wordDict)
@@ -152,9 +152,9 @@ namespace LeetCode
             return found;
         }
         
-        private bool WordBreak3(string s, IList<string> wordDict)
+        private bool WordBreakTopDown(string s, IList<string> wordDict)
         {
-            // SS: Using DP, top-down
+            // SS: Using DP
             // runtime complexity: O(N), each position is done once
             // space complexity: O(N)
             
@@ -204,7 +204,37 @@ namespace LeetCode
             return found;
         }
 
+        private bool WordBreakBottomUp(string s, IList<string> wordDict)
+        {
+            // SS: Using DP
+            // runtime complexity: O(wordDict * s)
+            // space complexity: O(s)
+            
+            var dp = new bool[s.Length + 1];
+            
+            // SS: If we get one past the last, we return true
+            dp[^1] = true;
 
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < wordDict.Count; j++)
+                {
+                    string word = wordDict[j];
+                    if (i + word.Length <= s.Length && s[i..(i + word.Length)] == word)
+                    {
+                        var wordBoundary = dp[i + word.Length];
+                        if (wordBoundary)
+                        {
+                            dp[i] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return dp[0];
+        }
+        
         [TestFixture]
         public class Tests
         {

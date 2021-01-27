@@ -15,8 +15,9 @@ namespace LeetCode
     {
         public int MinimumTotal(IList<IList<int>> triangle)
         {
-            return MinimumTotalBottomUpRightLeft(triangle);
+            // return MinimumTotalBottomUpRightLeft(triangle);
             // return MinimumTotalDivideConquer(triangle);
+            return MinimumTotalFast(triangle);
         }
 
         private int MinimumTotalDivideConquer(IList<IList<int>> triangle)
@@ -27,7 +28,7 @@ namespace LeetCode
                 {
                     return 0;
                 }
-                
+
                 // SS: at each position, there are two ways to consider, (pos, pos + 1)
                 // hence O(2^N)
 
@@ -49,7 +50,7 @@ namespace LeetCode
         {
             // SS: runtime performance: O(N^2), N = #triangle levels
             // space complexity: O(N)
-            
+
             var dp1 = new int[triangle[^1].Count];
             var dp2 = new int[triangle[^1].Count];
 
@@ -84,6 +85,22 @@ namespace LeetCode
             }
 
             return dp2[0];
+        }
+
+        private int MinimumTotalFast(IList<IList<int>> triangle)
+        {
+            // SS: runtime complexity: O(#triangle^2)
+            // space complexity: O(1)
+
+            for (var i = triangle.Count - 2; i >= 0; i--)
+            {
+                for (var pos = 0; pos < triangle[i].Count; pos++)
+                {
+                    triangle[i][pos] = triangle[i][pos] + Math.Min(triangle[i + 1][pos], triangle[i + 1][pos + 1]);
+                }
+            }
+
+            return triangle[0][0];
         }
 
         [TestFixture]

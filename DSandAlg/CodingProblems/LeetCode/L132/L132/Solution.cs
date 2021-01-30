@@ -73,7 +73,7 @@ namespace LeetCode
         private int MinCutBottomUp(string s)
         {
             // SS: bottom-up DP, runtime complexity: O(s^3)
-            // space complexity: O(1)
+            // space complexity: O(s)
 
             var dp1 = new int[s.Length + 1];
             var dp2 = new int[s.Length + 1];

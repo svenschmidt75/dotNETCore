@@ -112,13 +112,13 @@ namespace LeetCode
             // SS: BFS at O(V + E)
             // Creating the graph: O(V^2 * len(beginWord))
             // total runtime complexity: O(V^2 * len(beginWord))
-            
+
             if (wordList.IndexOf(endWord) == -1)
             {
                 return new List<IList<string>>();
             }
 
-            var g = CreateGraph(beginWord, wordList);
+            var g = CreateGraphFast(beginWord, wordList);
 
             // SS: do BFS on graph
             var q = new Queue<int>();
@@ -216,6 +216,64 @@ namespace LeetCode
 
             Reconstruct(endWordIdx + 1, new List<string>());
             return strResults;
+        }
+
+        private static Graph CreateGraphFast(string beginWord, IList<string> wordList)
+        {
+            var g = new Graph();
+
+            // SS: add begin word to word list
+            var words = new List<string> {beginWord};
+            words.AddRange(wordList);
+
+            var hashCode = new Dictionary<int, IList<int>>();
+            for (var i = 0; i < words.Count; i++)
+            {
+                g.AddVertex(i);
+
+                var word = words[i];
+                for (var j = 0; j < word.Length; j++)
+                {
+                    var n = 0;
+                    var fac = 1;
+                    for (var k = 0; k < word.Length; k++)
+                    {
+                        // SS: shift "digit" to left
+                        if (k != j)
+                        {
+                            var c = word[k];
+                            n += (c - 'a' + 1) * fac;
+                        }
+
+                        fac *= 27;
+                    }
+
+                    if (hashCode.TryGetValue(n, out var wordIndices) == false)
+                    {
+                        wordIndices = new List<int>();
+                        hashCode[n] = wordIndices;
+                    }
+
+                    wordIndices.Add(i);
+                }
+            }
+
+            // SS: add edges from start vertex
+            foreach (var vertices in hashCode.Values)
+            {
+                for (var i = 0; i < vertices.Count; i++)
+                {
+                    var v1 = vertices[i];
+
+                    for (var j = i + 1; j < vertices.Count; j++)
+                    {
+                        var v2 = vertices[j];
+                        g.AddUndirectedEdge(v1, v2);
+                    }
+                }
+            }
+
+            return g;
         }
 
         private static Graph CreateGraph(string beginWord, IList<string> wordList)

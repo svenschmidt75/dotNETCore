@@ -226,6 +226,7 @@ namespace LeetCode
             var words = new List<string> {beginWord};
             words.AddRange(wordList);
 
+            // SS: runtime complexity: O(#words * len(word)^2)
             var hashCode = new Dictionary<int, IList<int>>();
             for (var i = 0; i < words.Count; i++)
             {
@@ -259,6 +260,7 @@ namespace LeetCode
             }
 
             // SS: add edges from start vertex
+            // SS: runtime complexity: O(#words^2)
             foreach (var vertices in hashCode.Values)
             {
                 for (var i = 0; i < vertices.Count; i++)

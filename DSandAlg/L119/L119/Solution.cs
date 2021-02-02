@@ -16,6 +16,10 @@ namespace LeetCode
         {
             // SS: DP, bottom-up
             // SS: runtime complexity: O(rowIndex^2)
+            // The recurrence relation is:
+            // f(i, j) = f(i - 1, j - 1) + f(i - 1, j)
+            // f(i, 0) = f(i, max) = 1
+            
             var row1 = new int[rowIndex + 1];
             row1[0] = 1;
 

@@ -18,7 +18,70 @@ namespace LeetCode
         {
 //            return MaxProfitDQ(prices);
 //            return MaxProfitBottomUp(prices);
-            return MaxProfitStack(prices);
+//            return MaxProfitStack(prices);
+//            return MaxProfitSimple(prices);
+            return MaxProfitTrivial(prices);
+        }
+
+        private int MaxProfitTrivial(int[] prices)
+        {
+            // SS: runtime complexity: O(N)
+            // space complexity: O(1)
+
+            var maxProfit = 0;
+
+            for (var i = 1; i < prices.Length; i++)
+            {
+                if (prices[i - 1] < prices[i])
+                {
+                    maxProfit += prices[i] - prices[i - 1];
+                }
+            }
+
+            return maxProfit;
+        }
+
+        private int MaxProfitSimple(int[] prices)
+        {
+            // SS: runtime complexity: O(N)
+            // space complexity: O(1)
+
+            var maxProfit = 0;
+
+            var i = 0;
+
+            while (i < prices.Length)
+            {
+                // SS: find low price
+                var lowPrice = prices[i];
+                var j = i + 1;
+                while (j < prices.Length && prices[j] < lowPrice)
+                {
+                    lowPrice = prices[j];
+                    j++;
+                }
+
+                if (j == prices.Length)
+                {
+                    break;
+                }
+
+                // SS: find high price
+                var highPrice = prices[j];
+                var k = j + 1;
+                while (k < prices.Length && prices[k] > highPrice)
+                {
+                    highPrice = prices[k];
+                    k++;
+                }
+
+                var profit = highPrice - lowPrice;
+                maxProfit += profit;
+
+                i = k;
+            }
+
+            return maxProfit;
         }
 
         private int MaxProfitStack(int[] prices)

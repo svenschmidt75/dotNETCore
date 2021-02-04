@@ -1,6 +1,7 @@
 #region
 
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -14,7 +15,75 @@ namespace LeetCode
     {
         public IList<string> WordBreak(string s, IList<string> wordDict)
         {
-            return WordBreakDFS(s, wordDict);
+            // return WordBreakDFS(s, wordDict);
+            return WordBreak2(s, wordDict);
+        }
+
+        public IList<string> WordBreak2(string s, IList<string> wordDict)
+        {
+            // SS: Larry's solution, https://www.youtube.com/watch?v=JJ574R_w5ro
+
+            // SS: the indices into s are the vertices
+            var graph = new Dictionary<int, IList<int>>();
+            for (var i = 0; i <= s.Length; i++)
+            {
+                graph[i] = new List<int>();
+            }
+
+            // SS: add edges
+            for (var i = 0; i < wordDict.Count; i++)
+            {
+                var word = wordDict[i];
+
+                for (var j = 0; j < s.Length; j++)
+                {
+                    if (j + word.Length <= s.Length && s[j..(j + word.Length)] == word)
+                    {
+                        // SS: add edge, in reverse direction
+                        graph[j + word.Length].Add(j);
+                    }
+                }
+            }
+
+            // SS: check whether we can reach the last index
+            var reachable = new int[s.Length + 1];
+            reachable[0] = 1;
+            for (var i = 0; i <= s.Length; i++)
+            {
+                foreach (var previousVertex in graph[i])
+                {
+                    reachable[i] |= reachable[previousVertex];
+                }
+            }
+
+            if (reachable[^1] == 0)
+            {
+                // SS: the last vertex cannot be reached
+                return new List<string>();
+            }
+
+            // SS: keep track of the sentences at each vertex
+            var sentences = new List<string>[s.Length + 1];
+            for (var i = 0; i <= s.Length; i++)
+            {
+                sentences[i] = new List<string>();
+            }
+
+            sentences[0].Add("");
+
+            // SS: for each vertex, check all edges and add their sentences
+            for (var i = 0; i <= s.Length; i++)
+            {
+                foreach (var previousIndex in graph[i])
+                {
+                    foreach (var sentence in sentences[previousIndex])
+                    {
+                        sentences[i].Add(sentence + " " + s[previousIndex..i]);
+                    }
+                }
+            }
+
+            return sentences[^1].Select(x => x.TrimStart()).ToList();
         }
 
         public IList<string> WordBreakDFS(string s, IList<string> wordDict)
@@ -188,6 +257,20 @@ namespace LeetCode
 
                 // Assert
                 Assert.AreEqual(0, result);
+            }
+
+            [Test]
+            public void Test5()
+            {
+                // Arrange
+                var s = "aaaaaaa";
+                string[] wordDict = {"aaaa", "aaa"};
+
+                // Act
+                var result = new Solution().WordBreak(s, wordDict);
+
+                // Assert
+                CollectionAssert.AreEquivalent(new[] {"aaaa aaa", "aaa aaaa"}, result);
             }
         }
     }

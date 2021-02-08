@@ -77,6 +77,9 @@ namespace LeetCode
 
         private int MaxProductBottomUp(int[] nums)
         {
+            // SS: bottom-up, runtime complexity: O(n)
+            // space complexity: O(n), but can be reduced to O(1)
+            
             var dp1 = new int[nums.Length + 1];
             var dp2 = new int[nums.Length + 1];
 

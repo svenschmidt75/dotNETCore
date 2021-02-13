@@ -19,6 +19,30 @@ namespace TournementTree
             Build(data);
         }
 
+        public static (int min1, int min2) FindMinimumLinear(int[] data)
+        {
+            // SS: find min1 and min2 using a single pass through data
+            var min1 = int.MaxValue;
+            var min2 = min1;
+
+            for (var i = 0; i < data.Length; i++)
+            {
+                var v = data[i];
+
+                if (v < min1)
+                {
+                    min2 = min1;
+                    min1 = v;
+                }
+                else if (v < min2)
+                {
+                    min2 = v;
+                }
+            }
+
+            return (min1, min2);
+        }
+
         public (int min1, int min2) FindMinimum()
         {
             // SS: runtime complexity: O(log n) since tree is height-balanced
@@ -69,7 +93,7 @@ namespace TournementTree
             // SS: fill-in the leaf nodes
             // runtime complexity: O(n) to fill in leaf nodes + log n
             // levels, with a total of n comparisons, so total O(2n)
-            
+
             int DFS(int minIdx, int maxIdx, int nodeIndex)
             {
                 // SS: post-order traversal
@@ -97,14 +121,14 @@ namespace TournementTree
         public class Tests
         {
             [Test]
-            public void Test1()
+            public void Test11()
             {
                 // Arrange
                 int[] data = {1, 2, 3, 4, 5, 6, 7};
                 var tree = new MinTournamentTree(data);
 
                 // Act
-                (var min1, var min2) = tree.FindMinimum();
+                var (min1, min2) = tree.FindMinimum();
 
                 // Assert
                 Assert.AreEqual(1, min1);
@@ -112,14 +136,42 @@ namespace TournementTree
             }
 
             [Test]
-            public void Test2()
+            public void Test12()
+            {
+                // Arrange
+                int[] data = {1, 2, 3, 4, 5, 6, 7};
+
+                // Act
+                var (min1, min2) = FindMinimumLinear(data);
+
+                // Assert
+                Assert.AreEqual(1, min1);
+                Assert.AreEqual(2, min2);
+            }
+
+            [Test]
+            public void Test21()
             {
                 // Arrange
                 int[] data = {61, 6, 100, 9, 10, 12, 17};
                 var tree = new MinTournamentTree(data);
 
                 // Act
-                (var min1, var min2) = tree.FindMinimum();
+                var (min1, min2) = tree.FindMinimum();
+
+                // Assert
+                Assert.AreEqual(6, min1);
+                Assert.AreEqual(9, min2);
+            }
+
+            [Test]
+            public void Test22()
+            {
+                // Arrange
+                int[] data = {61, 6, 100, 9, 10, 12, 17};
+
+                // Act
+                var (min1, min2) = FindMinimumLinear(data);
 
                 // Assert
                 Assert.AreEqual(6, min1);

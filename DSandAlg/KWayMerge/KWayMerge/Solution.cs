@@ -9,7 +9,109 @@ namespace LeetCode
 {
     public class TournamentTree
     {
-        public static int[] KWayMerge(int[][] nums)
+        private readonly int _k;
+        private readonly int[][] _nums;
+        private readonly (int kIdx, int idx, int leafNodeIndex)[] _tournamentTree;
+
+        public TournamentTree(int[][] nums)
+        {
+            _nums = nums;
+
+            _k = nums.Length;
+            var treeSize = 1 << ((int) Math.Ceiling(Math.Log2(_k)) + 1);
+            _tournamentTree = new (int, int, int)[treeSize];
+
+            Initialize(0, _k - 1, 0);
+        }
+
+        private void Initialize(int min, int max, int nodeIndex)
+        {
+            // SS: base case is leaf node
+            if (min == max)
+            {
+                // SS: initialize with kth array and 1st element
+                _tournamentTree[nodeIndex] = (min, 0, nodeIndex);
+                return;
+            }
+
+            var leftIndex = 2 * nodeIndex + 1;
+            var rightIndex = leftIndex + 1;
+
+            var mid = (min + max) / 2;
+            Initialize(min, mid, leftIndex);
+            Initialize(mid + 1, max, rightIndex);
+
+            // SS: propagate the smaller children to this level
+            var lv = _tournamentTree[leftIndex];
+            var rv = _tournamentTree[rightIndex];
+
+            if (_nums[lv.kIdx][lv.idx] <= _nums[rv.kIdx][rv.idx])
+            {
+                _tournamentTree[nodeIndex] = lv;
+            }
+            else
+            {
+                _tournamentTree[nodeIndex] = rv;
+            }
+        }
+
+        private void Next()
+        {
+            // SS: runtime complexity: O(log k)
+
+            // SS: advance to next index in array
+            var root = _tournamentTree[0];
+            if (_tournamentTree[root.leafNodeIndex].idx == _nums[root.kIdx].Length - 1)
+            {
+                _tournamentTree[root.leafNodeIndex] = (-1, -1, root.leafNodeIndex);
+            }
+            else
+            {
+                _tournamentTree[root.leafNodeIndex].idx++;
+            }
+
+            // SS: propagate the tournament winner up
+            var parentNode = (root.leafNodeIndex - 1) / 2;
+            while (true)
+            {
+                // SS: propagate the smaller children to this level
+                var lv = _tournamentTree[2 * parentNode + 1];
+                var rv = _tournamentTree[2 * parentNode + 2];
+
+                if (lv.kIdx == -1 && rv.kIdx >= 0)
+                {
+                    _tournamentTree[parentNode] = rv;
+                }
+                else if (lv.kIdx >= 0 && rv.kIdx == -1)
+                {
+                    _tournamentTree[parentNode] = lv;
+                }
+                else if (lv.kIdx == -1 && rv.kIdx == -1)
+                {
+                    _tournamentTree[parentNode] = lv;
+                }
+                else if (lv.kIdx >= 0 && rv.kIdx >= 0)
+                {
+                    if (_nums[lv.kIdx][lv.idx] <= _nums[rv.kIdx][rv.idx])
+                    {
+                        _tournamentTree[parentNode] = lv;
+                    }
+                    else
+                    {
+                        _tournamentTree[parentNode] = rv;
+                    }
+                }
+
+                if (parentNode == 0)
+                {
+                    break;
+                }
+
+                parentNode = (parentNode - 1) / 2;
+            }
+        }
+
+        public int[] KWayMerge(int[][] nums)
         {
             if (nums.Length == 0)
             {
@@ -27,52 +129,13 @@ namespace LeetCode
                 n += nums[i].Length;
             }
 
-            var k = nums.Length;
-
             var merged = new int[n];
-
-            // SS: k-way merge using tournament trees
-            var treeSize = 1 << ((int) Math.Ceiling(Math.Log2(k)) + 1);
-            (int kIdx, int idx)[] tournamentTree = new (int, int)[treeSize];
-
-            void InitializeTournamentTree(int min, int max, int nodeIndex)
-            {
-                // SS: base case is leaf node
-                if (min == max)
-                {
-                    // SS: initialize with kth array and 1st element
-                    tournamentTree[nodeIndex] = (min, 0);
-                    return;
-                }
-
-                var leftIndex = 2 * nodeIndex + 1;
-                var rightIndex = leftIndex + 1;
-
-                var mid = (min + max) / 2;
-                InitializeTournamentTree(min, mid, leftIndex);
-                InitializeTournamentTree(mid + 1, max, rightIndex);
-
-                // SS: propagate the smaller children to this level
-                var lv = tournamentTree[leftIndex];
-                var rv = tournamentTree[rightIndex];
-
-                if (nums[lv.kIdx][lv.idx] <= nums[rv.kIdx][rv.idx])
-                {
-                    tournamentTree[nodeIndex] = lv;
-                }
-                else
-                {
-                    tournamentTree[nodeIndex] = rv;
-                }
-            }
-
-            InitializeTournamentTree(0, k - 1, 0);
 
             // SS: merge
             var c = 0;
             while (true)
             {
-                var root = tournamentTree[0];
+                var root = _tournamentTree[0];
                 if (root.kIdx == -1)
                 {
                     break;
@@ -80,71 +143,7 @@ namespace LeetCode
 
                 merged[c++] = nums[root.kIdx][root.idx];
 
-                // SS: replace branch with winner
-                void Next(int min, int max, int nodeIndex)
-                {
-                    // SS: base case
-                    if (min == max)
-                    {
-                        // SS: leaf node
-                        var node = tournamentTree[nodeIndex];
-
-                        if (node.idx == nums[node.kIdx].Length - 1)
-                        {
-                            tournamentTree[nodeIndex] = (-1, -1);
-                        }
-                        else
-                        {
-                            tournamentTree[nodeIndex] = (node.kIdx, node.idx + 1);
-                        }
-                    }
-                    else
-                    {
-                        // SS: inner node
-                        var leftIndex = 2 * nodeIndex + 1;
-                        var rightIndex = leftIndex + 1;
-
-                        var mid = (min + max) / 2;
-                        if (tournamentTree[leftIndex] == root)
-                        {
-                            Next(min, mid, leftIndex);
-                        }
-                        else
-                        {
-                            Next(mid + 1, max, rightIndex);
-                        }
-
-                        // SS: propagate the smaller children to this level
-                        var lv = tournamentTree[leftIndex];
-                        var rv = tournamentTree[rightIndex];
-
-                        if (lv.kIdx == -1 && rv.kIdx >= 0)
-                        {
-                            tournamentTree[nodeIndex] = rv;
-                        }
-                        else if (lv.kIdx >= 0 && rv.kIdx == -1)
-                        {
-                            tournamentTree[nodeIndex] = lv;
-                        }
-                        else if (lv.kIdx == -1 && rv.kIdx == -1)
-                        {
-                            tournamentTree[nodeIndex] = lv;
-                        }
-                        else if (lv.kIdx >= 0 && rv.kIdx >= 0)
-                        {
-                            if (nums[lv.kIdx][lv.idx] <= nums[rv.kIdx][rv.idx])
-                            {
-                                tournamentTree[nodeIndex] = lv;
-                            }
-                            else
-                            {
-                                tournamentTree[nodeIndex] = rv;
-                            }
-                        }
-                    }
-                }
-
-                Next(0, k - 1, 0);
+                Next();
             }
 
             return merged;
@@ -163,7 +162,7 @@ namespace LeetCode
                 int[][] nums = {nums1, nums2};
 
                 // Act
-                var merged = new Solution().KWayMerge(nums);
+                var merged = new TournamentTree(nums).KWayMerge(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {1, 2, 3, 4, 5, 7}, merged);
@@ -182,7 +181,7 @@ namespace LeetCode
                 int[][] nums = {nums1, nums2, nums3, nums4, nums5, nums6};
 
                 // Act
-                var merged = new Solution().KWayMerge(nums);
+                var merged = new TournamentTree(nums).KWayMerge(nums);
 
                 // Assert
                 CollectionAssert.AreEqual(new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}, merged);

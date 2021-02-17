@@ -1,6 +1,9 @@
-using System;
+#region
+
 using System.Collections.Generic;
 using NUnit.Framework;
+
+#endregion
 
 // Problem: 166. Fraction to Recurring Decimal
 // URL: https://leetcode.com/problems/fraction-to-recurring-decimal/
@@ -11,20 +14,16 @@ namespace LeetCode
     {
         public string FractionToDecimal(int numerator, int denominator)
         {
-            string result = "";
+            // SS: runtime complexity:
+            // space complexity:
+            
+            var result = "";
 
-            int num = numerator;
-            int den = denominator;
-            if (numerator / denominator < 0)
-            {
-                num = num < 0 ? -num : num;
-                den = den < 0 ? -den : den;
-            }
+            // SS: remove sign
+            long num = numerator < 0 ? -(long)numerator : numerator;
+            long den = denominator < 0 ? -(long)denominator : denominator;
 
-            var digits = new List<byte>();
-
-            // SS: deal with the integer part here
-            if (numerator / denominator < 0)
+            if ((float)numerator / denominator < 0)
             {
                 result += "-";
             }
@@ -39,25 +38,26 @@ namespace LeetCode
                 result += "1";
                 return result;
             }
-                        
-            if (num / den < 1)
+
+            if ((float)num / den < 1)
             {
                 result += "0.";
             }
             else
             {
-                int d = num / den;
-                int rem = num - d * den;
+                // SS: integer part
+                var d = num / den;
+                var rem = num - d * den;
 
                 var di = new List<char>();
                 while (d > 0)
                 {
-                    char c = (char) ('0' + (d % 10));
+                    var c = (char) ('0' + d % 10);
                     di.Add(c);
                     d /= 10;
                 }
 
-                for (int j = di.Count - 1; j >= 0; j--)
+                for (var j = di.Count - 1; j >= 0; j--)
                 {
                     result += di[j];
                 }
@@ -70,67 +70,63 @@ namespace LeetCode
                 num = rem;
                 result += ".";
             }
-            
-            int fac = 1;
+
+            var fac = 1;
             if (num / den < 1)
             {
                 fac = 10;
             }
-            
-            int i = 0;
 
-            var map = new Dictionary<int, int>();
-            
+            var i = 0;
+
+            var map = new Dictionary<long, int>();
+
+            var digits = new List<byte>();
+
             while (num > 0 && i < 10000)
             {
-                byte d = (byte)((num * fac) / den);
+                // SS: shift digits by fac/10 places to left
+                long r = num * fac;
 
-//                Console.Write(d);
+                // SS: extract digit
+                byte d = (byte) (r / den);
 
-                if (d > 0)
+                // SS: remainder
+                num = r % den;
+
+                if (map.TryGetValue(r, out var idx))
                 {
-                    var r = num * fac;
-                    num = num * fac - d * den;
-                    
-//                    Console.WriteLine($"idx: {i}: {num}");
+                    // SS: we found the repeating part
 
-                    if (map.TryGetValue(r, out int idx))
+                    // SS: non-repeating fraction
+                    for (var j = 0; j < idx; j++)
                     {
-                        // SS: we found the repeating part
-
-                        // SS: non-repeating fraction
-                        for (int j = 0; j < idx; j++)
-                        {
-                            byte d2 = digits[j];
-                            char c = (char)('0' + d2);
-                            result += c;
-                        }
-
-                        // SS: repeating fraction
-                        result += "(";
-                        for (int j = idx; j < digits.Count; j++)
-                        {
-                            byte d2 = digits[j];
-                            char c = (char)('0' + d2);
-                            result += c;
-                        }
-                        result += ")";
-
-                        break;
+                        var d2 = digits[j];
+                        var c = (char) ('0' + d2);
+                        result += c;
                     }
 
-                    // SS: remember this "remainder" for detecting the
-                    // repeating fractional part
-                    map[r] = i;
+                    // SS: repeating fraction
+                    result += "(";
+                    for (var j = idx; j < digits.Count; j++)
+                    {
+                        var d2 = digits[j];
+                        var c = (char) ('0' + d2);
+                        result += c;
+                    }
+
+                    result += ")";
+
+                    return result;
                 }
+
+                // SS: remember this "remainder" for detecting the
+                // repeating fractional part
+                map[r] = i;
 
                 digits.Add(d);
 
-                if (d == 0)
-                {
-                    fac *= 10;
-                }
-                else
+                if (d > 0)
                 {
                     fac = 10;
                 }
@@ -139,10 +135,16 @@ namespace LeetCode
             }
 
             // SS: deal with no repeating fractions
-            
+            for (var j = 0; j < digits.Count; j++)
+            {
+                var d2 = digits[j];
+                var c = (char) ('0' + d2);
+                result += c;
+            }
+
             return result;
         }
-    
+
         [TestFixture]
         public class Tests
         {
@@ -150,39 +152,39 @@ namespace LeetCode
             public void Test1()
             {
                 // Arrange
-                int numerator = 15;
-                int denominator = 188;
+                var numerator = 15;
+                var denominator = 188;
 
                 // Act
-                string result = new Solution().FractionToDecimal(numerator, denominator);
+                var result = new Solution().FractionToDecimal(numerator, denominator);
 
                 // Assert
                 Assert.AreEqual("0.07(9787234042553191489361702127659574468085106382)", result);
             }
-            
+
             [Test]
             public void Test2()
             {
                 // Arrange
-                int numerator = 17;
-                int denominator = 19;
+                var numerator = 17;
+                var denominator = 19;
 
                 // Act
-                string result = new Solution().FractionToDecimal(numerator, denominator);
+                var result = new Solution().FractionToDecimal(numerator, denominator);
 
                 // Assert
                 Assert.AreEqual("0.(894736842105263157)", result);
             }
-            
+
             [Test]
             public void Test3()
             {
                 // Arrange
-                int numerator = 17;
-                int denominator = 19;
+                var numerator = 17;
+                var denominator = 19;
 
                 // Act
-                string result = new Solution().FractionToDecimal(numerator, denominator);
+                var result = new Solution().FractionToDecimal(numerator, denominator);
 
                 // Assert
                 Assert.AreEqual("0.(894736842105263157)", result);
@@ -192,16 +194,128 @@ namespace LeetCode
             public void Test4()
             {
                 // Arrange
-                int numerator = 150;
-                int denominator = 7;
+                var numerator = 150;
+                var denominator = 7;
 
                 // Act
-                string result = new Solution().FractionToDecimal(numerator, denominator);
+                var result = new Solution().FractionToDecimal(numerator, denominator);
 
                 // Assert
                 Assert.AreEqual("21.(428571)", result);
             }
 
+            [Test]
+            public void Test5()
+            {
+                // Arrange
+                var numerator = int.MinValue;
+                var denominator = int.MaxValue;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("-1", result);
+            }
+
+            [Test]
+            public void Test6()
+            {
+                // Arrange
+                var numerator = 1;
+                var denominator = 5;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("0.2", result);
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+                var numerator = 1;
+                var denominator = 2;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("0.5", result);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                var numerator = 2;
+                var denominator = 1;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("2", result);
+            }
+
+            [Test]
+            public void Test9()
+            {
+                // Arrange
+                var numerator = 2;
+                var denominator = 3;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("0.(6)", result);
+            }
+
+            [Test]
+            public void Test10()
+            {
+                // Arrange
+                var numerator = 4;
+                var denominator = 333;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("0.(012)", result);
+            }
+            
+            [Test]
+            public void Test11()
+            {
+                // Arrange
+                var numerator = -2;
+                var denominator = 3;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("-0.(6)", result);
+            }
+
+            [Test]
+            public void Test12()
+            {
+                // Arrange
+                var numerator = -2;
+                var denominator = -3;
+
+                // Act
+                var result = new Solution().FractionToDecimal(numerator, denominator);
+
+                // Assert
+                Assert.AreEqual("0.(6)", result);
+            }
+            
         }
     }
 }

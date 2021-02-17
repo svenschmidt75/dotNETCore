@@ -1,5 +1,6 @@
 #region
 
+using System;
 using NUnit.Framework;
 
 #endregion
@@ -13,7 +14,69 @@ namespace LeetCode
     {
         public double FindMedianSortedArrays(int[] nums1, int[] nums2)
         {
-            return FindMedianSortedArrays1(nums1, nums2);
+            // return FindMedianSortedArrays1(nums1, nums2);
+            return FindMedianSortedArrays2(nums1, nums2);
+        }
+
+        private double FindMedianSortedArrays2(int[] nums1, int[] nums2)
+        {
+            // Using Binary Search, Tushar, https://www.youtube.com/watch?v=LPFhl65R7ww
+            // runtime complexity: O(min(nums1, nums2))
+            if (nums1.Length > nums2.Length)
+            {
+                var tmp = nums1;
+                nums1 = nums2;
+                nums2 = tmp;
+            }
+
+            var start = 0;
+            var end = nums1.Length;
+
+            var f = (nums1.Length + nums2.Length + 1) / 2;
+
+            double median;
+
+            while (true)
+            {
+                var xp = (start + end) / 2;
+                var yp = f - xp;
+
+                var maxLeftX = xp > 0 ? nums1[xp - 1] : int.MinValue;
+                var maxLeftY = yp > 0 ? nums2[yp - 1] : int.MinValue;
+
+                var minRightX = xp < nums1.Length ? nums1[xp] : int.MaxValue;
+                var minRightY = yp < nums2.Length ? nums2[yp] : int.MaxValue;
+
+                if (maxLeftX <= minRightY && maxLeftY <= minRightX)
+                {
+                    // SS: we found a partition
+                    if ((nums1.Length + nums2.Length) % 2 == 0)
+                    {
+                        var m1 = Math.Max(maxLeftX, maxLeftY);
+                        var m2 = Math.Min(minRightX, minRightY);
+                        median = (m1 + m2) / 2.0;
+                    }
+                    else
+                    {
+                        median = Math.Max(maxLeftX, maxLeftY);
+                    }
+
+                    break;
+                }
+
+                if (maxLeftX > minRightY)
+                {
+                    // SS: move left
+                    end = xp - 1;
+                }
+                else
+                {
+                    // SS: move right
+                    start = xp + 1;
+                }
+            }
+
+            return median;
         }
 
         private double FindMedianSortedArrays1(int[] nums1, int[] nums2)
@@ -132,6 +195,48 @@ namespace LeetCode
 
                 // Assert
                 Assert.That(median, Is.EqualTo(2));
+            }
+
+            [Test]
+            public void Test6()
+            {
+                // Arrange
+                int[] nums1 = {3, 5, 9, 10, 11, 16};
+                int[] nums2 = {4, 6, 8, 15};
+
+                // Act
+                var median = new Solution().FindMedianSortedArrays(nums1, nums2);
+
+                // Assert
+                Assert.That(median, Is.EqualTo(8.5));
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+                int[] nums1 = {1, 3, 8, 9, 15};
+                int[] nums2 = {7, 11, 18, 19, 21, 25};
+
+                // Act
+                var median = new Solution().FindMedianSortedArrays(nums1, nums2);
+
+                // Assert
+                Assert.That(median, Is.EqualTo(11));
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+                int[] nums1 = {23, 26, 31, 35};
+                int[] nums2 = {3, 5, 7, 9, 11, 16};
+
+                // Act
+                var median = new Solution().FindMedianSortedArrays(nums1, nums2);
+
+                // Assert
+                Assert.That(median, Is.EqualTo(13.5));
             }
         }
     }

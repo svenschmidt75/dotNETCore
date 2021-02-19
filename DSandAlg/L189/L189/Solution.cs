@@ -18,7 +18,7 @@ namespace LeetCode
 
         private void RotateInPlace(int[] nums, int k)
         {
-            // SS: runtime complexity: O(n)
+            // SS: runtime complexity: O(n)?
             // space complexity: O(1)
 
             if (nums.Length == 1)
@@ -34,7 +34,7 @@ namespace LeetCode
 
             // [1, 2, 3, 4, 5, 6, 7], k = 4
             // ^^^^^^^^  ^^^^^^^^^^
-            //   tail       head
+            //   tail       front
 
             var frontIdx = nums.Length - k2;
 
@@ -56,13 +56,14 @@ namespace LeetCode
                     break;
                 }
 
-                // SS: tail exhausted?
+                // SS: front longer than tail?
                 if (currentTailIdx == frontIdx)
                 {
                     frontIdx = currentFrontIdx;
                 }
 
-                if (currentFrontIdx == nums.Length)
+                // SS: tail longer than front?
+                else if (currentFrontIdx == nums.Length)
                 {
                     if (currentTailIdx < frontIdx)
                     {

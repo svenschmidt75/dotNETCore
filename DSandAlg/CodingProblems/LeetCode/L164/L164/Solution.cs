@@ -17,6 +17,7 @@ namespace LeetCode
             // SS: use a variant of Bucket Sort
             // runtime complexity: O(n)
             // space complexity: O(n)
+            // solution from https://www.youtube.com/watch?v=qN0qvtFbCYw
             
             if (nums.Length < 2)
             {
@@ -35,9 +36,9 @@ namespace LeetCode
 
             // SS: initialize buckets
             var b = Math.Max(1, (int) Math.Ceiling((max - min) / (double) nums.Length));
-            var b2 = (max - min) / b + 1;
-            (int min, int max)[] buckets = new (int, int )[b2];
-            for (var i = 0; i < b2; i++)
+            var nBuckets = (max - min) / b + 1;
+            (int min, int max)[] buckets = new (int, int )[nBuckets];
+            for (var i = 0; i < nBuckets; i++)
             {
                 buckets[i] = (int.MaxValue, int.MinValue);
             }
@@ -55,7 +56,7 @@ namespace LeetCode
 
             // SS: calc. distance between buckets
             int maxDst;
-            if (b2 == 1)
+            if (nBuckets == 1)
             {
                 maxDst = buckets[0].max - buckets[0].min;
             }
@@ -63,7 +64,7 @@ namespace LeetCode
             {
                 maxDst = 0;
                 var j = 0;
-                while (j < b2)
+                while (j < nBuckets)
                 {
                     if (buckets[j].max != int.MinValue)
                     {
@@ -73,7 +74,7 @@ namespace LeetCode
                     j++;
                 }
 
-                for (var i = 1; i < b2; i++)
+                for (var i = 1; i < nBuckets; i++)
                 {
                     if (buckets[i].min == int.MaxValue)
                     {
@@ -160,6 +161,20 @@ namespace LeetCode
                 // Assert
                 Assert.AreEqual(2901, maxDst);
             }
+            
+            [Test]
+            public void Test6()
+            {
+                // Arrange
+                int[] nums = {20, 10, 5, 3, 16, 1};
+
+                // Act
+                var maxDst = new Solution().MaximumGap(nums);
+
+                // Assert
+                Assert.AreEqual(2901, maxDst);
+            }
+
         }
     }
 }

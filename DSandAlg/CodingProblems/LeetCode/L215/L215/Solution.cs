@@ -31,20 +31,36 @@ namespace LeetCode
                 var pivot = nums[min];
 
                 // SS: partition
+                // var pi = min;
+                // for (var j = min + 1; j <= max; j++)
+                // {
+                //     if (nums[j] < pivot)
+                //     {
+                //         Swap(nums, pi, pi + 1);
+                //         if (j > pi + 1)
+                //         {
+                //             Swap(nums, pi, j);
+                //         }
+                //
+                //         pi++;
+                //     }
+                // }
+
+                // SS: partition
+                // Move partition element to last position,
+                // then swap last with 1st that is >= than
+                // partition element
+                Swap(nums, min, max);
                 var pi = min;
-                for (var j = min + 1; j <= max; j++)
+                for (var j = min; j < max; j++)
                 {
                     if (nums[j] < pivot)
                     {
-                        Swap(nums, pi, pi + 1);
-                        if (j > pi + 1)
-                        {
-                            Swap(nums, pi, j);
-                        }
-
+                        Swap(nums, pi, j);
                         pi++;
                     }
                 }
+                Swap(nums, max, pi);
 
                 if (pi == targetIndex)
                 {

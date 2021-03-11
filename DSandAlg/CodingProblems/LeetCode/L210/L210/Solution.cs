@@ -15,7 +15,8 @@ namespace LeetCode
     {
         public int[] FindOrder(int numCourses, int[][] prerequisites)
         {
-            // SS: topological sort
+            // SS: topological sort, i.e. O(V + E) runtime complexity
+            // space complexity: adjacency list, depends on density of graph. Worst case: O(V^2)
 
             // SS: create adjacency list
             var adjList = new Dictionary<int, IList<int>>();
@@ -85,54 +86,58 @@ namespace LeetCode
             return orderedCourses;
         }
 
-        private static bool HasCycle(Dictionary<int, IList<int>> adjList)
+        private static bool HasCycle2(Dictionary<int, IList<int>> adjList)
         {
             // SS: detect cycle in directed graph, https://www.youtube.com/watch?v=rKQaZuoUR4M
-            var white = new HashSet<int>();
-            foreach (var item in adjList)
+            var white = new int[adjList.Count];
+            for (var i = 0; i < white.Length; i++)
             {
-                white.Add(item.Key);
+                white[i] = 1;
             }
 
-            var black = new HashSet<int>();
+            var gray = new int[white.Length];
+            var black = new int[white.Length];
 
-            bool DFS(int vertex, HashSet<int> gray)
+            bool DFS(int vertex)
             {
+                gray[vertex] = 1;
+                white[vertex] = 0;
+
                 var edges = adjList[vertex];
                 foreach (var targetVertex in edges)
                 {
-                    if (gray.Contains(targetVertex))
+                    if (black[targetVertex] > 0)
                     {
+                        continue;
+                    }
+
+                    if (gray[targetVertex] > 0)
+                    {
+                        // SS: we found a cycle
                         return true;
                     }
 
-                    gray.Add(targetVertex);
-                    black.Add(targetVertex);
-
-                    var hasCycle = DFS(targetVertex, gray);
+                    var hasCycle = DFS(targetVertex);
                     if (hasCycle)
                     {
                         return true;
                     }
-
-                    gray.Remove(targetVertex);
                 }
+
+                gray[vertex] = 0;
+                black[vertex] = 1;
 
                 return false;
             }
 
-            foreach (var vertex in white)
+            for (var vertex = 0; vertex < white.Length; vertex++)
             {
-                if (black.Contains(vertex))
+                if (white[vertex] == 0)
                 {
                     continue;
                 }
 
-                var gray = new HashSet<int>();
-                gray.Add(vertex);
-                black.Add(vertex);
-
-                var hashCycle = DFS(vertex, gray);
+                var hashCycle = DFS(vertex);
                 if (hashCycle)
                 {
                     return true;
@@ -140,6 +145,57 @@ namespace LeetCode
             }
 
             return false;
+        }
+
+        private static bool HasCycle(Dictionary<int, IList<int>> adjList)
+        {
+            // SS: check whether the graph is a DAG
+            var visited = new int[adjList.Count];
+
+            var inDegree = new int[adjList.Count];
+            foreach (var item in adjList)
+            {
+                foreach (var v in item.Value)
+                {
+                    inDegree[v]++;
+                }
+            }
+
+            var queue = new Queue<int>();
+
+            for (var i = 0; i < inDegree.Length; i++)
+            {
+                if (inDegree[i] == 0)
+                {
+                    queue.Enqueue(i);
+                }
+            }
+
+            while (queue.Any())
+            {
+                var vertex = queue.Dequeue();
+
+                if (visited[vertex] != 0)
+                {
+                    continue;
+                }
+
+                visited[vertex] = 1;
+
+                // SS: check all outgoing edges
+                var neighbors = adjList[vertex];
+                for (var i = 0; i < neighbors.Count; i++)
+                {
+                    var v = neighbors[i];
+                    inDegree[v]--;
+                    if (inDegree[v] == 0)
+                    {
+                        queue.Enqueue(v);
+                    }
+                }
+            }
+
+            return inDegree.Any(x => x != 0);
         }
 
         [TestFixture]
@@ -218,6 +274,19 @@ namespace LeetCode
 
                 // Act
                 var orderedCourses = new Solution().FindOrder(2, prerequisites);
+
+                // Assert
+                Assert.IsEmpty(orderedCourses);
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+                int[][] prerequisites = {new[] {0, 1}, new[] {0, 3}, new[] {3, 5}, new[] {5, 4}, new[] {4, 3}, new[] {1, 2}};
+
+                // Act
+                var orderedCourses = new Solution().FindOrder(6, prerequisites);
 
                 // Assert
                 Assert.IsEmpty(orderedCourses);

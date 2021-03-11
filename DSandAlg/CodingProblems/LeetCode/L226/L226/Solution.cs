@@ -13,6 +13,9 @@ namespace LeetCode
     {
         public TreeNode InvertTree(TreeNode root)
         {
+            // SS: runtime complexity of DFS: O(V)
+            // space complexity: O(depth of tree)
+            
             TreeNode DFS(TreeNode original)
             {
                 if (original == null)

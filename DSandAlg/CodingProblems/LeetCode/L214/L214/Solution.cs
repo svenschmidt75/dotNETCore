@@ -14,8 +14,40 @@ namespace LeetCode
     {
         public string ShortestPalindrome(string s)
         {
-            // SS: runtime complexity: O(s^2)
+            // SS: from LeetCode submissions...
             
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return s;
+            }
+
+            // SS: get length of "prefix" palindrome
+            var n = s.Length;
+            var i = 0;
+            for (var j = n - 1; j >= 0; j--)
+            {
+                if (s[i] == s[j])
+                {
+                    i++;
+                }
+            }
+
+            Console.WriteLine("i is " + i);
+            if (i == n)
+            {
+                return s;
+            }
+
+            var arr = s.Substring(i, n - i).ToCharArray();
+            Array.Reverse(arr);
+            var remain_rev = new string(arr);
+            return remain_rev + ShortestPalindrome(s.Substring(0, i)) + s.Substring(i);
+        }
+
+        public string ShortestPalindrome3(string s)
+        {
+            // SS: runtime complexity: O(s^2)
+
             if (string.IsNullOrWhiteSpace(s))
             {
                 return string.Empty;
@@ -36,18 +68,29 @@ namespace LeetCode
 
         private static bool IsPalindrome(string s, int left, int right)
         {
-            while (left < right)
-            {
-                if (s[left] != s[right])
-                {
-                    return false;
-                }
+            // while (left < right)
+            // {
+            //     if (s[left] != s[right])
+            //     {
+            //         return false;
+            //     }
+            //
+            //     left++;
+            //     right--;
+            // }
+            //
+            // return true;
 
-                left++;
-                right--;
+            int i = 0;
+            for (int j = right; j >= left; j--)
+            {
+                if (s[i] == s[j])
+                {
+                    i++;
+                }
             }
 
-            return true;
+            return i == right - left + 1;
         }
 
         public string ShortestPalindrome2(string s)
@@ -131,7 +174,7 @@ namespace LeetCode
                 // Arrange
 
                 // Act
-                var result = new Solution().ShortestPalindrome(s);
+                var result = new Solution().ShortestPalindrome3(s);
 
                 // Assert
                 Assert.AreEqual(expected, result);

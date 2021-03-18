@@ -13,7 +13,55 @@ namespace LeetCode
     {
         public int CountNodes(TreeNode root)
         {
-            return CountNodes1(root);
+            // return CountNodes1(root);
+            return CountNodes2(root);
+        }
+
+        private int CountNodes2(TreeNode root)
+        {
+            // SS: runtime complexity: O(log^2 N)
+            // space complexity: O(log N)
+
+            if (root == null)
+            {
+                return 0;
+            }
+
+            int Solve(TreeNode node)
+            {
+                if (node == null)
+                {
+                    return 0;
+                }
+
+                // SS: count path length to left-most node
+                var n = node.left;
+                var leftCount = 0;
+                while (n != null)
+                {
+                    leftCount++;
+                    n = n.left;
+                }
+
+                // SS: count path length to left-most node
+                n = node.right;
+                var rightCount = 0;
+                while (n != null)
+                {
+                    rightCount++;
+                    n = n.right;
+                }
+
+                if (leftCount == rightCount)
+                {
+                    // SS: count the current node as well
+                    return (1 << (leftCount + 1)) - 1;
+                }
+
+                return 1 + Solve(node.left) + Solve(node.right);
+            }
+
+            return Solve(root);
         }
 
         private int CountNodes1(TreeNode root)

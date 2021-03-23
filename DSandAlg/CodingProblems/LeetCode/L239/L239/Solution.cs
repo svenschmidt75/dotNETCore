@@ -16,6 +16,60 @@ namespace LeetCode
     {
         public int[] MaxSlidingWindow(int[] nums, int k)
         {
+//            return MaxSlidingWindow1(nums, k);
+            return MaxSlidingWindow2(nums, k);
+        }
+
+        private int[] MaxSlidingWindow2(int[] nums, int k)
+        {
+            // SS: Max Monotonic Queue approach,
+            // https://www.youtube.com/c/Algorithmist/search?query=Monoqueues
+            // runtime complexity: O(n), amortized, i.e. single operations may take longer,
+            // but on avg. each operation takes O(1)
+
+            if (k == 1)
+            {
+                return nums;
+            }
+
+            var result = new int[nums.Length - k + 1];
+            var resultIdx = 0;
+
+            var deque = new LinkedList<int>();
+
+            var i = 0;
+            var j = 0;
+
+            while (j < nums.Length)
+            {
+                // SS: remove elements that are smaller than the current element nums[j],
+                // as they cannot possibly be the max element
+                while (deque.Any() && deque.Last.Value < nums[j])
+                {
+                    deque.RemoveLast();
+                }
+
+                deque.AddLast(nums[j]);
+
+                if (j - i + 1 == k)
+                {
+                    result[resultIdx++] = deque.First.Value;
+                    if (deque.First.Value == nums[i])
+                    {
+                        deque.RemoveFirst();
+                    }
+
+                    i++;
+                }
+
+                j++;
+            }
+
+            return result;
+        }
+
+        public int[] MaxSlidingWindow1(int[] nums, int k)
+        {
             // SS: runtime complexity: O(n + n * log k) = O(n * log k)
             if (k == 1)
             {

@@ -359,7 +359,7 @@ namespace LeetCode
             }
 
             [Test]
-            public void Test1()
+            public void TestCreateTree3()
             {
                 // Arrange
                 var tree = new RedBlackTree();
@@ -384,7 +384,47 @@ namespace LeetCode
 
                 Assert.AreEqual(6, tree._root.Left.Right.Value);
                 Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Right.Color);
+            }
 
+            [Test]
+            public void TestCreateTree4()
+            {
+                // Arrange
+                var tree = new RedBlackTree();
+                tree.Insert(10);
+                tree.Insert(20);
+                tree.Insert(-10);
+                tree.Insert(15);
+                tree.Insert(17);
+                tree.Insert(40);
+                tree.Insert(50);
+                tree.Insert(60);
+
+                // Act
+                // Assert
+                Assert.AreEqual(17, tree._root.Value);
+                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
+
+                Assert.AreEqual(10, tree._root.Left.Value);
+                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Color);
+
+                Assert.AreEqual(-10, tree._root.Left.Left.Value);
+                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Left.Color);
+
+                Assert.AreEqual(15, tree._root.Left.Right.Value);
+                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Right.Color);
+
+                Assert.AreEqual(40, tree._root.Right.Value);
+                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Color);
+
+                Assert.AreEqual(20, tree._root.Right.Left.Value);
+                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Left.Color);
+
+                Assert.AreEqual(50, tree._root.Right.Right.Value);
+                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Right.Color);
+
+                Assert.AreEqual(60, tree._root.Right.Right.Right.Value);
+                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Right.Right.Color);
             }
             
         }

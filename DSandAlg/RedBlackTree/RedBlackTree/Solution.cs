@@ -11,12 +11,6 @@ namespace LeetCode
     {
         private Node _root;
 
-        enum Color
-        {
-            Black
-            , Red
-        }
-        
         public void Insert(int v)
         {
             // SS: root is special
@@ -28,6 +22,476 @@ namespace LeetCode
             {
                 _root = InsertInternal(_root, v);
             }
+        }
+
+        public void Remove(int v)
+        {
+            // SS: find node to delete
+            var current = _root;
+            while (current != null && current.Value != v)
+            {
+                current = v < current.Value ? current.Left : current.Right;
+            }
+
+            if (current == null)
+            {
+                // SS: there is no node with value v
+                return;
+            }
+
+            // SS: does the node to be deleted have at most 1 child?
+            if (IsLessThanTwoChildren(current))
+            {
+                Remove(current);
+            }
+
+            // SS: convert to a 0 or 1 child situation
+            var inorderSuccessor = FindInorderSuccessor(current);
+            current.Value = inorderSuccessor.Value;
+            Remove(inorderSuccessor);
+        }
+
+        private Node FindInorderSuccessor(Node node)
+        {
+            // SS: find the left-most node in the right subtree
+            if (node.Right == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            var prev = node;
+            var current = node.Right;
+            while (current != null)
+            {
+                prev = current;
+                current = current.Left;
+            }
+
+            return prev;
+        }
+
+        private void Remove(Node node)
+        {
+            if (node.Color == Color.Red)
+            {
+                // SS: if the node to be deleted is red, simply delete node
+                var parent = node.Parent;
+                if (parent.Left == node)
+                {
+                    parent.Left = null;
+                }
+                else
+                {
+                    parent.Right = null;
+                }
+            }
+            else if (HasSingleRedRightChild(node))
+            {
+                // SS: if the node to be deleted has a single red child, replace this node with its
+                // child and recolor this node to black.
+                node.Value = node.Right.Value;
+                node.Color = Color.Red;
+            }
+            else if (HasSingleRedLeftChild(node))
+            {
+                // SS: if the node to be deleted has a single red child, replace this node with its
+                // child and recolor this node to black.
+                node.Value = node.Left.Value;
+                node.Color = Color.Red;
+            }
+            else
+            {
+                // SS: we have a Double-Black situation
+                var doubleBlackNode = node;
+                while (true)
+                {
+                    if (IsCase1(doubleBlackNode))
+                    {
+                        // SS: if the root is the double-black node, it means that each path has
+                        // one less black node, so exit
+                        break;
+                    }
+
+                    if (IsCase2Left(doubleBlackNode))
+                    {
+                        // SS: left-rotation around parent
+                        RotateLeft(doubleBlackNode, false);
+
+                        // SS: check this...
+                        doubleBlackNode.Parent.Color = Color.Red;
+                        doubleBlackNode.Parent.Parent.Color = Color.Black;
+
+                        // SS: not a terminating case
+                        continue;
+                    }
+
+                    if (IsCase2Right(doubleBlackNode))
+                    {
+                        // SS: right-rotation around parent
+                        RotateRight(doubleBlackNode, false);
+
+                        // SS: check this...
+                        doubleBlackNode.Parent.Color = Color.Red;
+                        doubleBlackNode.Parent.Parent.Color = Color.Black;
+
+                        // SS: not a terminating case
+                        continue;
+                    }
+
+                    if (IsCase3Left(doubleBlackNode))
+                    {
+                        // SS: move double-black node to parent
+                        doubleBlackNode.Color = Color.Black;
+                        doubleBlackNode.Parent.Right.Color = Color.Red;
+                        doubleBlackNode = doubleBlackNode.Parent;
+
+                        // SS: case 3 is not a terminating case
+                        continue;
+                    }
+
+                    if (IsCase3Right(doubleBlackNode))
+                    {
+                        // SS: move double-black node to parent
+                        doubleBlackNode.Color = Color.Black;
+                        doubleBlackNode.Parent.Left.Color = Color.Red;
+                        doubleBlackNode = doubleBlackNode.Parent;
+
+                        // SS: case 3 is not a terminating case
+                        continue;
+                    }
+
+                    if (IsCase4Left(doubleBlackNode))
+                    {
+                        // SS: recolor
+                        doubleBlackNode.Parent.Color = Color.Black;
+                        doubleBlackNode.Parent.Right.Color = Color.Red;
+                        doubleBlackNode.Color = Color.Black;
+
+                        // SS: case 4 is terminating
+                        break;
+                    }
+
+                    if (IsCase4Right(doubleBlackNode))
+                    {
+                        // SS: recolor
+                        doubleBlackNode.Parent.Color = Color.Black;
+                        doubleBlackNode.Parent.Left.Color = Color.Red;
+                        doubleBlackNode.Color = Color.Black;
+
+                        // SS: case 4 is terminating
+                        break;
+                    }
+
+                    if (IsCase5Left(doubleBlackNode))
+                    {
+                        // SS: right-rotation around sibling
+                        RotateRight(doubleBlackNode.Parent.Right.Left, false);
+                        doubleBlackNode.Parent.Right.Color = Color.Black;
+                        doubleBlackNode.Parent.Right.Right.Color = Color.Red;
+
+                        // SS: case 5 is not terminating
+                        continue;
+                    }
+
+                    if (IsCase5Right(doubleBlackNode))
+                    {
+                        // SS: left-rotation around sibling
+                        RotateLeft(doubleBlackNode.Parent.Left.Right, false);
+                        doubleBlackNode.Parent.Left.Color = Color.Black;
+                        doubleBlackNode.Parent.Left.Left.Color = Color.Red;
+
+                        // SS: case 5 is not terminating
+                        continue;
+                    }
+
+                    if (IsCase6Left(doubleBlackNode))
+                    {
+                        // SS: left-rotation around parent
+                        RotateLeft(doubleBlackNode, false);
+
+                        doubleBlackNode.Color = Color.Black;
+                        doubleBlackNode.Parent.Color = Color.Black;
+                        doubleBlackNode.Parent.Parent.Right.Color = Color.Black;
+
+                        // SS: case 6 in terminating
+                        break;
+                    }
+
+                    if (IsCase6Right(doubleBlackNode))
+                    {
+                        // SS: right-rotation around parent
+                        RotateRight(doubleBlackNode, false);
+
+                        doubleBlackNode.Color = Color.Black;
+                        doubleBlackNode.Parent.Color = Color.Black;
+                        doubleBlackNode.Parent.Parent.Left.Color = Color.Black;
+
+                        // SS: case 6 in terminating
+                        break;
+                    }
+
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        private static bool IsCase6Left(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Left != doubleBlackNode)
+            {
+                return false;
+            }
+
+            var sibling = parent.Right;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Red;
+        }
+
+        private static bool IsCase6Right(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Right != doubleBlackNode)
+            {
+                return false;
+            }
+
+            var sibling = parent.Left;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Left;
+            return y.Color == Color.Red;
+        }
+
+        private static bool IsCase5Left(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Left != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Right;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase5Right(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Right != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Left;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Red;
+        }
+
+        private static bool IsCase4Left(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Left != doubleBlackNode || parent.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var sibling = parent.Right;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase4Right(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Right != doubleBlackNode || parent.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var sibling = parent.Left;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase3Left(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Left != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Right;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase3Right(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Right != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Left;
+            if (sibling.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase2Left(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Left != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Right;
+            if (sibling.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private static bool IsCase2Right(Node doubleBlackNode)
+        {
+            var parent = doubleBlackNode.Parent;
+            if (parent.Right != doubleBlackNode || parent.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var sibling = parent.Left;
+            if (sibling.Color != Color.Red)
+            {
+                return false;
+            }
+
+            var x = sibling.Left;
+            if (x.Color != Color.Black)
+            {
+                return false;
+            }
+
+            var y = sibling.Right;
+            return y.Color == Color.Black;
+        }
+
+        private bool IsCase1(Node doubleBlackNode)
+        {
+            return doubleBlackNode == _root;
+        }
+
+        private static bool HasSingleRedLeftChild(Node node)
+        {
+            return node.Color == Color.Black && node.Right == null && node.Left != null && node.Left.Color == Color.Red;
+        }
+
+        private static bool HasSingleRedRightChild(Node node)
+        {
+            return node.Color == Color.Black && node.Left == null && node.Right != null && node.Right.Color == Color.Red;
+        }
+
+        private static bool IsLessThanTwoChildren(Node node)
+        {
+            var cnt = 0;
+            if (node.Left != null)
+            {
+                cnt++;
+            }
+
+            if (node.Right != null)
+            {
+                cnt++;
+            }
+
+            return cnt < 2;
         }
 
         private Node InsertInternal(Node node, int v)
@@ -47,8 +511,8 @@ namespace LeetCode
             if (v < node.Value)
             {
                 var leftNode = InsertInternal(node.Left, v);
-                
-                // SS: if a rotation happened at a lower level, node.Left becomes
+
+                // SS: if a rotation happened at a lower level, nodeLeft becomes
                 // the parent of this node
                 if (node.Parent == leftNode)
                 {
@@ -69,9 +533,9 @@ namespace LeetCode
             }
             else
             {
-                var nodeRight =  InsertInternal(node.Right, v);
-                
-                // SS: if a rotation happened at a lower level, node.Right becomes
+                var nodeRight = InsertInternal(node.Right, v);
+
+                // SS: if a rotation happened at a lower level, nodeRight becomes
                 // the parent of this node
                 if (node.Parent == nodeRight)
                 {
@@ -266,6 +730,12 @@ namespace LeetCode
             return node;
         }
 
+        private enum Color
+        {
+            Black
+            , Red
+        }
+
         private class Node
         {
             public int Value { get; set; }
@@ -295,7 +765,7 @@ namespace LeetCode
                 Assert.AreEqual(-10, tree._root.Left.Value);
                 Assert.AreEqual(20, tree._root.Right.Value);
             }
-            
+
             [Test]
             public void TestCreateTree2()
             {
@@ -306,33 +776,33 @@ namespace LeetCode
                 // Assert
                 tree.Insert(10);
                 Assert.AreEqual(10, tree._root.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
-                
+                Assert.AreEqual(Color.Black, tree._root.Color);
+
                 tree.Insert(20);
                 Assert.AreEqual(20, tree._root.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Color);
 
                 tree.Insert(-10);
                 Assert.AreEqual(-10, tree._root.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Left.Color);
 
                 // SS: insertion causes RR-violation, recolor case                
                 tree.Insert(15);
                 Assert.AreEqual(15, tree._root.Right.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Left.Color);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Color);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Right.Color);
 
                 // SS: insertion causes RR-violation, RL type                
                 tree.Insert(17);
                 Assert.AreEqual(17, tree._root.Right.Value);
 
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Color);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Color);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Left.Color);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Right.Color);
+                Assert.AreEqual(Color.Black, tree._root.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Right.Color);
             }
 
             [Test]
@@ -349,13 +819,13 @@ namespace LeetCode
                 // SS: creates RR-violation, need to rotate right around root
                 tree.Insert(3);
                 Assert.AreEqual(5, tree._root.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
+                Assert.AreEqual(Color.Black, tree._root.Color);
 
                 Assert.AreEqual(3, tree._root.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Left.Color);
 
                 Assert.AreEqual(10, tree._root.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Color);
             }
 
             [Test]
@@ -374,16 +844,16 @@ namespace LeetCode
                 // Assert
                 tree.Insert(4);
                 Assert.AreEqual(4, tree._root.Left.Right.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Right.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Left.Right.Left.Color);
 
                 Assert.AreEqual(-10, tree._root.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Left.Color);
 
                 Assert.AreEqual(-20, tree._root.Left.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Left.Color);
 
                 Assert.AreEqual(6, tree._root.Left.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Right.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Right.Color);
             }
 
             [Test]
@@ -403,28 +873,78 @@ namespace LeetCode
                 // Act
                 // Assert
                 Assert.AreEqual(17, tree._root.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Color);
+                Assert.AreEqual(Color.Black, tree._root.Color);
 
                 Assert.AreEqual(10, tree._root.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Left.Color);
+                Assert.AreEqual(Color.Red, tree._root.Left.Color);
 
                 Assert.AreEqual(-10, tree._root.Left.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Left.Color);
 
                 Assert.AreEqual(15, tree._root.Left.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Left.Right.Color);
+                Assert.AreEqual(Color.Black, tree._root.Left.Right.Color);
 
                 Assert.AreEqual(40, tree._root.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Color);
 
                 Assert.AreEqual(20, tree._root.Right.Left.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Left.Color);
+                Assert.AreEqual(Color.Black, tree._root.Right.Left.Color);
 
                 Assert.AreEqual(50, tree._root.Right.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Black, tree._root.Right.Right.Color);
+                Assert.AreEqual(Color.Black, tree._root.Right.Right.Color);
 
                 Assert.AreEqual(60, tree._root.Right.Right.Right.Value);
-                Assert.AreEqual(RedBlackTree.Color.Red, tree._root.Right.Right.Right.Color);
+                Assert.AreEqual(Color.Red, tree._root.Right.Right.Right.Color);
+            }
+
+            [Test]
+            public void TestDeleteRedNode()
+            {
+                // Arrange
+                var tree = new RedBlackTree();
+                
+                var root = new Node{Value = 10, Color = Color.Black};
+                tree._root = root;
+
+                root.Left = new Node
+                {
+                    Value = 5
+                    , Color = Color.Red
+                    , Left = new Node {Value = -5, Color = Color.Black}
+                    , Right = new Node {Value = 7, Color = Color.Black}
+                };
+
+                root.Right = new Node
+                {
+                    Value =30
+                    , Color = Color.Red
+                    , Left = new Node{Value = 20, Color = Color.Black}
+                    , Right = new Node
+                    {
+                        Value = 38
+                        , Color = Color.Black
+                        , Left = new Node{Value = 35, Color = Color.Red}
+                    }
+                };
+
+                root.Left.Parent = root;
+                root.Right.Parent = root;
+
+                root.Left.Left.Parent = root.Left;
+                root.Left.Right.Parent = root.Left;
+
+                root.Right.Right.Parent = root.Right;
+                root.Right.Left.Parent = root.Right;
+
+                root.Right.Right.Left.Parent = root.Right.Right;
+
+                // Act
+                tree.Remove(30);
+
+                // Assert
+                Assert.AreEqual(35, root.Right.Value);
+                Assert.AreEqual(Color.Red, root.Right.Color);
+                Assert.Null(root.Right.Right.Left);
             }
             
         }

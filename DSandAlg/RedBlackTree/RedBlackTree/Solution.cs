@@ -1,6 +1,8 @@
 #region
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 #endregion
@@ -20,12 +22,37 @@ namespace LeetCode
             }
             else
             {
-                var root = InsertInternal(_root, v);
-                if (_root.Parent != root)
+                _root = InsertInternal(_root, v);
+            }
+        }
+
+        internal IList<(int value, Color color)> InorderTravsersal(Node node)
+        {
+            var result = new List<(int, Color)>();
+
+            var stack = new Stack<Node>();
+            var current = node;
+            while (true)
+            {
+                if (current != null)
                 {
-                    _root = root;
+                    stack.Push(current);
+                    current = current.Left;
+                }
+                else
+                {
+                    if (stack.Any() == false)
+                    {
+                        break;
+                    }
+
+                    current = stack.Pop();
+                    result.Add((current.Value, current.Color));
+                    current = current.Right;
                 }
             }
+
+            return result;
         }
 
         public void Remove(int v)
@@ -95,7 +122,7 @@ namespace LeetCode
                 // SS: if the node to be deleted has a single red child, replace this node with its
                 // child and recolor this node to black.
                 node.Value = node.Left.Value;
-                node.Color = Color.Red;
+                node.Left = null;
             }
             else
             {
@@ -113,7 +140,7 @@ namespace LeetCode
                     if (IsCase2Left(doubleBlackNode))
                     {
                         // SS: left-rotation around parent
-                        RotateLeft(doubleBlackNode, false);
+                        RotateLeft(doubleBlackNode.Parent.Right, false);
 
                         // SS: check this...
                         doubleBlackNode.Parent.Color = Color.Red;
@@ -126,7 +153,7 @@ namespace LeetCode
                     if (IsCase2Right(doubleBlackNode))
                     {
                         // SS: right-rotation around parent
-                        RotateRight(doubleBlackNode, false);
+                        RotateRight(doubleBlackNode.Parent.Left, false);
 
                         // SS: check this...
                         doubleBlackNode.Parent.Color = Color.Red;
@@ -139,9 +166,16 @@ namespace LeetCode
                     if (IsCase3Left(doubleBlackNode))
                     {
                         // SS: move double-black node to parent
-                        doubleBlackNode.Color = Color.Black;
-                        doubleBlackNode.Parent.Right.Color = Color.Red;
-                        doubleBlackNode = doubleBlackNode.Parent;
+                        var parent = doubleBlackNode.Parent;
+                        parent.Right.Color = Color.Red;
+
+                        if (doubleBlackNode is {Left: null, Right: null})
+                        {
+                            // SS: Double-Black node has no children, so delete
+                            DisconnectNode(doubleBlackNode);
+                        }
+
+                        doubleBlackNode = parent;
 
                         // SS: case 3 is not a terminating case
                         continue;
@@ -150,9 +184,16 @@ namespace LeetCode
                     if (IsCase3Right(doubleBlackNode))
                     {
                         // SS: move double-black node to parent
-                        doubleBlackNode.Color = Color.Black;
-                        doubleBlackNode.Parent.Left.Color = Color.Red;
-                        doubleBlackNode = doubleBlackNode.Parent;
+                        var parent = doubleBlackNode.Parent;
+                        parent.Left.Color = Color.Red;
+
+                        if (doubleBlackNode is {Left: null, Right: null})
+                        {
+                            // SS: Double-Black node has no children, so delete
+                            DisconnectNode(doubleBlackNode);
+                        }
+
+                        doubleBlackNode = parent;
 
                         // SS: case 3 is not a terminating case
                         continue;
@@ -320,7 +361,7 @@ namespace LeetCode
             }
 
             var y = sibling.Right;
-            return y is null or {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase5Right(Node doubleBlackNode)
@@ -344,7 +385,7 @@ namespace LeetCode
             }
 
             var y = sibling.Left;
-            return y is {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase4Left(Node doubleBlackNode)
@@ -386,13 +427,13 @@ namespace LeetCode
             }
 
             var x = sibling.Left;
-            if (x is not {Color: Color.Black})
+            if (x is null or {Color: Color.Black})
             {
                 return false;
             }
 
             var y = sibling.Right;
-            return y is {Color: Color.Black};
+            return y is null or {Color: Color.Black};
         }
 
         private static bool IsCase3Left(Node doubleBlackNode)
@@ -410,13 +451,13 @@ namespace LeetCode
             }
 
             var x = sibling.Left;
-            if (x is not {Color: Color.Black})
+            if (x is {Color: Color.Red})
             {
                 return false;
             }
 
             var y = sibling.Right;
-            return y is {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase3Right(Node doubleBlackNode)
@@ -434,13 +475,13 @@ namespace LeetCode
             }
 
             var x = sibling.Left;
-            if (x is not {Color: Color.Black})
+            if (x is {Color: Color.Red})
             {
                 return false;
             }
 
             var y = sibling.Right;
-            return y is {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase2Left(Node doubleBlackNode)
@@ -464,7 +505,7 @@ namespace LeetCode
             }
 
             var y = sibling.Right;
-            return y is null or {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase2Right(Node doubleBlackNode)
@@ -488,7 +529,7 @@ namespace LeetCode
             }
 
             var y = sibling.Right;
-            return y is null or {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private bool IsCase1(Node doubleBlackNode)
@@ -766,13 +807,13 @@ namespace LeetCode
             return node;
         }
 
-        private enum Color
+        internal enum Color
         {
             Black
             , Red
         }
 
-        private class Node
+        internal class Node
         {
             public int Value { get; set; }
             public Node Parent { get; set; }
@@ -1081,13 +1122,14 @@ namespace LeetCode
                 tree.Remove(20);
 
                 // Assert
-                Assert.AreEqual(30, root.Right.Value);
-                Assert.AreEqual(Color.Black, root.Right.Color);
-
-                Assert.AreEqual(38, root.Right.Right.Value);
-                Assert.AreEqual(Color.Red, root.Right.Right.Color);
-
-                Assert.Null(root.Right.Left);
+                var result = tree.InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-10, Color.Black)
+                    , (10, Color.Black)
+                    , (30, Color.Black)
+                    , (38, Color.Red)
+                }, result);
             }
 
             [Test]
@@ -1121,22 +1163,179 @@ namespace LeetCode
                 tree.Remove(-10);
 
                 // Assert
-                root = tree._root;
-                Assert.AreEqual(30, root.Value);
-                Assert.AreEqual(Color.Black, root.Color);
-
-                Assert.AreEqual(10, root.Left.Value);
-                Assert.AreEqual(Color.Black, root.Left.Color);
-
-                Assert.AreEqual(25, root.Left.Right.Value);
-                Assert.AreEqual(Color.Red, root.Left.Right.Color);
-
-                Assert.AreEqual(40, root.Right.Value);
-                Assert.AreEqual(Color.Black, root.Right.Color);
-
-                Assert.Null(root.Left.Left);
+                var result = tree.InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (10, Color.Black)
+                    , (25, Color.Red)
+                    , (30, Color.Black)
+                    , (40, Color.Black)
+                }, result);
             }
-            
+
+            [Test]
+            public void TestCase3Left()
+            {
+                // https://youtu.be/CTvfzU_uNKE?t=913
+
+                // Arrange
+                var tree = new RedBlackTree();
+
+                var root = new Node {Value = 10, Color = Color.Black};
+                tree._root = root;
+
+                root.Left = new Node {Value = -10, Color = Color.Black};
+
+                root.Right = new Node
+                {
+                    Value = 30
+                    , Color = Color.Black
+                };
+
+                root.Left.Parent = root;
+                root.Right.Parent = root;
+
+                // Act
+                tree.Remove(-10);
+
+                // Assert
+                var result = tree.InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (10, Color.Black)
+                    , (30, Color.Red)
+                }, result);
+            }
+
+            [Test]
+            public void TestCase5Left()
+            {
+                // https://youtu.be/CTvfzU_uNKE?t=1078
+
+                // Arrange
+                var tree = new RedBlackTree();
+
+                var root = new Node {Value = 10, Color = Color.Black};
+                tree._root = root;
+
+                root.Left = new Node
+                {
+                    Value = -30
+                    , Color = Color.Black
+                    , Left = new Node {Value = -40, Color = Color.Black}
+                    , Right = new Node {Value = -20, Color = Color.Black}
+                };
+
+                root.Right = new Node
+                {
+                    Value = 50
+                    , Color = Color.Black
+                    , Left = new Node
+                    {
+                        Value = 30
+                        , Color = Color.Red
+                        , Left = new Node {Value = 15, Color = Color.Black}
+                        , Right = new Node {Value = 40, Color = Color.Black}
+                    }
+                    , Right = new Node
+                    {
+                        Value = 70
+                        , Color = Color.Black
+                    }
+                };
+
+                root.Left.Parent = root;
+                root.Right.Parent = root;
+
+                root.Left.Left.Parent = root.Left;
+                root.Left.Right.Parent = root.Left;
+
+                root.Right.Right.Parent = root.Right;
+                root.Right.Left.Parent = root.Right;
+
+                root.Right.Left.Left.Parent = root.Right.Left;
+                root.Right.Left.Right.Parent = root.Right.Left;
+
+                // Act
+                tree.Remove(-40);
+
+                // Assert
+                var result = tree.InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-30, Color.Black)
+                    , (-20, Color.Red)
+                    , (10, Color.Black)
+                    , (15, Color.Black)
+                    , (30, Color.Black)
+                    , (40, Color.Black)
+                    , (50, Color.Black)
+                    , (70, Color.Black)
+                }, result);
+            }
+
+            [Test]
+            public void TestCase2Left()
+            {
+                // https://youtu.be/CTvfzU_uNKE?t=1472
+
+                // Arrange
+                var tree = new RedBlackTree();
+
+                var root = new Node {Value = 10, Color = Color.Black};
+                tree._root = root;
+
+                root.Left = new Node
+                {
+                    Value = -10
+                    , Color = Color.Black
+                    , Left = new Node {Value = -20, Color = Color.Black}
+                    , Right = new Node {Value = -5, Color = Color.Black}
+                };
+
+                root.Right = new Node
+                {
+                    Value = 40
+                    , Color = Color.Black
+                    , Left = new Node {Value = 20, Color = Color.Black}
+                    , Right = new Node
+                    {
+                        Value = 60
+                        , Color = Color.Red
+                        , Left = new Node {Value = 50, Color = Color.Black}
+                        , Right = new Node {Value = 80, Color = Color.Black}
+                    }
+                };
+
+                root.Left.Parent = root;
+                root.Right.Parent = root;
+
+                root.Left.Left.Parent = root.Left;
+                root.Left.Right.Parent = root.Left;
+
+                root.Right.Right.Parent = root.Right;
+                root.Right.Left.Parent = root.Right;
+
+                root.Right.Right.Left.Parent = root.Right.Right;
+                root.Right.Right.Right.Parent = root.Right.Right;
+
+                // Act
+                tree.Remove(10);
+
+                // Assert
+                var result = tree.InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-20, Color.Black)
+                    , (-10, Color.Black)
+                    , (-5, Color.Black)
+                    , (20, Color.Black)
+                    , (40, Color.Black)
+                    , (50, Color.Red)
+                    , (60, Color.Black)
+                    , (80, Color.Black)
+                }, result);
+            }
         }
     }
 }

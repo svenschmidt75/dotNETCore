@@ -26,35 +26,6 @@ namespace LeetCode
             }
         }
 
-        internal IList<(int value, Color color)> InorderTravsersal(Node node)
-        {
-            var result = new List<(int, Color)>();
-
-            var stack = new Stack<Node>();
-            var current = node;
-            while (true)
-            {
-                if (current != null)
-                {
-                    stack.Push(current);
-                    current = current.Left;
-                }
-                else
-                {
-                    if (stack.Any() == false)
-                    {
-                        break;
-                    }
-
-                    current = stack.Pop();
-                    result.Add((current.Value, current.Color));
-                    current = current.Right;
-                }
-            }
-
-            return result;
-        }
-
         public void Remove(int v)
         {
             // SS: find node to delete
@@ -220,7 +191,12 @@ namespace LeetCode
                         // SS: recolor
                         doubleBlackNode.Parent.Color = Color.Black;
                         doubleBlackNode.Parent.Left.Color = Color.Red;
-                        doubleBlackNode.Color = Color.Black;
+
+                        if (doubleBlackNode is {Left: null, Right: null})
+                        {
+                            // SS: Double-Black node has no children, so delete
+                            DisconnectNode(doubleBlackNode);
+                        }
 
                         // SS: case 4 is terminating
                         break;
@@ -403,13 +379,13 @@ namespace LeetCode
             }
 
             var x = sibling.Left;
-            if (x is {Color: Color.Black})
+            if (x is {Color: Color.Red})
             {
                 return false;
             }
 
             var y = sibling.Right;
-            return y is null or {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase4Right(Node doubleBlackNode)
@@ -427,13 +403,13 @@ namespace LeetCode
             }
 
             var x = sibling.Left;
-            if (x is null or {Color: Color.Black})
+            if (x is {Color: Color.Red})
             {
                 return false;
             }
 
             var y = sibling.Right;
-            return y is null or {Color: Color.Black};
+            return y is not {Color: Color.Red};
         }
 
         private static bool IsCase3Left(Node doubleBlackNode)
@@ -838,9 +814,14 @@ namespace LeetCode
                 tree.Insert(20);
 
                 // Assert
-                Assert.AreEqual(10, tree._root.Value);
-                Assert.AreEqual(-10, tree._root.Left.Value);
-                Assert.AreEqual(20, tree._root.Right.Value);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-10, Color.Red)
+                    , (10, Color.Black)
+                    , (20, Color.Red)
+                }, result);
             }
 
             [Test]
@@ -891,18 +872,19 @@ namespace LeetCode
                 tree.Insert(5);
 
                 // Act
-                // Assert
 
                 // SS: creates RR-violation, need to rotate right around root
                 tree.Insert(3);
-                Assert.AreEqual(5, tree._root.Value);
-                Assert.AreEqual(Color.Black, tree._root.Color);
 
-                Assert.AreEqual(3, tree._root.Left.Value);
-                Assert.AreEqual(Color.Red, tree._root.Left.Color);
-
-                Assert.AreEqual(10, tree._root.Right.Value);
-                Assert.AreEqual(Color.Red, tree._root.Right.Color);
+                // Assert
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (3, Color.Red)
+                    , (5, Color.Black)
+                    , (10, Color.Red)
+                }, result);
             }
 
             [Test]
@@ -918,19 +900,10 @@ namespace LeetCode
                 tree.Insert(25);
 
                 // Act
-                // Assert
                 tree.Insert(4);
-                Assert.AreEqual(4, tree._root.Left.Right.Left.Value);
-                Assert.AreEqual(Color.Red, tree._root.Left.Right.Left.Color);
 
-                Assert.AreEqual(-10, tree._root.Left.Value);
-                Assert.AreEqual(Color.Red, tree._root.Left.Color);
-
-                Assert.AreEqual(-20, tree._root.Left.Left.Value);
-                Assert.AreEqual(Color.Black, tree._root.Left.Left.Color);
-
-                Assert.AreEqual(6, tree._root.Left.Right.Value);
-                Assert.AreEqual(Color.Black, tree._root.Left.Right.Color);
+                // Assert
+                Assert.True(IsRedBlackTree(tree._root));
             }
 
             [Test]
@@ -949,29 +922,7 @@ namespace LeetCode
 
                 // Act
                 // Assert
-                Assert.AreEqual(17, tree._root.Value);
-                Assert.AreEqual(Color.Black, tree._root.Color);
-
-                Assert.AreEqual(10, tree._root.Left.Value);
-                Assert.AreEqual(Color.Red, tree._root.Left.Color);
-
-                Assert.AreEqual(-10, tree._root.Left.Left.Value);
-                Assert.AreEqual(Color.Black, tree._root.Left.Left.Color);
-
-                Assert.AreEqual(15, tree._root.Left.Right.Value);
-                Assert.AreEqual(Color.Black, tree._root.Left.Right.Color);
-
-                Assert.AreEqual(40, tree._root.Right.Value);
-                Assert.AreEqual(Color.Red, tree._root.Right.Color);
-
-                Assert.AreEqual(20, tree._root.Right.Left.Value);
-                Assert.AreEqual(Color.Black, tree._root.Right.Left.Color);
-
-                Assert.AreEqual(50, tree._root.Right.Right.Value);
-                Assert.AreEqual(Color.Black, tree._root.Right.Right.Color);
-
-                Assert.AreEqual(60, tree._root.Right.Right.Right.Value);
-                Assert.AreEqual(Color.Red, tree._root.Right.Right.Right.Color);
+                Assert.True(IsRedBlackTree(tree._root));
             }
 
             [Test]
@@ -1021,9 +972,18 @@ namespace LeetCode
                 tree.Remove(30);
 
                 // Assert
-                Assert.AreEqual(35, root.Right.Value);
-                Assert.AreEqual(Color.Red, root.Right.Color);
-                Assert.Null(root.Right.Right.Left);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-5, Color.Black)
+                    , (5, Color.Red)
+                    , (7, Color.Black)
+                    , (10, Color.Black)
+                    , (20, Color.Black)
+                    , (35, Color.Red)
+                    , (38, Color.Black)
+                }, result);
             }
 
             [Test]
@@ -1082,13 +1042,20 @@ namespace LeetCode
                 tree.Remove(30);
 
                 // Assert
-                Assert.AreEqual(32, root.Right.Value);
-                Assert.AreEqual(Color.Black, root.Right.Color);
-
-                Assert.AreEqual(35, root.Right.Right.Left.Value);
-                Assert.AreEqual(Color.Black, root.Right.Right.Left.Color);
-
-                Assert.Null(root.Right.Right.Left.Right);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
+                CollectionAssert.AreEqual(new[]
+                {
+                    (-5, Color.Black)
+                    , (5, Color.Black)
+                    , (7, Color.Black)
+                    , (10, Color.Black)
+                    , (20, Color.Black)
+                    , (32, Color.Black)
+                    , (35, Color.Black)
+                    , (38, Color.Red)
+                    , (41, Color.Black)
+                }, result);
             }
 
             [Test]
@@ -1122,7 +1089,8 @@ namespace LeetCode
                 tree.Remove(20);
 
                 // Assert
-                var result = tree.InorderTravsersal(tree._root);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
                 CollectionAssert.AreEqual(new[]
                 {
                     (-10, Color.Black)
@@ -1163,7 +1131,8 @@ namespace LeetCode
                 tree.Remove(-10);
 
                 // Assert
-                var result = tree.InorderTravsersal(tree._root);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
                 CollectionAssert.AreEqual(new[]
                 {
                     (10, Color.Black)
@@ -1199,7 +1168,8 @@ namespace LeetCode
                 tree.Remove(-10);
 
                 // Assert
-                var result = tree.InorderTravsersal(tree._root);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
                 CollectionAssert.AreEqual(new[]
                 {
                     (10, Color.Black)
@@ -1260,7 +1230,8 @@ namespace LeetCode
                 tree.Remove(-40);
 
                 // Assert
-                var result = tree.InorderTravsersal(tree._root);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
                 CollectionAssert.AreEqual(new[]
                 {
                     (-30, Color.Black)
@@ -1323,7 +1294,8 @@ namespace LeetCode
                 tree.Remove(10);
 
                 // Assert
-                var result = tree.InorderTravsersal(tree._root);
+                Assert.True(IsRedBlackTree(tree._root));
+                var result = InorderTravsersal(tree._root);
                 CollectionAssert.AreEqual(new[]
                 {
                     (-20, Color.Black)
@@ -1336,6 +1308,158 @@ namespace LeetCode
                     , (80, Color.Black)
                 }, result);
             }
+
+            private static IList<(int value, Color color)> InorderTravsersal(Node node)
+            {
+                var result = new List<(int, Color)>();
+
+                var stack = new Stack<Node>();
+                var current = node;
+                while (true)
+                {
+                    if (current != null)
+                    {
+                        stack.Push(current);
+                        current = current.Left;
+                    }
+                    else
+                    {
+                        if (stack.Any() == false)
+                        {
+                            break;
+                        }
+
+                        current = stack.Pop();
+                        result.Add((current.Value, current.Color));
+                        current = current.Right;
+                    }
+                }
+
+                return result;
+            }
+
+            private static bool IsRedBlackTree(Node root)
+            {
+                var nBlackNodesInPath = 0;
+
+                bool Check(Node n, Node parent, int nBlack)
+                {
+                    // SS: base case
+                    if (n == null)
+                    {
+                        if (nBlackNodesInPath == 0)
+                        {
+                            nBlackNodesInPath = nBlack;
+                        }
+
+                        return nBlackNodesInPath == nBlack;
+                    }
+
+                    // SS: check red-red violation
+                    if (n.Color == Color.Red && parent.Color == Color.Red)
+                    {
+                        return false;
+                    }
+
+                    nBlack = n.Color == Color.Black ? nBlack + 1 : nBlack;
+
+                    if (Check(n.Left, n, nBlack) == false)
+                    {
+                        return false;
+                    }
+
+                    if (Check(n.Right, n, nBlack) == false)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+
+                return Check(root, root, 0);
+            }
+
+            [Test]
+            public void TestInsertRandom()
+            {
+                // Arrange
+                const int minValue = -100;
+                const int maxValue = 100;
+                const int nNodes = 100;
+                const int seedValue = 36483;
+
+                var rnd = new Random(seedValue);
+
+                // Act
+                var rbTree = new RedBlackTree();
+                for (int i = 0; i < nNodes; i++)
+                {
+                    var prevResult = InorderTravsersal(rbTree._root);
+
+                    int nodeValue = rnd.Next(minValue, maxValue);
+
+                    Console.WriteLine($"Inserting value {nodeValue}...");
+                    rbTree.Insert(nodeValue);
+
+                    if (IsRedBlackTree(rbTree._root) == false)
+                    {
+                        Console.WriteLine($"Inserting value {nodeValue} causes a violation");
+                        Assert.Fail();
+                    }
+                }
+            }
+
+            [Test]
+            public void TestDeleteRandom()
+            {
+                // Arrange
+                const int minValue = -100;
+                const int maxValue = 100;
+                const int nNodes = 10;
+                const int seedValue = 36483;
+
+                var rnd = new Random(seedValue);
+
+                var values = new List<int>();
+                
+                var rbTree = new RedBlackTree();
+                for (int i = 0; i < nNodes; i++)
+                {
+                    var prevResult = InorderTravsersal(rbTree._root);
+
+                    int nodeValue = rnd.Next(minValue, maxValue);
+                    values.Add(nodeValue);
+
+                    Console.WriteLine($"Inserting value {nodeValue}...");
+                    rbTree.Insert(nodeValue);
+
+                    if (IsRedBlackTree(rbTree._root) == false)
+                    {
+                        Console.WriteLine($"Inserting value {nodeValue} causes a violation");
+                        Assert.Fail();
+                    }
+                }
+                
+                // Act
+                for (int i = 0; i < nNodes; i++)
+                {
+                    int nodeValueIdx = rnd.Next(0, nNodes);
+                    int nodeValue = values[nodeValueIdx];
+
+                    var prevResult = InorderTravsersal(rbTree._root);
+
+                    Console.WriteLine($"Removing value {nodeValue}...");
+                    rbTree.Remove(nodeValue);
+
+                    if (IsRedBlackTree(rbTree._root) == false)
+                    {
+                        Console.WriteLine($"Removing value {nodeValue} causes a violation");
+                        Assert.Fail();
+                    }
+                }
+
+            }
+            
         }
     }
 }

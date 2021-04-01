@@ -55,7 +55,7 @@ namespace LeetCode
             }
         }
 
-        private Node FindInorderSuccessor(Node node)
+        private static Node FindInorderSuccessor(Node node)
         {
             // SS: find the left-most node in the right subtree
             if (node.Right == null)
@@ -117,7 +117,7 @@ namespace LeetCode
                         doubleBlackNode.Parent.Color = Color.Red;
                         doubleBlackNode.Parent.Parent.Color = Color.Black;
 
-                        // SS: not a terminating case
+                        // SS: Case 2 is not a terminating case
                         continue;
                     }
 
@@ -130,7 +130,7 @@ namespace LeetCode
                         doubleBlackNode.Parent.Color = Color.Red;
                         doubleBlackNode.Parent.Parent.Color = Color.Black;
 
-                        // SS: not a terminating case
+                        // SS: Case 2 is not a terminating case
                         continue;
                     }
 
@@ -229,7 +229,8 @@ namespace LeetCode
                         // SS: left-rotation around parent, from sibling
                         RotateLeft(doubleBlackNode.Parent.Right, false);
 
-                        doubleBlackNode.Color = Color.Black;
+                        // SS: recolor
+                        doubleBlackNode.Parent.Parent.Color = doubleBlackNode.Parent.Color;
                         doubleBlackNode.Parent.Color = Color.Black;
                         doubleBlackNode.Parent.Parent.Right.Color = Color.Black;
 
@@ -248,7 +249,8 @@ namespace LeetCode
                         // SS: right-rotation around parent
                         RotateRight(doubleBlackNode.Parent.Left, false);
 
-                        doubleBlackNode.Color = Color.Black;
+                        // SS: recolor
+                        doubleBlackNode.Parent.Parent.Color = doubleBlackNode.Parent.Color;
                         doubleBlackNode.Parent.Color = Color.Black;
                         doubleBlackNode.Parent.Parent.Left.Color = Color.Black;
 
@@ -319,7 +321,7 @@ namespace LeetCode
         private static bool IsCase5Left(Node doubleBlackNode)
         {
             var parent = doubleBlackNode.Parent;
-            if (parent.Left != doubleBlackNode || parent.Color != Color.Black)
+            if (parent.Left != doubleBlackNode)
             {
                 return false;
             }
@@ -343,7 +345,7 @@ namespace LeetCode
         private static bool IsCase5Right(Node doubleBlackNode)
         {
             var parent = doubleBlackNode.Parent;
-            if (parent.Right != doubleBlackNode || parent.Color != Color.Black)
+            if (parent.Right != doubleBlackNode)
             {
                 return false;
             }
@@ -1383,27 +1385,29 @@ namespace LeetCode
             public void TestInsertRandom()
             {
                 // Arrange
-                const int minValue = -100;
-                const int maxValue = 100;
-                const int nNodes = 100;
-                const int seedValue = 36483;
+                const int minValue = -1000;
+                const int maxValue = 1000;
+                const int nNodes = 1000;
+                var seedValue = DateTime.Now.Millisecond;
+
+                Console.WriteLine($"Using seed {seedValue}");
 
                 var rnd = new Random(seedValue);
 
                 // Act
                 var rbTree = new RedBlackTree();
-                for (int i = 0; i < nNodes; i++)
+                for (var i = 0; i < nNodes; i++)
                 {
                     var prevResult = InorderTravsersal(rbTree._root);
 
-                    int nodeValue = rnd.Next(minValue, maxValue);
+                    var nodeValue = rnd.Next(minValue, maxValue);
 
                     Console.WriteLine($"Inserting value {nodeValue}...");
                     rbTree.Insert(nodeValue);
 
                     if (IsRedBlackTree(rbTree._root) == false)
                     {
-                        Console.WriteLine($"Inserting value {nodeValue} causes a violation");
+                        Console.WriteLine($"Inserting value {nodeValue} with seed {seedValue} causes a violation");
                         Assert.Fail();
                     }
                 }
@@ -1413,21 +1417,23 @@ namespace LeetCode
             public void TestDeleteRandom()
             {
                 // Arrange
-                const int minValue = -100;
-                const int maxValue = 100;
-                const int nNodes = 10;
-                const int seedValue = 36483;
+                const int minValue = -1000;
+                const int maxValue = 1000;
+                const int nNodes = 1000;
+                var seedValue = DateTime.Now.Millisecond;
 
                 var rnd = new Random(seedValue);
 
+                Console.WriteLine($"Using seed {seedValue}");
+
                 var values = new List<int>();
-                
+
                 var rbTree = new RedBlackTree();
-                for (int i = 0; i < nNodes; i++)
+                for (var i = 0; i < nNodes; i++)
                 {
                     var prevResult = InorderTravsersal(rbTree._root);
 
-                    int nodeValue = rnd.Next(minValue, maxValue);
+                    var nodeValue = rnd.Next(minValue, maxValue);
                     values.Add(nodeValue);
 
                     Console.WriteLine($"Inserting value {nodeValue}...");
@@ -1435,16 +1441,16 @@ namespace LeetCode
 
                     if (IsRedBlackTree(rbTree._root) == false)
                     {
-                        Console.WriteLine($"Inserting value {nodeValue} causes a violation");
+                        Console.WriteLine($"Inserting value {nodeValue} with seed {seedValue} causes a violation");
                         Assert.Fail();
                     }
                 }
-                
+
                 // Act
-                for (int i = 0; i < nNodes; i++)
+                for (var i = 0; i < nNodes; i++)
                 {
-                    int nodeValueIdx = rnd.Next(0, nNodes);
-                    int nodeValue = values[nodeValueIdx];
+                    var nodeValueIdx = rnd.Next(0, nNodes);
+                    var nodeValue = values[nodeValueIdx];
 
                     var prevResult = InorderTravsersal(rbTree._root);
 
@@ -1453,13 +1459,11 @@ namespace LeetCode
 
                     if (IsRedBlackTree(rbTree._root) == false)
                     {
-                        Console.WriteLine($"Removing value {nodeValue} causes a violation");
+                        Console.WriteLine($"Removing value {nodeValue} with seed {seedValue} causes a violation");
                         Assert.Fail();
                     }
                 }
-
             }
-            
         }
     }
 }

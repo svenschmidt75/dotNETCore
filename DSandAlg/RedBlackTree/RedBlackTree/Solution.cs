@@ -823,14 +823,25 @@ namespace LeetCode
                 }
                 else
                 {
-                    found = true;
-                    upperBound = current.Value;
-                    current = current.Left;
-                    while (current != null && current.Value > v)
+                    if (found)
                     {
-                        upperBound = current.Value;
-                        current = current.Left;
+                        if (upperBound > current.Value)
+                        {
+                            upperBound = current.Value;
+                        }
+                        else
+                        {
+                            // SS: there cannot be a smaller upper bound
+                            break;
+                        }
                     }
+                    else
+                    {
+                        found = true;
+                        upperBound = current.Value;
+                    }
+
+                    current = current.Left;
                 }
             }
             

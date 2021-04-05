@@ -15,7 +15,7 @@ namespace JohnProblem14
     ///     to be complete.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BinaryHeap<T>
+    public class BinaryHeap<T> where T: IComparable
     {
         private readonly Func<T, T, bool> _comparer;
 
@@ -39,6 +39,16 @@ namespace JohnProblem14
         public static BinaryHeap<T> CreateHeap(T[] input, Func<T, T, bool> comparer)
         {
             return new BinaryHeap<T>(input, comparer);
+        }
+
+        public static BinaryHeap<T> CreateMinHeap(T[] input)
+        {
+            return new BinaryHeap<T>(input, (i1, i2) => i1.CompareTo(i2) > 0);
+        }
+
+        public static BinaryHeap<T> CreateMaxHeap(T[] input)
+        {
+            return new BinaryHeap<T>(input, (i1, i2) => i1.CompareTo(i2) < 0);
         }
 
         public static BinaryHeap<T> CreateHeap(Func<T, T, bool> comparer)
@@ -131,13 +141,13 @@ namespace JohnProblem14
             }
         }
 
-        private int GetParentNode(int nodeIndex)
+        private static int GetParentNode(int nodeIndex)
         {
             return (nodeIndex - 1) / 2;
         }
 
 
-        private int GetRightChild(int parentNode)
+        private static int GetRightChild(int parentNode)
         {
             return 2 * parentNode + 2;
         }
@@ -150,7 +160,7 @@ namespace JohnProblem14
         }
 
 
-        private int GetLeftChild(int parentNode)
+        private static int GetLeftChild(int parentNode)
         {
             return 2 * parentNode + 1;
         }
@@ -190,7 +200,8 @@ namespace JohnProblem14
             var input = new[] {8, 9, 12, 13, 15, 3, 17};
 
             // Act
-            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+//            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+            var maxHeap = BinaryHeap<int>.CreateMaxHeap(input);
 
             // Assert
             CollectionAssert.AreEqual(new[] {17, 15, 12, 13, 9, 3, 8}, maxHeap.Data);
@@ -203,7 +214,8 @@ namespace JohnProblem14
             var input = new[] {8, 9, 12, 13, 15, 3, 17};
 
             // Act
-            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 > i2);
+//            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 > i2);
+            var maxHeap = BinaryHeap<int>.CreateMinHeap(input);
 
             // Assert
             CollectionAssert.AreEqual(new[] {3, 9, 8, 13, 15, 12, 17}, maxHeap.Data);
@@ -214,7 +226,8 @@ namespace JohnProblem14
         {
             // Arrange
             var input = new[] {8, 9, 12, 13, 15, 3, 17};
-            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+//            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+            var maxHeap = BinaryHeap<int>.CreateMaxHeap(input);
             maxHeap.Push(16);
 
             // Act / Assert
@@ -250,7 +263,8 @@ namespace JohnProblem14
         {
             // Arrange
             var input = new[] {8, 9, 12, 13, 15, 3, 17};
-            var minHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 > i2);
+//            var minHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 > i2);
+            var minHeap = BinaryHeap<int>.CreateMinHeap(input);
             minHeap.Push(16);
 
             // Act / Assert
@@ -286,7 +300,8 @@ namespace JohnProblem14
         {
             // Arrange
             var input = new[] {8, 9, 12, 13, 15, 3, 17};
-            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+//            var maxHeap = BinaryHeap<int>.CreateHeap(input, (i1, i2) => i1 < i2);
+            var maxHeap = BinaryHeap<int>.CreateMaxHeap(input);
 
             // Act
             maxHeap.Push(16);

@@ -16,7 +16,7 @@ namespace JohnProblem14
     public class GoogleProblem14
     {
         private readonly bool[] _input;
-        private PriorityQueue<(int start, int end)> _intervals = PriorityQueue<(int start, int end)>.CreateMaxPriorityQueue();
+        private readonly PriorityQueue<(int start, int end)> _intervals = PriorityQueue<(int start, int end)>.CreateMaxPriorityQueue();
 
         public GoogleProblem14(bool[] input)
         {

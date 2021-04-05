@@ -15,7 +15,7 @@ namespace JohnProblem14
     ///     to be complete.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BinaryHeap<T> where T: IComparable
+    public class BinaryHeap<T> where T : IComparable
     {
         private readonly Func<T, T, bool> _comparer;
 

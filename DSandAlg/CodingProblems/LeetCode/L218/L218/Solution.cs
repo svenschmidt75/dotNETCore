@@ -87,28 +87,41 @@ namespace LeetCode
                         // we need to first process all buildings before it.
                         while (maxHeap.IsEmpty == false)
                         {
-                            tIdx = maxHeap.Pop();
+                            // SS: check whether the next building overlaps with this one
+                            tIdx = maxHeap.Peek();
                             tallest = buildings[tIdx];
+
+                            // SS: if the buildings overlap, exit
+                            if (tallest[1] >= b2[0])
+                            {
+                                break;
+                            }
+
+                            maxHeap.Pop();
 
                             if (maxHeap.IsEmpty)
                             {
                                 break;
                             }
 
-                            var b2Idx = maxHeap.Pop();
-                            b2 = buildings[b2Idx];
+                            var b3Idx = maxHeap.Pop();
+                            var b3 = buildings[b3Idx];
 
-                            if (tallest[1] >= b2[0] && tallest[1] < b2[1])
+                            if (tallest[1] >= b3[0] && tallest[1] < b3[1])
                             {
-                                result.Add(new[]{tallest[1], b2[2]});
+                                result.Add(new[]{tallest[1], b3[2]});
+                                maxHeap.Push(b3Idx);
+                            }
+                            else if (b3[1] < tallest[1])
+                            {
+                                // SS: must check tallest against others
+                                maxHeap.Push(tIdx);
                             }
                             else
                             {
-                                maxHeap.Push(b2Idx);
+                                maxHeap.Push(b3Idx);
                                 break;
                             }
-
-                            maxHeap.Push(b2Idx);
                         }
 
                         if (maxHeap.IsEmpty)
@@ -152,14 +165,18 @@ namespace LeetCode
                     if (tallest[1] >= b2[0] && tallest[1] < b2[1])
                     {
                         result.Add(new[]{tallest[1], b2[2]});
+                        maxHeap.Push(b2Idx);
+                    }
+                    else if (b2[1] < tallest[1])
+                    {
+                        // SS: must check tallest against others
+                        maxHeap.Push(tIdx);
                     }
                     else
                     {
                         maxHeap.Push(b2Idx);
                         break;
                     }
-
-                    maxHeap.Push(b2Idx);
                 }
 
                 // SS: insert maxX

@@ -39,7 +39,7 @@ namespace LeetCode
                 }
 
                 // SS: tie, prioritize the one with larger endX
-                return b1[1] >= b2[1];
+                return b1[1] < b2[1];
             });
 
             int minX;
@@ -673,44 +673,13 @@ namespace LeetCode
             public void Test24()
             {
                 // Arrange
-                int[][] buildings =
-                {
-                    new[] {1, 38, 219}, new[] {2, 19, 228}, new[] {2, 64, 106}, new[] {3, 80, 65}, new[] {3, 84, 8}, new[] {4, 12, 8}, new[] {4, 25, 14}, new[] {4, 46, 225}, new[] {4, 67, 187}
-                    , new[] {5, 36, 118}, new[] {5, 48, 211}, new[] {5, 55, 97}, new[] {6, 42, 92}, new[] {6, 56, 188}, new[] {7, 37, 42}, new[] {7, 49, 78}, new[] {7, 84, 163}, new[] {8, 44, 212}
-                    , new[] {9, 42, 125}, new[] {9, 85, 200}, new[] {9, 100, 74}, new[] {10, 13, 58}, new[] {11, 30, 179}, new[] {12, 32, 215}, new[] {12, 33, 161}, new[] {12, 61, 198}
-                    , new[] {13, 38, 48}, new[] {13, 65, 222}, new[] {14, 22, 1}, new[] {15, 70, 222}, new[] {16, 19, 196}, new[] {16, 24, 142}, new[] {16, 25, 176}, new[] {16, 57, 114}
-                    , new[] {18, 45, 1}, new[] {19, 79, 149}, new[] {20, 33, 53}, new[] {21, 29, 41}, new[] {23, 77, 43}, new[] {24, 41, 75}, new[] {24, 94, 20}, new[] {27, 63, 2}, new[] {31, 69, 58}
-                    , new[] {31, 88, 123}, new[] {31, 88, 146}, new[] {33, 61, 27}, new[] {35, 62, 190}, new[] {35, 81, 116}, new[] {37, 97, 81}, new[] {38, 78, 99}, new[] {39, 51, 125}
-                    , new[] {39, 98, 144}, new[] {40, 95, 4}, new[] {45, 89, 229}, new[] {47, 49, 10}, new[] {47, 99, 152}, new[] {48, 67, 69}, new[] {48, 72, 1}, new[] {49, 73, 204}
-                    , new[] {49, 77, 117}, new[] {50, 61, 174}, new[] {50, 76, 147}, new[] {52, 64, 4}, new[] {52, 89, 84}, new[] {54, 70, 201}, new[] {57, 76, 47}, new[] {58, 61, 215}
-                    , new[] {58, 98, 57}, new[] {61, 95, 190}, new[] {66, 71, 34}, new[] {66, 99, 53}, new[] {67, 74, 9}, new[] {68, 97, 175}, new[] {70, 88, 131}, new[] {74, 77, 155}
-                    , new[] {74, 99, 145}, new[] {76, 88, 26}, new[] {82, 87, 40}, new[] {83, 84, 132}, new[] {88, 99, 99}
-                };
+                int[][] buildings = {new[] {3, 84, 8}, new[] {4, 12, 8}, new[] {4, 25, 14}, new[] {4, 46, 225}, new[] {88, 99, 99}};
 
                 // Act
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {1, 219}, new[] {2, 228}, new[] {19, 225}, new[] {45, 229}, new[] {89, 190}, new[] {95, 175}, new[] {97, 152}, new[] {99, 74}, new[] {100, 0}}
-                    , results);
-            }
-
-            [Test]
-            public void Test25()
-            {
-                // Arrange
-                int[][] buildings =
-                {
-                    new[] {9, 100, 74}, new[] {15, 70, 222}, new[] {16, 25, 176}, new[] {16, 57, 114}, new[] {18, 45, 1}, new[] {19, 79, 149}, new[] {20, 33, 53}, new[] {21, 29, 41}
-                    , new[] {23, 77, 43}, new[] {57, 76, 47}, new[] {58, 61, 215}, new[] {58, 98, 57}, new[] {61, 95, 190}, new[] {74, 99, 145}
-                };
-                ;
-
-                // Act
-                var results = new Solution().GetSkyline(buildings);
-
-                // Assert
-                CollectionAssert.AreEqual(new[] {new[] {9, 74}, new[] {15, 222}, new[] {70, 190}, new[] {95, 145}, new[] {99, 74}, new[] {100, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {3, 8}, new[] {4, 225}, new[] {46, 8}, new[] {84, 0}, new[] {88, 99}, new[] {99, 0}}, results);
             }
         }
     }

@@ -44,59 +44,55 @@ namespace LeetCode
 
             int minX;
             int maxX;
-
             var idx = 0;
+
             while (true)
             {
-                if (idx == buildings.Length && maxHeap.IsEmpty)
-                {
-                    break;
-                }
-
                 if (idx == buildings.Length)
                 {
                     break;
                 }
 
-                var b1 = buildings[idx];
-                minX = b1[0];
-                maxX = b1[1];
+                var b = buildings[idx];
+                minX = b[0];
+                maxX = b[1];
 
-                result.Add(new[] {minX, b1[2]});
+                result.Add(new[] {minX, b[2]});
 
                 maxHeap.Push(idx);
+
                 idx++;
 
-                while (idx < buildings.Length)
+                while (idx < buildings.Length && maxHeap.IsEmpty == false)
                 {
+                    // SS: get tallest building
                     var tIdx = maxHeap.Peek();
                     var tallest = buildings[tIdx];
 
-                    var b2 = buildings[idx];
-                    if (b2[0] == tallest[0])
+                    b = buildings[idx];
+                    if (b[0] == tallest[0])
                     {
-                        // SS: use the latter one
-                        result[^1][1] = Math.Max(result[^1][1], b2[2]);
-                        maxX = Math.Max(maxX, b2[1]);
+                        // SS: both buildings start at the same point, use the higher one
+                        result[^1][1] = Math.Max(result[^1][1], b[2]);
+                        maxX = Math.Max(maxX, b[1]);
                         maxHeap.Push(idx);
                         idx++;
                     }
-                    else if (b2[0] > tallest[1])
+                    else if (b[0] > tallest[1])
                     {
-                        // SS: if the next building starts after the tallest ends,
-                        // we need to first process all buildings before it.
-                        while (maxHeap.IsEmpty == false)
+                        // SS: the next building starts after the tallest ends,
+                        // so create points for the tallest building before adding
+                        // the new building
+                        while (true)
                         {
-                            // SS: check whether the next building overlaps with this one
-                            tIdx = maxHeap.Peek();
-                            tallest = buildings[tIdx];
-
-                            // SS: if the buildings overlap, exit
-                            if (tallest[1] >= b2[0])
+                            // SS: if the current tallest building overlaps with the next unprocessed one,
+                            // we are done
+                            if (tallest[1] >= b[0])
                             {
                                 break;
                             }
 
+                            // SS: pop off the tallest building
                             maxHeap.Pop();
 
                             if (maxHeap.IsEmpty)
@@ -104,53 +100,53 @@ namespace LeetCode
                                 break;
                             }
 
-                            var b3Idx = maxHeap.Pop();
-                            var b3 = buildings[b3Idx];
+                            // SS: next tallest building
+                            var b2Idx = maxHeap.Pop();
+                            var b2 = buildings[b2Idx];
 
-                            if (tallest[1] >= b3[0] && tallest[1] < b3[1] && tallest[2] != b3[2])
+                            if (tallest[1] >= b2[0] && tallest[1] < b2[1] && tallest[2] > b2[2])
                             {
-                                result.Add(new[] {tallest[1], b3[2]});
-                                maxHeap.Push(b3Idx);
+                                // SS: there is an intersection point
+                                result.Add(new[] {tallest[1], b2[2]});
+                                maxHeap.Push(b2Idx);
                             }
-                            else if (b3[1] < tallest[1])
+                            else if (b2[1] < tallest[1])
                             {
-                                // SS: must check tallest against others
+                                // SS: no intersection point, drop smaller building
                                 maxHeap.Push(tIdx);
                             }
                             else
                             {
-                                maxHeap.Push(b3Idx);
+                                // SS: no intersection point, drop tallest building
+                                maxHeap.Push(b2Idx);
                                 break;
                             }
-                        }
 
-                        if (maxHeap.IsEmpty)
-                        {
-                            break;
+                            tIdx = b2Idx;
+                            tallest = b2;
                         }
                     }
-                    else if (b2[2] > tallest[2])
+                    else if (b[2] > tallest[2])
                     {
                         // SS: new buildings is taller
-                        result.Add(new[] {b2[0], b2[2]});
-                        maxX = Math.Max(maxX, b2[1]);
+                        result.Add(new[] {b[0], b[2]});
+                        maxX = Math.Max(maxX, b[1]);
                         maxHeap.Push(idx);
                         idx++;
                     }
                     else
                     {
                         // SS: new buildings is smaller
-                        maxX = Math.Max(maxX, b2[1]);
+                        maxX = Math.Max(maxX, b[1]);
                         maxHeap.Push(idx);
                         idx++;
                     }
                 }
 
-                // SS: process buildings until...
-                // SS: if the next building starts after the tallest ends,
-                // we need to first process all buildings before it.
+                // SS: process remaining buildings
                 while (maxHeap.IsEmpty == false)
                 {
+                    // SS: pop off the tallest building
                     var tIdx = maxHeap.Pop();
                     var tallest = buildings[tIdx];
 
@@ -159,22 +155,24 @@ namespace LeetCode
                         break;
                     }
 
+                    // SS: next tallest building
                     var b2Idx = maxHeap.Pop();
                     var b2 = buildings[b2Idx];
 
-                    if (tallest[1] >= b2[0] && tallest[1] < b2[1] && tallest[2] != b2[2])
+                    if (tallest[1] >= b2[0] && tallest[1] < b2[1] && tallest[2] > b2[2])
                     {
+                        // SS: there is an intersection point
                         result.Add(new[] {tallest[1], b2[2]});
                         maxHeap.Push(b2Idx);
                     }
                     else if (b2[1] < tallest[1])
                     {
-                        // SS: must check tallest against others
+                        // SS: no intersection point, drop smaller building
                         maxHeap.Push(tIdx);
                     }
                     else
                     {
-                        maxHeap.Push(b2Idx);
+                        // SS: no intersection point, done
                         break;
                     }
                 }

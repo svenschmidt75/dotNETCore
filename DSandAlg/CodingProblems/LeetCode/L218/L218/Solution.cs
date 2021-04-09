@@ -27,12 +27,12 @@ namespace LeetCode
             {
                 var b1 = buildings[b1Idx];
                 var b2 = buildings[b2Idx];
-                
+
                 if (b1[2] < b2[2])
                 {
                     return true;
                 }
-                
+
                 if (b1[2] > b2[2])
                 {
                     return false;
@@ -45,7 +45,7 @@ namespace LeetCode
             int minX;
             int maxX;
 
-            int idx = 0;
+            var idx = 0;
             while (true)
             {
                 if (idx == buildings.Length && maxHeap.IsEmpty)
@@ -61,12 +61,12 @@ namespace LeetCode
                 var b1 = buildings[idx];
                 minX = b1[0];
                 maxX = b1[1];
-                
+
                 result.Add(new[] {minX, b1[2]});
-                
+
                 maxHeap.Push(idx);
                 idx++;
-                
+
                 while (idx < buildings.Length)
                 {
                     var tIdx = maxHeap.Peek();
@@ -107,9 +107,9 @@ namespace LeetCode
                             var b3Idx = maxHeap.Pop();
                             var b3 = buildings[b3Idx];
 
-                            if (tallest[1] >= b3[0] && tallest[1] < b3[1])
+                            if (tallest[1] >= b3[0] && tallest[1] < b3[1] && tallest[2] != b3[2])
                             {
-                                result.Add(new[]{tallest[1], b3[2]});
+                                result.Add(new[] {tallest[1], b3[2]});
                                 maxHeap.Push(b3Idx);
                             }
                             else if (b3[1] < tallest[1])
@@ -162,9 +162,9 @@ namespace LeetCode
                     var b2Idx = maxHeap.Pop();
                     var b2 = buildings[b2Idx];
 
-                    if (tallest[1] >= b2[0] && tallest[1] < b2[1])
+                    if (tallest[1] >= b2[0] && tallest[1] < b2[1] && tallest[2] != b2[2])
                     {
-                        result.Add(new[]{tallest[1], b2[2]});
+                        result.Add(new[] {tallest[1], b2[2]});
                         maxHeap.Push(b2Idx);
                     }
                     else if (b2[1] < tallest[1])
@@ -180,7 +180,7 @@ namespace LeetCode
                 }
 
                 // SS: insert maxX
-                result.Add(new[]{maxX, 0});
+                result.Add(new[] {maxX, 0});
             }
 
             return result;
@@ -392,20 +392,20 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {10, 12}, new[] {14, 14}, new[] {18, 12}, new[]{20, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {10, 12}, new[] {14, 14}, new[] {18, 12}, new[] {20, 0}}, results);
             }
 
             [Test]
             public void Test3()
             {
                 // Arrange
-                int[][] buildings = {new[] {2, 9, 10}, new[] {2, 12, 10}, new[] {10, 15, 12}, new[]{14, 18, 14}};
+                int[][] buildings = {new[] {2, 9, 10}, new[] {2, 12, 10}, new[] {10, 15, 12}, new[] {14, 18, 14}};
 
                 // Act
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {10, 12}, new[] {14, 14}, new[]{18, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {10, 12}, new[] {14, 14}, new[] {18, 0}}, results);
             }
 
             [Test]
@@ -444,7 +444,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 14}, new[] {10, 12}, new[] {12, 10}, new[]{14, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 14}, new[] {10, 12}, new[] {12, 10}, new[] {14, 0}}, results);
             }
 
             [Test]
@@ -457,7 +457,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {12, 10}, new[]{14, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {12, 10}, new[] {14, 0}}, results);
             }
 
             [Test]
@@ -470,7 +470,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[]{14, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {14, 0}}, results);
             }
 
             [Test]
@@ -483,7 +483,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {10, 16}, new[]{12, 10}, new[]{14, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {10, 16}, new[] {12, 10}, new[] {14, 0}}, results);
             }
 
             [Test]
@@ -496,7 +496,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {5, 12}, new[] {7, 10}, new[]{9, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {5, 12}, new[] {7, 10}, new[] {9, 0}}, results);
             }
 
             [Test]
@@ -509,7 +509,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {14, 12}, new[]{16, 14}, new[]{20, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {14, 12}, new[] {16, 14}, new[] {20, 0}}, results);
             }
 
             [Test]
@@ -522,7 +522,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {14, 12}, new[]{22, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {14, 12}, new[] {22, 0}}, results);
             }
 
             [Test]
@@ -535,7 +535,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {16, 14}, new[]{20, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {8, 12}, new[] {13, 16}, new[] {16, 14}, new[] {20, 0}}, results);
             }
 
             [Test]
@@ -548,7 +548,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 14}, new[]{10, 12}, new[] {12, 10}, new[]{14, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 14}, new[] {10, 12}, new[] {12, 10}, new[] {14, 0}}, results);
             }
 
             [Test]
@@ -561,7 +561,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {10, 14}, new[] {14, 12}, new[]{16, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {10, 14}, new[] {14, 12}, new[] {16, 0}}, results);
             }
 
             [Test]
@@ -574,7 +574,7 @@ namespace LeetCode
                 var results = new Solution().GetSkyline(buildings);
 
                 // Assert
-                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {10, 14}, new[]{16, 0}}, results);
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 16}, new[] {8, 12}, new[] {10, 14}, new[] {16, 0}}, results);
             }
 
             [Test]
@@ -590,6 +590,57 @@ namespace LeetCode
                 CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {3, 15}, new[] {7, 12}, new[] {12, 0}, new[] {15, 10}, new[] {20, 8}, new[] {24, 0}}, results);
             }
 
+            [Test]
+            public void Test18()
+            {
+                // Arrange
+                int[][] buildings = {new[] {2, 10, 10}, new[] {10, 12, 10}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {12, 0}}, results);
+            }
+
+            [Test]
+            public void Test19()
+            {
+                // Arrange
+                int[][] buildings = {new[] {2, 10, 10}, new[] {10, 12, 12}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {10, 12}, new[] {12, 0}}, results);
+            }
+
+            [Test]
+            public void Test20()
+            {
+                // Arrange
+                int[][] buildings = {new[] {2, 10, 10}, new[] {2, 6, 12}, new[] {2, 8, 14}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {2, 14}, new[] {8, 10}, new[] {10, 0}}, results);
+            }
+
+            [Test]
+            public void Test21()
+            {
+                // Arrange
+                int[][] buildings = {new[] {2, 10, 10}, new[] {4, 8, 14}, new[] {4, 9, 12}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {2, 10}, new[] {4, 14}, new[] {8, 12}, new[] {9, 10}, new[] {10, 0}}, results);
+            }
         }
     }
 }

@@ -73,7 +73,15 @@ namespace LeetCode
                     if (b[0] == tallest[0])
                     {
                         // SS: both buildings start at the same point, use the higher one
-                        result[^1][1] = Math.Max(result[^1][1], b[2]);
+                        if (result[^1][0] == b[0])
+                        {
+                            result[^1][1] = Math.Max(result[^1][1], b[2]);
+                        }
+                        else
+                        {
+                            result.Add(new[] {b[0], Math.Max(tallest[2], b[2])});
+                        }
+                        
                         maxX = Math.Max(maxX, b[1]);
                         maxHeap.Push(idx);
                         idx++;
@@ -681,6 +689,33 @@ namespace LeetCode
                 // Assert
                 CollectionAssert.AreEqual(new[] {new[] {3, 8}, new[] {4, 225}, new[] {46, 8}, new[] {84, 0}, new[] {88, 99}, new[] {99, 0}}, results);
             }
+
+            [Test]
+            public void Test25()
+            {
+                // Arrange
+                int[][] buildings = {new[] {0, 5, 7}, new[] {5, 10, 7}, new[] {5, 10, 12}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {0, 7}, new[] {5, 12}, new[] {10, 0}}, results);
+            }
+            
+            [Test]
+            public void Test26()
+            {
+                // Arrange
+                int[][] buildings = {new[] {5, 10, 7}, new[] {5, 10, 12}};
+
+                // Act
+                var results = new Solution().GetSkyline(buildings);
+
+                // Assert
+                CollectionAssert.AreEqual(new[] {new[] {5, 12}, new[] {10, 0}}, results);
+            }
+
         }
     }
 }

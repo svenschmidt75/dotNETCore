@@ -81,7 +81,7 @@ namespace LeetCode
                         {
                             result.Add(new[] {b[0], Math.Max(tallest[2], b[2])});
                         }
-                        
+
                         maxX = Math.Max(maxX, b[1]);
                         maxHeap.Push(idx);
                         idx++;
@@ -702,7 +702,7 @@ namespace LeetCode
                 // Assert
                 CollectionAssert.AreEqual(new[] {new[] {0, 7}, new[] {5, 12}, new[] {10, 0}}, results);
             }
-            
+
             [Test]
             public void Test26()
             {
@@ -715,7 +715,6 @@ namespace LeetCode
                 // Assert
                 CollectionAssert.AreEqual(new[] {new[] {5, 12}, new[] {10, 0}}, results);
             }
-
         }
     }
 }

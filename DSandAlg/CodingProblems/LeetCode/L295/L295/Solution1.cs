@@ -31,10 +31,20 @@ namespace LeetCode
 
             public void AddNum(int num)
             {
-                // SS: calculate new median
+                // SS: The idea is to split the stream up into elements <= median and
+                // > median. We use a max heap for the <= elements and a min heap for
+                // the > elements. For example:
+                // nums = [9, 4, 6, 1, 8, 5]
+                // left: [1, 4, 5] right: [6, 8, 9]
+                // Since the range of numbers is -10^5 <= num <= 10^5, we have to keep
+                // all numbers seen.
+                // 
+                // Follow up 1: If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+                // In this case, 
+                
                 var leftLength = _leftOfMedianHeap.Length;
                 var rightLength = _rightOfMedianHeap.Length;
-
+                
                 if (leftLength == 0)
                 {
                     _leftOfMedianHeap.Push(num);
@@ -58,7 +68,7 @@ namespace LeetCode
                         rightLength++;
                     }
                 }
-
+                
                 // SS: left and right must not differ by more than 1
                 while (leftLength - 2 >= rightLength)
                 {
@@ -422,6 +432,45 @@ namespace LeetCode
                 // Assert
                 Assert.AreEqual(median, medianFinder.FindMedian());
             }
+
+            [TestCase(0, 10, 20)]
+            public void Test5(int min, int max, int count)
+            {
+                // Arrange
+                var medianFinder = new MedianFinder();
+
+                var seed = DateTime.Now.Millisecond;
+                var rnd = new Random(seed);
+
+                Console.WriteLine($"Seed: {seed}");
+
+                var list = new List<int>();
+
+                for (var i = 0; i < count; i++)
+                {
+                    var v = rnd.Next(min, max);
+                    list.Add(v);
+                    medianFinder.AddNum(v);
+                }
+
+                // Act
+                // list.Sort();
+                //
+                // double median;
+                //
+                // if (list.Count % 2 == 0)
+                // {
+                //     median = (list[list.Count / 2 - 1] + list[list.Count / 2]) / 2.0;
+                // }
+                // else
+                // {
+                //     median = list[list.Count / 2 - 1];
+                // }
+                //
+                // // Assert
+                // Assert.AreEqual(median, medianFinder.FindMedian());
+            }
+            
         }
     }
 }

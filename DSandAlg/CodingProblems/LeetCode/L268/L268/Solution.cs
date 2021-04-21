@@ -13,6 +13,31 @@ namespace LeetCode
     {
         public int MissingNumber(int[] nums)
         {
+//            return MissingNumber1(nums);
+            return MissingNumber2(nums);
+        }
+
+        private int MissingNumber2(int[] nums)
+        {
+            // SS: runtime complexity: O(n)
+            // space complexity: O(1)
+            
+            var xor = 0;
+            for (var i = 0; i < nums.Length; i++)
+            {
+                xor ^= i;
+                xor ^= nums[i];
+            }
+
+            xor ^= nums.Length;
+            return xor;
+        }
+
+        private static int MissingNumber1(int[] nums)
+        {
+            // SS: runtime complexity: O(n)
+            // space complexity: O(1)
+
             var sum = 0;
             for (var i = 0; i < nums.Length; i++)
             {

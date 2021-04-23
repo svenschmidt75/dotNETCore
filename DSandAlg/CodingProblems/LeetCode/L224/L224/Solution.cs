@@ -1,5 +1,6 @@
 #region
 
+using System.Collections.Generic;
 using NUnit.Framework;
 
 #endregion
@@ -34,6 +35,47 @@ namespace LeetCode
          */
 
         public int Calculate(string s)
+        {
+            // return Calculate1(s);
+            return Calculate2(s);
+        }
+
+        private int Calculate2(string s)
+        {
+            // SS: Solution from Leetcode...
+            int len = s.Length, sign = 1, result = 0;
+            var stack = new Stack<int>();
+            for (var i = 0; i < len; i++)
+            {
+                if (char.IsDigit(s[i]))
+                {
+                    var sum = s[i] - '0';
+                    while (i + 1 < len && char.IsDigit(s[i + 1]))
+                    {
+                        sum = sum * 10 + s[i + 1] - '0';
+                        i++;
+                    }
+
+                    result += sum * sign;
+                }
+                else if (s[i] == '+')
+                    sign = 1;
+                else if (s[i] == '-')
+                    sign = -1;
+                else if (s[i] == '(')
+                {
+                    stack.Push(result);
+                    stack.Push(sign);
+                    result = 0;
+                    sign = 1;
+                }
+                else if (s[i] == ')') result = result * stack.Pop() + stack.Pop();
+            }
+
+            return result;
+        }
+
+        private static int Calculate1(string s)
         {
             var (value, _) = Expr(s, 0);
             return value;

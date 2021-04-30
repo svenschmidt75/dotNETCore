@@ -86,6 +86,7 @@ namespace LeetCode
                 {
                     var d = _charToNumber[c];
 
+                    // SS: sum uninitialized?
                     if (sum == int.MinValue)
                     {
                         sum = 0;
@@ -113,6 +114,12 @@ namespace LeetCode
                 }
                 else if (c == '(')
                 {
+                    // SS: sum uninitialized?
+                    if (sum == int.MinValue)
+                    {
+                        sum = 0;
+                    }
+
                     sumStack.Push(sum);
                     prevStack.Push(prev);
                     opStack.Push(op);
@@ -182,6 +189,7 @@ namespace LeetCode
             [TestCase("a + (f / b) - g", 1 + 6 / 2 - 7)]
             [TestCase("-c", -3)]
             [TestCase("a + (f / (c - a)) - g", 1 + 6 / (3 - 1) - 7)]
+            [TestCase("(a + (f / (c - a)) - g)", 1 + 6 / (3 - 1) - 7)]
             public void Test1(string equation, int expected)
             {
                 // Arrange

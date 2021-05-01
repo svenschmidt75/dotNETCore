@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffe98d5b-86c1-4f4f-9dd1-7bb01e937984" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../L50/.idea/.idea.L50/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L50/.idea/.idea.L50/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../L50/L50/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L50/L50/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L300/L300/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../L300/L300/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L43/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L43/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L43/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L43/.idea/modules.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +16,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/520AF415-0575-4F19-9631-023C1E4284ED/32/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/520AF415-0575-4F19-9631-023C1E4284ED/32/Math.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -36,6 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../L42/L42.sln" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -48,6 +51,7 @@
       <updated>1606405217901</updated>
       <workItem from="1606405222238" duration="1552000" />
       <workItem from="1606572361126" duration="10000" />
+      <workItem from="1619879359499" duration="12000" />
     </task>
     <servers />
   </component>

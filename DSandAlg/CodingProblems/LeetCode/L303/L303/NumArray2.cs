@@ -4,47 +4,27 @@ namespace LeetCode
 {
     public class NumArray2
     {
-        private readonly int[] _fennwickTree;
+        private readonly int[] _dp;
 
-        public NumArray(int[] nums)
+        public NumArray2(int[] nums)
         {
-            _fennwickTree = new int[nums.Length + 1];
+            _dp = new int[nums.Length + 1];
 
-            // SS: construct Fenwick tree
+            // SS: create prefix sum
+            // button-up dynamic programming
+            int sum = 0;
             for (var i = 0; i < nums.Length; i++)
             {
-                var idx = i + 1;
                 var v = nums[i];
-
-                while (idx < _fennwickTree.Length)
-                {
-                    _fennwickTree[idx] += v;
-                    idx += Lsb(idx);
-                }
+                sum += v;
+                _dp[i + 1] = sum;
             }
-        }
-
-        private int Lsb(int idx)
-        {
-            return idx & -idx;
-        }
-
-        private int Query(int idx)
-        {
-            var sum = 0;
-            while (idx > 0)
-            {
-                sum += _fennwickTree[idx];
-                idx -= Lsb(idx);
-            }
-
-            return sum;
         }
 
         public int SumRange(int left, int right)
         {
-            var l = Query(left);
-            var r = Query(right + 1);
+            var l = _dp[left];
+            var r = _dp[right + 1];
             var d = r - l;
             return d;
         }
@@ -56,7 +36,7 @@ namespace LeetCode
             public void Test1()
             {
                 // Arrange
-                var a = new NumArray(new[] {-2, 0, 3, -5, 2, -1});
+                var a = new NumArray2(new[] {-2, 0, 3, -5, 2, -1});
 
                 // Act
                 // Assert

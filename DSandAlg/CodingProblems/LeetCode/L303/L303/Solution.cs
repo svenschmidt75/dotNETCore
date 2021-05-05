@@ -15,6 +15,8 @@ namespace LeetCode
 
         public NumArray(int[] nums)
         {
+        // SS: runtime complexity: O(n)
+        
             _fennwickTree = new int[nums.Length + 1];
 
             // SS: construct Fenwick tree
@@ -50,6 +52,8 @@ namespace LeetCode
 
         public int SumRange(int left, int right)
         {
+            // SS: runtime complexity: O(log n)
+
             var l = Query(left);
             var r = Query(right + 1);
             var d = r - l;

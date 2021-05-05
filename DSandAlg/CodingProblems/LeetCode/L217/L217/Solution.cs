@@ -15,7 +15,8 @@ namespace LeetCode
         public bool ContainsDuplicate(int[] nums)
         {
             // SS: runtime complexity: O(n)
-            // space complexity: O(1)
+            // space complexity: O(n)
+            
             var dict = new HashSet<int>();
 
             for (var i = 0; i < nums.Length; i++)

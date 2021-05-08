@@ -153,6 +153,7 @@ namespace L230
 
                 while (true)
                 {
+                    // SS: find the next smallest node
                     while (node != null)
                     {
                         stack.Push(node);

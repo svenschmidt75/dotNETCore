@@ -52,7 +52,7 @@ namespace LeetCode
 
         private int CombinationSum41(int[] nums, int target)
         {
-            // SS: runtime complexity: O(n^n)
+            // SS: runtime complexity: O(n * (n - 1) * (n - 2) * ... * 1) = O(n!)
             var count = 0;
 
             void Solve(int t)

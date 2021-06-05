@@ -58,12 +58,11 @@ namespace LeetCode
 
             // SS: check whether the graph is connected
             // and has no cycles
-            var blackSet = new HashSet<int>();
-            var graySet = new HashSet<int>();
+            var visited = new HashSet<int>();
 
             bool DFS(int node, int parent)
             {
-                graySet.Add(node);
+                visited.Add(node);
 
                 var neighbors = adjList[node];
                 foreach (var n2 in neighbors)
@@ -75,13 +74,7 @@ namespace LeetCode
                         continue;
                     }
 
-                    if (blackSet.Contains(n2))
-                    {
-                        // SS: already visited
-                        continue;
-                    }
-
-                    if (graySet.Contains(n2))
+                    if (visited.Contains(n2))
                     {
                         // SS: we have a cycle
                         return false;
@@ -93,9 +86,6 @@ namespace LeetCode
                     }
                 }
 
-                graySet.Remove(node);
-                blackSet.Add(node);
-
                 return true;
             }
 
@@ -106,7 +96,7 @@ namespace LeetCode
                 return false;
             }
 
-            return blackSet.Count == n;
+            return visited.Count == n;
         }
 
         [TestFixture]

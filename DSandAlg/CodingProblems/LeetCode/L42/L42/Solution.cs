@@ -16,7 +16,51 @@ namespace LeetCode42
     {
         public int Trap(int[] height)
         {
-            return Trap3(height);
+            // return Trap3(height);
+            return Trap4(height);
+        }
+
+        private int Trap4(int[] height)
+        {
+            // SS: find tallest peak
+            int maxHeight = 0;
+            int maxHeightIdx = 0;
+
+            for (int i = 0; i < height.Length; i++)
+            {
+                if (height[i] > maxHeight)
+                {
+                    maxHeight = height[i];
+                    maxHeightIdx = i;
+                }
+            }
+
+            int water = 0;
+
+            int maxLeftHeight = 0;
+            
+            int idx = 1;
+            int ph = height[0];
+            while (idx < height.Length && idx < maxHeightIdx)
+            {
+                maxLeftHeight = Math.Max(maxLeftHeight, ph);
+
+                int h = height[idx];
+                idx++;
+
+                if (h  - maxLeftHeight <= 0)
+                {
+                    ph = h;
+                    continue;
+                }
+
+                int dh = Math.Min(maxHeight, maxLeftHeight - h);
+                water += dh;
+                
+                ph = h;
+            }
+
+            return water;
         }
 
         public int Trap3(int[] height)

@@ -22,7 +22,7 @@ namespace LeetCode
         private int[][] IntervalIntersection2(int[][] firstList, int[][] secondList)
         {
             // SS: runtime complexity: O(max(n1, n2))
-            // space complexity: O(1)
+            // space complexity: O(max(n1, n2))
             
             var intersection = new List<int[]>();
 

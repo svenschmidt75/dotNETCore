@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e28771b-66b7-40b2-8400-2a033d15fa8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/.idea.MinMovesObtainStringWithout3IdenticalConsecutiveLetters/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Insert5LargestPossibleNumber/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insert5LargestPossibleNumber/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Insert5LargestPossibleNumber/Solution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Insert5LargestPossibleNumber/Solution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Insert5LargestPossibleNumber/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Insert5LargestPossibleNumber/.idea/modules.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,6 +88,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

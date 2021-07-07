@@ -80,6 +80,78 @@ namespace LeetCode
 
             return totalTimeUnits;
         }
+ 
+        private int LeastInterval2(char[] tasks, int n)
+        {
+            // SS: runtime complexity: O(t * n log t )
+            // space complexity: O(t)
+
+            var maxHeap = BinaryHeap<int>.CreateMaxHeap();
+
+            // SS: task buckets
+            int[] taskBuckets = new int[26];
+            for (int i = 0; i < tasks.Length; i++)
+            {
+                var task = tasks[i];
+                int taskIdx = task - 'A';
+                taskBuckets[taskIdx]++;
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                var nTasks = taskBuckets[i];
+                if (nTasks > 0)
+                {
+                    maxHeap.Push(nTasks);
+                }
+            }
+
+            int[] bucket = new int[maxHeap.Length];
+            
+            int totalTimeUnits = 0;
+            while (maxHeap.IsEmpty == false)
+            {
+                int bucketIdx = 0;
+
+                // SS: number of tasks
+                int s1 = maxHeap.Pop();
+
+                if (s1 > 1)
+                {
+                    bucket[bucketIdx++] = s1 - 1;
+                }
+
+                int timeUnits = 1;
+
+                int distance = n;
+
+                while (distance > 0 && maxHeap.Length + bucketIdx > 0)
+                {
+                    if (maxHeap.IsEmpty == false)
+                    {
+                        // SS: get next task that is not in conflict
+                        int s2 = maxHeap.Pop();
+                        if (s2 > 1)
+                        {
+                            bucket[bucketIdx++] = s2 - 1;
+                        }
+                    }
+
+                    timeUnits++;
+                    distance--;
+                }
+
+                totalTimeUnits += timeUnits;
+
+                while (bucketIdx > 0)
+                {
+                    int t = bucket[bucketIdx-- - 1];
+                    maxHeap.Push(t);
+                }
+            }
+
+            return totalTimeUnits;
+        }
 
         [TestFixture]
         public class Tests

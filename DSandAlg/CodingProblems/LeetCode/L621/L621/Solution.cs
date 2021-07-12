@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 // Problem: 621. Task Scheduler
@@ -9,7 +11,50 @@ namespace LeetCode
     {
         public int LeastInterval(char[] tasks, int n)
         {
-            return LeastInterval1(tasks, n);
+            // return LeastInterval1(tasks, n);
+            // return LeastInterval2(tasks, n);
+            return LeastInterval3(tasks, n);
+        }
+
+        private int LeastInterval3(char[] tasks, int n)
+        {
+            // SS: runtime complexity: O(t log t)
+            
+            // SS: count number of tasks
+            int[] taskBuckets = new int[26];
+            for (int i = 0; i < tasks.Length; i++)
+            {
+                var task = tasks[i];
+                int taskIdx = task - 'A';
+                taskBuckets[taskIdx]++;
+            }
+
+            // SS: sort in descending order
+            Array.Sort(taskBuckets, Comparer<int>.Create((i1, i2) => i2 - i1));
+
+            // SS: number of gaps
+            int nGaps = 0;
+            if (n > 0)
+            {
+                nGaps = taskBuckets[0] - 1;
+            }
+
+            // SS: positions to fill with tasks
+            int nGapCount = nGaps * n;
+
+            int j = 1;
+            while (j < 26 && taskBuckets[j] > 0)
+            {
+                // SS: this task can at most fill nGaps slots
+                var nTasks = taskBuckets[j];
+                nGapCount -= Math.Min(nTasks, nGaps);
+                j++;
+            }
+
+            // SS: left-over is either 0 or positive
+            nGapCount = Math.Max(0, nGapCount);
+            
+            return nGapCount + tasks.Length;
         }
 
         private int LeastInterval1(char[] tasks, int n)
@@ -80,7 +125,7 @@ namespace LeetCode
 
             return totalTimeUnits;
         }
- 
+
         private int LeastInterval2(char[] tasks, int n)
         {
             // SS: runtime complexity: O(t * n log t )
@@ -107,7 +152,7 @@ namespace LeetCode
             }
 
             int[] bucket = new int[maxHeap.Length];
-            
+
             int totalTimeUnits = 0;
             while (maxHeap.IsEmpty == false)
             {
@@ -203,6 +248,55 @@ namespace LeetCode
                 // Assert
                 Assert.AreEqual(1, timeUnits);
             }
+
+            [Test]
+            public void Test5()
+            {
+                // Arrange
+
+                // Act
+                int timeUnits = new Solution().LeastInterval(new[] { 'A', 'B' }, 3);
+
+                // Assert
+                Assert.AreEqual(2, timeUnits);
+            }
+
+            [Test]
+            public void Test6()
+            {
+                // Arrange
+
+                // Act
+                int timeUnits = new Solution().LeastInterval(new[] { 'A', 'A', 'B' }, 1);
+
+                // Assert
+                Assert.AreEqual(3, timeUnits);
+            }
+
+            [Test]
+            public void Test7()
+            {
+                // Arrange
+
+                // Act
+                int timeUnits = new Solution().LeastInterval(new[] { 'A', 'A', 'B' }, 2);
+
+                // Assert
+                Assert.AreEqual(4, timeUnits);
+            }
+
+            [Test]
+            public void Test8()
+            {
+                // Arrange
+
+                // Act
+                int timeUnits = new Solution().LeastInterval(new[] { 'A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C', 'D', 'D', 'E' }, 2);
+                    
+                // Assert
+                Assert.AreEqual(12, timeUnits);
+            }
+            
         }
     }
 }

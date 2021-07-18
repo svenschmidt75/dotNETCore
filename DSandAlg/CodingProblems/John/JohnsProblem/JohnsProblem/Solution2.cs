@@ -110,6 +110,15 @@ namespace JohnsProblem
                         {
                             // SS: we have the opposite value in the list,
                             // next best case
+
+                            if (v1 == -delta || v2 == -delta)
+                            {
+                                if (dict[-delta] == 1)
+                                {
+                                    break;
+                                }
+                            }
+                            
                             foundOpposite = true;
                             fo1 = i1;
                             fo2 = i2;
@@ -180,7 +189,7 @@ namespace JohnsProblem
                 int p2 = 0;
                 for (int i = 0; i < people.Length; i++)
                 {
-                    if (people[i] == 0 || i == fo2)
+                    if (people[i] == 0)
                     {
                         continue;                        
                     }
@@ -188,6 +197,7 @@ namespace JohnsProblem
                     if (value < people[i])
                     {
                         people2[p2] = value;
+                        people[fo2] = 0;
                         value = double.MaxValue;
 
                         if (i3 < 0 && people2[p2] > 0)
@@ -199,6 +209,11 @@ namespace JohnsProblem
                     }
 
                     people2[p2] = people[i];
+
+                    if (i == fo2)
+                    {
+                        value = double.MaxValue;
+                    }
 
                     if (i3 < 0 && people2[p2] > 0)
                     {
@@ -217,7 +232,7 @@ namespace JohnsProblem
         public int Solve(double[] people)
         {
             // return SolveGreedily(people);
-//            return SolveBruteForce(people);
+            // return SolveBruteForce(people);
             return SolveGreedily2(people);
         }
 
@@ -400,6 +415,8 @@ namespace JohnsProblem
             [TestCase(new[] { -6.0, -2, -2, 3, 3, 4 }, 4)]
             [TestCase(new[] { 5.0, 5, 5, 5, 5 }, 0)]
             [TestCase(new[] { 5.0 }, 0)]
+            [TestCase(new[] { -13.0, -11, -10, -7, -7, -5, -3, -2, -1, -1, 17, 20, 8, 9, 3, 2, 1 }, 11)]
+            [TestCase(new[] { -13.0, -3, -1, -1, 20 }, 4)]
             public void Test(double[] people, int expectedResult)
             {
                 // Arrange

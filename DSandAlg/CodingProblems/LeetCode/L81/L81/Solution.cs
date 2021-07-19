@@ -40,29 +40,19 @@ namespace LeetCode
 
                 if (v1 > v2)
                 {
-                    bool result2 = false;
+                    bool result = false;
 
                     // SS: pivot is in left half
                     if (v1 >= target && v2 < target)
                     {
                         // SS: only right half
-                        result2 = Solve(mid + 1, max);
+                        result = Solve(mid + 1, max);
                     }
 
-                    if (result2 == false)
-                    {
-                        result2 = Solve(min, mid);
-                    }
-
-                    return result2;
+                    return result || Solve(min, mid);
                 }
 
-                bool result = Solve(min, mid);
-                if (result == false)
-                {
-                    result = Solve(mid + 1, max);
-                }
-                return result;
+                return Solve(min, mid) || Solve(mid + 1, max);
             }
 
             return Solve(0, nums.Length);

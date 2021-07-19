@@ -84,7 +84,7 @@ namespace JohnsProblem
 
                         if (delta == 0)
                         {
-                            // SS: cancel, best case
+                            // SS: values cancel, best case
                             dict[people[i1]]--;
                             if (dict[people[i1]] == 0)
                             {
@@ -110,7 +110,6 @@ namespace JohnsProblem
                         {
                             // SS: we have the opposite value in the list,
                             // next best case
-
                             if (v1 == -delta || v2 == -delta)
                             {
                                 if (dict[-delta] == 1)
@@ -185,19 +184,27 @@ namespace JohnsProblem
 
                 i3 = -1;
                 
+                // SS: generate smaller problem
                 double[] people2 = new double[count];
+                int p1 = 0;
                 int p2 = 0;
-                for (int i = 0; i < people.Length; i++)
+                while (p1 < people.Length)
                 {
-                    if (people[i] == 0)
+                    if (value == double.MaxValue && p1 == fo2)
                     {
+                        p1++;
+                        continue;
+                    }
+
+                    if (people[p1] == 0)
+                    {
+                        p1++;
                         continue;                        
                     }
                     
-                    if (value < people[i])
+                    if (value < people[p1])
                     {
                         people2[p2] = value;
-                        people[fo2] = 0;
                         value = double.MaxValue;
 
                         if (i3 < 0 && people2[p2] > 0)
@@ -206,11 +213,13 @@ namespace JohnsProblem
                         }
 
                         p2++;
+
+                        continue;
                     }
 
-                    people2[p2] = people[i];
+                    people2[p2] = people[p1];
 
-                    if (i == fo2)
+                    if (p1 == fo2)
                     {
                         value = double.MaxValue;
                     }
@@ -220,6 +229,7 @@ namespace JohnsProblem
                         i3 = p2;
                     }
 
+                    p1++;
                     p2++;
                 }
 
@@ -416,7 +426,9 @@ namespace JohnsProblem
             [TestCase(new[] { 5.0, 5, 5, 5, 5 }, 0)]
             [TestCase(new[] { 5.0 }, 0)]
             [TestCase(new[] { -13.0, -11, -10, -7, -7, -5, -3, -2, -1, -1, 17, 20, 8, 9, 3, 2, 1 }, 11)]
-            [TestCase(new[] { -13.0, -3, -1, -1, 20 }, 4)]
+            [TestCase(new[] { -13.0, -3, -1, -1, 18 }, 4)]
+            [TestCase(new[] { -13.0, -3, -2, -1, -1, 20 }, 5)]
+            [TestCase(new[] { -13.0, -5, -3, -2, -2, -1, 6, 20 }, 6)]
             public void Test(double[] people, int expectedResult)
             {
                 // Arrange

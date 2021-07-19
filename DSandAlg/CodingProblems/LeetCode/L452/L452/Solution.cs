@@ -28,26 +28,34 @@ namespace LeetCode
 
         private int FindMinArrowShots1(int[][] points)
         {
+            // SS: whenever we have an intersection, shrink the interval
+            // runtime complexity: O(n log n) due to sorting
+            // space complexity: O(1)
+
             // SS: sort intervals by start value
-            Array.Sort(points, Comparer<int[]>.Create((p1, p2) =>
-            {
-                if (p1[0] == p2[0])
-                {
-                    // SS: prioritize the one with the max. end value
-                    return p1[1].CompareTo(p2[1]);
-                }
-                return p1[0].CompareTo(p2[0]);
-            }));
+            Array.Sort(points, Comparer<int[]>.Create((p1, p2) => p1[0].CompareTo(p2[0])));
+
+            int i11 = points[0][0];
+            int i12 = points[0][1];
 
             int nArrows = 1;
-            int i = 0;
             int j = 1;
             while (j < points.Length)
             {
-                // SS: check if intervals i and j intersect
-                if (Intersects(points[i], points[j]) == false)
+                // SS: check if intervals intersect
+                int i21 = points[j][0];
+                int i22 = points[j][1];
+                if (Intersects(i11, i12, i21, i22))
                 {
-                    i = j;
+                    // SS: shrink interval
+                    i11 = Math.Max(i11, i21);
+                    i12 = Math.Min(i12, i22);
+                }
+                else
+                {
+                    // SS: no overlap, so add an arrow
+                    i11 = points[j][0];
+                    i12 = points[j][1];
                     nArrows++;
                 }
 
@@ -57,9 +65,9 @@ namespace LeetCode
             return nArrows;
         }
 
-        private static bool Intersects(int[] i1, int[] i2)
+        private static bool Intersects(int i11, int i12, int i21, int i22)
         {
-            return i1[0] <= i2[1] && i2[0] <= i1[1];
+            return i11 <= i22 && i21 <= i12;
         }
 
         #endregion

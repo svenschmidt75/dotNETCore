@@ -16,7 +16,91 @@ namespace LeetCode
         public int TotalFruit(int[] fruits)
         {
             // return TotalFruit1(fruits);
-            return TotalFruit2(fruits);
+            // return TotalFruit2(fruits);
+            return TotalFruit3(fruits);
+        }
+
+        private int TotalFruit3(int[] fruits)
+        {
+            // SS: greedy, sliding window.
+            // grow as much as possible, then shrink until
+            // we can add a new fruit type.
+            // runtime complexity: O(n)
+            // space complexity: O(1)
+            // => accepted, faster than 100% of c# submissions (184 ms)
+
+            int i = 0;
+            int j = 0;
+
+            // SS: because of condition "0 <= fruits[i] < fruits.length", we can use
+            //  an array for frequency count rather than a dictionary...
+            var map = new int[fruits.Length + 1];
+            int fruitType1 = -1;
+            int fruitType2 = -1;
+
+            int globalMaxFruits = 0;
+            int maxFruits = 0;
+
+            while (j < fruits.Length)
+            {
+                int fruitType = fruits[j];
+
+                if (map[fruitType] > 0)
+                {
+                    map[fruitType]++;
+                    maxFruits++;
+                    j++;
+                }
+                else
+                {
+                    if (fruitType1 != -1 && fruitType2 != -1)
+                    {
+                        // SS: we need to evict the fruit type that is not right before
+                        // j
+                        int evictFruitType;
+                        if (fruits[j - 1] == fruitType1)
+                        {
+                            evictFruitType = fruitType2;
+                            fruitType2 = -1;
+                        }
+                        else
+                        {
+                            evictFruitType = fruitType1;
+                            fruitType1 = -1;
+                        }
+
+                        int k = j - 1;
+                        while (fruits[k] != evictFruitType)
+                        {
+                            k--;
+                        }
+
+                        maxFruits -= k - i + 1;
+                        map[evictFruitType] = 0;
+                        i = k + 1;
+                    }
+                    else
+                    {
+                        map[fruitType] = 1;
+                        maxFruits++;
+
+                        if (fruitType1 == -1)
+                        {
+                            fruitType1 = fruitType;
+                        }
+                        else
+                        {
+                            fruitType2 = fruitType;
+                        }
+
+                        j++;
+                    }
+                }
+
+                globalMaxFruits = Math.Max(globalMaxFruits, maxFruits);
+            }
+
+            return globalMaxFruits;
         }
 
         private int TotalFruit2(int[] fruits)

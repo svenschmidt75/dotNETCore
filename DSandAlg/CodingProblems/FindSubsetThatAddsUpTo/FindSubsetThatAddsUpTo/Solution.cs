@@ -11,7 +11,8 @@ namespace LeetCode
         {
             // SS: 0 < arr[i], no duplicates
             // return FindNumberOfSubsets1(array, target);
-            return FindNumberOfSubsets2(array, target);
+            // return FindNumberOfSubsets2(array, target);
+            return FindNumberOfSubsets3(array, target);
         }
 
         private int FindNumberOfSubsets2(int[] array, int target)
@@ -53,6 +54,46 @@ namespace LeetCode
             }
 
             return dp[0][0];
+        }
+
+        private int FindNumberOfSubsets3(int[] array, int target)
+        {
+            // SS: converting DFS(int idx, int sum) to bottom-up DP
+            // runtime complexity: O(n * target)
+            // space complexity: O(target)
+
+            int[] dp1 = new int[target + 1];
+            int[] dp2 = new int[target + 1];
+
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                for (int sum = 0; sum <= target; sum++)
+                {
+                    // SS: case 1: take the current value
+                    int value = array[i] + sum;
+                    int s1 = 0;
+                    if (value <= target)
+                    {
+                        s1 = dp2[value];
+                    }
+
+                    // SS: case 2: do not take the current value
+                    int s2 = dp2[sum];
+                    int s = s1 + s2;
+
+                    if (value == target)
+                    {
+                        // SS: we found another solution
+                        s++;
+                    }
+
+                    dp1[sum] = s;
+                }
+
+                (dp1, dp2) = (dp2, dp1);
+            }
+
+            return dp2[0];
         }
 
         private int FindNumberOfSubsets1(int[] array, int target)

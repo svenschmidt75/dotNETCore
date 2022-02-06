@@ -140,7 +140,7 @@ namespace L76
                 // Act
                 Assert.AreEqual("", result);
             }
-            
+
             [Test]
             public void Test4()
             {
@@ -154,7 +154,6 @@ namespace L76
                 // Act
                 Assert.AreEqual("", result);
             }
-
         }
     }
 }

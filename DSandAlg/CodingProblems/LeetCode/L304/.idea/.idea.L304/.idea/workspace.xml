@@ -8,6 +8,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/.idea.L304/.idea/indexLayout.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.L304/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.L304/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.L304/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.L304/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +35,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -45,7 +47,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653071055810</updated>
-      <workItem from="1653071057688" duration="1208000" />
+      <workItem from="1653071057688" duration="1873000" />
     </task>
     <servers />
   </component>

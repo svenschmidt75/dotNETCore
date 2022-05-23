@@ -5,49 +5,47 @@ struct Solution;
 
 impl Solution {
 
-    fn solve(v1: u64, v2: u64, cnt: u16, num: &str, idx: usize) -> bool {
-        // SS: find number v3 s.t. v3 = v1 + v2
-        let target = v1 + v2;
-        let mut v3 = 0;
-        let mut v3_pos = idx;
+    fn solve(num: &str, idx: usize, stack: &mut Vec<u64>) -> bool {
+        let mut pos = idx;
+        let mut v = 0;
 
         // SS: terminating condition
         if idx == num.len() {
-            return cnt > 2;
+            for i in 2..stack.len() {
+                if stack[i - 2] + stack[i - 1] != stack[i] {
+                    return false;
+                }
+            }
+
+            return stack.len() > 2;
         }
 
         loop {
-            if v3_pos == num.len() {
+            if pos == num.len() {
                 return false;
             }
 
-            loop {
-                let c = num.chars().nth(v3_pos).unwrap() as u64 - '0' as u64;
-                v3 = v3 * 10 + c;
+            let c = num.chars().nth(pos).unwrap() as u64 - '0' as u64;
+            v = v * 10 + c;
 
-                if v3_pos == num.len() - 1 {
-                    // SS: no trailing 0s
-                    break;
-                }
+            stack.push(v);
+            if Solution::solve(&num, pos + 1, stack) {
+                return true;
+            }
+            stack.pop();
 
-                if num.chars().nth(v3_pos + 1).unwrap() != '0' {
-                    break;
-                }
-
-                // SS: include following 0
-                v3_pos += 1;
+            if v == 0 {
+                // SS: no leading 0s
+                return false;
             }
 
-            if v3 == target {
-                if Solution::solve(v2, v3, cnt + 1, num, v3_pos + 1)
-                {
-                    return true;
-                }
-            } else if v3 > target {
-               return false;
+            if pos == num.len() - 1 {
+                // SS: no trailing 0s
+                return false;
             }
 
-            v3_pos += 1;
+            // SS: include following 0
+            pos += 1;
         }
     }
 
@@ -56,72 +54,8 @@ impl Solution {
             return false;
         }
 
-        let mut v1 = 0;
-        let mut v2;
-
-        let mut v1_pos = 0;
-        let mut v2_pos ;
-
-        loop {
-            if v1_pos == num.len() {
-                // done
-                break;
-            }
-
-            loop {
-                let c = num.chars().nth(v1_pos).unwrap() as u64 - '0' as u64;
-                v1 = v1 * 10 + c;
-
-                if v1_pos == num.len() - 1 {
-                    // SS: no trailing 0s
-                    break;
-                }
-
-                if num.chars().nth(v1_pos + 1).unwrap() != '0' {
-                    break;
-                }
-
-                // SS: include following 0
-                v1_pos += 1;
-            }
-
-            v2_pos = v1_pos + 1;
-            v2 = 0;
-
-            loop {
-                if v2_pos == num.len() {
-                    // SS: try advancing v1_pos
-                    break;
-                }
-
-                loop {
-                    let c = num.chars().nth(v2_pos).unwrap() as u64 - '0' as u64;
-                    v2 = v2 * 10 + c;
-
-                    if v2_pos == num.len() - 1 {
-                        // SS: no trailing 0s
-                        break;
-                    }
-
-                    if num.chars().nth(v2_pos + 1).unwrap() != '0' {
-                        break;
-                    }
-
-                    // SS: include following 0
-                    v2_pos += 1;
-                }
-
-                if Solution::solve(v1, v2, 2, &num, v2_pos + 1) {
-                    return true;
-                }
-
-                v2_pos += 1;
-            }
-
-            v1_pos += 1;
-        }
-
-        false
+        let mut stack = vec![];
+        Solution::solve(&num, 0, &mut stack)
     }
 }
 
@@ -183,6 +117,17 @@ mod tests {
 
         // Assert
         assert_eq!(true, result)
+    }
+
+    #[test]
+    fn test6() {
+        // Arrange
+
+        // Act
+        let result = Solution::is_additive_number("101011".to_owned());
+
+        // Assert
+        assert_eq!(false, result)
     }
 
 }

@@ -1,11 +1,9 @@
 // 307. Range Sum Query - Mutable
 // https://leetcode.com/problems/range-sum-query-mutable/
 
-
-// SS: alternatively, could use a Fenwick tree
 struct NumArray {
     nums: Vec<i32>,
-    prefix_sum: Vec<i32>,
+    fenwick: Vec<i32>,
 }
 
 /**
@@ -14,31 +12,53 @@ struct NumArray {
  */
 impl NumArray {
     fn new(nums: Vec<i32>) -> Self {
-        let mut ps = vec![];
-        ps.push(0);
+        let mut ps = vec![0; nums.len() + 1];
 
         for i in 0..nums.len() {
-            let v = ps[i] + nums[i];
-            ps.push(v);
+            let mut idx = i + 1;
+            while idx <= nums.len() {
+                ps[idx] += nums[i];
+                idx += NumArray::lsb(idx as i32) as usize;
+            }
         }
 
         Self {
             nums,
-            prefix_sum: ps,
+            fenwick: ps,
         }
+    }
+
+    fn lsb(v: i32) -> i32 {
+        v & -v
     }
 
     fn update(&mut self, index: i32, val: i32) {
         let delta = val - self.nums[index as usize];
-        for i in (index as usize + 1)..self.prefix_sum.len() {
-            self.prefix_sum[i] += delta;
+
+        let mut j = index as usize + 1;
+        while j < self.fenwick.len() {
+            self.fenwick[j] += delta;
+            j += NumArray::lsb(j as i32) as usize;
         }
+
         self.nums[index as usize] = val;
     }
 
-    fn sum_range(&self, left: i32, right: i32) -> i32 {
-        let sum = self.prefix_sum[right as usize + 1] - self.prefix_sum[left as usize];
+    fn get_sum(&self, idx: i32) -> i32 {
+        let mut sum = 0;
+        let mut j = idx as usize;
+        while j > 0 {
+            sum += self.fenwick[j];
+            j -= NumArray::lsb(j as i32) as usize;
+        }
+
         sum
+    }
+
+    fn sum_range(&self, left: i32, right: i32) -> i32 {
+        let sum1 = self.get_sum(left);
+        let sum2 = self.get_sum(right + 1);
+        sum2 - sum1
     }
 }
 
